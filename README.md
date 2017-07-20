@@ -93,3 +93,14 @@ It normalises two `fromShape` and `toShape`, when matches subpath and it's count
 ```javascript
 let [newFromShape, newToShape] = autoFix(fromShape, toShape); // Returns normalised path that equalised subpaths
 ```
+
+[npm-image]: https://img.shields.io/npm/v/points.js.svg
+[npm-url]: https://npmjs.org/package/points.js
+[downloads-image]: https://img.shields.io/npm/dm/points.js.svg
+[downloads-url]: https://npmjs.org/package/points.js
+[travis-image]: https://travis-ci.org/dalisoft/points.js.svg?branch=master
+[travis-url]: https://travis-ci.org/dalisoft/points.js
+[flattr-image]: https://api.flattr.com/button/flattr-badge-large.png
+[flattr-url]: https://flattr.com/submit/auto?fid=kxw7jx&url=https%3A%2F%2Fgithub.com%2Fdalisoft%2Fpoints.js
+[cdnjs-image]: https://img.shields.io/cdnjs/v/points.js.svg
+[cdnjs-url]: https://cdnjs.com/libraries/points.js
