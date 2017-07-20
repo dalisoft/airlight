@@ -30,7 +30,7 @@ $ yarn install points.js
 
 ##### Those functions does almost everything what you need, but sometimes hand-made changes required
 
-
+---
 ### autoThing
 ##### What it does?
 It normalises/does everything for you. If you want automatic moveIndex, reverse, autoCurve, autoFix (subpath normalise). It is that what you looking.
@@ -40,7 +40,7 @@ It normalises/does everything for you. If you want automatic moveIndex, reverse,
 let [newFromShape, newToShape] = autoThing(fromShape, toShape); // Returns normalised path that equalised subpaths and natually look with direction fix/correction (when used?)
 ```
 
-
+---
 ### autoReverse
 ##### What it does?
 It determines the when `firstShape` should be reversed and reverses when necessary
@@ -50,7 +50,7 @@ It determines the when `firstShape` should be reversed and reverses when necessa
 fromShape = autoReverse(fromShape, toShape);
 ```
 
-
+---
 ### autoIndex
 ##### What it does?
 It finds closer and best index from `fromShape` closer to `toShape` and moves/changes/shifts `fromShape` points
@@ -60,7 +60,7 @@ It finds closer and best index from `fromShape` closer to `toShape` and moves/ch
 fromShape = autoIndex(fromShape, toShape);
 ```
 
-
+---
 ### autoCurve
 ##### What it does?
 It compares two `fromShape` and `toShape`, when some point was mismatching, tries to normalise for correct work `(line->curve)`
@@ -70,7 +70,7 @@ It compares two `fromShape` and `toShape`, when some point was mismatching, trie
 let [newFromShape, newToShape] = autoCurve(fromShape, toShape);
 ```
 
-
+---
 ### autoOptimize
 ##### What it does?
 It converts Points object list to Array arrays list for future changing or controlling (for best performance) or for readable format when necessary
@@ -80,7 +80,7 @@ It converts Points object list to Array arrays list for future changing or contr
 let [newFromShape, newToShape] = autoOptimize(fromShape, toShape); // [['M', 10, 20], ['L', 50, 60]] - easier to tween, read and cleaner
 ```
 
-
+---
 ### autoFix
 ##### What it does?
 It normalises two `fromShape` and `toShape`, when matches subpath and it's count was mismatching, tweening/interpolation becomes ugly, for those use-case it provides simple and fast API that does everything for you
