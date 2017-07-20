@@ -6,13 +6,18 @@ const { BUILD } = process.env
 const pkg = require('./package.json')
 const external = Object.keys(pkg.dependencies)
 
-const plugins = [ buble() ]
+const plugins = [ buble({
+	objectAssign: 'Object.assign',
+		transforms: {
+			dangerousForOf: true
+		}
+}) ]
 
 let dest = 'points'
 
 if (BUILD === 'prod') {
   plugins.push(uglify({}, minify))
-  dest += '.min'
+  dest = dest + '.min'
 }
 
 dest = dest + '.js'
