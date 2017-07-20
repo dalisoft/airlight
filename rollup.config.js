@@ -8,7 +8,6 @@ const external = Object.keys(pkg.dependencies)
 
 const plugins = [ buble() ]
 
-let moduleName = 'PointsJS'
 let dest = 'points'
 
 if (BUILD === 'prod') {
