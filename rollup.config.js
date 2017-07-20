@@ -7,10 +7,10 @@ const pkg = require('./package.json')
 const external = Object.keys(pkg.dependencies)
 
 const plugins = [ buble({
-	objectAssign: 'Object.assign',
-		transforms: {
-			dangerousForOf: true
-		}
+  objectAssign: 'Object.assign',
+  transforms: {
+    dangerousForOf: true
+  }
 }) ]
 
 let dest = 'points'
