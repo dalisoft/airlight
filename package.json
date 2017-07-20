@@ -1,6 +1,6 @@
 {
   "name": "points.js",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Fast & Lightweight SVG Shape Manipulation library based on Points",
   "main": "points.min.js",
   "cdn": "points.min.js",
