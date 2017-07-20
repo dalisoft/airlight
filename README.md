@@ -1,7 +1,11 @@
 # points.js
 Fast &amp; Lightweight SVG Shape Manipulation library based on Points (@colinmeinke/points)
 
-<img src="http://img.badgesize.io/http://cdn.jsdelivr.net/npm/points.js@latest"/>  <img src="http://img.badgesize.io/http://cdn.jsdelivr.net/npm/points.js@latest?compression=gzip"/>
+<img src="http://img.badgesize.io/http://cdn.jsdelivr.net/npm/points.js@latest"/>  <img src="http://img.badgesize.io/http://cdn.jsdelivr.net/npm/points.js@latest?compression=gzip"/>  [![NPM](https://nodei.co/npm/points.js.png?downloads=true&stars=true)](https://nodei.co/npm/points.js/)
+<br/>
+[![Greenkeeper badge](https://badges.greenkeeper.io/dalisoft/points.js.svg)](https://greenkeeper.io/)  [![Scrutinizer](https://img.shields.io/scrutinizer/g/dalisoft/points.js.svg)]()  [![Scrutinizer Coverage](https://img.shields.io/scrutinizer/coverage/g/dalisoft/points.js.svg)]()  [![NPM Version][npm-image]][npm-url]  [![Travis tests][travis-image]][travis-url]<br/>
+[![NPM Downloads][downloads-image]][downloads-url]  [![Github Releases](https://img.shields.io/github/downloads/dalisoft/points.js/latest/total.svg)]()    [![jsdelivr](https://img.shields.io/badge/cdn-jsdelivr-brightgreen.svg)](https://cdn.jsdelivr.net/npm/points.js)  [![unpkg](https://img.shields.io/badge/cdn-unpkg-brightgreen.svg)](https://unpkg.com/points.js)  [![npmcdn](https://img.shields.io/badge/cdn-npmcdn-brightgreen.svg)](https://npmcdn.com/points.js)<br/>
+[![Flattr this][flattr-image]][flattr-url]  [![license](https://img.shields.io/github/license/dalisoft/points.js.svg)]()
 
 # Note
 * Please use these methods before tweening initializing, because it changes the points for better natural look
