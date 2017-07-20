@@ -1,0 +1,43 @@
+{
+  "name": "points.js",
+  "version": "0.0.2-alpha",
+  "description": "Fast & Lightweight SVG Shape Manipulation library based on Points",
+  "main": "points.js",
+  "cdn": "points.min.js",
+  "module": "index.js",
+  "scripts": {
+    "fix": "standard --fix",
+    "lint": "standard --verbose | snazzy",
+    "test": "npm run fix && npm run lint",
+    "minify": "rollup -c --environment BUILD:prod",
+    "source": "rollup -c --sourcemap",
+    "prepublishOnly": "npm test && npm run source && npm run minify",
+    "dev": "rollup -c -w --sourcemap"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dalisoft/points.js.git"
+  },
+  "keywords": [
+    "shape",
+    "svg",
+    "points"
+  ],
+  "author": "dalisoft",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dalisoft/points.js/issues"
+  },
+  "homepage": "https://github.com/dalisoft/points.js#readme",
+  "devDependencies": {
+    "rollup": "^0.45.0",
+    "rollup-plugin-buble": "^0.15.0",
+    "rollup-plugin-uglify": "^1.0.2",
+    "rollup-watch": "^4.0.0",
+    "snazzy": "^7.0.0",
+    "standard": "^10.0.2"
+  },
+  "dependencies": {
+    "points": "^3.1.0"
+  }
+}
