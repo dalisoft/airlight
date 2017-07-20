@@ -19,9 +19,17 @@ https://npmcdn.com/points.js
 https://cdn.jsdelivr.net/npm/points.js
 ```
 
+# Installing
+```bash
+$ npm install points.js
+# or
+$ yarn install points.js
+```
+
 # Docs
 
 ##### Those functions does almost everything what you need, but sometimes hand-made changes required
+
 
 ### autoThing
 ##### What it does?
@@ -29,8 +37,9 @@ It normalises/does everything for you. If you want automatic moveIndex, reverse,
 
 ##### Code
 ```javascript
-let [newFromShape, newToShape] = autoThing(fromShape, toShape); // Returns normalised path that equalised subpaths
+let [newFromShape, newToShape] = autoThing(fromShape, toShape); // Returns normalised path that equalised subpaths and natually look with direction fix/correction (when used?)
 ```
+
 
 ### autoReverse
 ##### What it does?
@@ -41,6 +50,7 @@ It determines the when `firstShape` should be reversed and reverses when necessa
 fromShape = autoReverse(fromShape, toShape);
 ```
 
+
 ### autoIndex
 ##### What it does?
 It finds closer and best index from `fromShape` closer to `toShape` and moves/changes/shifts `fromShape` points
@@ -49,6 +59,7 @@ It finds closer and best index from `fromShape` closer to `toShape` and moves/ch
 ```javascript
 fromShape = autoIndex(fromShape, toShape);
 ```
+
 
 ### autoCurve
 ##### What it does?
@@ -59,6 +70,7 @@ It compares two `fromShape` and `toShape`, when some point was mismatching, trie
 let [newFromShape, newToShape] = autoCurve(fromShape, toShape);
 ```
 
+
 ### autoOptimize
 ##### What it does?
 It converts Points object list to Array arrays list for future changing or controlling (for best performance) or for readable format when necessary
@@ -67,6 +79,7 @@ It converts Points object list to Array arrays list for future changing or contr
 ```javascript
 let [newFromShape, newToShape] = autoOptimize(fromShape, toShape); // [['M', 10, 20], ['L', 50, 60]] - easier to tween, read and cleaner
 ```
+
 
 ### autoFix
 ##### What it does?
