@@ -53,6 +53,10 @@ const straighten = (prevPoint, point, accuracy, maxStack) => {
   const { x: x2, y: y2, curve } = point
   const { x1: cx1, y1: cy1, x2: cx2, y2: cy2 } = curve
 
+  if (maxStack <= 0) {
+    return [prevPoint, point]
+  }
+
   if (straight(x1, y1, cx1, cy1, x2, y2, cx2, cy2, accuracy)) {
     return [ point ]
   }
