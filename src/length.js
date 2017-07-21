@@ -4,7 +4,6 @@
 /** global: y2 */
 
 const length = (s) => {
-
   return s.reduce((currentLength, { x: x2, y: y2, moveTo }, i) => {
     if (!moveTo) {
       const { x: x1, y: y1 } = s[ i - 1 ]

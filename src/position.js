@@ -2,7 +2,6 @@
 /** global: x2 */
 /** global: y1 */
 /** global: y2 */
-import decurve from './decurve'
 import length, { linearLength } from './length'
 import { angleFromSides, numberAtInterval } from './helpers'
 
@@ -26,8 +25,7 @@ const over = (shape, length, totalLength, desiredLength) => {
   return { x1, y1, x2, y2, segmentInterval, segmentLength }
 }
 
-const position = (shape, interval, accuracy) => {
-  const s = decurve(shape, accuracy)
+const position = (s, interval) => {
   const l = s.length
   const t = length(s)
   const d = t * interval
