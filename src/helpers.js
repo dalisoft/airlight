@@ -30,11 +30,24 @@ const distance = ({x, y}, {x: bx, y: by}) => {
   return Math.sqrt((x - bx) * (x - bx) + (y - by) * (y - by))
 }
 
+const splitPoints = points => {
+  return points.reduce((lines, point) => {
+    if (point.moveTo) {
+      lines.push([])
+    }
+
+    lines[lines.length - 1].push(point)
+
+    return lines
+  }, [])
+}
+
 export {
   angleFromSides,
   applyFuncToShapes,
   getShapeArray,
   isShapeArray,
   numberAtInterval,
-  distance
+  distance,
+  splitPoints
 }

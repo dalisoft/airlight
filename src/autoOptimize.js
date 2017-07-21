@@ -1,6 +1,6 @@
 import { applyFuncToShapes } from './helpers'
 
-const vergJoin = ',';
+const vergJoin = ','
 const reducerPath = (prev, {x, y, curve, moveTo}) => {
   let red
   if (curve && curve.type) {

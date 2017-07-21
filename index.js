@@ -15,21 +15,6 @@ import reverse from './src/reverse'
 import rotate from './src/rotate'
 import scale from './src/scale'
 
-const autoThing = (fromShape, toShape) => {
-  fromShape = autoReverse(fromShape, toShape)
-  fromShape = autoIndex(fromShape, toShape)
-  let [fromShape2, toShape2] = autoFix(fromShape, toShape)
-  return [fromShape2, toShape2]
-}
-
-const toVrg = "";
-const toPath = (from, to, e) => {
-	return from.map((f,i) => {
-		let t = to[i];
-		return typeof f === 'number' ? f + (t - f) * e : f;
-	}).join(toVrg);
-}
-
 export {
   add,
   boundingBox,
@@ -46,7 +31,5 @@ export {
   autoReverse,
   autoFix,
   autoCurve,
-  autoOptimize,
-  autoThing,
-  toPath
+  autoOptimize
   }

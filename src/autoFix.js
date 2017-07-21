@@ -1,4 +1,4 @@
-import { applyFuncToShapes } from './helpers'
+import { applyFuncToShapes, splitPoints } from './helpers'
 import boundingBox from './boundingBox'
 import add from './add'
 import remove from './remove'
@@ -8,24 +8,11 @@ import autoIndex from './autoIndex'
 
 const reduceJoin = (prev, s) => prev.concat(s)
 
-export const splitPoints = points => {
-  return points.reduce((lines, point) => {
-    if (point.moveTo) {
-      lines.push([])
-    }
-
-    lines[ lines.length - 1 ].push(point)
-
-    return lines
-  }, [])
-}
-
 const autoFixPoints = (fromShape, toShape) => {
-  fromShape = autoReverse(fromShape, toShape);
-  fromShape = autoIndex(fromShape, toShape);
   let fromShapeSubPaths = splitPoints(fromShape)
   let toShapeSubPaths = splitPoints(toShape)
-  let largestShapeSubPathsMap = fromShapeSubPaths.length > toShapeSubPaths.length ? fromShapeSubPaths : toShapeSubPaths
+  let largestShapeSubPathsMap = fromShapeSubPaths.length > toShapeSubPaths.length ? fromShapeSubPaths
+    : toShapeSubPaths
 
   largestShapeSubPathsMap.map((item, i) => {
     let fromSubPath = fromShapeSubPaths[i]
@@ -33,7 +20,7 @@ const autoFixPoints = (fromShape, toShape) => {
     let bbox
 
     if (fromSubPath && !toSubPath) {
-	  fromSubPath = remove(fromSubPath);
+      fromSubPath = remove(fromSubPath)
       bbox = boundingBox(fromSubPath).center
       toSubPath = [{...bbox, moveTo: true}, bbox]
       fromSubPath.map((p, ii) => {
@@ -42,7 +29,7 @@ const autoFixPoints = (fromShape, toShape) => {
         }
       })
     } else if (toSubPath && !fromSubPath) {
-	  toSubPath = remove(toSubPath);
+      toSubPath = remove(toSubPath)
       bbox = boundingBox(toSubPath).center
       fromSubPath = [{...bbox, moveTo: true}, bbox]
       toSubPath.map((p, ii) => {
@@ -51,8 +38,8 @@ const autoFixPoints = (fromShape, toShape) => {
         }
       })
     } else if (fromSubPath && toSubPath) {
-	  fromSubPath = remove(fromSubPath);
-	  toSubPath = remove(toSubPath);
+      fromSubPath = remove(fromSubPath)
+      toSubPath = remove(toSubPath)
       let i = toSubPath.length - fromSubPath.length
       if (i > 0) {
         fromSubPath = add(fromSubPath, toSubPath.length)
