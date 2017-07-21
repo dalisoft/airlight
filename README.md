@@ -3,7 +3,7 @@ Fast &amp; Lightweight SVG Shape Manipulation library based on Points (@colinmei
 
 [![NPM](https://nodei.co/npm/points.js.png?downloads=true&stars=true)](https://nodei.co/npm/points.js/)
 <br/>
-<img src="http://img.badgesize.io/http://cdn.jsdelivr.net/npm/points.js@latest"/>  <img src="http://img.badgesize.io/http://cdn.jsdelivr.net/npm/points.js@latest?compression=gzip"/>  [![Greenkeeper badge](https://badges.greenkeeper.io/dalisoft/points.js.svg)](https://greenkeeper.io/)  [![Scrutinizer](https://img.shields.io/scrutinizer/g/dalisoft/points.js.svg)]()  [![Scrutinizer Coverage](https://img.shields.io/scrutinizer/coverage/g/dalisoft/points.js.svg)]()  [![NPM Version][npm-image]][npm-url]  [![Travis tests][travis-image]][travis-url]<br/>
+<img src="http://img.badgesize.io/http://cdn.jsdelivr.net/npm/points.js@latest"/>  <img src="http://img.badgesize.io/http://cdn.jsdelivr.net/npm/points.js@latest?compression=gzip"/>  [![Greenkeeper badge](https://badges.greenkeeper.io/dalisoft/points.js.svg)](https://greenkeeper.io/)  [![Scrutinizer](https://img.shields.io/scrutinizer/g/dalisoft/points.js.svg)]()  [![Scrutinizer Coverage](https://img.shields.io/scrutinizer/coverage/g/dalisoft/points.js.svg)]()  [![NPM Version][npm-image]][npm-url]  [![Build Status](https://scrutinizer-ci.com/g/dalisoft/points.js/badges/build.png?b=master)](https://scrutinizer-ci.com/g/dalisoft/points.js/build-status/master)<br/>
 [![NPM Downloads][downloads-image]][downloads-url]  [![Github Releases](https://img.shields.io/github/downloads/dalisoft/points.js/latest/total.svg)]()    [![jsdelivr](https://img.shields.io/badge/cdn-jsdelivr-brightgreen.svg)](https://cdn.jsdelivr.net/npm/points.js)  [![unpkg](https://img.shields.io/badge/cdn-unpkg-brightgreen.svg)](https://unpkg.com/points.js)  [![npmcdn](https://img.shields.io/badge/cdn-npmcdn-brightgreen.svg)](https://npmcdn.com/points.js)<br/>
 [![Flattr this][flattr-image]][flattr-url]  [![license](https://img.shields.io/github/license/dalisoft/points.js.svg)]()
 
@@ -98,8 +98,6 @@ let [newFromShape, newToShape] = autoFix(fromShape, toShape); // Returns normali
 [npm-url]: https://npmjs.org/package/points.js
 [downloads-image]: https://img.shields.io/npm/dm/points.js.svg
 [downloads-url]: https://npmjs.org/package/points.js
-[travis-image]: https://travis-ci.org/dalisoft/points.js.svg?branch=master
-[travis-url]: https://travis-ci.org/dalisoft/points.js
 [flattr-image]: https://api.flattr.com/button/flattr-badge-large.png
 [flattr-url]: https://flattr.com/submit/auto?fid=kxw7jx&url=https%3A%2F%2Fgithub.com%2Fdalisoft%2Fpoints.js
 [cdnjs-image]: https://img.shields.io/cdnjs/v/points.js.svg
