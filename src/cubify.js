@@ -1,3 +1,7 @@
+/** global: px */
+/** global: py */
+/** global: cx */
+/** global: cy */
 import arcToBezier from './arcToBezier'
 import { applyFuncToShapes } from './helpers'
 

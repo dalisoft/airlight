@@ -37,7 +37,10 @@ const addPoints = (shape, pointsRequired, maxStack) => {
   if (isNaN(pointsRequired)) {
     throw Error('`add` function must be passed a number as the second argument')
   }
-  if (maxStack <= 0) return shape
+
+  if (maxStack <= 0) {
+    return shape
+  }
 
   const nextShape = [ ...shape ]
 

@@ -1,3 +1,5 @@
+/** global: x1 */
+/** global: y1 */
 import { applyFuncToShapes } from './helpers'
 
 const areaPoints = polygon => {

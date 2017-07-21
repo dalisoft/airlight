@@ -6,6 +6,10 @@
 // Sergey Batishchev – https://github.com/snb2013
 // Vitaly Puzrin – https://github.com/puzrin
 // Alex Kocharin – https://github.com/rlidwka
+/** global: x1 */
+/** global: x2 */
+/** global: y1 */
+/** global: y2 */
 
 const TAU = Math.PI * 2
 

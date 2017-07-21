@@ -1,3 +1,7 @@
+/** global: cx1 */
+/** global: cy1 */
+/** global: cx2 */
+/** global: cy2 */
 import { angleFromSides } from './helpers'
 import cubify from './cubify'
 import { curvedPoints } from './add'

@@ -1,3 +1,5 @@
+/** global: bx */
+/** global: by */
 const angleFromSides = (a, b, c) => {
   const r = Math.acos(
     (Math.pow(a, 2) + Math.pow(b, 2) - Math.pow(c, 2)) /
