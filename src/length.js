@@ -2,10 +2,8 @@
 /** global: x2 */
 /** global: y1 */
 /** global: y2 */
-import decurve from './decurve'
 
-const length = (shape, accuracy) => {
-  const s = decurve(shape, accuracy)
+const length = (s) => {
 
   return s.reduce((currentLength, { x: x2, y: y2, moveTo }, i) => {
     if (!moveTo) {

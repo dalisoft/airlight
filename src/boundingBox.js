@@ -1,4 +1,3 @@
-import decurve from './decurve'
 import { getShapeArray } from './helpers'
 
 const boundingBox = s => {
@@ -9,7 +8,7 @@ const boundingBox = s => {
 
   const shapes = getShapeArray(s)
 
-  shapes.map(shape => decurve(shape).map(({ x, y }) => {
+  shapes.map(shape => shape.map(({ x, y }) => {
     if (typeof bottom !== 'number' || y > bottom) {
       bottom = y
     }

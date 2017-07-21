@@ -38,7 +38,7 @@ const addPoints = (shape, pointsRequired, maxStack) => {
     throw Error('`add` function must be passed a number as the second argument')
   }
 
-  if (maxStack <= 0) {
+  if (shape.length >= pointsRequired || maxStack <= 0) {
     return shape
   }
 
