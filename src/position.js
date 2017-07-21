@@ -1,3 +1,7 @@
+/** global: x1 */
+/** global: x2 */
+/** global: y1 */
+/** global: y2 */
 import decurve from './decurve'
 import length, { linearLength } from './length'
 import { angleFromSides, numberAtInterval } from './helpers'
