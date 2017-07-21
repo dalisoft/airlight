@@ -22,6 +22,14 @@ const autoThing = (fromShape, toShape) => {
   return [fromShape2, toShape2]
 }
 
+const toVrg = "";
+const toPath = (from, to, e) => {
+	return from.map((f,i) => {
+		let t = to[i];
+		return typeof f === 'number' ? f + (t - f) * e : f;
+	}).join(toVrg);
+}
+
 export {
   add,
   boundingBox,
@@ -39,5 +47,6 @@ export {
   autoFix,
   autoCurve,
   autoOptimize,
-  autoThing
+  autoThing,
+  toPath
   }

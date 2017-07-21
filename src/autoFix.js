@@ -21,32 +21,38 @@ export const splitPoints = points => {
 }
 
 const autoFixPoints = (fromShape, toShape) => {
+  fromShape = autoReverse(fromShape, toShape);
+  fromShape = autoIndex(fromShape, toShape);
   let fromShapeSubPaths = splitPoints(fromShape)
   let toShapeSubPaths = splitPoints(toShape)
   let largestShapeSubPathsMap = fromShapeSubPaths.length > toShapeSubPaths.length ? fromShapeSubPaths : toShapeSubPaths
 
   largestShapeSubPathsMap.map((item, i) => {
-    let fromSubPath = remove(fromShapeSubPaths[i])
-    let toSubPath = remove(toShapeSubPaths[i])
+    let fromSubPath = fromShapeSubPaths[i]
+    let toSubPath = toShapeSubPaths[i]
     let bbox
 
     if (fromSubPath && !toSubPath) {
+	  fromSubPath = remove(fromSubPath);
       bbox = boundingBox(fromSubPath).center
       toSubPath = [{...bbox, moveTo: true}, bbox]
       fromSubPath.map((p, ii) => {
         if (toSubPath[ii] === undefined) {
-          toSubPath.push({...bbox})
+          toSubPath[ii] = {...bbox}
         }
       })
     } else if (toSubPath && !fromSubPath) {
+	  toSubPath = remove(toSubPath);
       bbox = boundingBox(toSubPath).center
       fromSubPath = [{...bbox, moveTo: true}, bbox]
       toSubPath.map((p, ii) => {
         if (fromSubPath[ii] === undefined) {
-          fromSubPath.push({...bbox})
+          fromSubPath[ii] = {...bbox}
         }
       })
     } else if (fromSubPath && toSubPath) {
+	  fromSubPath = remove(fromSubPath);
+	  toSubPath = remove(toSubPath);
       let i = toSubPath.length - fromSubPath.length
       if (i > 0) {
         fromSubPath = add(fromSubPath, toSubPath.length)

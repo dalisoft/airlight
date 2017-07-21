@@ -19,7 +19,7 @@ const applyFuncToShapes = (f, s, ...args) => {
 
 const getShapeArray = s => isShapeArray(s) ? s : [ s ]
 
-const isShapeArray = s => Array.isArray(s[ 0 ])
+const isShapeArray = s => s && Array.isArray(s[ 0 ])
 
 const numberAtInterval = (a, b, interval) => {
   const c = a === b ? 0 : Math.abs(b - a)
