@@ -1,6 +1,6 @@
 import { applyFuncToShapes } from './helpers'
 
-const autoCurvePoint = (fromShape, toShape) => {
+const autoCurveSinglePoint = (fromShape, toShape) => {
   return fromShape.map((point, index) => {
     let point2 = toShape[index]
     if (point2 && !point.curve && point2.curve && !point.moveTo) {
@@ -20,9 +20,11 @@ const autoCurvePoint = (fromShape, toShape) => {
   })
 }
 
+export const autoCurvePoint = (fromShape, toShape) => applyFuncToShapes(autoCurveSinglePoint, fromShape, toShape)
+
 const autoCurvePoints = (fromShape, toShape) => {
-  fromShape = autoCurvePoint(fromShape, toShape)
-  toShape = autoCurvePoint(toShape, fromShape)
+  fromShape = autoCurveSinglePoint(fromShape, toShape)
+  toShape = autoCurveSinglePoint(toShape, fromShape)
   return [fromShape, toShape]
 }
 

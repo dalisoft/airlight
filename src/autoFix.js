@@ -1,5 +1,10 @@
 import { applyFuncToShapes } from './helpers'
 import boundingBox from './boundingBox'
+import add from './add'
+import remove from './remove'
+import { autoCurvePoint } from './autoCurve'
+import autoReverse from './autoReverse'
+import autoIndex from './autoIndex'
 
 const reduceJoin = (prev, s) => prev.concat(s)
 
@@ -21,8 +26,8 @@ const autoFixPoints = (fromShape, toShape) => {
   let largestShapeSubPathsMap = fromShapeSubPaths.length > toShapeSubPaths.length ? fromShapeSubPaths : toShapeSubPaths
 
   largestShapeSubPathsMap.map((item, i) => {
-    let fromSubPath = fromShapeSubPaths[i]
-    let toSubPath = toShapeSubPaths[i]
+    let fromSubPath = remove(fromShapeSubPaths[i])
+    let toSubPath = remove(toShapeSubPaths[i])
     let bbox
 
     if (fromSubPath && !toSubPath) {
@@ -41,7 +46,19 @@ const autoFixPoints = (fromShape, toShape) => {
           fromSubPath.push({...bbox})
         }
       })
+    } else if (fromSubPath && toSubPath) {
+      let i = toSubPath.length - fromSubPath.length
+      if (i > 0) {
+        fromSubPath = add(fromSubPath, toSubPath.length)
+      } else if (i < 0) {
+        toSubPath = add(toSubPath, fromSubPath.length)
+      }
     }
+
+    fromSubPath = autoReverse(fromSubPath, toSubPath)
+    fromSubPath = autoIndex(fromSubPath, toSubPath)
+    fromSubPath = autoCurvePoint(fromSubPath, toSubPath)
+    toSubPath = autoCurvePoint(toSubPath, fromSubPath)
 
     fromShapeSubPaths[i] = fromSubPath
     toShapeSubPaths[i] = toSubPath

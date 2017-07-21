@@ -18,8 +18,7 @@ import scale from './src/scale'
 const autoThing = (fromShape, toShape) => {
   fromShape = autoReverse(fromShape, toShape)
   fromShape = autoIndex(fromShape, toShape)
-  let [fromShape1, toShape1] = autoCurve(fromShape, toShape)
-  let [fromShape2, toShape2] = autoFix(fromShape1, toShape1)
+  let [fromShape2, toShape2] = autoFix(fromShape, toShape)
   return [fromShape2, toShape2]
 }
 
