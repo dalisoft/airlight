@@ -1,5 +1,5 @@
 import { applyFuncToShapes } from './helpers'
-import { boundingBox } from 'points'
+import boundingBox from './boundingBox'
 
 const reduceJoin = (prev, s) => prev.concat(s)
 

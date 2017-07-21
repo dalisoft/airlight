@@ -1,5 +1,5 @@
 import area from './area'
-import { reverse } from 'points'
+import reverse from './reverse'
 import { applyFuncToShapes } from './helpers'
 
 const autoReversePoints = (fromShape, toShape) => {

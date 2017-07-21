@@ -1,4 +1,4 @@
-import { moveIndex } from 'points'
+import moveIndex from './moveIndex'
 import { applyFuncToShapes } from './helpers'
 import findNearestIndex from './findNearestIndex'
 

@@ -1,6 +1,5 @@
-import distance from './distance'
-import { boundingBox } from 'points'
-import { applyFuncToShapes } from './helpers'
+import boundingBox from './boundingBox'
+import { applyFuncToShapes, distance } from './helpers'
 
 const findNearestIndexPoints = (points, p, box) => {
   let min = Number.MAX_SAFE_INTEGER
