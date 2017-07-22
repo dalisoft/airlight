@@ -30,7 +30,7 @@ const distance = ({x, y}, {x: bx, y: by}) => {
   return Math.sqrt((x - bx) * (x - bx) + (y - by) * (y - by))
 }
 
-const splitPoints = points => {
+const splitSubPath = points => {
   return points.reduce((lines, point) => {
     if (point.moveTo) {
       lines.push([])
@@ -42,6 +42,10 @@ const splitPoints = points => {
   }, [])
 }
 
+const countSubPath = points => points.reduce((count, point) => point.moveTo ? count + 1 : count, 0)
+
+const joinSubPath = shapes => shapes.reduce((prev, shape) => prev.concat(shape), [])
+
 export {
   angleFromSides,
   applyFuncToShapes,
@@ -49,5 +53,7 @@ export {
   isShapeArray,
   numberAtInterval,
   distance,
-  splitPoints
+  splitSubPath,
+  joinSubPath,
+  countSubPath
 }

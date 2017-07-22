@@ -37,13 +37,13 @@ $ yarn install points.js
 ##### Those functions does almost everything what you need, but sometimes hand-made changes required
 
 ---
-### autoThing
+### autoNormalise
 ##### What it does?
-It normalises/does everything for you. If you want automatic moveIndex, reverse, autoCurve, autoFix (subpath normalise). It is that what you looking.
+It normalises your path data segments (curves, points, length, types) based on your `from` and `to` shapes.
 
 ##### Code
 ```javascript
-let [newFromShape, newToShape] = autoThing(fromShape, toShape); // Returns normalised path that equalised subpaths and natually look with direction fix/correction (when used?)
+let [newFromShape, newToShape] = autoNormalise(fromShape, toShape); // Returns normalised path that equalised subpaths or path
 ```
 
 ---
@@ -89,11 +89,11 @@ let [newFromShape, newToShape] = autoOptimize(fromShape, toShape); // [['M', 10,
 ---
 ### autoFix
 ##### What it does?
-It normalises two `fromShape` and `toShape`, when matches subpath and it's count was mismatching, tweening/interpolation becomes ugly, for those use-case it provides simple and fast API that does everything for you
+`Points.js#autoNormalise` + when tweening/interpolation becomes ugly, it provides simple and fast solution for you
 
 ##### Code
 ```javascript
-let [newFromShape, newToShape] = autoFix(fromShape, toShape, true | false /* auto reverse and auto index */); // Returns normalised path that equalised subpaths
+let [newFromShape, newToShape] = autoFix(fromShape, toShape); // Returns normalised path that equalised subpaths with index matching
 ```
 
 [npm-image]: https://img.shields.io/npm/v/points.js.svg

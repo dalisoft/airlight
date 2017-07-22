@@ -1,4 +1,5 @@
 import autoIndex, { findNearestIndex } from './src/autoIndex'
+import autoNormalise from './src/autoNormalise'
 import autoReverse from './src/autoReverse'
 import autoFix from './src/autoFix'
 import autoCurve, { autoCurvePoint } from './src/autoCurve'
@@ -38,5 +39,6 @@ export {
   autoReverse,
   autoFix,
   autoCurve,
-  autoOptimize
+  autoOptimize,
+  autoNormalise
   }

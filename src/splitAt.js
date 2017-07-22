@@ -23,15 +23,20 @@ const splitAtPoint = (shape, t = 0.5) => {
   })
 
   splitShapes = splitShapes.map((shapes, i) => {
-    let prevShapes = splitShapes[i - 1]
-    let lastPrevShape = i === 0 ? null : prevShapes[prevShapes.length - 1]
+    let prevShape = splitShapes[i - 1]
+    let firstPrevShape = i === 0 ? null : prevShape[0]
+    let lastPrevShape = i === 0 ? null : prevShape[prevShape.length - 1]
 
     if (shapes && shapes[0] && !shapes[0].moveTo) {
       shapes.unshift({
-        x: lastPrevShape.x,
-        y: lastPrevShape.y,
-        moveTo: true
-      })
+        x: firstPrevShape.x,
+        y: firstPrevShape.y
+      },
+        {
+          x: lastPrevShape.x,
+          y: lastPrevShape.y,
+          moveTo: true
+        })
     }
 
     return remove(shapes)
