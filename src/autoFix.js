@@ -25,7 +25,7 @@ const autoFixPoints = (fromShape, toShape, noAuto) => {
       fromSubPath = remove(fromSubPath)
       bbox = boundingBox(fromSubPath).center
       toSubPath = [{...bbox, moveTo: true}, bbox]
-	  diff = toSubPath.length - fromSubPath.length
+      diff = toSubPath.length - fromSubPath.length
       fromSubPath.map((p, ii) => {
         if (toSubPath[ii] === undefined) {
           toSubPath[ii] = {...bbox}
@@ -35,7 +35,7 @@ const autoFixPoints = (fromShape, toShape, noAuto) => {
       toSubPath = remove(toSubPath)
       bbox = boundingBox(toSubPath).center
       fromSubPath = [{...bbox, moveTo: true}, bbox]
-	  diff = toSubPath.length - fromSubPath.length
+      diff = toSubPath.length - fromSubPath.length
       toSubPath.map((p, ii) => {
         if (fromSubPath[ii] === undefined) {
           fromSubPath[ii] = {...bbox}
