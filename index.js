@@ -14,9 +14,11 @@ import remove from './src/remove'
 import reverse from './src/reverse'
 import rotate from './src/rotate'
 import scale from './src/scale'
+import splitAt from './src/splitAt'
 
 export {
   add,
+  splitAt,
   curvedPoints,
   calculatePoints,
   autoCurvePoint,
