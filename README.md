@@ -9,7 +9,7 @@ Fast &amp; Lightweight SVG Shape Manipulation library based on Points (@colinmei
 
 # Note
 * Please use these methods before tweening initializing, because it changes the points for better natural look
-* This is extend/add-on for [Points](https://github.com/colinmeinke/points)
+* This is extended version of [Points](https://github.com/colinmeinke/points)
 
 # CDN
 ```bash
@@ -31,6 +31,8 @@ $ yarn install points.js
 ```
 
 # Docs
+
+##### More information about other methods, see [Points](https://github.com/colinmeinke/points)
 
 ##### Those functions does almost everything what you need, but sometimes hand-made changes required
 
@@ -91,7 +93,7 @@ It normalises two `fromShape` and `toShape`, when matches subpath and it's count
 
 ##### Code
 ```javascript
-let [newFromShape, newToShape] = autoFix(fromShape, toShape); // Returns normalised path that equalised subpaths
+let [newFromShape, newToShape] = autoFix(fromShape, toShape, true | false /* auto reverse and auto index */); // Returns normalised path that equalised subpaths
 ```
 
 [npm-image]: https://img.shields.io/npm/v/points.js.svg
