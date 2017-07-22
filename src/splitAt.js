@@ -26,7 +26,7 @@ const splitAtPoint = (shape, t = 0.5) => {
     let prevShapes = splitShapes[i - 1]
     let lastPrevShape = i === 0 ? null : prevShapes[prevShapes.length - 1]
 
-    if (!shapes[0].moveTo) {
+    if (shapes && shapes[0] && !shapes[0].moveTo) {
       shapes.unshift({
         x: lastPrevShape.x,
         y: lastPrevShape.y,
@@ -40,6 +40,6 @@ const splitAtPoint = (shape, t = 0.5) => {
   return splitShapes
 }
 
-const splitAt = (shape, t, dir) => applyFuncToShapes(splitAtPoint, t, dir)
+const splitAt = (shape, t) => applyFuncToShapes(splitAtPoint, shape, t)
 
 export default splitAt
