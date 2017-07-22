@@ -1,27 +1,27 @@
 import cubify from './cubify'
 import { numberAtInterval } from './helpers'
 
-const linearPoints = (from, to) => [
+const linearPoints = (from, to, t = 0.5) => [
   {
-    x: numberAtInterval(from.x, to.x, 0.5),
-    y: numberAtInterval(from.y, to.y, 0.5)
+    x: numberAtInterval(from.x, to.x, t),
+    y: numberAtInterval(from.y, to.y, t)
   },
   to
 ]
 
-const curvedPoints = (from, to) => {
+const curvedPoints = (from, to, t = 0.5) => {
   const { x1, y1, x2, y2 } = to.curve
 
   const A = { x: from.x, y: from.y }
   const B = { x: x1, y: y1 }
   const C = { x: x2, y: y2 }
   const D = { x: to.x, y: to.y }
-  const E = { x: numberAtInterval(A.x, B.x, 0.5), y: numberAtInterval(A.y, B.y, 0.5) }
-  const F = { x: numberAtInterval(B.x, C.x, 0.5), y: numberAtInterval(B.y, C.y, 0.5) }
-  const G = { x: numberAtInterval(C.x, D.x, 0.5), y: numberAtInterval(C.y, D.y, 0.5) }
-  const H = { x: numberAtInterval(E.x, F.x, 0.5), y: numberAtInterval(E.y, F.y, 0.5) }
-  const J = { x: numberAtInterval(F.x, G.x, 0.5), y: numberAtInterval(F.y, G.y, 0.5) }
-  const K = { x: numberAtInterval(H.x, J.x, 0.5), y: numberAtInterval(H.y, J.y, 0.5) }
+  const E = { x: numberAtInterval(A.x, B.x, t), y: numberAtInterval(A.y, B.y, t) }
+  const F = { x: numberAtInterval(B.x, C.x, t), y: numberAtInterval(B.y, C.y, t) }
+  const G = { x: numberAtInterval(C.x, D.x, t), y: numberAtInterval(C.y, D.y, t) }
+  const H = { x: numberAtInterval(E.x, F.x, t), y: numberAtInterval(E.y, F.y, t) }
+  const J = { x: numberAtInterval(F.x, G.x, t), y: numberAtInterval(F.y, G.y, t) }
+  const K = { x: numberAtInterval(H.x, J.x, t), y: numberAtInterval(H.y, J.y, t) }
 
   return [
     { x: K.x, y: K.y, curve: { type: 'cubic', x1: E.x, y1: E.y, x2: H.x, y2: H.y } },
@@ -29,9 +29,9 @@ const curvedPoints = (from, to) => {
   ]
 }
 
-const points = (from, to) => to.curve
-  ? curvedPoints(from, to)
-  : linearPoints(from, to)
+const points = (from, to, t = 0.5) => to.curve
+  ? curvedPoints(from, to, t)
+  : linearPoints(from, to, t)
 
 const addPoints = (shape, pointsRequired, maxStack) => {
   if (isNaN(pointsRequired)) {
@@ -68,5 +68,5 @@ const addPoints = (shape, pointsRequired, maxStack) => {
 
 const add = (shape, pointsRequired) => addPoints(cubify(shape), pointsRequired, 500)
 
-export { curvedPoints }
+export { curvedPoints, points as calculatePoints }
 export default add

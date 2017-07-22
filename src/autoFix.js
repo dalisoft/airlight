@@ -8,7 +8,8 @@ import autoIndex from './autoIndex'
 
 const reduceJoin = (prev, s) => prev.concat(s)
 
-const autoFixPoints = (fromShape, toShape) => {
+const autoFixPoints = (fromShape, toShape, noAuto) => {
+  fromShape = noAuto ? fromShape : autoReverse(fromShape, toShape)
   let fromShapeSubPaths = splitPoints(fromShape)
   let toShapeSubPaths = splitPoints(toShape)
   let largestShapeSubPathsMap = fromShapeSubPaths.length > toShapeSubPaths.length ? fromShapeSubPaths
@@ -18,11 +19,13 @@ const autoFixPoints = (fromShape, toShape) => {
     let fromSubPath = fromShapeSubPaths[i]
     let toSubPath = toShapeSubPaths[i]
     let bbox
+    let diff
 
     if (fromSubPath && !toSubPath) {
       fromSubPath = remove(fromSubPath)
       bbox = boundingBox(fromSubPath).center
       toSubPath = [{...bbox, moveTo: true}, bbox]
+	  diff = toSubPath.length - fromSubPath.length
       fromSubPath.map((p, ii) => {
         if (toSubPath[ii] === undefined) {
           toSubPath[ii] = {...bbox}
@@ -32,6 +35,7 @@ const autoFixPoints = (fromShape, toShape) => {
       toSubPath = remove(toSubPath)
       bbox = boundingBox(toSubPath).center
       fromSubPath = [{...bbox, moveTo: true}, bbox]
+	  diff = toSubPath.length - fromSubPath.length
       toSubPath.map((p, ii) => {
         if (fromSubPath[ii] === undefined) {
           fromSubPath[ii] = {...bbox}
@@ -40,16 +44,15 @@ const autoFixPoints = (fromShape, toShape) => {
     } else if (fromSubPath && toSubPath) {
       fromSubPath = remove(fromSubPath)
       toSubPath = remove(toSubPath)
-      let i = toSubPath.length - fromSubPath.length
-      if (i > 0) {
+      diff = toSubPath.length - fromSubPath.length
+      if (diff > 0) {
         fromSubPath = add(fromSubPath, toSubPath.length)
-      } else if (i < 0) {
+      } else if (diff < 0) {
         toSubPath = add(toSubPath, fromSubPath.length)
       }
     }
 
-    fromSubPath = autoReverse(fromSubPath, toSubPath)
-    fromSubPath = autoIndex(fromSubPath, toSubPath)
+    fromSubPath = noAuto ? fromSubPath : autoIndex(fromSubPath, toSubPath, diff)
     fromSubPath = autoCurvePoint(fromSubPath, toSubPath)
     toSubPath = autoCurvePoint(toSubPath, fromSubPath)
 
@@ -57,9 +60,21 @@ const autoFixPoints = (fromShape, toShape) => {
     toShapeSubPaths[i] = toSubPath
   })
 
-  return [fromShapeSubPaths.reduce(reduceJoin, []), toShapeSubPaths.reduce(reduceJoin, [])]
+  let fromTotalShape = fromShapeSubPaths.reduce(reduceJoin, [])
+  let toTotalShape = toShapeSubPaths.reduce(reduceJoin, [])
+
+  let i = toTotalShape.length - fromTotalShape.length
+  if (i > 0) {
+    fromTotalShape = add(fromTotalShape, toTotalShape.length)
+  } else if (i < 0) {
+    toTotalShape = add(toTotalShape, fromTotalShape.length)
+  }
+
+  fromTotalShape = autoCurvePoint(fromTotalShape, toTotalShape)
+
+  return [fromTotalShape, toTotalShape]
 }
 
-const autoFix = (fromShape, toShape) => applyFuncToShapes(autoFixPoints, fromShape, toShape)
+const autoFix = (fromShape, toShape, noAuto) => applyFuncToShapes(autoFixPoints, fromShape, toShape, noAuto)
 
 export default autoFix

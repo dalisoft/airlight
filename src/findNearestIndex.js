@@ -2,7 +2,7 @@ import boundingBox from './boundingBox'
 import { applyFuncToShapes, distance } from './helpers'
 
 const findNearestIndexPoints = (points, p, box) => {
-  let min = Number.MAX_SAFE_INTEGER
+  let min = Infinity
   let bbox = box ? box.x !== undefined ? box : box.center : boundingBox(points).center
 
   bbox.x += p.x

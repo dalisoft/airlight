@@ -1,12 +1,12 @@
-import autoIndex from './src/autoIndex'
+import autoIndex, { findNearestIndex } from './src/autoIndex'
 import autoReverse from './src/autoReverse'
 import autoFix from './src/autoFix'
-import autoCurve from './src/autoCurve'
+import autoCurve, { autoCurvePoint } from './src/autoCurve'
 import autoOptimize from './src/autoOptimize'
-import add from './src/add'
+import add, { curvedPoints, calculatePoints } from './src/add'
 import boundingBox from './src/boundingBox'
 import cubify from './src/cubify'
-import length from './src/length'
+import length, { linearLength } from './src/length'
 import moveIndex from './src/moveIndex'
 import offset from './src/offset'
 import position from './src/position'
@@ -17,6 +17,11 @@ import scale from './src/scale'
 
 export {
   add,
+  curvedPoints,
+  calculatePoints,
+  autoCurvePoint,
+  findNearestIndex,
+  linearLength,
   boundingBox,
   cubify,
   length,
