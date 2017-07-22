@@ -87,6 +87,16 @@ let [newFromShape, newToShape] = autoOptimize(fromShape, toShape); // [['M', 10,
 ```
 
 ---
+### splitAt
+##### What it does?
+Split the single-path to multi-path (sub-paths). (BETA, improvements would be nice)
+
+##### Code
+```javascript
+let subPaths = splitAt(fromShape, 0.3); // Split into 3-subpaths based on (1 / t:0.3)
+```
+
+---
 ### autoFix
 ##### What it does?
 `Points.js#autoNormalise` + when tweening/interpolation becomes ugly, it provides simple and fast solution for you
