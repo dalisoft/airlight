@@ -4,7 +4,7 @@ import { applyFuncToShapes, distance } from './helpers'
 const findNearestIndexPoints = (points, p, box) => {
   let min = Infinity
   let isBBoxUse = box !== false
-  let bbox = !isBBoxUse ? p : box ? box.x !== undefined ? box : box.center : boundingBox(points).center
+  let bbox = isBBoxUse ? boundingBox(points).center : p
 
   if (isBBoxUse) {
     bbox.x += p.x
@@ -24,9 +24,10 @@ const findNearestIndexPoints = (points, p, box) => {
       min = sumOfSquares
     }
   })
+
   return bestIndex
 }
 
-const findNearestIndex = (points, p) => applyFuncToShapes(findNearestIndexPoints, points, p)
+const findNearestIndex = (points, p, box) => applyFuncToShapes(findNearestIndexPoints, points, p, box)
 
 export default findNearestIndex
