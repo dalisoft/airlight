@@ -87,4 +87,6 @@ const movePointsIndex = (shape, offset) => {
 
 const moveIndex = (s, offset) => applyFuncToShapes(movePointsIndex, s, offset)
 
+export { splitLines, reorderPoints, joinLines }
+
 export default moveIndex

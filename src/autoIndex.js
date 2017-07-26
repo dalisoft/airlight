@@ -1,6 +1,7 @@
 import moveIndex from './moveIndex'
 import { applyFuncToShapes } from './helpers'
 import findNearestIndex from './findNearestIndex'
+import boundingBox from './boundingBox'
 
 const autoIndexPoints = (fromShape, toShape, i) => {
   i = i !== undefined ? i : toShape.length - fromShape.length
