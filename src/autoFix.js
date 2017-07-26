@@ -2,7 +2,6 @@ import { applyFuncToShapes } from './helpers'
 import autoReverse from './autoReverse'
 import autoIndex from './autoIndex'
 import autoNormalise from './autoNormalise'
-import length from './length';
 
 const autoFixPoints = (fromShape, toShape, order) => {
   fromShape = autoReverse(fromShape, toShape)

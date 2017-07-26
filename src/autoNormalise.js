@@ -1,8 +1,8 @@
-import { applyFuncToShapes, countSubPath, splitSubPath, joinSubPath, distance } from './helpers'
+import { applyFuncToShapes, countSubPath, splitSubPath, joinSubPath } from './helpers'
 import { autoCurvePoint } from './autoCurve'
 import add from './add'
 import remove from './remove'
-import mapList from './mapList';
+import mapList from './mapList'
 
 const autoNormalisePoints = (fromShape, toShape, map, order) => {
   let fromShapeSubPathsCount = countSubPath(fromShape)
@@ -23,17 +23,17 @@ const autoNormalisePoints = (fromShape, toShape, map, order) => {
   } else {
     let fromShapeSubPaths = splitSubPath(fromShape)
     let toShapeSubPaths = splitSubPath(toShape)
-	
-	if (order) {
-		if (order.startOrder) {
-			fromShapeSubPaths.sort(mapList.get(order.startOrder));
-		} else if (order.endOrder) {
-			toShapeSubPaths.sort(mapList.get(order.endOrder));
-		} else {
-			fromShapeSubPaths.sort(mapList.get(order));
-			toShapeSubPaths.sort(mapList.get(order));
-		}
-	}
+
+    if (order) {
+      if (order.startOrder) {
+        fromShapeSubPaths.sort(mapList.get(order.startOrder))
+      } else if (order.endOrder) {
+        toShapeSubPaths.sort(mapList.get(order.endOrder))
+      } else {
+        fromShapeSubPaths.sort(mapList.get(order))
+        toShapeSubPaths.sort(mapList.get(order))
+      }
+    }
     let largestShapeSubPathsMap = fromShapeSubPaths.length > toShapeSubPaths.length ? fromShapeSubPaths
     : toShapeSubPaths
 
@@ -41,14 +41,14 @@ const autoNormalisePoints = (fromShape, toShape, map, order) => {
       let fromSubPath = fromShapeSubPaths[i]
       let toSubPath = toShapeSubPaths[i]
       let prev
-	  let near
+      let near
       let diff
 
       if (fromSubPath && !toSubPath) {
         fromSubPath = remove(fromSubPath)
-        prev = toShapeSubPaths[i - 1];
-		prev = prev[prev.length - 1];
-		near = { x: prev.x, y: prev.y };
+        prev = toShapeSubPaths[i - 1]
+        prev = prev[prev.length - 1]
+        near = { x: prev.x, y: prev.y }
         toSubPath = [{...near, moveTo: true}, near]
         fromSubPath.map((p, ii) => {
           if (toSubPath[ii] === undefined) {
@@ -57,9 +57,9 @@ const autoNormalisePoints = (fromShape, toShape, map, order) => {
         })
       } else if (toSubPath && !fromSubPath) {
         toSubPath = remove(toSubPath)
-        prev = fromShapeSubPaths[i - 1];
-		prev = prev[prev.length - 1];
-		near = { x: prev.x, y: prev.y };
+        prev = fromShapeSubPaths[i - 1]
+        prev = prev[prev.length - 1]
+        near = { x: prev.x, y: prev.y }
         fromSubPath = [{...near, moveTo: true}, near]
         toSubPath.map((p, ii) => {
           if (fromSubPath[ii] === undefined) {
