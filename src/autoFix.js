@@ -3,18 +3,21 @@ import autoReverse from './autoReverse'
 import autoIndex from './autoIndex'
 import autoNormalise from './autoNormalise'
 
-const autoFixPoints = (fromShape, toShape, order) => {
-  fromShape = autoReverse(fromShape, toShape)
-  fromShape = autoIndex(fromShape, toShape)
+const autoFixPoints = (fromShape, toShape, param = {}) => {
+  fromShape = autoReverse(fromShape, toShape);
 
-  return autoNormalise(fromShape, toShape, (fromSubPath, toSubPath, diff, noSubPath) => {
-    if (noSubPath) {
-      fromSubPath = autoIndex(fromSubPath, toSubPath) // Do again for single-path shape for better result
-    }
+  param.map = (fromSubPath, toSubPath, index, diff) => {
+	fromSubPath = autoReverse(fromSubPath, toSubPath)
+	fromSubPath = autoIndex(fromSubPath, toSubPath, diff)
     return [fromSubPath, toSubPath]
-  }, order)
+  }
+  if (param.bboxCenter === undefined) {
+	param.bboxCenter = true;
+  }
+
+  return autoNormalise(fromShape, toShape, param)
 }
 
-const autoFix = (fromShape, toShape, order) => applyFuncToShapes(autoFixPoints, fromShape, toShape, order)
+const autoFix = (fromShape, toShape, param) => applyFuncToShapes(autoFixPoints, fromShape, toShape, param)
 
 export default autoFix

@@ -3,16 +3,16 @@ import { applyFuncToShapes } from './helpers'
 import findNearestIndex from './findNearestIndex'
 
 const autoIndexPoints = (fromShape, toShape, i) => {
-  i = i !== undefined ? i : toShape.length - fromShape.length
-  let bestIndex = findNearestIndex(fromShape, toShape[0])
-  let isOptimize = i > 0
+  let bestIndex = findNearestIndex(toShape, fromShape[0], true)
 
-  if (bestIndex && isOptimize) {
-    bestIndex = -bestIndex
+  if (bestIndex < 0 && i) {
+	bestIndex = -bestIndex
+  } else if (i < 0 && bestIndex > 0) {
+	bestIndex = findNearestIndex(toShape, fromShape[0], false)
   }
 
   if (bestIndex) {
-    fromShape = moveIndex(fromShape, bestIndex)
+    fromShape = moveIndex(fromShape, -bestIndex)
   }
 
   return fromShape

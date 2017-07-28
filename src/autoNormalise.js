@@ -3,8 +3,10 @@ import { autoCurvePoint } from './autoCurve'
 import add from './add'
 import remove from './remove'
 import mapList from './mapList'
+import boundingBox from './boundingBox'
+import autoReverse from './autoReverse'
 
-const autoNormalisePoints = (fromShape, toShape, map, order) => {
+const autoNormalisePoints = (fromShape, toShape, {map, order, bboxCenter} = {}) => {
   let fromShapeSubPathsCount = countSubPath(fromShape)
   let toShapeSubPathsCount = countSubPath(toShape)
   if (fromShapeSubPathsCount === 1 && toShapeSubPathsCount === 1) {
@@ -15,7 +17,7 @@ const autoNormalisePoints = (fromShape, toShape, map, order) => {
       toShape = add(toShape, fromShape.length)
     }
     if (map) {
-      [fromShape, toShape] = map(fromShape, toShape, diff, true)
+      [fromShape, toShape] = map(fromShape, toShape, 0, diff, true)
     }
     fromShape = autoCurvePoint(fromShape, toShape)
     toShape = autoCurvePoint(toShape, fromShape)
@@ -48,7 +50,7 @@ const autoNormalisePoints = (fromShape, toShape, map, order) => {
         fromSubPath = remove(fromSubPath)
         prev = toShapeSubPaths[i - 1]
         prev = prev[prev.length - 1]
-        near = { x: prev.x, y: prev.y }
+        near = bboxCenter ? boundingBox(fromSubPath).center : { x: prev.x, y: prev.y }
         toSubPath = [{...near, moveTo: true}, near]
         fromSubPath.map((p, ii) => {
           if (toSubPath[ii] === undefined) {
@@ -59,7 +61,7 @@ const autoNormalisePoints = (fromShape, toShape, map, order) => {
         toSubPath = remove(toSubPath)
         prev = fromShapeSubPaths[i - 1]
         prev = prev[prev.length - 1]
-        near = { x: prev.x, y: prev.y }
+        near = bboxCenter ? boundingBox(toSubPath).center : { x: prev.x, y: prev.y }
         fromSubPath = [{...near, moveTo: true}, near]
         toSubPath.map((p, ii) => {
           if (fromSubPath[ii] === undefined) {
@@ -78,7 +80,7 @@ const autoNormalisePoints = (fromShape, toShape, map, order) => {
       }
 
       if (map) {
-        [fromSubPath, toSubPath] = map(fromSubPath, toSubPath, diff, false)
+        [fromSubPath, toSubPath] = map(fromSubPath, toSubPath, i, diff, false)
       }
 
       fromSubPath = autoCurvePoint(fromSubPath, toSubPath)
@@ -92,6 +94,6 @@ const autoNormalisePoints = (fromShape, toShape, map, order) => {
   }
 }
 
-const autoNormalise = (fromShape, toShape, map, order) => applyFuncToShapes(autoNormalisePoints, fromShape, toShape, map, order)
+const autoNormalise = (fromShape, toShape, param) => applyFuncToShapes(autoNormalisePoints, fromShape, toShape, param)
 
 export default autoNormalise
