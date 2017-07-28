@@ -4,7 +4,6 @@ import add from './add'
 import remove from './remove'
 import mapList from './mapList'
 import boundingBox from './boundingBox'
-import autoReverse from './autoReverse'
 
 const autoNormalisePoints = (fromShape, toShape, {map, order, bboxCenter} = {}) => {
   let fromShapeSubPathsCount = countSubPath(fromShape)

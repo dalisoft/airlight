@@ -4,15 +4,15 @@ import autoIndex from './autoIndex'
 import autoNormalise from './autoNormalise'
 
 const autoFixPoints = (fromShape, toShape, param = {}) => {
-  fromShape = autoReverse(fromShape, toShape);
+  fromShape = autoReverse(fromShape, toShape)
 
   param.map = (fromSubPath, toSubPath, index, diff) => {
-	fromSubPath = autoReverse(fromSubPath, toSubPath)
-	fromSubPath = autoIndex(fromSubPath, toSubPath, diff)
+    fromSubPath = autoReverse(fromSubPath, toSubPath)
+    fromSubPath = autoIndex(fromSubPath, toSubPath, diff)
     return [fromSubPath, toSubPath]
   }
   if (param.bboxCenter === undefined) {
-	param.bboxCenter = true;
+    param.bboxCenter = true
   }
 
   return autoNormalise(fromShape, toShape, param)

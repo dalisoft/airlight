@@ -6,9 +6,9 @@ const autoIndexPoints = (fromShape, toShape, i) => {
   let bestIndex = findNearestIndex(toShape, fromShape[0], true)
 
   if (bestIndex < 0 && i) {
-	bestIndex = -bestIndex
+    bestIndex = -bestIndex
   } else if (i < 0 && bestIndex > 0) {
-	bestIndex = findNearestIndex(toShape, fromShape[0], false)
+    bestIndex = findNearestIndex(toShape, fromShape[0], false)
   }
 
   if (bestIndex) {
