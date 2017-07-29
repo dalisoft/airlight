@@ -51,12 +51,12 @@ const autoNormalisePoints = (fromShape, toShape, {map, order, bboxCenter} = {}) 
         prev = toShapeSubPaths[i - 1]
         prev = prev[prev.length - 1]
         if (bboxCenter) {
-		near = boundingBox(fromSubPath).center
-		let findCloser = toShape[findNearestIndex(toShape, near)];
-		near = { x: findCloser.x, y: findCloser.y };
-		} else {
-		near = { x: prev.x, y: prev.y }
-		}
+          near = boundingBox(fromSubPath).center
+          let findCloser = toShape[findNearestIndex(toShape, near)]
+          near = { x: findCloser.x, y: findCloser.y }
+        } else {
+          near = { x: prev.x, y: prev.y }
+        }
         toSubPath = [{...near, moveTo: true}, near]
         fromSubPath.map((p, ii) => {
           if (toSubPath[ii] === undefined) {
@@ -68,12 +68,12 @@ const autoNormalisePoints = (fromShape, toShape, {map, order, bboxCenter} = {}) 
         prev = fromShapeSubPaths[i - 1]
         prev = prev[prev.length - 1]
         if (bboxCenter) {
-		near = boundingBox(toSubPath).center
-		let findCloser = fromShape[findNearestIndex(fromShape, near)];
-		near = { x: findCloser.x, y: findCloser.y };
-		} else {
-		near = { x: prev.x, y: prev.y }
-		}
+          near = boundingBox(toSubPath).center
+          let findCloser = fromShape[findNearestIndex(fromShape, near)]
+          near = { x: findCloser.x, y: findCloser.y }
+        } else {
+          near = { x: prev.x, y: prev.y }
+        }
         fromSubPath = [{...near, moveTo: true}, near]
         toSubPath.map((p, ii) => {
           if (fromSubPath[ii] === undefined) {
