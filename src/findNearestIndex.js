@@ -1,7 +1,7 @@
 import boundingBox from './boundingBox'
 import { applyFuncToShapes, distance } from './helpers'
 
-const findNearestIndexPoints = (points, p, box) => {
+const findNearestIndexPoints = (points, p, box = false) => {
   let min = Infinity
   let isBBoxUse = box !== false
   let bbox = isBBoxUse ? boundingBox(points).center : p

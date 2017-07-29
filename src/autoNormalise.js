@@ -4,6 +4,7 @@ import add from './add'
 import remove from './remove'
 import mapList from './mapList'
 import boundingBox from './boundingBox'
+import findNearestIndex from './findNearestIndex'
 
 const autoNormalisePoints = (fromShape, toShape, {map, order, bboxCenter} = {}) => {
   let fromShapeSubPathsCount = countSubPath(fromShape)
@@ -49,7 +50,13 @@ const autoNormalisePoints = (fromShape, toShape, {map, order, bboxCenter} = {}) 
         fromSubPath = remove(fromSubPath)
         prev = toShapeSubPaths[i - 1]
         prev = prev[prev.length - 1]
-        near = bboxCenter ? boundingBox(fromSubPath).center : { x: prev.x, y: prev.y }
+        if (bboxCenter) {
+		near = boundingBox(fromSubPath).center
+		let findCloser = toShape[findNearestIndex(toShape, near)];
+		near = { x: findCloser.x, y: findCloser.y };
+		} else {
+		near = { x: prev.x, y: prev.y }
+		}
         toSubPath = [{...near, moveTo: true}, near]
         fromSubPath.map((p, ii) => {
           if (toSubPath[ii] === undefined) {
@@ -60,7 +67,13 @@ const autoNormalisePoints = (fromShape, toShape, {map, order, bboxCenter} = {}) 
         toSubPath = remove(toSubPath)
         prev = fromShapeSubPaths[i - 1]
         prev = prev[prev.length - 1]
-        near = bboxCenter ? boundingBox(toSubPath).center : { x: prev.x, y: prev.y }
+        if (bboxCenter) {
+		near = boundingBox(toSubPath).center
+		let findCloser = fromShape[findNearestIndex(fromShape, near)];
+		near = { x: findCloser.x, y: findCloser.y };
+		} else {
+		near = { x: prev.x, y: prev.y }
+		}
         fromSubPath = [{...near, moveTo: true}, near]
         toSubPath.map((p, ii) => {
           if (fromSubPath[ii] === undefined) {
