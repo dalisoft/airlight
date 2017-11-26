@@ -15,12 +15,13 @@ const autoCurveSinglePoint = (fromShape, toShape) => {
       }
     }
   }
+  return fromShape
 }
 
 export const autoCurvePoint = (fromShape, toShape) => applyFuncToShapes(autoCurveSinglePoint, fromShape, toShape)
 
 const autoCurvePoints = (fromShape, toShape) => {
-  autoCurveSinglePoint(fromShape, toShape)
+  fromShape = autoCurveSinglePoint(fromShape, toShape)
   return fromShape
 }
 
