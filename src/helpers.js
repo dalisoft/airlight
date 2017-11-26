@@ -30,6 +30,8 @@ const distance = ({x, y}, {x: bx, y: by}) => {
   return Math.sqrt((x - bx) * (x - bx) + (y - by) * (y - by))
 }
 
+const sqrt = ({x, y}) => Math.sqrt(x * x + y * y)
+
 const splitSubPath = points => {
   return points.reduce((lines, point) => {
     if (point.moveTo) {
@@ -53,6 +55,7 @@ export {
   isShapeArray,
   numberAtInterval,
   distance,
+  sqrt,
   splitSubPath,
   joinSubPath,
   countSubPath

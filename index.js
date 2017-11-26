@@ -1,4 +1,4 @@
-import autoIndex, { findNearestIndex } from './src/autoIndex'
+import autoIndex from './src/autoIndex'
 import autoNormalise from './src/autoNormalise'
 import autoReverse from './src/autoReverse'
 import autoFix from './src/autoFix'
@@ -23,7 +23,6 @@ export {
   curvedPoints,
   calculatePoints,
   autoCurvePoint,
-  findNearestIndex,
   linearLength,
   boundingBox,
   cubify,

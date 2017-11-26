@@ -13,9 +13,9 @@ const findNearestIndexPoints = (points, p, box = false) => {
 
   let bestIndex = 0
 
-  points.map((point, i) => {
+  for (let i = 0, len = points.length; i < len; i++) {
     let sumOfSquares = 0
-    let dist = distance(point, bbox)
+    let dist = distance(points[i], bbox)
 
     sumOfSquares += dist * dist
 
@@ -23,9 +23,9 @@ const findNearestIndexPoints = (points, p, box = false) => {
       bestIndex = i
       min = sumOfSquares
     }
-  })
+  }
 
-  return bestIndex
+  return points[bestIndex]
 }
 
 const findNearestIndex = (points, p, box) => applyFuncToShapes(findNearestIndexPoints, points, p, box)

@@ -1,25 +1,33 @@
 import moveIndex from './moveIndex'
-import { applyFuncToShapes } from './helpers'
-import findNearestIndex from './findNearestIndex'
+import { applyFuncToShapes, distance } from './helpers'
 
-const autoIndexPoints = (fromShape, toShape, i) => {
-  let bestIndex = findNearestIndex(toShape, fromShape[0], true)
+function autoIndexPoints (ring, vs) {
+  let len = ring.length
+  let min = Infinity
+  let bestOffset
+  let sumOfSquares
+  let d
 
-  if (bestIndex < 0 && i) {
-    bestIndex = -bestIndex
-  } else if (i < 0 && bestIndex > 0) {
-    bestIndex = findNearestIndex(toShape, fromShape[0], false)
+  for (let offset = 0; offset < len; offset++) {
+    sumOfSquares = 0
+
+    for (let i = 0, len = vs.length; i < len; i++) {
+      d = distance(ring[(offset + i) % len], vs[i])
+      sumOfSquares += d * d
+    }
+
+    if (sumOfSquares < min) {
+      min = sumOfSquares
+      bestOffset = offset
+    }
   }
 
-  if (bestIndex) {
-    fromShape = moveIndex(fromShape, -bestIndex)
+  if (bestOffset) {
+    ring = moveIndex(ring, bestOffset)
   }
-
-  return fromShape
+  return ring
 }
 
 const autoIndex = (fromShape, toShape, i) => applyFuncToShapes(autoIndexPoints, fromShape, toShape, i)
-
-export { findNearestIndex }
 
 export default autoIndex

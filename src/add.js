@@ -1,5 +1,5 @@
 import cubify from './cubify'
-import { numberAtInterval } from './helpers'
+import { numberAtInterval, distance } from './helpers'
 
 const linearPoints = (from, to, t = 0.5) => [
   {
@@ -33,40 +33,45 @@ const points = (from, to, t = 0.5) => to.curve
   ? curvedPoints(from, to, t)
   : linearPoints(from, to, t)
 
-const addPoints = (shape, pointsRequired, maxStack) => {
-  if (isNaN(pointsRequired)) {
-    throw Error('`add` function must be passed a number as the second argument')
-  }
-
-  if (shape.length >= pointsRequired || maxStack <= 0) {
+let addPoints = (shape, pointsRequired) => {
+  if (shape.length >= pointsRequired) {
     return shape
   }
 
-  const nextShape = [ ...shape ]
+  let maxDist = 0
+  let maxDistIndex = 1
 
-  for (let i = 1; i < nextShape.length;) {
-    if (nextShape.length >= pointsRequired) {
-      return nextShape
+  if (shape.length === 1) {
+    const { x, y } = shape[0]
+    for (let i = 1, req = pointsRequired; i < req; i++) {
+      shape.push({x, y})
     }
+    return shape
+  }
 
-    const to = nextShape[ i ]
+  for (let i = 1, len = shape.length; i < len; i++) {
+    let point = shape[i]
+    let prevPoint = shape[i - 1]
 
-    if (to.moveTo) {
-      i++
+    if (point.moveTo) {
+      continue
     } else {
-      const from = nextShape[ i - 1 ]
-      const [ midPoint, replacementPoint ] = points(from, to)
-
-      nextShape.splice(i, 1, midPoint, replacementPoint)
-
-      i += 2
+      let dist = distance(prevPoint, point)
+      if (dist > maxDist) {
+        maxDist = dist
+        maxDistIndex = i
+      }
     }
   }
 
-  return addPoints(nextShape, pointsRequired, --maxStack)
+  const [ midPoint, replacementPoint ] = points(shape[maxDistIndex - 1], shape[maxDistIndex])
+
+  shape.splice(maxDistIndex, 1, midPoint, replacementPoint)
+
+  return addPoints(shape, pointsRequired)
 }
 
-const add = (shape, pointsRequired) => addPoints(cubify(shape), pointsRequired, 500)
+const add = (shape, pointsRequired) => addPoints(cubify(shape), pointsRequired)
 
 export { curvedPoints, points as calculatePoints }
 export default add

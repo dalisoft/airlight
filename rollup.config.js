@@ -23,10 +23,12 @@ if (BUILD === 'prod') {
 dest = dest + '.js'
 
 export default {
-  entry: 'index.js',
-  format: 'umd',
-  dest, // equivalent to --output
-  moduleName: 'PointsJS',
+  input: 'index.js',
+  output: {
+    format: 'umd',
+    file: dest // equivalent to --output
+  },
+  name: 'PointsJS',
   globals: {
     'points': 'Points'
   },

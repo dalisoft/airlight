@@ -9,7 +9,7 @@ const autoFixPoints = (fromShape, toShape, param = {}) => {
   param.map = (fromSubPath, toSubPath, index, diff) => {
     fromSubPath = autoReverse(fromSubPath, toSubPath)
     fromSubPath = autoIndex(fromSubPath, toSubPath, diff)
-    return [fromSubPath, toSubPath]
+    return fromSubPath
   }
   if (param.bboxCenter === undefined) {
     param.bboxCenter = true
