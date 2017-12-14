@@ -12,7 +12,7 @@ function autoIndexPoints (ring, vs) {
     sumOfSquares = 0
 
     for (let i = 0, len = vs.length; i < len; i++) {
-      d = distance(ring[(offset + i) % len], vs[i])
+      d = distance(ring[Math.min((offset + i) % len, ring.length - 1)], vs[i])
       sumOfSquares += d * d
     }
 
@@ -28,6 +28,6 @@ function autoIndexPoints (ring, vs) {
   return ring
 }
 
-const autoIndex = (fromShape, toShape, i) => applyFuncToShapes(autoIndexPoints, fromShape, toShape, i)
+const autoIndex = (fromShape, toShape) => applyFuncToShapes(autoIndexPoints, fromShape, toShape)
 
 export default autoIndex

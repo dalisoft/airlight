@@ -6,9 +6,9 @@ import autoNormalise from './autoNormalise'
 const autoFixPoints = (fromShape, toShape, param = {}) => {
   fromShape = autoReverse(fromShape, toShape)
 
-  param.map = (fromSubPath, toSubPath, index, diff) => {
+  param.map = (fromSubPath, toSubPath, index) => {
     fromSubPath = autoReverse(fromSubPath, toSubPath)
-    fromSubPath = autoIndex(fromSubPath, toSubPath, diff)
+    fromSubPath = autoIndex(fromSubPath, toSubPath)
     return fromSubPath
   }
   if (param.bboxCenter === undefined) {

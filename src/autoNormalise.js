@@ -9,6 +9,7 @@ import {
     autoCurvePoint
 } from './autoCurve'
 import add from './add'
+import cubify from './cubify'
 import remove from './remove'
 import mapList from './mapList'
 import boundingBox from './boundingBox'
@@ -51,7 +52,7 @@ const autoNormalisePoints = (fromShape, toShape, {
     let largestShapeSubPathsMap = fromShapeSubPaths.length > toShapeSubPaths.length ? fromShapeSubPaths
             : toShapeSubPaths
 
-        // Permutes between multi-path shapes
+    // Permutes between multi-path shapes
     if (fromShapeSubPaths.length > 1) {
       let i = 0
       let minDistance = Infinity
@@ -67,8 +68,8 @@ const autoNormalisePoints = (fromShape, toShape, {
               skipInfinity = true
             }
             if (skipInfinity && i !== i2) {
-              let spliced = fromShapeSubPaths.splice(i, 1)
-              fromShapeSubPaths.splice(i2, 0, spliced[0])
+              let spliced = fromShapeSubPaths.splice(i2, 1)
+              fromShapeSubPaths.splice(i, 0, spliced[0])
             }
             minDistance = currentDistance
           }
@@ -87,7 +88,7 @@ const autoNormalisePoints = (fromShape, toShape, {
       let y
 
       if (fromSubPath && !toSubPath) {
-        fromSubPath = remove(fromSubPath)
+        fromSubPath = cubify(remove(fromSubPath))
         if (bboxCenter) {
           let findCloser = findNearestIndex(toShape, boundingBox(fromSubPath)
                         .center)
@@ -116,7 +117,7 @@ const autoNormalisePoints = (fromShape, toShape, {
           }
         }
       } else if (toSubPath && !fromSubPath) {
-        toSubPath = remove(toSubPath)
+        toSubPath = cubify(remove(toSubPath))
         if (bboxCenter) {
           let findCloser = findNearestIndex(fromShape, boundingBox(toSubPath)
                         .center)
@@ -145,8 +146,8 @@ const autoNormalisePoints = (fromShape, toShape, {
           }
         }
       } else if (fromSubPath && toSubPath) {
-        fromSubPath = remove(fromSubPath)
-        toSubPath = remove(toSubPath)
+        fromSubPath = cubify(remove(fromSubPath))
+        toSubPath = cubify(remove(toSubPath))
         diff = toSubPath.length - fromSubPath.length
         if (diff > 0) {
           fromSubPath = add(fromSubPath, toSubPath.length)
