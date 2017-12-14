@@ -6,9 +6,8 @@ import arcToBezier from './arcToBezier'
 import { applyFuncToShapes } from './helpers'
 
 const cubifyShape = shape => {
-  const s = []
-
-  for (let i = 0, l = shape.length; i < l; i++) {
+  let i = 0
+  while (i < shape.length) {
     const point = shape[ i ]
 
     if (point.curve && point.curve.type !== 'cubic') {
@@ -28,8 +27,10 @@ const cubifyShape = shape => {
           sweepFlag: point.curve.sweepFlag
         })
 
-        curves.forEach(({ x1, y1, x2, y2, x, y }) => {
-          s.push({ x, y, curve: { type: 'cubic', x1, y1, x2, y2 } })
+        shape.splice(i, 1)
+
+        curves.forEach(({ x1, y1, x2, y2, x, y }, offset) => {
+          shape.splice(i + offset, 0, { x, y, curve: { type: 'cubic', x1, y1, x2, y2 } })
         })
       } else if (point.curve.type === 'quadratic') {
         const x1 = px + (2 / 3 * (point.curve.x1 - px))
@@ -37,14 +38,15 @@ const cubifyShape = shape => {
         const x2 = cx + (2 / 3 * (point.curve.x1 - cx))
         const y2 = cy + (2 / 3 * (point.curve.y1 - cy))
 
-        s.push({ x: cx, y: cy, curve: { type: 'cubic', x1, y1, x2, y2 } })
+        shape[i] = { x: cx, y: cy, curve: { type: 'cubic', x1, y1, x2, y2 } }
+        i++
       }
     } else {
-      s.push(point)
+      i++
     }
   }
 
-  return s
+  return shape
 }
 
 const cubify = s => applyFuncToShapes(cubifyShape, s)
