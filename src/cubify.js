@@ -41,6 +41,11 @@ const cubifyShape = shape => {
         shape[i] = { x: cx, y: cy, curve: { type: 'cubic', x1, y1, x2, y2 } }
         i++
       }
+    } else if (i > 0 && point.moveTo) {
+      if (shape[i - 1].moveTo) {
+        delete point.moveTo
+      }
+      i++
     } else {
       i++
     }
