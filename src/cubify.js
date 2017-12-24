@@ -27,10 +27,8 @@ const cubifyShape = shape => {
           sweepFlag: point.curve.sweepFlag
         })
 
-        shape.splice(i, 1)
-
-        curves.forEach(({ x1, y1, x2, y2, x, y }, offset) => {
-          shape.splice(i + offset, 0, { x, y, curve: { type: 'cubic', x1, y1, x2, y2 } })
+        curves.forEach((point, offset) => {
+          shape.splice(i + offset, offset === 0 ? 1 : 0, point)
         })
       } else if (point.curve.type === 'quadratic') {
         const x1 = px + (2 / 3 * (point.curve.x1 - px))
@@ -38,7 +36,14 @@ const cubifyShape = shape => {
         const x2 = cx + (2 / 3 * (point.curve.x1 - cx))
         const y2 = cy + (2 / 3 * (point.curve.y1 - cy))
 
-        shape[i] = { x: cx, y: cy, curve: { type: 'cubic', x1, y1, x2, y2 } }
+        const curve = point.curve
+
+        curve.type = 'cubic'
+        curve.x1 = x1
+        curve.y1 = y1
+        curve.x2 = x2
+        curve.y2 = y2
+
         i++
       }
     } else if (i > 0 && point.moveTo) {

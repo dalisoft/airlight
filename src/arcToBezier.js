@@ -190,7 +190,7 @@ const arcToBezier = ({
     const { x: x2, y: y2 } = mapToEllipse(curve[ 1 ], rx, ry, cosphi, sinphi, centerx, centery)
     const { x, y } = mapToEllipse(curve[ 2 ], rx, ry, cosphi, sinphi, centerx, centery)
 
-    return { x1, y1, x2, y2, x, y }
+    return { curve: { type: 'cubic', x1, y1, x2, y2 }, x, y }
   })
 }
 
