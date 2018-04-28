@@ -14,11 +14,14 @@ import remove from './remove'
 import mapList from './mapList'
 import boundingBox from './boundingBox'
 import findNearestIndex from './findNearestIndex'
+import approximateCurve from 'approximate-curve'
 
 const autoNormalisePoints = (fromShape, toShape, {
     map,
     order,
-    bboxCenter
+    bboxCenter,
+    approximate,
+    useAsArray
 } = {}) => {
   let fromShapeSubPathsCount = countSubPath(fromShape)
   let toShapeSubPathsCount = countSubPath(toShape)
@@ -163,6 +166,14 @@ const autoNormalisePoints = (fromShape, toShape, {
       fromSubPath = autoCurvePoint(fromSubPath, toSubPath)
       toSubPath = autoCurvePoint(toSubPath, fromSubPath)
 
+      if (approximate || (fromSubPath.length > 3 && toSubPath.length > 3)) {
+        fromSubPath = approximateCurve(fromSubPath)
+        toSubPath = approximateCurve(toSubPath)
+        if (useAsArray) {
+          fromSubPath = fromSubPath.map(p => [p.x, p.y])
+          toSubPath = toSubPath.map(p => [p.x, p.y])
+        }
+      }
       fromShapeSubPaths[i] = fromSubPath
       toShapeSubPaths[i] = toSubPath
     })

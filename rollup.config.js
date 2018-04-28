@@ -1,17 +1,28 @@
 import buble from 'rollup-plugin-buble'
 import uglify from 'rollup-plugin-uglify'
-import { minify } from 'uglify-js-harmony'
+import {
+  minify
+} from 'uglify-js-harmony'
+import resolve from 'rollup-plugin-node-resolve'
 
-const { BUILD } = process.env
-const pkg = require('./package.json')
-const external = Object.keys(pkg.dependencies)
+const {
+  BUILD
+} = process.env
+// const pkg = require('./package.json')
+// const external = Object.keys(pkg.dependencies)
 
-const plugins = [ buble({
+const plugins = [buble({
   objectAssign: 'Object.assign',
   transforms: {
     dangerousForOf: true
   }
-}) ]
+}),
+  resolve({
+    module: true,
+    main: true,
+    only: ['approximate-curve']
+  })
+]
 
 let dest = 'points'
 
@@ -30,8 +41,8 @@ export default {
   },
   name: 'PointsJS',
   globals: {
-    'points': 'Points'
+    'points': 'Points',
+    'approximate-curve': 'ApproximateCurve'
   },
-  plugins,
-  external
+  plugins
 }
