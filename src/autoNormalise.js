@@ -1,32 +1,43 @@
 import {
-    applyFuncToShapes,
-    countSubPath,
-    splitSubPath,
-    joinSubPath,
-    distance
+  applyFuncToShapes,
+  countSubPath,
+  splitSubPath,
+  joinSubPath,
+  distance
 } from './helpers'
 import {
-    autoCurvePoint
+  autoCurvePoint
 } from './autoCurve'
 import add from './add'
 import cubify from './cubify'
 import remove from './remove'
+import moveIndexFunc from './moveIndex'
+import reverseFunc from './reverse'
 import mapList from './mapList'
 import boundingBox from './boundingBox'
 import findNearestIndex from './findNearestIndex'
 import approximateCurve from 'approximate-curve'
 
 const autoNormalisePoints = (fromShape, toShape, {
-    map,
-    order,
-    bboxCenter,
-    approximate,
-    useAsArray
+  map,
+  order,
+  bboxCenter,
+  approximate,
+  useAsArray,
+  moveIndex,
+  reverse,
+  closerBound
 } = {}) => {
   let fromShapeSubPathsCount = countSubPath(fromShape)
   let toShapeSubPathsCount = countSubPath(toShape)
   if (fromShapeSubPathsCount === 1 && toShapeSubPathsCount === 1) {
     let diff = toShape.length - fromShape.length
+    if (typeof moveIndex === 'number' && moveIndex) {
+      fromShape = moveIndexFunc(fromShape, moveIndex)
+    }
+    if (reverse !== undefined) {
+      fromShape = reverseFunc(fromShape)
+    }
     if (diff > 0) {
       fromShape = add(fromShape, toShape.length)
     } else if (diff < 0) {
@@ -53,30 +64,32 @@ const autoNormalisePoints = (fromShape, toShape, {
       }
     }
     let largestShapeSubPathsMap = fromShapeSubPaths.length > toShapeSubPaths.length ? fromShapeSubPaths
-            : toShapeSubPaths
+      : toShapeSubPaths
 
     // Permutes between multi-path shapes
-    if (fromShapeSubPaths.length > 1) {
+    if (closerBound && fromShapeSubPaths.length > 1) {
       let i = 0
       let minDistance = Infinity
       let skipInfinity = false
       while (i < fromShapeSubPaths.length) {
-        let i2 = 0
-        while (i2 < toShapeSubPaths.length) {
-          let currentDistance = distance(boundingBox(fromShapeSubPaths[i])
-                        .center, boundingBox(toShapeSubPaths[i2])
-                        .center)
-          if (currentDistance < minDistance) {
-            if (!isFinite(minDistance)) {
-              skipInfinity = true
+        if (fromShapeSubPaths[i]) {
+          let i2 = 0
+          while (i2 < toShapeSubPaths.length) {
+            let currentDistance = distance(boundingBox(fromShapeSubPaths[i])
+              .center, boundingBox(toShapeSubPaths[i2])
+              .center)
+            if (currentDistance < minDistance) {
+              if (!isFinite(minDistance)) {
+                skipInfinity = true
+              }
+              if (skipInfinity && i !== i2 && fromShapeSubPaths[i2]) {
+                let spliced = fromShapeSubPaths.splice(i2, 1)
+                fromShapeSubPaths.splice(i, 0, spliced[0])
+              }
+              minDistance = currentDistance
             }
-            if (skipInfinity && i !== i2) {
-              let spliced = fromShapeSubPaths.splice(i2, 1)
-              fromShapeSubPaths.splice(i, 0, spliced[0])
-            }
-            minDistance = currentDistance
+            i2++
           }
-          i2++
         }
         i++
       }
@@ -91,10 +104,16 @@ const autoNormalisePoints = (fromShape, toShape, {
       let y
 
       if (fromSubPath && !toSubPath) {
+        if (typeof moveIndex === 'number' && moveIndex) {
+          fromSubPath = moveIndexFunc(fromSubPath, moveIndex)
+        }
+        if (reverse !== undefined) {
+          fromSubPath = reverseFunc(fromSubPath)
+        }
         fromSubPath = cubify(remove(fromSubPath))
         if (bboxCenter) {
           let findCloser = findNearestIndex(toShape, boundingBox(fromSubPath)
-                        .center)
+            .center)
           x = findCloser.x
           y = findCloser.y
         } else {
@@ -123,7 +142,7 @@ const autoNormalisePoints = (fromShape, toShape, {
         toSubPath = cubify(remove(toSubPath))
         if (bboxCenter) {
           let findCloser = findNearestIndex(fromShape, boundingBox(toSubPath)
-                        .center)
+            .center)
           x = findCloser.x
           y = findCloser.y
         } else {
@@ -149,6 +168,12 @@ const autoNormalisePoints = (fromShape, toShape, {
           }
         }
       } else if (fromSubPath && toSubPath) {
+        if (typeof moveIndex === 'number' && moveIndex) {
+          fromSubPath = moveIndexFunc(fromSubPath, moveIndex)
+        }
+        if (reverse !== undefined) {
+          fromSubPath = reverseFunc(fromSubPath)
+        }
         fromSubPath = cubify(remove(fromSubPath))
         toSubPath = cubify(remove(toSubPath))
         diff = toSubPath.length - fromSubPath.length
@@ -166,9 +191,9 @@ const autoNormalisePoints = (fromShape, toShape, {
       fromSubPath = autoCurvePoint(fromSubPath, toSubPath)
       toSubPath = autoCurvePoint(toSubPath, fromSubPath)
 
-      if (approximate || (fromSubPath.length > 3 && toSubPath.length > 3)) {
-        fromSubPath = approximateCurve(fromSubPath)
-        toSubPath = approximateCurve(toSubPath)
+      if (approximate) {
+        fromSubPath = remove(approximateCurve(fromSubPath))
+        toSubPath = remove(approximateCurve(toSubPath))
         if (useAsArray) {
           fromSubPath = fromSubPath.map(p => [p.x, p.y])
           toSubPath = toSubPath.map(p => [p.x, p.y])
@@ -178,7 +203,7 @@ const autoNormalisePoints = (fromShape, toShape, {
       toShapeSubPaths[i] = toSubPath
     })
 
-    return [joinSubPath(fromShapeSubPaths), joinSubPath(toShapeSubPaths)]
+    return [useAsArray ? fromShapeSubPaths : joinSubPath(fromShapeSubPaths), useAsArray ? toShapeSubPaths : joinSubPath(toShapeSubPaths)]
   }
 }
 
