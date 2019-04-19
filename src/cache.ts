@@ -133,7 +133,7 @@ class CacheTTL {
 
     this.cache.forEach((value: any, key: string) => {
       if (value.has('expiresIn')) {
-        const delta = Math.abs(value.get('expiresIn') - currentTime);
+        const delta: number = value.get('expiresIn') - currentTime;
         if (delta <= 100) {
           release(value);
           this.cache.delete(key);
@@ -143,7 +143,7 @@ class CacheTTL {
     this.fileCache &&
       this.fileCache.forEach((key: string, value: FilePoolObject) => {
         if (value.expiresIn !== undefined) {
-          const delta = Math.abs(value.expiresIn - currentTime);
+          const delta: number = value.expiresIn - currentTime;
           if (delta <= 100) {
             release(value as any);
             this.fileCache.delete(key);
