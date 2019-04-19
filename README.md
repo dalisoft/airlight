@@ -1,21 +1,40 @@
 # CacheTTL
 
-In memory cache with TTL for Node.js and browser
+In-memory and File-based cache with TTL for Node.js and browser
 
 ## Features
 
 - Fast
+- No duplication
 - Almost zero-config
 - Flexible
 - Memory-effecient
 - Promise support
 - Async/Await support
 - On browsers works too
+- Types declaration for IDE/Editor
+- File-based mode (only for Node.js)
+
+## Import
+
+```js
+// ES6
+import CacheTTL from "@dalisoft/cache-ttl";
+
+// or
+
+// CommonJS
+const { CacheTTL } = require("@dalisoft/cache-ttl");
+
+// or
+
+const CacheTTL = window.CacheTTL;
+```
 
 ## Example
 
 ```js
-const cache = new CacheTTL(1000 /* in ms */);
+const cache = new CacheTTL(1000 /* in ms */, saveAsFile?: boolean);
 
 cache.set('my-cache', () => 'i am live here around 1 sec'); // Returns String
 

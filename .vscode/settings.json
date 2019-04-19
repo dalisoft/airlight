@@ -1,0 +1,6 @@
+{
+  "eslint.enable": false,
+  "files.associations": {
+    "*.ts": "typescript"
+  }
+}

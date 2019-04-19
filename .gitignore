@@ -61,4 +61,5 @@ typings/
 .next
 
 # misc
-js
+dist
+.rpt2_cache

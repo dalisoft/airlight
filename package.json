@@ -1,11 +1,15 @@
 {
   "name": "@dalisoft/cache-ttl",
-  "version": "0.1.0",
-  "description": "In memory cache with TTL for Node.js and browser",
-  "main": "js/cache.js",
-  "types": "js/cache.d.ts",
+  "private": false,
+  "version": "0.1.18",
+  "description": "In-memory and File-based cache with TTL for Node.js and browser",
+  "types": "dist/es/cache.d.ts",
+  "module": "dist/es/cache-ttl.js",
+  "main": "dist/cjs/cache-ttl.js",
+  "cdn": "dist/umd/cache-ttl.min.js",
+  "browser": "dist/umd/cache-ttl.js",
   "scripts": {
-    "prepublish": "tsc"
+    "prepublishOnly": "rm -rf dist && npx tsc && npx rollup -c && npm run minify"
   },
   "repository": {
     "type": "git",
@@ -27,6 +31,16 @@
   "author": "dalisoft",
   "license": "MIT",
   "devDependencies": {
-    "typescript": "^3.4.3"
+    "ava": "^1.4.1",
+    "rollup": "^1.10.1",
+    "rollup-plugin-delete": "^0.2.2",
+    "rollup-plugin-terser": "^4.0.4",
+    "rollup-plugin-typescript2": "^0.20.1",
+    "terser": "^3.17.0",
+    "tslint": "^5.16.0",
+    "tslint-config-airbnb": "^5.11.1"
+  },
+  "dependencies": {
+    "typescript": "^3.4.4"
   }
 }
