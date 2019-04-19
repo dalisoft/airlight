@@ -1,5 +1,7 @@
 # CacheTTL
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/dalisoft/cache-ttl.svg)](https://greenkeeper.io/)
+
 In-memory and File-based cache with TTL for Node.js and browser
 
 ## Features
