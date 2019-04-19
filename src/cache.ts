@@ -26,7 +26,7 @@ class CacheTTL {
     this.cache = create();
     this.saveAsFile = saveAsFile && isServer;
 
-    if (isServer) {
+    if (this.saveAsFile) {
       this.fileCache = new Cache(randomDir);
     }
 
@@ -102,7 +102,10 @@ class CacheTTL {
     return value;
   }
   public has = (key: string): boolean => {
-    return this.cache.has(key) || (this.fileCache && this.fileCache.has(key));
+    return (
+      this.cache.has(key) ||
+      ((this.fileCache && this.fileCache.has(key)) || false)
+    );
   }
   public get = (key: string): any => {
     return (

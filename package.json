@@ -9,7 +9,8 @@
   "cdn": "dist/umd/cache-ttl.min.js",
   "browser": "dist/umd/cache-ttl.js",
   "scripts": {
-    "prepublishOnly": "rm -rf dist && npx tsc && npx rollup -c && npm run minify"
+    "prepublishOnly": "rm -rf dist && npx tsc && npx rollup -c && npm run minify && npm run test",
+    "test": "npx ava --verbose"
   },
   "repository": {
     "type": "git",

@@ -121,7 +121,7 @@ test("Cache TTL - In-memory/Temporarily mode", async t => {
 test("Cache TTL - Persistent File-caching mode", async t => {
   t.timeout(10000);
 
-  const cache = new CacheTTL(5000, true, true);
+  const cache = new CacheTTL(5000, true);
 
   cache.set("key-a", () => "value-1");
   cache.set("key-b", "value-b", 2000);
@@ -142,6 +142,11 @@ test("Cache TTL - Persistent File-caching mode", async t => {
     "value-live-long",
     "Value without expiration not works properly"
   );
+  /* t.is(
+    cache.get("async-key-1"),
+    "async-value-1",
+    "Async value not works properly"
+  ); */
   t.log("Cache saved successfully and storing correctly");
 
   await timeout(2000);
