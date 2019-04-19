@@ -12,6 +12,27 @@ test("Cache TTL - In-memory/Temporarily mode", async t => {
   cache.set("key-a", () => "value-1");
   cache.set("key-b", "value-b", 2000);
   cache.set("key-c", "value-live-long", -1);
+  await cache.set("async-key-1", async () => {
+    await timeout(250);
+    return "async-value-1";
+  });
+  await cache.set("async-promise-key-1", async () => {
+    await timeout(250);
+    return new Promise(resolve => resolve("async-promise-value-1"));
+  });
+  await cache.set("promise-async-key-1", () => {
+    return new Promise(async resolve => {
+      await timeout(250);
+      resolve("promise-async-value-1");
+    });
+  });
+  await cache.set("promise-promise-key-1", () => {
+    return new Promise(async resolve => {
+      return timeout(250)
+        .then(() => "promise-promise-value-1")
+        .then(resolve);
+    });
+  });
 
   t.is(
     cache.get("key-a"),
@@ -28,9 +49,29 @@ test("Cache TTL - In-memory/Temporarily mode", async t => {
     "value-live-long",
     "Value without expiration not works properly"
   );
+  t.is(
+    cache.get("async-key-1"),
+    "async-value-1",
+    "Async value not works properly"
+  );
+  t.is(
+    cache.get("async-promise-key-1"),
+    "async-promise-value-1",
+    "Async -> Promise value not works properly"
+  );
+  t.is(
+    cache.get("promise-async-key-1"),
+    "promise-async-value-1",
+    "Promise -> Async value not works properly"
+  );
+  t.is(
+    cache.get("promise-promise-key-1"),
+    "promise-promise-value-1",
+    "Promise -> Promise value not works properly"
+  );
   t.log("Cache saved successfully and storing correctly");
 
-  await timeout(2000);
+  await timeout(1000);
 
   t.is(
     cache.has("key-a"),
@@ -126,6 +167,27 @@ test("Cache TTL - Persistent File-caching mode", async t => {
   cache.set("key-a", () => "value-1");
   cache.set("key-b", "value-b", 2000);
   cache.set("key-c", "value-live-long", -1);
+  await cache.set("async-key-1", async () => {
+    await timeout(250);
+    return "async-value-1";
+  });
+  await cache.set("async-promise-key-1", async () => {
+    await timeout(250);
+    return new Promise(resolve => resolve("async-promise-value-1"));
+  });
+  await cache.set("promise-async-key-1", () => {
+    return new Promise(async resolve => {
+      await timeout(250);
+      resolve("promise-async-value-1");
+    });
+  });
+  await cache.set("promise-promise-key-1", () => {
+    return new Promise(async resolve => {
+      return timeout(250)
+        .then(() => "promise-promise-value-1")
+        .then(resolve);
+    });
+  });
 
   t.is(
     cache.get("key-a"),
@@ -142,14 +204,29 @@ test("Cache TTL - Persistent File-caching mode", async t => {
     "value-live-long",
     "Value without expiration not works properly"
   );
-  /* t.is(
+  t.is(
     cache.get("async-key-1"),
     "async-value-1",
     "Async value not works properly"
-  ); */
+  );
+  t.is(
+    cache.get("async-promise-key-1"),
+    "async-promise-value-1",
+    "Async -> Promise value not works properly"
+  );
+  t.is(
+    cache.get("promise-async-key-1"),
+    "promise-async-value-1",
+    "Promise -> Async value not works properly"
+  );
+  t.is(
+    cache.get("promise-promise-key-1"),
+    "promise-promise-value-1",
+    "Promise -> Promise value not works properly"
+  );
   t.log("Cache saved successfully and storing correctly");
 
-  await timeout(2000);
+  await timeout(1000);
 
   t.is(
     cache.has("key-a"),

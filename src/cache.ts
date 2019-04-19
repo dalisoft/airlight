@@ -62,11 +62,11 @@ class CacheTTL {
             ttl && ttl < 0 ? undefined : time + ttlTime;
 
           if (saveAsFile) {
-            this.fileCache.set(key, { value, expiresIn });
+            this.fileCache.set(key, { expiresIn, value: val });
           } else {
             const cache = create() as PoolObject;
             expiresIn && cache.set('expiresIn', expiresIn);
-            cache.set('value', value);
+            cache.set('value', val);
             this.cache.set(key, cache);
           }
           return val;
