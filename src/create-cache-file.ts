@@ -32,7 +32,7 @@ class FSCache {
       this.fs.mkdirSync(this.dir);
     }
 
-    this.addedCacheKeys = [];
+    this.addedCacheKeys = this.fs.readdirSync(this.dir, 'utf8') || [];
 
     return this;
   }

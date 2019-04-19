@@ -59,13 +59,15 @@ class CacheTTL {
               ? ttl
               : this.ttl;
           const expiresIn: number | void =
-            ttl && ttl < 0 ? undefined : time + ttlTime;
+            ttl && ttl === -1 ? undefined : time + ttlTime;
 
           if (saveAsFile) {
             this.fileCache.set(key, { expiresIn, value: val });
           } else {
             const cache = create() as PoolObject;
-            expiresIn && cache.set('expiresIn', expiresIn);
+            if (expiresIn && expiresIn !== -1) {
+              cache.set('expiresIn', expiresIn);
+            }
             cache.set('value', val);
             this.cache.set(key, cache);
           }
@@ -88,13 +90,15 @@ class CacheTTL {
         ? ttl
         : this.ttl;
     const expiresIn: number | void =
-      ttl && ttl < 0 ? undefined : time + ttlTime;
+      ttl && ttl === -1 ? undefined : time + ttlTime;
 
     if (saveAsFile) {
       this.fileCache.set(key, { value, expiresIn });
     } else {
       const cache = create() as PoolObject;
-      expiresIn && cache.set('expiresIn', expiresIn);
+      if (expiresIn && expiresIn !== -1) {
+        cache.set('expiresIn', expiresIn);
+      }
       cache.set('value', value);
       this.cache.set(key, cache);
     }

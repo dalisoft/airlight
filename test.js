@@ -12,6 +12,7 @@ test("Cache TTL - In-memory/Temporarily mode", async t => {
   cache.set("key-a", () => "value-1");
   cache.set("key-b", "value-b", 2000);
   cache.set("key-c", "value-live-long", -1);
+  cache.set("key-d", "some-old-value", -3000);
   await cache.set("async-key-1", async () => {
     await timeout(250);
     return "async-value-1";
@@ -48,6 +49,11 @@ test("Cache TTL - In-memory/Temporarily mode", async t => {
     cache.get("key-c"),
     "value-live-long",
     "Value without expiration not works properly"
+  );
+  t.not(
+    cache.get("key-d"),
+    "some-old-value",
+    "Primitive value with long expire delta passed .set method not works properly"
   );
   t.is(
     cache.get("async-key-1"),
