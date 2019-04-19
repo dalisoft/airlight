@@ -10,7 +10,7 @@
   "browser": "dist/umd/cache-ttl.js",
   "scripts": {
     "prepublishOnly": "npx rollup -c && npx ava",
-    "test": "npx ava --verbose"
+    "test": "npx rollup -c && npx ava --verbose && rm -rf dist"
   },
   "repository": {
     "type": "git",
