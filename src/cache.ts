@@ -47,9 +47,25 @@ class CacheTTL {
     ) {
       value = value();
     }
+    if (value === undefined || value === null) {
+      if (isServer) {
+        if (process.env.NODE_ENV === 'development') {
+          console.log('Invalid value passed', { key, value });
+        }
+      }
+      return value;
+    }
     if (typeof value.then !== 'undefined') {
       return value.then(
         (val: any): Fn => {
+          if (val === undefined || val === null) {
+            if (isServer) {
+              if (process.env.NODE_ENV === 'development') {
+                console.log('Invalid value passed', { key, val });
+              }
+            }
+            return val;
+          }
           if (typeof val === 'function' || val.then) {
             return this.set(key, val, ttl, saveAsFile);
           }
