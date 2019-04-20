@@ -10,12 +10,18 @@ const pools: any[] = [];
 
 class FSCache {
   public addedCacheKeys?: string[];
-  private rnd: string;
+  private rnd: string | null;
   private dir: string;
   private fs?: any;
 
   constructor(randomDir?: boolean) {
-    this.rnd = Math.floor(Math.random() * 10000000).toString(36);
+    this.rnd =
+      randomDir === true
+        ? Math.floor(Math.random() * 10000000).toString(36)
+        : typeof randomDir === 'string'
+        ? randomDir
+        : null;
+
     this.dir = randomDir
       ? `/tmp/dalisoft-cache-ttl--${this.rnd}/`
       : '/tmp/dalisoft-cache-ttl/';

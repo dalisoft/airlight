@@ -38,6 +38,9 @@ class CacheTTL {
     ttl?: number,
     saveAsFile = this.saveAsFile,
   ): any => {
+    if (ttl && ttl < -1) {
+      return value;
+    }
     if (
       typeof value === 'function' &&
       value.constructor.name === 'AsyncFunction'
@@ -138,7 +141,7 @@ class CacheTTL {
     this.cache.forEach((value: any, key: string) => {
       if (value.has('expiresIn')) {
         const delta: number = value.get('expiresIn') - currentTime;
-        if (delta <= 100) {
+        if (delta <= 500) {
           release(value);
           this.cache.delete(key);
         }
@@ -148,7 +151,7 @@ class CacheTTL {
       this.fileCache.forEach((key: string, value: FilePoolObject) => {
         if (value.expiresIn !== undefined) {
           const delta: number = value.expiresIn - currentTime;
-          if (delta <= 100) {
+          if (delta <= 500) {
             release(value as any);
             this.fileCache.delete(key);
           }
@@ -156,7 +159,7 @@ class CacheTTL {
       });
   }
   public initTimer = (): any => {
-    return setInterval(this.onTimerUpdate, 100);
+    return setInterval(this.onTimerUpdate, 500);
   }
   public destroy = (): void => {
     clearInterval(this.timerId);
