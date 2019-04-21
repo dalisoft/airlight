@@ -6,8 +6,6 @@ const isFSUnavailabe =
   typeof require === 'undefined' ||
   typeof process === 'undefined';
 
-const pools: any[] = [];
-
 class FSCache {
   public addedCacheKeys?: string[];
   private rnd: string | null;
@@ -48,9 +46,6 @@ class FSCache {
     }
     const value: any = JSON.parse(this.fs.readFileSync(this.dir + key, 'utf8'));
 
-    if (typeof value === 'object' && !Array.isArray(value)) {
-      pools.push(value);
-    }
     return value;
   }
   public set = (key: string, value: any): any => {
@@ -118,4 +113,4 @@ class FSCache {
   }
 }
 
-export { FSCache as Cache, pools };
+export { FSCache as Cache };

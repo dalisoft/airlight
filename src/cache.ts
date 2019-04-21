@@ -1,4 +1,4 @@
-import { Cache, pools } from './create-cache-file';
+import { Cache } from './create-cache-file';
 import { create, PoolObject, release } from './pool';
 
 type Fn = Promise<any> | Function | any;
@@ -146,7 +146,6 @@ class CacheTTL {
       release(this.cache.get(key));
       this.cache.delete(key);
     } else if (this.fileCache && this.fileCache.has(key)) {
-      release(this.fileCache.get(key));
       this.fileCache.delete(key);
     }
   }
@@ -168,7 +167,6 @@ class CacheTTL {
         if (value.expiresIn !== undefined) {
           const delta: number = value.expiresIn - currentTime;
           if (delta <= 500) {
-            release(value as any);
             this.fileCache.delete(key);
           }
         }
@@ -180,11 +178,9 @@ class CacheTTL {
   public destroy = (): void => {
     clearInterval(this.timerId);
 
-    pools && pools.forEach(release);
     Object.keys(this.cache).forEach(key => this.delete(key));
     release(this.cache);
 
-    pools && (pools.length = 0);
     this.fileCache && this.fileCache.destroy();
   }
 }
