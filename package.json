@@ -37,7 +37,6 @@
     "rollup-plugin-delete": "^0.2.2",
     "rollup-plugin-terser": "^4.0.4",
     "rollup-plugin-typescript2": "^0.20.1",
-    "terser": "^3.17.0",
     "tslint": "^5.16.0",
     "tslint-config-airbnb": "^5.11.1",
     "typescript": "^3.4.4"
