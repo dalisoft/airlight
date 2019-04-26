@@ -1,4 +1,5 @@
-import { Cache } from './create-cache-file';
+import { Cache as FileCache } from './create-cache-file';
+import { Cache as CustomCache } from './create-cache-custom';
 import { create, PoolObject, release } from './pool';
 
 type Fn = Promise<any> | Function | any;
@@ -19,15 +20,19 @@ class CacheTTL {
   private ttl: number;
   private cache: PoolObject;
   private fileCache?: any;
-  private saveAsFile: boolean;
+  private saveAsFile: string | boolean | undefined;
   private timerId: any;
-  constructor(ttl: number = 1000, saveAsFile = false, randomDir = false) {
+  constructor(ttl: number = 1000, saveAsFile?: string | boolean, config?: any) {
     this.ttl = ttl;
     this.cache = create();
-    this.saveAsFile = saveAsFile && isServer;
+    this.saveAsFile = isServer && saveAsFile;
 
     if (this.saveAsFile) {
-      this.fileCache = new Cache(randomDir);
+      if (saveAsFile === true) {
+        this.fileCache = new FileCache(config);
+      } else if (saveAsFile === 'custom') {
+        this.fileCache = new CustomCache(config);
+      }
     }
 
     this.timerId = this.initTimer();
@@ -41,11 +46,12 @@ class CacheTTL {
     if (ttl && ttl < -1) {
       return value;
     }
+
     if (
       typeof value === 'function' &&
       value.constructor.name === 'AsyncFunction'
     ) {
-      value = value();
+      value = value(key, value);
     }
     if (value === undefined || value === null) {
       if (isServer) {
@@ -55,6 +61,7 @@ class CacheTTL {
       }
       return value;
     }
+
     if (typeof value.then !== 'undefined') {
       return value.then(
         (val: any): Fn => {
@@ -66,6 +73,7 @@ class CacheTTL {
             }
             return val;
           }
+
           if (typeof val === 'function' || val.then) {
             return this.set(key, val, ttl, saveAsFile);
           }
@@ -81,7 +89,11 @@ class CacheTTL {
             ttl && ttl === -1 ? undefined : time + ttlTime;
 
           if (saveAsFile) {
-            this.fileCache.set(key, { expiresIn, value: val });
+            const set = this.fileCache.set(key, { expiresIn, value: val });
+
+            if (set && set.then) {
+              return set.then(() => val);
+            }
           } else {
             const cache = create() as PoolObject;
             if (expiresIn && expiresIn !== -1) {
@@ -95,7 +107,7 @@ class CacheTTL {
       );
     }
     if (typeof value === 'function') {
-      value = value();
+      value = value(key, value);
     }
     if (typeof value === 'function' || value.then) {
       return this.set(key, value, ttl, saveAsFile);
@@ -112,7 +124,11 @@ class CacheTTL {
       ttl && ttl === -1 ? undefined : time + ttlTime;
 
     if (saveAsFile) {
-      this.fileCache.set(key, { value, expiresIn });
+      const set = this.fileCache.set(key, { value, expiresIn });
+
+      if (set && set.then) {
+        return set.then(() => value);
+      }
     } else {
       const cache = create() as PoolObject;
       if (expiresIn && expiresIn !== -1) {
@@ -125,32 +141,61 @@ class CacheTTL {
     return value;
   }
   public has = (key: string): boolean => {
-    return (
-      this.cache.has(key) ||
-      ((this.fileCache && this.fileCache.has(key)) || false)
-    );
+    if (this.cache.has(key)) {
+      return this.cache.has(key);
+    } else if (this.fileCache) {
+      const has = this.fileCache.has(key);
+
+      if (has && has.then) {
+        return has.then((val: any): boolean => val);
+      }
+      return has;
+    }
+    return false;
   }
   public get = (key: string): any => {
-    return (
-      (this.cache.get(key) && this.cache.get(key).get('value')) ||
-      (this.fileCache &&
-        this.fileCache.get(key) &&
-        this.fileCache.get(key).value)
-    );
+    if (this.cache.get(key)) {
+      return this.cache.get(key).get('value');
+    } else if (this.fileCache) {
+      let get = this.fileCache.get(key);
+
+      if (typeof get === 'function') {
+        get = get(key);
+      }
+
+      if (get && get.then) {
+        return get.then((val: any) =>
+          val !== undefined ? val.value : undefined,
+        );
+      }
+      return get ? get.value : undefined;
+    }
   }
   public getOrSet = (key: string, callback: Fn, ttl?: number): any => {
-    return this.get(key) || this.set(key, callback, ttl);
+    const get = this.get(key);
+
+    if (get) {
+      if (typeof get.then === 'function') {
+        return get.then(
+          (val: any): any =>
+            val === undefined ? this.set(key, callback, ttl) : val,
+        );
+      }
+      return get;
+    }
+
+    return this.set(key, callback, ttl);
   }
   public delete = (key: string): void => {
     if (this.cache.has(key)) {
       release(this.cache.get(key));
       this.cache.delete(key);
     } else if (this.fileCache && this.fileCache.has(key)) {
-      this.fileCache.delete(key);
+      return this.fileCache.delete(key);
     }
   }
 
-  public onTimerUpdate = (): void => {
+  public onTimerUpdate = async (): Promise<any> => {
     const currentTime: number = Date.now();
 
     this.cache.forEach((value: any, key: string) => {
@@ -163,14 +208,14 @@ class CacheTTL {
       }
     });
     this.fileCache &&
-      this.fileCache.forEach((key: string, value: FilePoolObject) => {
+      (await this.fileCache.forEach((key: string, value: FilePoolObject) => {
         if (value.expiresIn !== undefined) {
           const delta: number = value.expiresIn - currentTime;
           if (delta <= 500) {
             this.fileCache.delete(key);
           }
         }
-      });
+      }));
   }
   public initTimer = (): any => {
     return setInterval(this.onTimerUpdate, 500);

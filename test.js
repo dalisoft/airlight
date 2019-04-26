@@ -408,3 +408,445 @@ test("Cache TTL - Persistent File-caching mode", async t => {
 
   t.pass("Cache destroy was done without errors");
 });
+
+test("Cache TTL - Custom cache (with Promise) mode", async t => {
+  t.timeout(10000);
+
+  let _map = new Map();
+  const cache = new CacheTTL(5000, "custom", {
+    async getTransform(key) {
+      return _map.get(key);
+    },
+    async hasTransform(key) {
+      return _map.has(key);
+    },
+    async setTransform(key, value) {
+      _map.set(key, value);
+    },
+    async deleteTransform(key) {
+      _map.delete(key);
+    }
+  });
+
+  cache.set("key-a", () => "value-1");
+  cache.set("key-b", "value-b", 2000);
+  cache.set("key-c", "value-live-long", -1);
+  cache.set("key-d", "some-old-value", -3000);
+  const asyncKey1 = await cache.set("async-key-1", async () => {
+    await timeout(200);
+    return "async-value-1";
+  });
+  const asyncPromiseKey1 = await cache.set("async-promise-key-1", async () => {
+    await timeout(200);
+    return new Promise(resolve => resolve("async-promise-value-1"));
+  });
+  const promiseAsyncKey1 = await cache.set("promise-async-key-1", () => {
+    return new Promise(async resolve => {
+      await timeout(200);
+      resolve("promise-async-value-1");
+    });
+  });
+  const promisePromiseKey1 = await cache.set("promise-promise-key-1", () => {
+    return new Promise(async resolve => {
+      return timeout(200)
+        .then(() => "promise-promise-value-1")
+        .then(resolve);
+    });
+  });
+
+  const getOrSetFn1 = async () => {
+    await timeout(200);
+    return "async-get-or-set-value-1";
+  };
+  const getOrSetAsync = await cache.getOrSet(
+    "async-get-or-set-key-1",
+    getOrSetFn1,
+    1000
+  );
+
+  t.is(
+    await cache.get("key-a"),
+    "value-1",
+    "Function value passed .set method not works properly"
+  );
+  t.is(
+    await cache.get("key-b"),
+    "value-b",
+    "Primitive value passed .set method not works properly"
+  );
+  t.is(
+    await cache.get("key-c"),
+    "value-live-long",
+    "Value without expiration not works properly"
+  );
+  t.not(
+    await cache.get("key-d"),
+    "some-old-value",
+    "Primitive value with long expire delta passed .set method not works properly"
+  );
+  t.is(asyncKey1, "async-value-1", "Async value not works properly");
+  t.is(
+    asyncPromiseKey1,
+    "async-promise-value-1",
+    "Async -> Promise value not works properly"
+  );
+  t.is(
+    promiseAsyncKey1,
+    "promise-async-value-1",
+    "Promise -> Async value not works properly"
+  );
+  t.is(
+    promisePromiseKey1,
+    "promise-promise-value-1",
+    "Promise -> Promise value not works properly"
+  );
+  t.is(
+    getOrSetAsync,
+    "async-get-or-set-value-1",
+    "Async -> GetOrSet works properly"
+  );
+  t.log("Cache saved successfully and storing correctly");
+
+  await timeout(1000);
+
+  t.is(
+    await cache.has("key-a"),
+    true,
+    "Function value passed .set method not works properly after 2s"
+  );
+
+  t.is(
+    await cache.has("key-b"),
+    false,
+    "Primitive value passed .set method not works properly after 2s"
+  );
+  t.is(
+    await cache.has("key-c"),
+    true,
+    "Value without expiration not works properly after 2s"
+  );
+  t.is(
+    await cache.get("async-key-1"),
+    "async-value-1",
+    "Async value not works properly after 2s"
+  );
+  t.is(
+    await cache.get("async-promise-key-1"),
+    "async-promise-value-1",
+    "Async -> Promise value not works properly after 2s"
+  );
+  t.is(
+    await cache.get("promise-async-key-1"),
+    "promise-async-value-1",
+    "Promise -> Async value not works properly after 2s"
+  );
+  t.is(
+    await cache.get("promise-promise-key-1"),
+    "promise-promise-value-1",
+    "Promise -> Promise value not works properly after 2s"
+  );
+  t.is(
+    await cache.getOrSet("async-get-or-set-key-1", getOrSetFn1, 500),
+    "async-get-or-set-value-1",
+    "Async -> GetOrSet works properly"
+  );
+
+  await timeout(500);
+
+  await cache
+    .getOrSet("async-get-or-set-key-1", getOrSetFn1, 1000)
+    .then(() => t.pass("Duplicate call of getOrSet should not throw"));
+  t.log("Cache saving after 2s works properly");
+
+  await timeout(1500);
+
+  t.is(
+    await cache.has("key-a"),
+    true,
+    "Function value passed .set method not works properly after 4s"
+  );
+  t.is(
+    await cache.has("key-b"),
+    false,
+    "Primitive value passed .set method not works properly after 4s"
+  );
+  t.is(
+    await cache.has("key-c"),
+    true,
+    "Value without expiration not works properly after 4s"
+  );
+  t.log("Cache saving after 4s works properly");
+
+  await timeout(1000);
+
+  t.is(
+    await cache.has("key-a"),
+    false,
+    "Function value passed .set method not works properly after 5s"
+  );
+  t.is(
+    await cache.has("key-b"),
+    false,
+    "Primitive value passed .set method not works properly after 5s"
+  );
+  t.is(
+    await cache.has("key-c"),
+    true,
+    "Value without expiration not works properly after 5s"
+  );
+  t.log("Cache saving after 5s works properly");
+
+  await timeout(1000);
+
+  t.is(
+    await cache.has("key-a"),
+    false,
+    "Function value passed .set method not works properly after 6s"
+  );
+  t.is(
+    await cache.has("key-b"),
+    false,
+    "Primitive value passed .set method not works properly after 6s"
+  );
+  t.is(
+    await cache.has("key-c"),
+    true,
+    "Value without expiration not works properly after 6s"
+  );
+  t.log("Cache saving after 6s works properly");
+
+  await cache.delete("key-c");
+
+  t.is(
+    await cache.has("key-c"),
+    false,
+    "Deleting cache item not works properly"
+  );
+
+  t.log("Cache deleting works properly");
+
+  cache.destroy();
+
+  t.pass("Cache destroy was done without errors");
+});
+
+test("Cache TTL - Custom cache (without Promise) mode", async t => {
+  t.timeout(10000);
+
+  let _map = new Map();
+  const cache = new CacheTTL(5000, "custom", {
+    getTransform(key) {
+      return _map.get(key);
+    },
+    hasTransform(key) {
+      return _map.has(key);
+    },
+    setTransform(key, value) {
+      _map.set(key, value);
+    },
+    deleteTransform(key) {
+      _map.delete(key);
+    }
+  });
+
+  cache.set("key-a", () => "value-1");
+  cache.set("key-b", "value-b", 2000);
+  cache.set("key-c", "value-live-long", -1);
+  cache.set("key-d", "some-old-value", -3000);
+  const asyncKey1 = await cache.set("async-key-1", async () => {
+    await timeout(200);
+    return "async-value-1";
+  });
+  const asyncPromiseKey1 = await cache.set("async-promise-key-1", async () => {
+    await timeout(200);
+    return new Promise(resolve => resolve("async-promise-value-1"));
+  });
+  const promiseAsyncKey1 = await cache.set("promise-async-key-1", () => {
+    return new Promise(async resolve => {
+      await timeout(200);
+      resolve("promise-async-value-1");
+    });
+  });
+  const promisePromiseKey1 = await cache.set("promise-promise-key-1", () => {
+    return new Promise(async resolve => {
+      return timeout(200)
+        .then(() => "promise-promise-value-1")
+        .then(resolve);
+    });
+  });
+
+  const getOrSetFn1 = async () => {
+    await timeout(200);
+    return "async-get-or-set-value-1";
+  };
+  const getOrSetAsync = await cache.getOrSet(
+    "async-get-or-set-key-1",
+    getOrSetFn1,
+    1000
+  );
+
+  t.is(
+    await cache.get("key-a"),
+    "value-1",
+    "Function value passed .set method not works properly"
+  );
+  t.is(
+    await cache.get("key-b"),
+    "value-b",
+    "Primitive value passed .set method not works properly"
+  );
+  t.is(
+    await cache.get("key-c"),
+    "value-live-long",
+    "Value without expiration not works properly"
+  );
+  t.not(
+    await cache.get("key-d"),
+    "some-old-value",
+    "Primitive value with long expire delta passed .set method not works properly"
+  );
+  t.is(asyncKey1, "async-value-1", "Async value not works properly");
+  t.is(
+    asyncPromiseKey1,
+    "async-promise-value-1",
+    "Async -> Promise value not works properly"
+  );
+  t.is(
+    promiseAsyncKey1,
+    "promise-async-value-1",
+    "Promise -> Async value not works properly"
+  );
+  t.is(
+    promisePromiseKey1,
+    "promise-promise-value-1",
+    "Promise -> Promise value not works properly"
+  );
+  t.is(
+    getOrSetAsync,
+    "async-get-or-set-value-1",
+    "Async -> GetOrSet works properly"
+  );
+  t.log("Cache saved successfully and storing correctly");
+
+  await timeout(1000);
+
+  t.is(
+    await cache.has("key-a"),
+    true,
+    "Function value passed .set method not works properly after 2s"
+  );
+
+  t.is(
+    await cache.has("key-b"),
+    false,
+    "Primitive value passed .set method not works properly after 2s"
+  );
+  t.is(
+    await cache.has("key-c"),
+    true,
+    "Value without expiration not works properly after 2s"
+  );
+  t.is(
+    await cache.get("async-key-1"),
+    "async-value-1",
+    "Async value not works properly after 2s"
+  );
+  t.is(
+    await cache.get("async-promise-key-1"),
+    "async-promise-value-1",
+    "Async -> Promise value not works properly after 2s"
+  );
+  t.is(
+    await cache.get("promise-async-key-1"),
+    "promise-async-value-1",
+    "Promise -> Async value not works properly after 2s"
+  );
+  t.is(
+    await cache.get("promise-promise-key-1"),
+    "promise-promise-value-1",
+    "Promise -> Promise value not works properly after 2s"
+  );
+  t.is(
+    await cache.getOrSet("async-get-or-set-key-1", getOrSetFn1, 500),
+    "async-get-or-set-value-1",
+    "Async -> GetOrSet works properly"
+  );
+
+  await timeout(500);
+
+  await cache
+    .getOrSet("async-get-or-set-key-1", getOrSetFn1, 1000)
+    .then(() => t.pass("Duplicate call of getOrSet should not throw"));
+  t.log("Cache saving after 2s works properly");
+
+  await timeout(1500);
+
+  t.is(
+    await cache.has("key-a"),
+    true,
+    "Function value passed .set method not works properly after 4s"
+  );
+  t.is(
+    await cache.has("key-b"),
+    false,
+    "Primitive value passed .set method not works properly after 4s"
+  );
+  t.is(
+    await cache.has("key-c"),
+    true,
+    "Value without expiration not works properly after 4s"
+  );
+  t.log("Cache saving after 4s works properly");
+
+  await timeout(1000);
+
+  t.is(
+    await cache.has("key-a"),
+    false,
+    "Function value passed .set method not works properly after 5s"
+  );
+  t.is(
+    await cache.has("key-b"),
+    false,
+    "Primitive value passed .set method not works properly after 5s"
+  );
+  t.is(
+    await cache.has("key-c"),
+    true,
+    "Value without expiration not works properly after 5s"
+  );
+  t.log("Cache saving after 5s works properly");
+
+  await timeout(1000);
+
+  t.is(
+    await cache.has("key-a"),
+    false,
+    "Function value passed .set method not works properly after 6s"
+  );
+  t.is(
+    await cache.has("key-b"),
+    false,
+    "Primitive value passed .set method not works properly after 6s"
+  );
+  t.is(
+    await cache.has("key-c"),
+    true,
+    "Value without expiration not works properly after 6s"
+  );
+  t.log("Cache saving after 6s works properly");
+
+  await cache.delete("key-c");
+
+  t.is(
+    await cache.has("key-c"),
+    false,
+    "Deleting cache item not works properly"
+  );
+
+  t.log("Cache deleting works properly");
+
+  cache.destroy();
+
+  t.pass("Cache destroy was done without errors");
+});

@@ -16,6 +16,7 @@ In-memory and File-based cache with TTL for Node.js and browser
 - On browsers works too
 - Types declaration for IDE/Editor
 - File-based mode (only for Node.js)
+- Custom user mode defining
 
 ## Import
 
@@ -43,6 +44,31 @@ cache.set('my-cache', () => 'i am live here around 1 sec'); // Returns String
 cache.set('my-response', async () => await axios({...})); // it's too lives here around 1 sec, returns Promise
 ```
 
+or you can see how to define your own caching method (you can use Redis, MongoDB or everywhere). Async/Promise also support out-of-box
+
+```ts
+let _map = new Map();
+const cache = new CacheTTL(5000, "custom", {
+  getTransform(key: string): any {
+    return _map.get(key);
+  },
+  hasTransform(key: string): boolean {
+    return _map.has(key);
+  },
+  setTransform(key: string, value: any): void {
+    _map.set(key, value);
+  },
+  deleteTransform(key: string): void {
+    _map.delete(key);
+  }
+});
+```
+
+For more info see tests.
+About invalidation, expire time and other things the core takes care of this, you shouldn't worry for these.
+
+**Note**: For security reason, for custom and FS modes, functions and symbols are not supported. PR's are welcome to fix this.
+
 ## Methods
 
 ### `.get(key: string): CacheItem`
@@ -65,7 +91,7 @@ Get if there a valid value or creates a new one
 
 Removes the cache
 
-### `.destroy`
+### `.destroy()`
 
 Destroys cache instance
 
