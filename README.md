@@ -61,7 +61,7 @@ Decodes value of signed (+ maybe secured) token without needing verifying signat
 
 Generates token and returns `accessToken` and `refreshToken`
 
-### `refreshToken({ accessToken, publicKey, salt refreshToken, privateKey,}: OKS)`
+### `#refreshToken({ accessToken, publicKey, salt refreshToken, privateKey,}: OKS)`
 
 Generates new token by refreshing token and returns `accessToken` and `refreshToken`
 
