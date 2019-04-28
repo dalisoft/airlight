@@ -41,8 +41,5 @@
     "tslint-config-airbnb": "^5.11.1",
     "typescript": "^3.4.4"
   },
-  "peerDependencies": {
-    "ioredis": "^4.9.0"
-  },
   "dependencies": {}
 }
