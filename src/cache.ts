@@ -22,6 +22,7 @@ class CacheTTL {
   private fileCache?: any;
   private saveAsFile: string | boolean | undefined;
   private timerId: any;
+  private checkInterval: number = 500;
   constructor(ttl: number = 1000, saveAsFile?: string | boolean, config?: any) {
     this.ttl = ttl;
     this.cache = create();
@@ -171,6 +172,30 @@ class CacheTTL {
       return get ? get.value : undefined;
     }
   }
+  public expire = (key: string, ttl: number): any => {
+    const time: number = Date.now();
+    const expiresIn: number = time + ttl;
+
+    if (this.cache.has(key) && expiresIn) {
+      return this.cache.get(key).set('expiresIn', expiresIn);
+    } else if (this.fileCache && this.fileCache.has(key)) {
+      const get = this.fileCache.get(key);
+
+      if (get && get.then) {
+        return get.then((val: any) => {
+          val.expiresIn = expiresIn;
+          return this.fileCache.set(key, val);
+        });
+      }
+
+      get.expiresIn = expiresIn;
+      if (this.saveAsFile === true) {
+        this.fileCache.delete(key);
+      }
+      return this.fileCache.set(key, get);
+    }
+    return null;
+  }
   public getOrSet = (key: string, callback: Fn, ttl?: number): any => {
     const get = this.get(key);
 
@@ -194,6 +219,11 @@ class CacheTTL {
       return this.fileCache.delete(key);
     }
   }
+  public clear = (): this => {
+    this.cache.clear();
+    this.fileCache && this.fileCache.clear();
+    return this;
+  }
 
   public onTimerUpdate = async (): Promise<any> => {
     const currentTime: number = Date.now();
@@ -201,7 +231,7 @@ class CacheTTL {
     this.cache.forEach((value: any, key: string) => {
       if (value.has('expiresIn')) {
         const delta: number = value.get('expiresIn') - currentTime;
-        if (delta <= 500) {
+        if (delta <= this.checkInterval) {
           release(value);
           this.cache.delete(key);
         }
@@ -211,22 +241,28 @@ class CacheTTL {
       (await this.fileCache.forEach((key: string, value: FilePoolObject) => {
         if (value.expiresIn !== undefined) {
           const delta: number = value.expiresIn - currentTime;
-          if (delta <= 500) {
+          if (delta <= this.checkInterval) {
             this.fileCache.delete(key);
           }
         }
       }));
   }
   public initTimer = (): any => {
-    return setInterval(this.onTimerUpdate, 500);
+    return setInterval(this.onTimerUpdate, this.checkInterval);
   }
-  public destroy = (): void => {
+  public setCheckInterval = (interval: number): any => {
+    clearInterval(this.timerId);
+    this.checkInterval = interval;
+    this.timerId = this.initTimer();
+    return this;
+  }
+  public destroy = (): any => {
     clearInterval(this.timerId);
 
     Object.keys(this.cache).forEach(key => this.delete(key));
     release(this.cache);
 
-    this.fileCache && this.fileCache.destroy();
+    return this.fileCache && this.fileCache.destroy();
   }
 }
 

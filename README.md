@@ -83,6 +83,10 @@ Returns the value still valid or removed/expired?!
 
 Creates new value for specified key and returns value
 
+### `.expire(key: string, ttl?: number)`
+
+Sets new expire for specified key and returns value
+
 ### `.getOrSet(key: string, value: Function | AsyncFunction | Promise): value`
 
 Get if there a valid value or creates a new one
@@ -90,6 +94,10 @@ Get if there a valid value or creates a new one
 ### `.delete(key: string)`
 
 Removes the cache
+
+### `.clear()`
+
+Clear cache instance to be empty
 
 ### `.destroy()`
 

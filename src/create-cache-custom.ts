@@ -10,6 +10,7 @@ interface Config {
   hasTransform: Function;
   setTransform: Function;
   deleteTransform: Function;
+  destroy?: Function;
 }
 
 const isNonServerEnv =
@@ -135,12 +136,22 @@ class CustomCache {
         (await this.get(key)) && fn(key, await this.get(key)),
     );
   }
-  public destroy = (): any => {
+  public clear = (): any => {
     if (isNonServerEnv && this.config.onlyServer) {
       return this;
     }
     if (this.addedCacheKeys) {
       this.addedCacheKeys.forEach(key => this.delete(key));
+    }
+    return this;
+  }
+  public destroy = (): any => {
+    if (isNonServerEnv && this.config.onlyServer) {
+      return this;
+    }
+    this.clear();
+    if (this.config.destroy) {
+      return this.config.destroy();
     }
     return this;
   }

@@ -102,12 +102,23 @@ class FSCache {
       (key: string): string => this.get(key) && fn(key, this.get(key)),
     );
   }
-  public destroy = (): any => {
+  public clear = (): any => {
     if (isFSUnavailabe) {
       return this;
     }
     if (this.addedCacheKeys) {
       this.addedCacheKeys.forEach(key => this.delete(key));
+      this.addedCacheKeys.length = 0;
+    }
+    return this;
+  }
+  public destroy = (): any => {
+    if (isFSUnavailabe) {
+      return this;
+    }
+    this.clear();
+    if (this.fs.existsSync(this.dir)) {
+      this.fs.rmdirSync(this.dir);
     }
     return this;
   }
