@@ -15,7 +15,7 @@ const isServer =
   typeof window === 'undefined' &&
   process.env;
 
-class CacheTTL {
+export default class CacheTTL {
   [x: string]: any;
   private ttl: number;
   private cache: PoolObject;
@@ -265,8 +265,3 @@ class CacheTTL {
     return this.fileCache && this.fileCache.destroy();
   }
 }
-
-if (typeof process !== 'undefined' && typeof module !== 'undefined') {
-  module.exports = CacheTTL;
-}
-export default CacheTTL;
