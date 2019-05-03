@@ -56,7 +56,6 @@ export default [
       format: "umd",
       name: "CacheTTL",
       file: "./dist/umd/cache-ttl.min.js",
-      exports: "named",
       esModule: true
     },
     plugins: [
