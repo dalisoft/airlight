@@ -266,4 +266,7 @@ class CacheTTL {
   }
 }
 
-export { CacheTTL, CacheTTL as default };
+if (typeof process !== 'undefined' && typeof module !== 'undefined') {
+  module.exports = CacheTTL;
+}
+export default CacheTTL;

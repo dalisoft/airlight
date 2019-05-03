@@ -27,7 +27,7 @@ import CacheTTL from "@dalisoft/cache-ttl";
 // or
 
 // CommonJS
-const { CacheTTL } = require("@dalisoft/cache-ttl");
+const CacheTTL = require("@dalisoft/cache-ttl");
 
 // or
 
