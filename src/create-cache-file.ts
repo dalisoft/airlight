@@ -40,7 +40,7 @@ class FSCache {
 
     return this;
   }
-  public get = (key: string): any => {
+  public get(key: string): any {
     if (isFSUnavailabe || !this.has(key)) {
       return null;
     }
@@ -48,7 +48,7 @@ class FSCache {
 
     return value;
   }
-  public set = (key: string, value: any): any => {
+  public set(key: string, value: any): any {
     if (isFSUnavailabe) {
       console.error(
         'The FileCache is available only for server-side File System!',
@@ -63,13 +63,13 @@ class FSCache {
     }
     return this.fs.writeFileSync(this.dir + key, JSON.stringify(value));
   }
-  public has = (key: string): boolean => {
+  public has(key: string): boolean {
     if (isFSUnavailabe) {
       return false;
     }
     return this.fs.existsSync(this.dir + key);
   }
-  public delete = (key: string): any => {
+  public delete(key: string): any {
     if (isFSUnavailabe) {
       return this;
     }
@@ -80,13 +80,13 @@ class FSCache {
     }
     return this.fs.unlinkSync(this.dir + key);
   }
-  public keys = (): string[] => {
+  public keys(): string[] {
     if (isFSUnavailabe || !this.addedCacheKeys) {
       return [];
     }
     return this.addedCacheKeys.slice(0);
   }
-  public values = (): any[] => {
+  public values(): any[] {
     if (isFSUnavailabe || !this.addedCacheKeys) {
       return [];
     }
@@ -94,7 +94,7 @@ class FSCache {
       .map((key: string): string => this.get(key))
       .map((val: any): any => JSON.parse(val));
   }
-  public forEach = (fn: Function): any => {
+  public forEach(fn: Function): any {
     if (isFSUnavailabe || !this.addedCacheKeys) {
       return this;
     }
@@ -102,7 +102,7 @@ class FSCache {
       (key: string): string => this.get(key) && fn(key, this.get(key)),
     );
   }
-  public clear = (): any => {
+  public clear(): any {
     if (isFSUnavailabe) {
       return this;
     }
@@ -112,7 +112,7 @@ class FSCache {
     }
     return this;
   }
-  public destroy = (): any => {
+  public destroy(): any {
     if (isFSUnavailabe) {
       return this;
     }

@@ -38,12 +38,12 @@ class CacheTTL {
 
     this.timerId = this.initTimer();
   }
-  public set = (
+  public set(
     key: string,
     value: Fn,
     ttl?: number,
     saveAsFile = this.saveAsFile,
-  ): any => {
+  ): any {
     if (ttl && ttl < -1) {
       return value;
     }
@@ -141,7 +141,7 @@ class CacheTTL {
 
     return value;
   }
-  public has = (key: string): boolean => {
+  public has(key: string): boolean {
     if (this.cache.has(key)) {
       return this.cache.has(key);
     } else if (this.fileCache) {
@@ -154,7 +154,7 @@ class CacheTTL {
     }
     return false;
   }
-  public get = (key: string): any => {
+  public get(key: string): any {
     if (this.cache.get(key)) {
       return this.cache.get(key).get('value');
     } else if (this.fileCache) {
@@ -172,7 +172,7 @@ class CacheTTL {
       return get ? get.value : undefined;
     }
   }
-  public expire = (key: string, ttl: number): any => {
+  public expire(key: string, ttl: number): any {
     const time: number = Date.now();
     const expiresIn: number = time + ttl;
 
@@ -196,7 +196,7 @@ class CacheTTL {
     }
     return null;
   }
-  public getOrSet = (key: string, callback: Fn, ttl?: number): any => {
+  public getOrSet(key: string, callback: Fn, ttl?: number): any {
     const get = this.get(key);
 
     if (get) {
@@ -211,7 +211,7 @@ class CacheTTL {
 
     return this.set(key, callback, ttl);
   }
-  public delete = (key: string): void => {
+  public delete(key: string): void {
     if (this.cache.has(key)) {
       release(this.cache.get(key));
       this.cache.delete(key);
@@ -219,13 +219,13 @@ class CacheTTL {
       return this.fileCache.delete(key);
     }
   }
-  public clear = (): this => {
+  public clear(): this {
     this.cache.clear();
     this.fileCache && this.fileCache.clear();
     return this;
   }
 
-  public onTimerUpdate = async (): Promise<any> => {
+  public async onTimerUpdate(): Promise<any> {
     const currentTime: number = Date.now();
 
     this.cache.forEach((value: any, key: string) => {
@@ -247,16 +247,16 @@ class CacheTTL {
         }
       }));
   }
-  public initTimer = (): any => {
-    return setInterval(this.onTimerUpdate, this.checkInterval);
+  public initTimer(): any {
+    return setInterval(this.onTimerUpdate.bind(this), this.checkInterval);
   }
-  public setCheckInterval = (interval: number): any => {
+  public setCheckInterval(interval: number): any {
     clearInterval(this.timerId);
     this.checkInterval = interval;
     this.timerId = this.initTimer();
     return this;
   }
-  public destroy = (): any => {
+  public destroy(): any {
     clearInterval(this.timerId);
 
     Object.keys(this.cache).forEach(key => this.delete(key));

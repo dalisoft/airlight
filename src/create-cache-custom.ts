@@ -39,7 +39,7 @@ class CustomCache {
 
     return this;
   }
-  public get = (key: string): any => {
+  public get(key: string): any {
     if ((isNonServerEnv && this.config.onlyServer) || !this.has(key)) {
       return null;
     }
@@ -57,7 +57,7 @@ class CustomCache {
 
     return value;
   }
-  public set = (key: string, value: any): any => {
+  public set(key: string, value: any): any {
     if (isNonServerEnv && this.config.onlyServer) {
       console.error(
         'The CustomCache is available only for server-side Node.js!',
@@ -82,7 +82,7 @@ class CustomCache {
       this.config.jsonEnforce ? JSON.stringify(value) : value,
     );
   }
-  public has = (key: string): boolean => {
+  public has(key: string): boolean {
     if (isNonServerEnv && this.config.onlyServer) {
       return false;
     }
@@ -95,7 +95,7 @@ class CustomCache {
     }
     return this.config.hasTransform(key);
   }
-  public delete = (key: string): any => {
+  public delete(key: string): any {
     if (isNonServerEnv && this.config.onlyServer) {
       return this;
     }
@@ -113,13 +113,13 @@ class CustomCache {
     }
     return this.config.deleteTransform(key);
   }
-  public keys = (): string[] => {
+  public keys(): string[] {
     if ((isNonServerEnv && this.config.onlyServer) || !this.addedCacheKeys) {
       return [];
     }
     return this.addedCacheKeys.slice(0);
   }
-  public values = (): any[] => {
+  public values(): any[] {
     if ((isNonServerEnv && this.config.onlyServer) || !this.addedCacheKeys) {
       return [];
     }
@@ -127,7 +127,7 @@ class CustomCache {
       .map((key: string): string => this.get(key))
       .map((val: any): any => JSON.parse(val));
   }
-  public forEach = (fn: Function): any => {
+  public forEach(fn: Function): any {
     if ((isNonServerEnv && this.config.onlyServer) || !this.addedCacheKeys) {
       return this;
     }
@@ -136,7 +136,7 @@ class CustomCache {
         (await this.get(key)) && fn(key, await this.get(key)),
     );
   }
-  public clear = (): any => {
+  public clear(): any {
     if (isNonServerEnv && this.config.onlyServer) {
       return this;
     }
@@ -145,7 +145,7 @@ class CustomCache {
     }
     return this;
   }
-  public destroy = (): any => {
+  public destroy(): any {
     if (isNonServerEnv && this.config.onlyServer) {
       return this;
     }
