@@ -197,4 +197,4 @@ class AsBatch {
   }
 }
 
-export { AsBatch as default, AsBatch as asBatch };
+export default AsBatch;

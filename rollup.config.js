@@ -31,14 +31,12 @@ export default [
         format: "umd",
         name: "asBatch",
         file: "./dist/umd/as-batch.js",
-        exports: "named",
         esModule: true
       },
       {
         format: "cjs",
         file: "./dist/cjs/as-batch.js",
-        esModule: false,
-        exports: "named"
+        esModule: false
       }
     ],
     plugins: [
@@ -58,7 +56,6 @@ export default [
       format: "umd",
       name: "asBatch",
       file: "./dist/umd/as-batch.min.js",
-      exports: "named",
       esModule: true
     },
     plugins: [

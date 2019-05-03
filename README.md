@@ -23,7 +23,7 @@ import asBatch from "@dalisoft/as-batch";
 // or
 
 // CommonJS
-const { asBatch } = require("@dalisoft/as-batch");
+const asBatch = require("@dalisoft/as-batch");
 
 // or
 

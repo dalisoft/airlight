@@ -1,5 +1,5 @@
 import test from "ava";
-const { asBatch } = require("./dist/cjs/as-batch");
+const asBatch = require("./dist/cjs/as-batch");
 
 const timeout = ms => new Promise(resolve => setTimeout(resolve, ms));
 
