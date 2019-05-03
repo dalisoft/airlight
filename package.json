@@ -1,13 +1,13 @@
 {
   "name": "@dalisoft/cache-ttl",
   "private": false,
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "In-memory and File-based cache with TTL for Node.js and browser",
   "types": "dist/es/cache.d.ts",
   "module": "dist/es/cache-ttl.js",
   "main": "dist/cjs/cache-ttl.js",
   "cdn": "dist/umd/cache-ttl.min.js",
-  "browser": "dist/umd/cache-ttl.js",
+  "browser": "dist/umd/cache-ttl.min.js",
   "scripts": {
     "prepublishOnly": "npx rollup -c && npx ava",
     "test": "npx rollup -c && npx ava --verbose && rm -rf dist"
