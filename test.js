@@ -154,7 +154,7 @@ test("Method [Register]: Basic test with {#FetchRegistered} method", async t => 
 
   calling.register(() => `photos { id }`);
 
-  await timeout(200);
+  await timeout(50);
 
   const { posts, users, photos } = await calling.fetchRegistered();
 

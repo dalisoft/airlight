@@ -20,11 +20,11 @@ class AsBatch {
     this.transform = options.transform || ((arr: any[]) => arr.join('\n'));
 
     this.onRegisterTimeout = options.onRegisterTimeout;
-    this.onRegisterTimeoutDelay = options.onRegisterTimeoutDelay || 500;
+    this.onRegisterTimeoutDelay = options.onRegisterTimeoutDelay || 100;
     this.onRegisterTimeoutId = null;
 
     this.onCallsTimeout = options.onCallsTimeout;
-    this.onCallsTimeoutDelay = options.onCallsTimeoutDelay || 500;
+    this.onCallsTimeoutDelay = options.onCallsTimeoutDelay || 100;
     this.onCallsTimeoutId = null;
   }
   register(
@@ -92,9 +92,10 @@ class AsBatch {
         .then(resolveFn as any)
         .then(
           (res: any): any => {
-            setTimeout(() => {
+            const tm = setTimeout(() => {
+              clearTimeout(tm);
               this.timeoutResponse = null;
-            },         200);
+            },                    100);
             return res;
           },
         );
@@ -167,9 +168,10 @@ class AsBatch {
       })
         .then(resolveFn as any)
         .then((res: any) => {
-          setTimeout(() => {
+          const tm = setTimeout(() => {
+            clearTimeout(tm);
             this.timeoutResponseOfCall = null;
-          },         200);
+          },                    100);
           return res;
         });
     }
