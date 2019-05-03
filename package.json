@@ -1,13 +1,13 @@
 {
   "name": "@dalisoft/as-batch",
   "private": false,
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Convert many calls to batches",
   "types": "dist/es/as-batch.d.ts",
   "module": "dist/es/as-batch.js",
   "main": "dist/cjs/as-batch.js",
   "cdn": "dist/umd/as-batch.min.js",
-  "browser": "dist/umd/as-batch.js",
+  "browser": "dist/umd/as-batch.min.js",
   "scripts": {
     "prepublishOnly": "npx rollup -c && npx ava",
     "test": "npx rollup -c && npx ava --verbose && rm -rf dist"
