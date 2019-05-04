@@ -9,7 +9,7 @@
     this.args = factory();
   }
 })(function() {
-  const normalizeArg = type => {
+  function normalizeArg(type) {
     if (typeof type !== "string") {
       return type;
     }
@@ -23,7 +23,7 @@
       return type;
     }
     return +type;
-  };
+  }
 
   return function(fn, args) {
     const argsLen = args.length;
@@ -87,13 +87,6 @@
         arg11
       );
     } else {
-      if (typeof console !== "undefined") {
-        console.warn(
-          "Args [Function]: ",
-          "We using fn.apply(context, args) for more than 5 arguments, ",
-          "so performance may not be best"
-        );
-      }
       return fn.apply(null, [].slice.call(args));
     }
   };

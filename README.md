@@ -12,7 +12,7 @@ A performant argument pass library
 
 ## Installation
 
-We recomment install via `npm` because of it's cache and flat node modules tree
+We recommend install via `npm` because of it's cache and flat node modules tree
 
 ```bash
 npm i @dalisoft/args
