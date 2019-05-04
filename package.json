@@ -1,6 +1,6 @@
 {
   "name": "@dalisoft/ws-events-sync",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Event sync between server and client in Websocket",
   "main": "ws-events-sync.js",
   "cdn": "ws-events-sync.min.js",
@@ -29,7 +29,9 @@
   "homepage": "https://github.com/dalisoft/ws-events-sync#readme",
   "devDependencies": {
     "ava": "^1.4.1",
-    "terser": "^3.17.0"
+    "nodemon": "^1.19.0",
+    "terser": "^3.17.0",
+    "ws": "^7.0.0"
   },
   "dependencies": {
     "@dalisoft/events": "0.0.4"

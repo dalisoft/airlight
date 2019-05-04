@@ -1,6 +1,6 @@
 # ws-events-sync
 
-**Under development and in alpha release, please don't use this in production**
+## Under development and in alpha release, please don't use this in production
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/dalisoft/ws-events-sync.svg)](https://greenkeeper.io/)
 

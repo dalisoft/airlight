@@ -74,9 +74,13 @@
         });
 
       this.ws.on("message", e => {
-        if (typeof e === "string" && e.includes("event;")) {
-          const [, ev, ...arg] = e.split(";");
-          return this.emit(ev, ...arg);
+        if (typeof e === "string") {
+          if (e.includes("event;")) {
+            const [, ev, ...arg] = e.split(";");
+            return this.emit(ev, ...arg);
+          } else {
+            return this.emit("message", e);
+          }
         }
         let parseJSON;
         try {
@@ -108,8 +112,8 @@
           }
         }
       });
-      this.ws.on("disconnected", e => {
-        this.emit("disconnected", e);
+      this.ws.on("close", e => {
+        this.emit("close", e);
       });
       return this;
     }
@@ -165,7 +169,7 @@
     }
     emit(name, ...args) {
       if (
-        name === "disconnected" ||
+        name === "close" ||
         name === "message" ||
         name === "connection" ||
         this.___events[name]
@@ -174,7 +178,9 @@
       } else {
         this.send(
           "event;" +
-            (args && args.length > 0 ? [name, ...args].join(";") : name)
+            (args && args.length > 0
+              ? [name, ...args.map(JSON.stringify)].join(";")
+              : name)
         );
       }
       return this;
@@ -197,9 +203,16 @@
         });
 
       this.ws.onmessage = e => {
-        if (typeof e === "string" && e.includes("event;")) {
-          const [, ev, ...arg] = e.split(";");
-          return this.emit(ev, ...arg);
+        if (typeof e !== "string") {
+          e = e.data;
+        }
+        if (typeof e === "string") {
+          if (e.includes("event;")) {
+            const [, ev, ...arg] = e.split(";");
+            return this.emit(ev, ...arg);
+          } else {
+            return this.emit("message", e);
+          }
         }
         let parseJSON;
         try {
@@ -231,6 +244,9 @@
           }
         }
       };
+      this.ws.onerror = e => {
+        this.emit("error", e);
+      };
       this.ws.onclose = e => {
         this.emit("close", e);
       };
@@ -253,6 +269,7 @@
     emit(name, ...args) {
       if (
         name === "close" ||
+        name === "error" ||
         name === "message" ||
         name === "open" ||
         this.___events[name]
@@ -261,7 +278,9 @@
       } else {
         this.send(
           "event;" +
-            (args && args.length > 0 ? [name, ...args].join(";") : name)
+            (args && args.length > 0
+              ? [name, ...args.map(JSON.stringify)].join(";")
+              : name)
         );
       }
       return this;
