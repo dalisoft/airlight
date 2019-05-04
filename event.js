@@ -23,13 +23,6 @@
     on(name, callback) {
       const { ___events } = this;
 
-      let _args;
-      if (name.indexOf(":") !== -1) {
-        _args = name.split(":");
-        name = _args.shift();
-
-        callback = args(callback.bind, _args);
-      }
       if (___events[name] === undefined) {
         ___events[name] = [];
       }
@@ -41,13 +34,6 @@
     once(name, callback) {
       const { ___events } = this;
 
-      let _args;
-      if (name.indexOf(":") !== -1) {
-        _args = name.split(":");
-        name = _args.shift();
-
-        callback = args(callback.bind, _args);
-      }
       if (___events[name] === undefined) {
         ___events[name] = [];
       }
@@ -68,10 +54,6 @@
       if (name !== undefined) {
         const { ___events } = this;
 
-        if (name.indexOf(":") !== -1) {
-          name = name.split(":").shift();
-        }
-
         if (___events[name] === undefined) {
           return this;
         }
@@ -88,15 +70,10 @@
       }
       return this;
     }
-    emit(name, ...argsOfFn) {
+    emit() {
       const { ___events } = this;
-
-      let _args;
-      if (name.indexOf(":") !== -1) {
-        _args = name.split(":");
-        name = _args.shift();
-        argsOfFn = _args.concat(argsOfFn);
-      }
+      const argsOfFn = [].slice.call(arguments);
+      const name = argsOfFn.shift();
 
       if (___events[name] === undefined) {
         return this;
@@ -108,6 +85,15 @@
         return this;
       } else if (__event.length === 1) {
         args(__event[0], argsOfFn);
+        return this;
+      } else if (__event.length === 2) {
+        args(__event[0], argsOfFn);
+        args(__event[1], argsOfFn);
+        return this;
+      } else if (__event.length === 3) {
+        args(__event[0], argsOfFn);
+        args(__event[1], argsOfFn);
+        args(__event[2], argsOfFn);
         return this;
       }
 
