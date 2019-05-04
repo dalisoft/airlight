@@ -1,0 +1,33 @@
+{
+  "name": "@dalisoft/events",
+  "version": "0.0.1",
+  "description": "One more events emitter for Node.js and browser",
+  "main": "event.js",
+  "cdn": "event.min.js",
+  "browser": "event.min.js",
+  "scripts": {
+    "minify": "npx terser args.js -c -m -o event.min.js --source-map \"filename='event.min.js.map'\"",
+    "prepublishOnly": "npm run minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dalisoft/event.git"
+  },
+  "keywords": [
+    "event",
+    "emit",
+    "performant"
+  ],
+  "author": "dalisoft",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dalisoft/event/issues"
+  },
+  "homepage": "https://github.com/dalisoft/event#readme",
+  "devDependencies": {
+    "terser": "^3.17.0"
+  },
+  "dependencies": {
+    "@dalisoft/args": "0.0.3"
+  }
+}
