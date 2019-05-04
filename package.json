@@ -1,0 +1,24 @@
+{
+  "name": "@dalisoft/args",
+  "version": "0.0.1",
+  "description": "A performant argument pass library",
+  "main": "args.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dalisoft/args.git"
+  },
+  "keywords": [
+    "args",
+    "fn",
+    "performant"
+  ],
+  "author": "dalisoft",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dalisoft/args/issues"
+  },
+  "homepage": "https://github.com/dalisoft/args#readme"
+}
