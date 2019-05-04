@@ -3,6 +3,9 @@
     define([], factory);
   } else if (typeof module !== "undefined" && module.exports) {
     module.exports = factory();
+  } else if (typeof exports !== "undefined") {
+    exports.default = factory();
+    exports.args = exports.default;
   } else if (typeof window !== "undefined" && window.document) {
     window.args = factory();
   } else {

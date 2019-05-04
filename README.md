@@ -28,7 +28,7 @@ const args = require("@dalisoft/args");
 // window.args OR args
 
 // ES6
-import { args } from "@dalisoft/args";
+import args from "@dalisoft/args";
 ```
 
 ## Usage
