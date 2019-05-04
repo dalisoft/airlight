@@ -61,5 +61,5 @@ typings/
 .next
 
 # dist files
-args.min.js
-args.min.js.map
+event.min.js
+event.min.js.map
