@@ -38,7 +38,7 @@
         ___events[name] = [];
       }
 
-      const __event = __event[name];
+      const __event = ___events[name];
       __event.push(function onceFn() {
         args(callback, arguments);
 

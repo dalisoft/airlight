@@ -4,15 +4,23 @@ import Events from "./event";
 test("Basic test", t =>
   new Promise(resolve => {
     t.timeout(1000);
-    t.plan(3);
+    t.plan(5);
 
     const ev = new Events();
 
     ev.on("e1", () => t.pass());
     ev.on("e2", () => t.pass());
+    ev.once("e3", () => t.pass());
+    ev.on("e4", () => t.pass());
 
     ev.emit("e1");
     ev.emit("e2");
+    ev.emit("e3");
+    ev.emit("e3");
+    ev.emit("e4");
+
+    ev.off("e4");
+    ev.emit("e4");
 
     setTimeout(() => {
       ev.emit("e1");
@@ -45,7 +53,7 @@ test("Type and Value parsing test", t => {
       "Object type parsing does not work as excepted"
     );
   });
-  ev.on("str", (s, excepted) => {
+  ev.once("str", (s, excepted) => {
     t.is(s, excepted, "String parsing does not work as excepted");
     t.is(typeof s, "string", "String type parsing does not work as excepted");
   });
@@ -54,4 +62,5 @@ test("Type and Value parsing test", t => {
   ev.emit("arr", "[1,2,3]", [1, 2, 3]);
   ev.emit("obj", '{"foo":"bar"}', { foo: "bar" });
   ev.emit("str", "1 is not 2", "1 is not 2");
+  ev.emit("str", "2 is not 3", "1 is not 2");
 });
