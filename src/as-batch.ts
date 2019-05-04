@@ -2,6 +2,7 @@ class AsBatch {
   cache: Map<string, any>;
   callsCache: any[];
   transform: Function;
+  maxAgeOfCache?: number;
   key: string;
   onRegisterTimeout: Function | Promise<any> | any;
   onCallsTimeout: Function | Promise<any> | any;
@@ -18,6 +19,7 @@ class AsBatch {
     this.key = options.key || Math.round(Math.random() * 1e15).toString(36);
 
     this.transform = options.transform || ((arr: any[]) => arr.join('\n'));
+    this.maxAgeOfCache = options.maxAgeOfCache || 2000;
 
     this.onRegisterTimeout = options.onRegisterTimeout;
     this.onRegisterTimeoutDelay = options.onRegisterTimeoutDelay || 100;
@@ -27,11 +29,7 @@ class AsBatch {
     this.onCallsTimeoutDelay = options.onCallsTimeoutDelay || 100;
     this.onCallsTimeoutId = null;
   }
-  register(
-    key?: string | Function | any,
-    value?: Function,
-    resolveFn?: Function,
-  ) {
+  register(key?: string | Function | any, value?: Function, resolveFn?: Function) {
     if (typeof key === 'function') {
       if (value !== undefined) {
         resolveFn = value;
@@ -93,8 +91,12 @@ class AsBatch {
         .then(
           (res: any): any => {
             const tm = setTimeout(() => {
-              clearTimeout(tm);
               this.timeoutResponse = null;
+              const tm2 = setTimeout(() => {
+                this.cache.delete(key);
+                clearTimeout(tm2);
+              },                     this.maxAgeOfCache);
+              clearTimeout(tm);
             },                    100);
             return res;
           },
@@ -102,14 +104,9 @@ class AsBatch {
     }
     this.onRegisterTimeoutId =
       !this.allowWithoutWait &&
-      setTimeout(
-        onRegisterTimeout.bind(this, transform),
-        this.onRegisterTimeoutDelay,
-      );
+      setTimeout(onRegisterTimeout.bind(this, transform), this.onRegisterTimeoutDelay);
 
-    return this.allowWithoutWait
-      ? onRegisterTimeout(transform)
-      : this.transform(cache);
+    return this.allowWithoutWait ? onRegisterTimeout(transform) : this.transform(cache);
   }
   call(key?: string | Function | any, value?: Function, resolveFn?: Function) {
     if (typeof key === 'function') {
@@ -169,17 +166,18 @@ class AsBatch {
         .then(resolveFn as any)
         .then((res: any) => {
           const tm = setTimeout(() => {
-            clearTimeout(tm);
             this.timeoutResponseOfCall = null;
+            const tm2 = setTimeout(() => {
+              this.cache.delete(key);
+              clearTimeout(tm2);
+            },                     this.maxAgeOfCache);
+            clearTimeout(tm);
           },                    100);
           return res;
         });
     }
 
-    this.onCallsTimeoutId = setTimeout(
-      onCallsTimeout.bind(this, cache),
-      this.onCallsTimeoutDelay,
-    );
+    this.onCallsTimeoutId = setTimeout(onCallsTimeout.bind(this, cache), this.onCallsTimeoutDelay);
   }
   delete(key: string) {
     this.cache.delete(key);

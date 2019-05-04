@@ -64,6 +64,7 @@ For more info see tests.
 - _callsCache_ - store of calls cache, should be like ES6 Map constructor
 - _key_ - default key for instance, if no one will not specify in methods
 - _transform_ - this options only for `.register` method as useful for query and/or something similar
+- _maxAgeOfCache_ - max age of cached results and keys which are removed after expiring
 - _onRegisterTimeout_ - this option only for `.register` method and callback when within specified `delay` no calls happen, this callback will be fired
 - _onRegisterTimeoutDelay_ - delay ms for _onRegisterTimeout_
 - _onCallsTimeout_ - this option only for `.call` method and callback when within specified `delay` no calls happen, this callback will be fired
