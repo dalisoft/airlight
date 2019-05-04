@@ -1,6 +1,6 @@
 # events
 
-One more events emitter for Node.js and browser
+One more event emitter for Node.js and browser
 
 ## Features
 

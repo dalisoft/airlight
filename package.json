@@ -1,7 +1,7 @@
 {
   "name": "@dalisoft/events",
   "version": "0.0.1",
-  "description": "One more events emitter for Node.js and browser",
+  "description": "One more event emitter for Node.js and browser",
   "main": "event.js",
   "cdn": "event.min.js",
   "browser": "event.min.js",
