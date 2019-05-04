@@ -6,7 +6,7 @@
   "cdn": "event.min.js",
   "browser": "event.min.js",
   "scripts": {
-    "minify": "npx terser args.js -c -m -o event.min.js --source-map \"filename='event.min.js.map'\"",
+    "minify": "npx terser event.js -c -m -o event.min.js --source-map \"filename='event.min.js.map'\"",
     "prepublishOnly": "npm run minify"
   },
   "repository": {
