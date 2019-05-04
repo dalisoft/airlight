@@ -7,7 +7,8 @@
   "browser": "event.min.js",
   "scripts": {
     "minify": "npx terser event.js -c -m -o event.min.js --source-map \"filename='event.min.js.map'\"",
-    "prepublishOnly": "npm run minify"
+    "prepublishOnly": "npm test && npm run minify",
+    "test": "npx ava"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,7 @@
   },
   "homepage": "https://github.com/dalisoft/event#readme",
   "devDependencies": {
+    "ava": "^1.4.1",
     "terser": "^3.17.0"
   },
   "dependencies": {
