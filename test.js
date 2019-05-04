@@ -25,7 +25,7 @@ class fakeWsServer extends Events {
     });
   }
   close() {
-    this.emit("disconnected");
+    this.emit("close");
   }
 }
 
@@ -39,7 +39,7 @@ test("Server API test - Basic features", t =>
     wsWrapper.on("connection", () => t.pass());
     wsWrapper.on("message", () => t.pass());
     wsWrapper.on("registered-callback", () => t.pass());
-    wsWrapper.on("disconnected", () => t.pass());
+    wsWrapper.on("close", () => t.pass());
 
     wsWrapper.emit("registered-callback");
     wsWrapper.emit("message");
