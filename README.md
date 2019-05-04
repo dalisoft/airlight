@@ -39,16 +39,26 @@ import { Client /* Server */ } from "@dalisoft/ws-events-sync";
 ## Usage
 
 ```js
+// Client
 const ws = new Websocket("ws://{WEBSOCKET_URL}");
-const ev = new Client(ws);
+const wsc = new Client(ws);
 
-ev.emit(
-  "server-event",
-  JSON.stringify({
-    type: "ping"
-  })
-);
-ev.on("client-event", data => console.log("client event emitter", data));
+wsc.emit("server-event", {
+  type: "ping"
+});
+wsc.on("client-event", data => console.log("client event emitter", data));
+
+// Server
+const ws = new WSServer();
+
+ws.on("connection", client => {
+  const wss = new Server(client);
+
+  wss.emit("client-event", {
+    type: "pong"
+  });
+  wss.on("server-event", data => console.log("server event emitter", data));
+});
 ```
 
 ## License
