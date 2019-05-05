@@ -28,8 +28,8 @@ test("JWT Basic features ", t =>
     await JWT.verify(signed, secretKey);
 
     t.throwsAsync(
-      JWT.verify("a" + signed, secretKey),
-      "invalid token",
+      JWT.verify(signed.replace(/./, ".."), secretKey),
+      "jwt malformed",
       "Invalid token was passed and this mean function does not work properly"
     );
 
