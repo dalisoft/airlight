@@ -1,5 +1,5 @@
 import test from "ava";
-import { parse, stringify, getFromHeader, set, remove } from "./cookie";
+import { parse, stringify, getFromHeaders, set, remove } from "./cookie";
 
 test("Cookie core features", t => {
   t.deepEqual(
@@ -13,7 +13,7 @@ test("Cookie core features", t => {
     "Stringify feature does not work properly"
   );
   t.deepEqual(
-    getFromHeader({ cookie: "user=john_doe" }),
+    getFromHeaders({ cookie: "user=john_doe" }),
     { user: "john_doe" },
     "Get from header feature does not work properly"
   );

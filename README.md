@@ -39,7 +39,7 @@ import Cookie from "@dalisoft/cookie";
 
 - _parse_ `(str: string): object` - Converts cookie string into object
 - _stringify_ `(str: object): string` - Converts cookie object into string
-- _getFromHeader_ `(headers: Req.Headers): object` - Get cookie from header cokie field
+- _getFromHeaders_ `(headers: Req.Headers): object` - Get cookie from header cokie field
 - _set_ `(res: Response, key: string, value: any, options?: object): void` - Sets cookie
 - remove `(res: Response, key: string, options?: object): void` - Remove cookie
 

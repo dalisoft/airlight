@@ -65,7 +65,7 @@
     return str;
   }
 
-  function getFromHeader(headers) {
+  function getFromHeaders(headers) {
     if (!headers) {
       return {};
     }
@@ -96,5 +96,5 @@
     );
   }
 
-  return { parse, stringify, getFromHeader, set, remove };
+  return { parse, stringify, getFromHeaders, set, remove };
 });

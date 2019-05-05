@@ -1,6 +1,6 @@
 {
   "name": "@dalisoft/cookie",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Cookie utility for everyone",
   "main": "cookie.js",
   "cdn": "cookie.min.js",
