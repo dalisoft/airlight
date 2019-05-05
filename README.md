@@ -2,7 +2,7 @@
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/dalisoft/jwe.svg)](https://greenkeeper.io/)
 
-JWT Helper for Auth building from scratch
+JWE Helper for Auth building from scratch
 
 ## Features
 
