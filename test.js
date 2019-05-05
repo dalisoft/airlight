@@ -8,24 +8,26 @@ const salt =
 test("JWT Basic features ", t =>
   new Promise(async resolve => {
     t.timeout(5000);
-    t.plan(8);
+    t.plan(10);
 
-    const signed = await JWT.sign(
-      {
-        my: {
-          user: "data",
-          secure: false
-        },
-        role: "admin"
+    const time1 = Math.floor(Date.now() / 1000);
+    const payload1 = {
+      exp: time1 + 2,
+      iat: time1,
+      my: {
+        user: "data",
+        secure: false
       },
-      secretKey,
-      {
-        expiresIn: 2
-      }
-    );
+      role: "admin"
+    };
+    const signed = await JWT.sign(payload1, secretKey);
 
     t.pass("Signing token was passed");
-    await JWT.verify(signed, secretKey);
+
+    const verify1 = await JWT.verify(signed, secretKey);
+
+    t.deepEqual(verify1, payload1, "Verify token is not passed");
+    t.deepEqual(await JWT.decode(signed, secretKey), payload1);
 
     t.throwsAsync(
       JWT.verify(signed.replace(/./, ".."), secretKey),
@@ -33,33 +35,32 @@ test("JWT Basic features ", t =>
       "Invalid token was passed and this mean function does not work properly"
     );
 
-    t.pass("Verify token was passed");
+    const time2 = Math.floor(Date.now() / 1000);
+    const payload2 = {
+      exp: time2 + 2,
+      iat: time2,
+      my: {
+        user: "data",
+        secure: true
+      },
+      role: "admin"
+    };
 
-    const signedAndEncoded = await JWT.sign(
-      {
-        my: {
-          user: "data",
-          secure: true
-        },
-        role: "admin"
-      },
-      secretKey,
-      {
-        expiresIn: 2
-      },
-      true
-    );
+    const signedAndEncoded = await JWT.sign(payload2, secretKey, {}, true);
 
     t.pass("Signing and encoding token was passed");
-    await JWT.verify(signedAndEncoded, secretKey, {}, true);
+    const verify2 = await JWT.verify(signedAndEncoded, secretKey, {}, true);
+    t.deepEqual(verify2, payload2, "Verify token is not passed");
+    t.deepEqual(
+      await JWT.decode(signedAndEncoded, secretKey, {}, true),
+      payload2
+    );
 
     t.throwsAsync(
       JWT.verify(signedAndEncoded + "a", secretKey, {}, true),
       "jwt malformed",
       "Invalid token was passed and this mean function does not work properly"
     );
-
-    t.pass("Verify token was passed");
 
     setTimeout(async () => {
       await t.throwsAsync(
