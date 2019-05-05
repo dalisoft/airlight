@@ -75,12 +75,10 @@
 
       this.ws.on("message", e => {
         if (typeof e === "string") {
-          if (e === "ping" && this.ws.readyState === this.ws.OPEN) {
-            this.ws.send("pong");
-            return;
-          } else if (e === "pong" && this.ws.readyState === this.ws.OPEN) {
-            this.ws.send("ping");
-            return;
+          if (e === "ping") {
+            return this.pong();
+          } else if (e === "pong") {
+            return this.emit("pong");
           } else if (e.includes("event;")) {
             const [, ev, ...arg] = e.split(";");
             return this.emit(ev, ...arg);
@@ -159,6 +157,16 @@
     isOnline(id) {
       return this.onlineClientsMap[id] !== undefined;
     }
+    ping() {
+      if (this.ws.readyState === this.ws.OPEN) {
+        this.ws.send("ping");
+      }
+    }
+    pong() {
+      if (this.ws.readyState === this.ws.OPEN) {
+        this.ws.send("pong");
+      }
+    }
     send(data) {
       if (typeof data !== "string") {
         data = JSON.stringify(data);
@@ -213,12 +221,10 @@
           e = e.data;
         }
         if (typeof e === "string") {
-          if (e === "ping" && this.ws.readyState === this.ws.OPEN) {
-            this.ws.send("pong");
-            return;
-          } else if (e === "pong" && this.ws.readyState === this.ws.OPEN) {
-            this.ws.send("ping");
-            return;
+          if (e === "ping") {
+            return this.pong();
+          } else if (e === "pong") {
+            return this.emit("pong");
           } else if (e.includes("event;")) {
             const [, ev, ...arg] = e.split(";");
             return this.emit(ev, ...arg);
@@ -263,6 +269,16 @@
         this.emit("close", e);
       };
       return this;
+    }
+    ping() {
+      if (this.ws.readyState === this.ws.OPEN) {
+        this.ws.send("ping");
+      }
+    }
+    pong() {
+      if (this.ws.readyState === this.ws.OPEN) {
+        this.ws.send("pong");
+      }
     }
     send(data) {
       if (typeof data !== "string") {
