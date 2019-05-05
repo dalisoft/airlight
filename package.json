@@ -30,7 +30,7 @@
   "devDependencies": {
     "ava": "^1.4.1",
     "rollup": "^1.11.1",
-    "rollup-plugin-delete": "^0.2.2"
+    "rollup-plugin-delete": "^1.0.0"
   },
   "dependencies": {
     "node-webtokens": "^1.0.0"
