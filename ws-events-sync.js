@@ -75,7 +75,13 @@
 
       this.ws.on("message", e => {
         if (typeof e === "string") {
-          if (e.includes("event;")) {
+          if (e === "ping" && this.ws.readyState === this.ws.OPEN) {
+            this.ws.send("pong");
+            return;
+          } else if (e === "pong" && this.ws.readyState === this.ws.OPEN) {
+            this.ws.send("ping");
+            return;
+          } else if (e.includes("event;")) {
             const [, ev, ...arg] = e.split(";");
             return this.emit(ev, ...arg);
           } else {
@@ -207,7 +213,13 @@
           e = e.data;
         }
         if (typeof e === "string") {
-          if (e.includes("event;")) {
+          if (e === "ping" && this.ws.readyState === this.ws.OPEN) {
+            this.ws.send("pong");
+            return;
+          } else if (e === "pong" && this.ws.readyState === this.ws.OPEN) {
+            this.ws.send("ping");
+            return;
+          } else if (e.includes("event;")) {
             const [, ev, ...arg] = e.split(";");
             return this.emit(ev, ...arg);
           } else {
