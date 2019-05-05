@@ -34,7 +34,7 @@
   "devDependencies": {
     "ava": "^1.4.1",
     "rollup": "^1.10.1",
-    "rollup-plugin-delete": "^0.2.2",
+    "rollup-plugin-delete": "^1.0.0",
     "rollup-plugin-terser": "^4.0.4",
     "rollup-plugin-typescript2": "^0.21.0",
     "tslint": "^5.16.0",
