@@ -30,7 +30,7 @@ import {
 // or
 
 // CommonJS
-const { JWT } = require("@dalisoft/jwt");
+const JWT = require("@dalisoft/jwt");
 ```
 
 ## Example
