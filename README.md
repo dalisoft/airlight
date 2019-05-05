@@ -4,15 +4,14 @@
 
 JWT Helper for Auth building from scratch
 
+Note: \_Minimum `Node.js` version is `v10.5` for working properly
+
 ## Features
 
 - Fast
-- No duplication
 - Almost zero-config
-- Flexible
-- Memory-effecient
-- Promise-based
-- Async/Await support
+- Auto-refresh token
+- Auto-normalisation of period/expiration
 - Types declaration for IDE/Editor
 
 ## Import
