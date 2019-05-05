@@ -63,10 +63,10 @@
         : this.findOne(config, where);
     }
 
-    findBySlug(slug) {
+    findByKey(key, value) {
       return this.findOne({
         where: {
-          slug
+          [key]: value
         }
       });
     }
