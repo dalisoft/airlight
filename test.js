@@ -5,48 +5,76 @@ const secretKey = "asdfadsf_secretKey";
 const salt =
   "some-secure-128-bit-salt-key-for-getting-private-key--pem-key-string-would-be-helpful";
 
-test("JWT Basic features ", async t => {
-  t.plan(4);
+test("JWT Basic features ", t =>
+  new Promise(async resolve => {
+    t.timeout(5000);
+    t.plan(8);
 
-  const signed = await JWT.sign(
-    {
-      my: {
-        user: "data",
-        secure: false
+    const signed = await JWT.sign(
+      {
+        my: {
+          user: "data",
+          secure: false
+        },
+        role: "admin"
       },
-      role: "admin"
-    },
-    secretKey,
-    {
-      expiresIn: 60 * 1000
-    }
-  );
+      secretKey,
+      {
+        expiresIn: 2
+      }
+    );
 
-  t.pass("Signing token was passed");
-  await JWT.verify(signed, secretKey);
+    t.pass("Signing token was passed");
+    await JWT.verify(signed, secretKey);
 
-  t.pass("Verify token was passed");
+    t.throwsAsync(
+      JWT.verify("a" + signed, secretKey),
+      "invalid token",
+      "Invalid token was passed and this mean function does not work properly"
+    );
 
-  const signedAndEncoded = await JWT.sign(
-    {
-      my: {
-        user: "data",
-        secure: true
+    t.pass("Verify token was passed");
+
+    const signedAndEncoded = await JWT.sign(
+      {
+        my: {
+          user: "data",
+          secure: true
+        },
+        role: "admin"
       },
-      role: "admin"
-    },
-    secretKey,
-    {
-      expiresIn: 60 * 1000
-    },
-    true
-  );
+      secretKey,
+      {
+        expiresIn: 2
+      },
+      true
+    );
 
-  t.pass("Signing and encoding token was passed");
-  await JWT.verify(signedAndEncoded, secretKey, {}, true);
+    t.pass("Signing and encoding token was passed");
+    await JWT.verify(signedAndEncoded, secretKey, {}, true);
 
-  t.pass("Verify token was passed");
-});
+    t.throwsAsync(
+      JWT.verify(signedAndEncoded + "a", secretKey, {}, true),
+      "jwt malformed",
+      "Invalid token was passed and this mean function does not work properly"
+    );
+
+    t.pass("Verify token was passed");
+
+    setTimeout(async () => {
+      await t.throwsAsync(
+        JWT.verify(signed, secretKey),
+        "jwt expired",
+        "Expired token was passed and this mean function does not work properly"
+      );
+      await t.throwsAsync(
+        JWT.verify(signedAndEncoded, secretKey, {}, true),
+        "jwt expired",
+        "Expired token was passed and this mean function does not work properly"
+      );
+      resolve();
+    }, 3000);
+  }));
 
 test("JWT Generate token and Refresh token", async t => {
   t.plan(4);

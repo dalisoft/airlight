@@ -14,7 +14,12 @@ function decrypt(key: string, data: string) {
   const salt = crypto.scryptSync(JSON.stringify(key), 'salt', 24);
   const iv = Buffer.alloc(16, 0);
   const decipher = crypto.createDecipheriv(algorithm, salt, iv);
-  let decrypted = decipher.update(data, 'hex', 'utf8');
+  let decrypted;
+  try {
+    decrypted = decipher.update(data, 'hex', 'utf8');
+  } catch (e) {
+    return data;
+  }
   decrypted += decipher.final('utf8');
   return decrypted;
 }
