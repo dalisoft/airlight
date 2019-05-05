@@ -13,6 +13,7 @@ Note: \_Minimum `Node.js` version is `v10.5` for working properly
 - Auto-refresh token
 - Auto-normalisation of period/expiration
 - Types declaration for IDE/Editor
+- Well tested
 
 ## Import
 
@@ -37,14 +38,14 @@ const JWT = require("@dalisoft/jwt");
 ```ts
 const { sign, verify, decode, generateToken, refreshToken } = JWT;
 
-const token = await sign(payload | object, secret: string | any, options: object, isSecure: boolean);
+const token = await sign(payload: object, secret: string | any, options: object, isSecure: boolean): string;
 ```
 
 For more info see tests.
 
 ## Methods
 
-### `#sign(payload | object, secret: string | any, options: object, isSecure: boolean): string`
+### `#sign(payload: object, secret: string | any, options: object, isSecure: boolean): string`
 
 Returns value of signed (+ maybe secured) token
 
