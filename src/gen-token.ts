@@ -1,5 +1,5 @@
 import randToken from 'rand-token';
-import { GetPublicKeyOrSecret } from 'jsonwebtoken';
+import { GetPublicKeyOrSecret, Secret, SignOptions } from 'jsonwebtoken';
 import { sign } from './sign';
 import { decode } from './decode';
 import { encrypt, decrypt } from './utils';
@@ -16,8 +16,8 @@ const secureVal = (v: boolean | undefined): string =>
 
 async function generateToken(
   payload: string | object,
-  secretOrPrivate: string | any,
-  options?: object,
+  secretOrPrivate: Secret,
+  options?: SignOptions,
   secure?: boolean,
   salt?: string,
 ) {
@@ -33,7 +33,9 @@ async function generateToken(
   return {
     accessToken,
     refreshToken,
-    publicKey: salt ? encrypt(`${refreshToken}.${salt}`, secretOrPrivate) : null,
+    publicKey: salt
+      ? encrypt(`${refreshToken}.${salt}`, secretOrPrivate as any)
+      : null,
   };
 }
 
@@ -81,7 +83,7 @@ async function refreshToken({
 
   return generateToken(
     decoded.payload,
-    privateKey,
+    privateKey as any,
     {
       expiresIn: payloadPeriod,
     },
