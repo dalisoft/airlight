@@ -1,8 +1,12 @@
 import { Cache as FileCache } from './create-cache-file';
-import { Cache as CustomCache } from './create-cache-custom';
+import {
+  Cache as CustomCache,
+  Config as CustomCacheConfig,
+} from './create-cache-custom';
 import { create, PoolObject, release } from './pool';
 
-type Fn = Promise<any> | Function | any;
+type typeGet = string | number | boolean;
+type Fn = Function | string | number | boolean | Promise<typeGet>;
 interface FilePoolObject {
   expiresIn: number;
   value: any;
@@ -10,42 +14,46 @@ interface FilePoolObject {
 declare const process: {
   env: any;
 };
+
 const isServer =
   typeof process !== 'undefined' &&
   typeof window === 'undefined' &&
   process.env;
 
 export default class CacheTTL {
-  [x: string]: any;
   private ttl: number;
   private cache: PoolObject;
-  private fileCache?: any;
+  private fileCache!: FileCache | CustomCache;
   private saveAsFile: string | boolean | undefined;
   private timerId: any;
   private checkInterval: number = 500;
-  constructor(ttl: number = 1000, saveAsFile?: string | boolean, config?: any) {
+  constructor(
+    ttl: number = 1000,
+    saveAsFile?: string | boolean,
+    config?: boolean | string | object | null,
+  ) {
     this.ttl = ttl;
     this.cache = create();
     this.saveAsFile = isServer && saveAsFile;
 
     if (this.saveAsFile) {
       if (saveAsFile === true) {
-        this.fileCache = new FileCache(config);
+        this.fileCache = new FileCache(config as boolean | string | null);
       } else if (saveAsFile === 'custom') {
-        this.fileCache = new CustomCache(config);
+        this.fileCache = new CustomCache(config as CustomCacheConfig);
       }
     }
 
     this.timerId = this.initTimer();
   }
-  public set(
+  public set<T>(
     key: string,
-    value: Fn,
+    value: Promise<T> | T,
     ttl?: number,
     saveAsFile = this.saveAsFile,
-  ): any {
+  ): T {
     if (ttl && ttl < -1) {
-      return value;
+      return value as T;
     }
 
     if (
@@ -63,9 +71,9 @@ export default class CacheTTL {
       return value;
     }
 
-    if (typeof value.then !== 'undefined') {
-      return value.then(
-        (val: any): Fn => {
+    if (typeof (value as Promise<T>).then !== 'undefined') {
+      return (value as any).then(
+        (val: Promise<T> | T): T => {
           if (val === undefined || val === null) {
             if (isServer) {
               if (process.env.NODE_ENV === 'development') {
@@ -75,7 +83,7 @@ export default class CacheTTL {
             return val;
           }
 
-          if (typeof val === 'function' || val.then) {
+          if (typeof val === 'function' || (val as Promise<T>).then) {
             return this.set(key, val, ttl, saveAsFile);
           }
 
@@ -103,14 +111,14 @@ export default class CacheTTL {
             cache.set('value', val);
             this.cache.set(key, cache);
           }
-          return val;
+          return val as T;
         },
       );
     }
     if (typeof value === 'function') {
       value = value(key, value);
     }
-    if (typeof value === 'function' || value.then) {
+    if (typeof value === 'function' || (value as Promise<T>).then) {
       return this.set(key, value, ttl, saveAsFile);
     }
 
@@ -139,37 +147,37 @@ export default class CacheTTL {
       this.cache.set(key, cache);
     }
 
-    return value;
+    return value as T;
   }
   public has(key: string): boolean {
     if (this.cache.has(key)) {
       return this.cache.has(key);
     } else if (this.fileCache) {
-      const has = this.fileCache.has(key);
+      const has: boolean = this.fileCache.has(key);
 
-      if (has && has.then) {
-        return has.then((val: any): boolean => val);
-      }
       return has;
     }
     return false;
   }
-  public get(key: string): any {
+  public get(key: string): typeGet | Promise<typeGet> | void {
     if (this.cache.get(key)) {
       return this.cache.get(key).get('value');
     } else if (this.fileCache) {
-      let get = this.fileCache.get(key);
+      let get = this.fileCache.get(key) as
+        | Function
+        | Promise<FilePoolObject>
+        | FilePoolObject;
 
       if (typeof get === 'function') {
         get = get(key);
       }
 
-      if (get && get.then) {
-        return get.then((val: any) =>
+      if (get && (get as Promise<FilePoolObject>).then) {
+        return (get as Promise<FilePoolObject>).then((val: FilePoolObject) =>
           val !== undefined ? val.value : undefined,
         );
       }
-      return get ? get.value : undefined;
+      return get ? (get as FilePoolObject).value : undefined;
     }
   }
   public expire(key: string, ttl: number): any {
@@ -179,16 +187,18 @@ export default class CacheTTL {
     if (this.cache.has(key) && expiresIn) {
       return this.cache.get(key).set('expiresIn', expiresIn);
     } else if (this.fileCache && this.fileCache.has(key)) {
-      const get = this.fileCache.get(key);
+      const get = this.fileCache.get(key) as
+        | Promise<FilePoolObject>
+        | FilePoolObject;
 
-      if (get && get.then) {
-        return get.then((val: any) => {
+      if (get && (get as Promise<FilePoolObject>).then) {
+        return (get as Promise<FilePoolObject>).then((val: FilePoolObject) => {
           val.expiresIn = expiresIn;
           return this.fileCache.set(key, val);
         });
       }
 
-      get.expiresIn = expiresIn;
+      (get as FilePoolObject).expiresIn = expiresIn;
       if (this.saveAsFile === true) {
         this.fileCache.delete(key);
       }
@@ -196,22 +206,22 @@ export default class CacheTTL {
     }
     return null;
   }
-  public getOrSet(key: string, callback: Fn, ttl?: number): any {
+  public getOrSet(key: string, callback: Function, ttl?: number): Fn {
     const get = this.get(key);
 
     if (get) {
-      if (typeof get.then === 'function') {
-        return get.then(
-          (val: any): any =>
+      if (typeof (get as Promise<typeGet>).then === 'function') {
+        return (get as any).then(
+          (val: typeGet | void): Fn =>
             val === undefined ? this.set(key, callback, ttl) : val,
         );
       }
-      return get;
+      return get as typeGet;
     }
 
     return this.set(key, callback, ttl);
   }
-  public delete(key: string): void {
+  public delete(key: string): PromiseLike<any> | void {
     if (this.cache.has(key)) {
       release(this.cache.get(key));
       this.cache.delete(key);
@@ -250,18 +260,18 @@ export default class CacheTTL {
   public initTimer(): any {
     return setInterval(this.onTimerUpdate.bind(this), this.checkInterval);
   }
-  public setCheckInterval(interval: number): any {
+  public setCheckInterval(interval: number): this {
     clearInterval(this.timerId);
     this.checkInterval = interval;
     this.timerId = this.initTimer();
     return this;
   }
-  public destroy(): any {
+  public destroy(): Promise<any> | void {
     clearInterval(this.timerId);
 
     Object.keys(this.cache).forEach(key => this.delete(key));
     release(this.cache);
 
-    return this.fileCache && this.fileCache.destroy();
+    return this.fileCache && (this.fileCache.destroy() as Promise<any>);
   }
 }

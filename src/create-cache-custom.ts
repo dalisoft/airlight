@@ -1,7 +1,7 @@
 declare const process: any;
 declare const require: any;
 
-interface Config {
+export interface Config {
   onlyServer?: boolean;
   logMessage: Function;
   initialKeys: Function | string[];
@@ -13,6 +13,13 @@ interface Config {
   destroy?: Function;
 }
 
+type typeValueRef = string | number | object | Symbol | Function;
+type typeValueRefOrRefArr = typeValueRef | typeValueRef[];
+type typeValue =
+  | typeValueRefOrRefArr
+  | Map<string, typeValueRefOrRefArr>
+  | Promise<typeValueRefOrRefArr>;
+
 const isNonServerEnv =
   typeof window !== 'undefined' ||
   typeof require === 'undefined' ||
@@ -20,7 +27,7 @@ const isNonServerEnv =
 
 class CustomCache {
   public addedCacheKeys?: string[];
-  private config: any;
+  private config!: Config;
 
   constructor(config: Config) {
     if (isNonServerEnv && config.onlyServer) {
@@ -39,7 +46,7 @@ class CustomCache {
 
     return this;
   }
-  public get(key: string): any {
+  public get<T>(key: string): T | null | void {
     if ((isNonServerEnv && this.config.onlyServer) || !this.has(key)) {
       return null;
     }
@@ -49,37 +56,37 @@ class CustomCache {
         'The CustomCache is requires `getTransform` property' +
           ' on configuration parameter to be working properly',
       );
-      return this;
+      return;
     }
-    const value: any = this.config.jsonEnforce
+    const value: T = this.config.jsonEnforce
       ? JSON.parse(this.config.getTransform(key))
       : this.config.getTransform(key);
 
     return value;
   }
-  public set(key: string, value: any): any {
+  public set<T>(key: string, value: T): any {
     if (isNonServerEnv && this.config.onlyServer) {
       console.error(
         'The CustomCache is available only for server-side Node.js!',
       );
-      return this;
+      return;
     }
     if (!this.config.setTransform) {
       console.error(
         'The CustomCache is requires `setTransform` property' +
           ' on configuration parameter to be working properly',
       );
-      return this;
+      return;
     }
     if (this.addedCacheKeys) {
-      if (this.addedCacheKeys.includes(key)) {
+      if (this.addedCacheKeys.indexOf(key) !== -1) {
         return value;
       }
       this.addedCacheKeys.push(key);
     }
     return this.config.setTransform(
       key,
-      this.config.jsonEnforce ? JSON.stringify(value) : value,
+      this.config.jsonEnforce ? (JSON.stringify(value) as string) : (value as T),
     );
   }
   public has(key: string): boolean {
@@ -95,23 +102,23 @@ class CustomCache {
     }
     return this.config.hasTransform(key);
   }
-  public delete(key: string): any {
+  public delete(key: string): void {
     if (isNonServerEnv && this.config.onlyServer) {
-      return this;
+      return;
     }
     if (!this.config.deleteTransform) {
       console.error(
         'The CustomCache is requires `deleteTransform` property' +
           ' on configuration parameter to be working properly',
       );
-      return this;
+      return;
     }
     if (this.addedCacheKeys) {
       this.addedCacheKeys = this.addedCacheKeys.filter(
-        cacheKey => cacheKey !== key,
+        (cacheKey: string): boolean => cacheKey !== key,
       );
     }
-    return this.config.deleteTransform(key);
+    this.config.deleteTransform(key);
   }
   public keys(): string[] {
     if ((isNonServerEnv && this.config.onlyServer) || !this.addedCacheKeys) {
@@ -119,61 +126,65 @@ class CustomCache {
     }
     return this.addedCacheKeys.slice(0);
   }
-  public values(): any[] {
+  public values(): typeValue[] {
     if ((isNonServerEnv && this.config.onlyServer) || !this.addedCacheKeys) {
       return [];
     }
-    return this.addedCacheKeys
-      .map((key: string): string => this.get(key))
-      .map((val: any): any => JSON.parse(val));
+    return this.addedCacheKeys.map(
+      (key: string): typeValue => this.get(key) as typeValue,
+    );
   }
-  public forEach(fn: Function): any {
+  public forEach(fn: Function): void {
     if ((isNonServerEnv && this.config.onlyServer) || !this.addedCacheKeys) {
-      return this;
+      return;
     }
 
-    const isAsyncItem = this.addedCacheKeys.some((key: string) => {
-      const item = this.get(key);
-      if (item.then) {
-        return true;
-      }
-      return false;
-    });
+    const isAsyncItem: boolean = this.addedCacheKeys.some(
+      (key: string): boolean => {
+        const item = this.get(key) as Promise<typeValue>;
+        if (item.then) {
+          return true;
+        }
+        return false;
+      },
+    );
 
     if (isAsyncItem) {
       return this.addedCacheKeys.forEach(
-        (key: string): any => {
+        (key: string): Promise<void> | void => {
           const get = this.get(key);
 
-          if (get.then) {
-            return get.then((getValue: any) => fn(key, getValue));
+          if ((get as Promise<typeValue>).then) {
+            return (get as Promise<typeValue>).then(
+              (getValue: any): void => fn(key, getValue),
+            );
           }
-          return fn(get);
+          fn(get);
         },
       );
     }
     return this.addedCacheKeys.forEach(
-      (key: string): any => fn(key, this.get(key)),
+      (key: string): void => fn(key, this.get(key)),
     );
   }
-  public clear(): any {
+  public clear(): void {
     if (isNonServerEnv && this.config.onlyServer) {
-      return this;
+      return;
     }
     if (this.addedCacheKeys) {
-      this.addedCacheKeys.forEach(key => this.delete(key));
+      this.addedCacheKeys.forEach((key: string): void => this.delete(key));
     }
-    return this;
+    return;
   }
-  public destroy(): any {
+  public destroy(): Promise<any> | void {
     if (isNonServerEnv && this.config.onlyServer) {
-      return this;
+      return;
     }
     this.clear();
     if (this.config.destroy) {
       return this.config.destroy();
     }
-    return this;
+    return;
   }
 }
 

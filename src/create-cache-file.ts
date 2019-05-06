@@ -1,18 +1,19 @@
-declare const process: any;
-declare const require: any;
+import * as FS from 'fs';
+type FsType = typeof FS;
 
-const isFSUnavailabe =
+const isFSUnavailabe: boolean =
   typeof window !== 'undefined' ||
   typeof require === 'undefined' ||
   typeof process === 'undefined';
 
+type typeValue = string | number | object | string[] | number[] | object[];
 class FSCache {
   public addedCacheKeys?: string[];
-  private rnd: string | null;
+  private rnd: string | boolean | null;
   private dir: string;
-  private fs?: any;
+  private fs!: FsType;
 
-  constructor(randomDir?: boolean) {
+  constructor(randomDir?: boolean | string | null) {
     this.rnd =
       randomDir === true
         ? Math.floor(Math.random() * 10000000).toString(36)
@@ -40,7 +41,7 @@ class FSCache {
 
     return this;
   }
-  public get(key: string): any {
+  public get(key: string): string | null {
     if (isFSUnavailabe || !this.has(key)) {
       return null;
     }
@@ -48,20 +49,20 @@ class FSCache {
 
     return value;
   }
-  public set(key: string, value: any): any {
+  public set(key: string, value: typeValue): void {
     if (isFSUnavailabe) {
       console.error(
         'The FileCache is available only for server-side File System!',
       );
-      return this;
+      return;
     }
     if (this.addedCacheKeys) {
-      if (this.addedCacheKeys.includes(key)) {
-        return value;
+      if (this.addedCacheKeys.indexOf(key) !== -1) {
+        return;
       }
       this.addedCacheKeys.push(key);
     }
-    return this.fs.writeFileSync(this.dir + key, JSON.stringify(value));
+    this.fs.writeFileSync(this.dir + key, JSON.stringify(value));
   }
   public has(key: string): boolean {
     if (isFSUnavailabe) {
@@ -69,16 +70,16 @@ class FSCache {
     }
     return this.fs.existsSync(this.dir + key);
   }
-  public delete(key: string): any {
+  public delete(key: string): void {
     if (isFSUnavailabe) {
-      return this;
+      return;
     }
     if (this.addedCacheKeys) {
       this.addedCacheKeys = this.addedCacheKeys.filter(
         cacheKey => cacheKey !== key,
       );
     }
-    return this.fs.unlinkSync(this.dir + key);
+    this.fs.unlinkSync(this.dir + key);
   }
   public keys(): string[] {
     if (isFSUnavailabe || !this.addedCacheKeys) {
@@ -86,33 +87,33 @@ class FSCache {
     }
     return this.addedCacheKeys.slice(0);
   }
-  public values(): any[] {
+  public values(): typeValue[] {
     if (isFSUnavailabe || !this.addedCacheKeys) {
       return [];
     }
     return this.addedCacheKeys
-      .map((key: string): string => this.get(key))
-      .map((val: any): any => JSON.parse(val));
+      .map((key: string): string => this.get(key) as string)
+      .map((val: string): typeValue => JSON.parse(val));
   }
-  public forEach(fn: Function): any {
+  public forEach(fn: Function): void {
     if (isFSUnavailabe || !this.addedCacheKeys) {
-      return this;
+      return;
     }
     return this.addedCacheKeys.forEach(
       (key: string): string => this.get(key) && fn(key, this.get(key)),
     );
   }
-  public clear(): any {
+  public clear(): this {
     if (isFSUnavailabe) {
       return this;
     }
     if (this.addedCacheKeys) {
-      this.addedCacheKeys.forEach(key => this.delete(key));
+      this.addedCacheKeys.forEach((key: string): void => this.delete(key));
       this.addedCacheKeys.length = 0;
     }
     return this;
   }
-  public destroy(): any {
+  public destroy(): this {
     if (isFSUnavailabe) {
       return this;
     }

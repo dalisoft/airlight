@@ -11,7 +11,7 @@ const create = (): PoolObject => {
 };
 
 const release = (obj: PoolObject): void => {
-  obj.forEach((val: any, key: string) => {
+  obj.forEach((val: PoolObject, key: string) => {
     if (val instanceof Map) {
       release(val);
     }
