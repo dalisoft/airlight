@@ -999,7 +999,7 @@ test("Cache TTL - Custom cache (without Promise) mode", async t => {
 
   await timeout(500);
 
-  await cache.expire("key-e", 2000);
+  cache.expire("key-e", 2000);
   await cache
     .getOrSet("async-get-or-set-key-1", getOrSetFn1, 1000)
     .then(() => t.pass("Duplicate call of getOrSet should not throw"));

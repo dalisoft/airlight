@@ -131,9 +131,29 @@ class CustomCache {
     if ((isNonServerEnv && this.config.onlyServer) || !this.addedCacheKeys) {
       return this;
     }
+
+    const isAsyncItem = this.addedCacheKeys.some((key: string) => {
+      const item = this.get(key);
+      if (item.then) {
+        return true;
+      }
+      return false;
+    });
+
+    if (isAsyncItem) {
+      return this.addedCacheKeys.forEach(
+        (key: string): any => {
+          const get = this.get(key);
+
+          if (get.then) {
+            return get.then((getValue: any) => fn(key, getValue));
+          }
+          return fn(get);
+        },
+      );
+    }
     return this.addedCacheKeys.forEach(
-      async (key: string): Promise<any> =>
-        (await this.get(key)) && fn(key, await this.get(key)),
+      (key: string): any => fn(key, this.get(key)),
     );
   }
   public clear(): any {
