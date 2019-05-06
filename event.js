@@ -5,7 +5,6 @@
     module.exports = factory(require("@dalisoft/args"));
   } else if (typeof exports !== "undefined") {
     exports.default = factory(exports.args || require("@dalisoft/args"));
-    exports.Events = exports.default;
   } else if (typeof window !== "undefined" && window.document) {
     window.Events = factory(window.args);
   } else {
