@@ -1,4 +1,5 @@
 import randToken from 'rand-token';
+import { GetPublicKeyOrSecret } from 'jsonwebtoken';
 import { sign } from './sign';
 import { decode } from './decode';
 import { encrypt, decrypt } from './utils';
@@ -53,8 +54,8 @@ async function refreshToken({
 
   const secureCheck = refreshToken.split('.').pop() as unknown;
   const isSecure = secureMap[secureCheck as any];
-  let privateKey: string =
-    publicKey && decrypt(`${refreshToken}.${salt}`, publicKey);
+  let privateKey: GetPublicKeyOrSecret =
+    publicKey && (decrypt(`${refreshToken}.${salt}`, publicKey) as any);
   const decoded: any = decode(
     accessToken,
     privateKey,
@@ -75,7 +76,7 @@ async function refreshToken({
   delete decoded.payload.iat;
 
   if (!privateKey) {
-    privateKey = privateKeyManual;
+    privateKey = privateKeyManual as any;
   }
 
   return generateToken(
