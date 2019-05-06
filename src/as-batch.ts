@@ -1,19 +1,31 @@
-class AsBatch {
+interface Config {
   cache: Map<string, any>;
-  callsCache: any[];
+  callsCache: Map<string, any>;
   transform: Function;
   maxAgeOfCache?: number;
   key: string;
-  onRegisterTimeout: Function | Promise<any> | any;
-  onCallsTimeout: Function | Promise<any> | any;
+  onRegisterTimeout: Function | Promise<any>;
+  onCallsTimeout: Function | Promise<any>;
+  onRegisterTimeoutDelay: number;
+  onCallsTimeoutDelay: number;
+}
+
+class AsBatch {
+  cache: Map<string, any>;
+  callsCache: Map<string, any>;
+  transform: Function;
+  maxAgeOfCache?: number;
+  key: string;
+  onRegisterTimeout: Function | Promise<any>;
+  onCallsTimeout: Function | Promise<any>;
   onRegisterTimeoutDelay: number;
   onCallsTimeoutDelay: number;
   private onRegisterTimeoutId: any;
   private onCallsTimeoutId: any;
-  private timeoutResponse?: any;
-  private timeoutResponseOfCall?: any;
+  private timeoutResponse?: any | void;
+  private timeoutResponseOfCall?: any | void;
   private allowWithoutWait?: boolean;
-  constructor(options: any) {
+  constructor(options: Config) {
     this.cache = options.cache || new Map();
     this.callsCache = options.callsCache || new Map();
     this.key = options.key || Math.round(Math.random() * 1e15).toString(36);
@@ -72,8 +84,8 @@ class AsBatch {
             if (typeof onRegisterTimeout === 'function') {
               onRegisterTimeout = onRegisterTimeout(transform);
             }
-            if (onRegisterTimeout && onRegisterTimeout.then) {
-              return onRegisterTimeout
+            if (onRegisterTimeout && (onRegisterTimeout as Promise<any>).then) {
+              return (onRegisterTimeout as Promise<any>)
                 .then((res: any) => {
                   this.timeoutResponse = res;
                   return res;
@@ -90,8 +102,9 @@ class AsBatch {
         .then(resolveFn as any)
         .then(
           (res: any): any => {
-            const tm = setTimeout(() => {
-              this.timeoutResponse = null;
+            const tm = setTimeout((): void => {
+              this.timeoutResponse = undefined;
+              delete this.timeoutResponse;
               const tm2 = setTimeout(() => {
                 this.cache.delete(key);
                 clearTimeout(tm2);
@@ -104,9 +117,14 @@ class AsBatch {
     }
     this.onRegisterTimeoutId =
       !this.allowWithoutWait &&
-      setTimeout(onRegisterTimeout.bind(this, transform), this.onRegisterTimeoutDelay);
+      setTimeout(
+        (onRegisterTimeout as Function).bind(this, transform),
+        this.onRegisterTimeoutDelay,
+      );
 
-    return this.allowWithoutWait ? onRegisterTimeout(transform) : this.transform(cache);
+    return this.allowWithoutWait
+      ? (onRegisterTimeout as Function)(transform)
+      : this.transform(cache);
   }
   call(key?: string | Function | any, value?: Function, resolveFn?: Function) {
     if (typeof key === 'function') {
@@ -125,15 +143,15 @@ class AsBatch {
     clearTimeout(this.onCallsTimeoutId);
 
     let cache: Map<string, any>[];
-    if (!this.cache.has(key) && value !== undefined) {
+    if (!this.callsCache.has(key) && value !== undefined) {
       cache = [typeof value === 'function' ? value() : value];
-      this.cache.set(key, cache);
+      this.callsCache.set(key, cache);
     } else if (value !== undefined) {
-      cache = this.cache.get(key);
+      cache = this.callsCache.get(key);
       cache.push(typeof value === 'function' ? value(cache) : value);
-      this.cache.set(key, cache);
+      this.callsCache.set(key, cache);
     } else {
-      cache = this.cache.get(key);
+      cache = this.callsCache.get(key);
     }
 
     if (resolveFn) {
@@ -148,8 +166,8 @@ class AsBatch {
           if (typeof onCallsTimeout === 'function') {
             onCallsTimeout = onCallsTimeout(cache);
           }
-          if (onCallsTimeout && onCallsTimeout.then) {
-            return onCallsTimeout
+          if (onCallsTimeout && (onCallsTimeout as Promise<any>).then) {
+            return (onCallsTimeout as Promise<any>)
               .then((res: any) => {
                 this.timeoutResponseOfCall = res;
                 return res;
@@ -166,7 +184,8 @@ class AsBatch {
         .then(resolveFn as any)
         .then((res: any) => {
           const tm = setTimeout(() => {
-            this.timeoutResponseOfCall = null;
+            this.timeoutResponseOfCall = undefined;
+            delete this.timeoutResponseOfCall;
             const tm2 = setTimeout(() => {
               this.cache.delete(key);
               clearTimeout(tm2);
@@ -177,7 +196,10 @@ class AsBatch {
         });
     }
 
-    this.onCallsTimeoutId = setTimeout(onCallsTimeout.bind(this, cache), this.onCallsTimeoutDelay);
+    this.onCallsTimeoutId = setTimeout(
+      (onCallsTimeout as Function).bind(this, cache),
+      this.onCallsTimeoutDelay,
+    );
   }
   delete(key: string) {
     this.cache.delete(key);
