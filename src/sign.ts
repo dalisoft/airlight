@@ -1,30 +1,31 @@
-import { sign } from 'jsonwebtoken';
+import { sign, Secret, SignOptions } from 'jsonwebtoken';
 import { encrypt } from './utils';
 
 const signJWT = (
-  payload: string | object,
-  secretOrPrivate: string | any,
-  options?: object,
+  payload: string | Buffer | object,
+  secretOrPrivate: Secret,
+  options: SignOptions = {},
   encode?: boolean,
-) =>
-  new Promise((resolve, reject) => {
-    sign(
-      payload,
-      secretOrPrivate,
-      options,
-      (err: any, res: string): string | any => {
-        if (err) {
-          return reject(err);
-        }
-        resolve(res);
-      },
-    );
-  }).then(
-    (signed: string | any): string | any => {
+): Promise<string> =>
+  new Promise(
+    (resolve, reject): void =>
+      sign(
+        payload,
+        secretOrPrivate,
+        options,
+        (err: Error, encoded: string): void => {
+          if (err) {
+            return reject(err);
+          }
+          resolve(encoded);
+        },
+      ),
+  ).then(
+    (value: any): string | PromiseLike<string> => {
       if (encode) {
-        return encrypt(secretOrPrivate, signed);
+        return encrypt(secretOrPrivate, value) as string;
       }
-      return signed;
+      return value;
     },
   );
 
