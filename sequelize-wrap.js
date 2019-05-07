@@ -1,12 +1,12 @@
 (function(factory) {
   if (typeof define === "function" && define.amd) {
-    define([], factory);
+    define(["sequelize"], factory);
   } else if (typeof module !== "undefined" && module.exports) {
-    module.exports = factory();
+    module.exports = factory(require("sequelize"));
   } else if (typeof exports !== "undefined") {
-    exports.default = factory();
+    exports.default = factory(exports.sequelize || require("sequelize"));
   }
-})(function() {
+})(function(sequelize) {
   return class SequelizeWrapper {
     get fields() {
       return this.__$$fields;
