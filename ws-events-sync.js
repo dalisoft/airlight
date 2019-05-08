@@ -9,10 +9,16 @@
     );
     exports.Server = Server;
     exports.Client = Client;
+    exports.__esModule = true;
+  } else if (typeof self !== "undefined") {
+    self.WSEventsSync = factory(self.Events);
+    self.WSEventsSync.__esModule = true;
   } else if (typeof window !== "undefined" && window.document) {
     window.WSEventsSync = factory(window.Events);
+    window.WSEventsSync.__esModule = true;
   } else {
     this.WSEventsSync = factory(this.Events);
+    this.WSEventsSync.__esModule = true;
   }
 })(function(Events) {
   let intervalId = null;
