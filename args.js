@@ -6,10 +6,15 @@
   } else if (typeof exports !== "undefined") {
     exports.default = factory();
     exports.args = exports.default;
+  } else if (typeof self !== "undefined") {
+    self.args = factory();
+    self.args.__esModule = true;
   } else if (typeof window !== "undefined" && window.document) {
     window.args = factory();
+    window.args.__esModule = true;
   } else {
     this.args = factory();
+    this.args.__esModule = true;
   }
 })(function() {
   function normalizeArg(type) {

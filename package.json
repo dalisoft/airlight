@@ -1,6 +1,6 @@
 {
   "name": "@dalisoft/args",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A performant argument pass library",
   "main": "args.js",
   "cdn": "args.min.js",
