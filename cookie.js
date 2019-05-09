@@ -11,10 +11,16 @@
     exports.getFromHeader = getFromHeader;
     exports.set = set;
     exports.remove = remove;
+    exports.__esModule = true;
+  } else if (typeof self !== "undefined") {
+    self.Cookie = factory();
+    self.Cookie.__esModule = true;
   } else if (typeof window !== "undefined" && window.document) {
     window.Cookie = factory();
+    window.Cookie.__esModule = true;
   } else {
     this.Cookie = factory();
+    this.Cookie.__esModule = true;
   }
 })(function() {
   function normalizeArg(type) {
