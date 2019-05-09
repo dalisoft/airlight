@@ -5,10 +5,17 @@
     module.exports = factory();
   } else if (typeof exports !== "undefined") {
     exports.default = factory();
-  } else if (typeof window !== "undefined" && window.document) {
+    exports.__esModule = true;
+  } else if (typeof self !== "undefined") {
+    self.deepCopy = factory();
+    self.deepCopy.__esModule = true;
+  }
+  if (typeof window !== "undefined" && window.document) {
     window.deepCopy = factory();
+    window.deepCopy.__esModule = true;
   } else {
     this.deepCopy = factory();
+    this.deepCopy.__esModule = true;
   }
 })(function() {
   return function deepCopy(source) {
