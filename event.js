@@ -5,10 +5,16 @@
     module.exports = factory(require("@dalisoft/args"));
   } else if (typeof exports !== "undefined") {
     exports.default = factory(exports.args || require("@dalisoft/args"));
+    exports.__esModule = true;
+  } else if (typeof self !== "undefined") {
+    self.Events = factory(self.args);
+    self.Events.__esModule = true;
   } else if (typeof window !== "undefined" && window.document) {
     window.Events = factory(window.args);
+    window.Events.__esModule = true;
   } else {
     this.Events = factory(this.args);
+    this.Events.__esModule = true;
   }
 })(function(args) {
   return class Events {
