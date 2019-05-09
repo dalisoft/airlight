@@ -30,6 +30,6 @@
     "terser": "^3.17.0"
   },
   "dependencies": {
-    "@dalisoft/args": "0.0.5"
+    "@dalisoft/args": "0.0.6"
   }
 }
