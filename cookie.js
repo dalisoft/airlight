@@ -4,11 +4,11 @@
   } else if (typeof module !== "undefined" && module.exports) {
     module.exports = factory();
   } else if (typeof exports !== "undefined") {
-    const { parse, stringify, getFromHeader, set, remove } = factory();
+    const { parse, stringify, getFromHeaders, set, remove } = factory();
 
     exports.parse = parse;
     exports.stringify = stringify;
-    exports.getFromHeader = getFromHeader;
+    exports.getFromHeaders = getFromHeaders;
     exports.set = set;
     exports.remove = remove;
     exports.__esModule = true;
