@@ -1,6 +1,6 @@
 {
   "name": "@dalisoft/swipe-gesture",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Swipe gesture library",
   "module": "swipe-gesture.es.js",
   "main": "swipe-gesture.js",

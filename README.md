@@ -13,6 +13,10 @@ Swipe gesture library
 - Easy
 - UMD compatible
 
+## Demos
+
+- [Simple demo](https://codepen.io/dalisoft/pen/vwKrpw)
+
 ## Installation
 
 We recommend install via `npm` because of it's cache and flat node modules tree
@@ -38,7 +42,7 @@ import SwipeGesture from "@dalisoft/swipe-gesture";
 
 - _onPointerDown_ `function(e: Event)` - Call like `pointerdown`
 - _onPointerMove_ `function(e: Event)` - Call like `pointermove`
-- _onPointerUp_ `function(e: Event)` - Call like `pointerup`
+- _onPointerUp_ `function()` - Call like `pointerup`, but without `Event` for performance reason
 - _onPanX_ `function(e: Event.X.Delta)` - Call when panning horizontal
 - _onPanY_ `function(e: Event.Y.Delta)` - Call when panning vertical
 - _onSwipeLeft_ `function(e: Event.X.Delta)` - Call when swipe left

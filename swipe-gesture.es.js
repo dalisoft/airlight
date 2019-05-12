@@ -6,9 +6,9 @@ const Swipe = props => {
   let type = null;
   let delta = 0;
 
-  const onLeaveHandle = () => {
+  const onLeaveHandle => () => {
     if (props.onPointerUp) {
-      props.onPointerUp(e);
+      props.onPointerUp();
     }
     if (props[type]) {
       props[type](delta);
@@ -90,7 +90,7 @@ const Swipe = props => {
       }
     }
   };
-  const onTouchEndHandler = e => {
+  const onTouchEndHandler = () => {
     requestAnimationFrame(onLeaveHandle);
     isPressed = false;
   };
