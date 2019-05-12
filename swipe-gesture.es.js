@@ -81,14 +81,13 @@ const Swipe = props => {
     }
   };
   const onTouchEndHandler = e => {
-      requestAnimationFrame(() => {
-        if (props.onPointerUp) {
-          props.onPointerUp(e)
-        }
-        props[type] && props[type](delta);
-        type = null;
-      });
-    }
+    requestAnimationFrame(() => {
+      if (props.onPointerUp) {
+        props.onPointerUp(e);
+      }
+      props[type] && props[type](delta);
+      type = null;
+    });
     isPressed = false;
   };
 
