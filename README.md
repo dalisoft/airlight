@@ -28,7 +28,7 @@ See example, there all of options shown
 ### CLI mode
 
 ```bash
-lib-export -name SwipeGesture -file YOUR_FILE.js -output YOUR_FILE.browser.js --no-amd --no-worker --no-this --no-commonjs
+lib-export -name LibraryName -file YOUR_FILE.js -output YOUR_FILE.browser.js --no-amd --no-worker --no-this --no-commonjs
 ```
 
 ### Library mode
@@ -37,7 +37,7 @@ lib-export -name SwipeGesture -file YOUR_FILE.js -output YOUR_FILE.browser.js --
 const libexport = require("lib-export");
 
 libexport({
-  name: "SwipeGesture",
+  name: "LibraryName",
   output: "YOUR_FILE.browser.js", // Optional, by default suffix will be .processed.js
   file: "YOUR_FILE.js",
   "no-amd": true,
