@@ -61,5 +61,6 @@ typings/
 .next
 
 # dist files
+swipe-gesture.js
 swipe-gesture.min.js
 swipe-gesture.min.js.map
