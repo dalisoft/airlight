@@ -17,12 +17,12 @@ module.exports = ({ imports, exports }, pureFunction, options) => {
       "define([" +
       imports.map(({ path }) => '"' + path + '"') +
       "], factory)\n";
-    template += whitespace(2) + "} else ";
+    template += whitespace(2) + "} ";
   }
 
   // CommonJS / Node exports
   if (!options["no-commonjs"]) {
-    template += template.indexOf("if ") !== -1 ? " else " + "\n" : "\n";
+    template += template.indexOf("if ") !== -1 ? " else " : "\n";
     template += 'if (typeof module !== "undefined" && module.exports) {' + "\n";
     template +=
       whitespace(4) +
@@ -40,7 +40,7 @@ module.exports = ({ imports, exports }, pureFunction, options) => {
 
   // ES6 Exports
   if (!options["no-exports"]) {
-    template += template.indexOf("if ") !== -1 ? " else " + "\n" : "\n";
+    template += template.indexOf("if ") !== -1 ? " else " : "\n";
     template += 'if (typeof exports !== "undefined") {' + "\n";
     template +=
       whitespace(4) +
@@ -59,7 +59,7 @@ module.exports = ({ imports, exports }, pureFunction, options) => {
 
   // Worker support
   if (!options["no-worker"]) {
-    template += template.indexOf("if ") !== -1 ? " else " + "\n" : "\n";
+    template += template.indexOf("if ") !== -1 ? " else " : "\n";
     template += 'if (typeof self !== "undefined") {' + "\n";
     template +=
       whitespace(4) +
@@ -83,7 +83,7 @@ module.exports = ({ imports, exports }, pureFunction, options) => {
 
   // Browser support
   if (!options["no-window"]) {
-    template += template.indexOf("if ") !== -1 ? " else " + "\n" : "\n";
+    template += template.indexOf("if ") !== -1 ? " else " : "\n";
     template +=
       'if (typeof window !== "undefined" && window.document) {' + "\n";
     template +=

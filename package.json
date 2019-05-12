@@ -1,13 +1,13 @@
 {
   "name": "lib-export",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "CLI for making pure types exportable",
   "main": "lib.js",
   "bin": {
     "lib-export": "./cli.js"
   },
   "scripts": {
-    "test": "exit 0"
+    "test": "./cli.js -name Simple -file test/simple.js -output test/simple.umd.js"
   },
   "repository": {
     "type": "git",
