@@ -2,11 +2,10 @@ const Swipe = props => {
   let isPressed = false;
   let startX = 0;
   let startY = 0;
-  let isTouch = false;
   let type = null;
   let delta = 0;
 
-  const onLeaveHandle => () => {
+  const onLeaveHandle = () => {
     if (props.onPointerUp) {
       props.onPointerUp();
     }
@@ -90,7 +89,7 @@ const Swipe = props => {
       }
     }
   };
-  const onTouchEndHandler = () => {
+  const onTouchEndHandler = e => {
     requestAnimationFrame(onLeaveHandle);
     isPressed = false;
   };
