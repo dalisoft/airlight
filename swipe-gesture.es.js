@@ -69,12 +69,12 @@ const Swipe = props => {
         }
         delta = dy;
         if (dy < 0) {
-          if (props.onSwipeDown) {
-            type = "onSwipeDown";
-          }
-        } else if (dy > 0) {
           if (props.onSwipeUp) {
             type = "onSwipeUp";
+          }
+        } else if (dy > 0) {
+          if (props.onSwipeDown) {
+            type = "onSwipeDown";
           }
         }
       }
