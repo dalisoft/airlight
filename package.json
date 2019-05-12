@@ -8,7 +8,7 @@
   "browser": "swipe-gesture.min.js",
   "scripts": {
     "minify": "npx terser swipe-gesture.js -c -m -o swipe-gesture.min.js --source-map \"filename='swipe-gesture.min.js.map'\"",
-    "prepublishOnly": "npm test && npm run minify && npm run compile-module",
+    "prepublishOnly": "npm test && npm run compile-module && npm run minify",
     "test": "node -e \"module.exports = 'fake-test'\"",
     "compile-module": "lib-export -name SwipeGesture -file swipe-gesture.es.js -output swipe-gesture.js"
   },
