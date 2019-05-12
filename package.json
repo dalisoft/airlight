@@ -1,0 +1,33 @@
+{
+  "name": "@dalisoft/swipe-gesture",
+  "version": "0.0.1",
+  "description": "Swipe gesture library",
+  "main": "swipe-gesture.js",
+  "cdn": "swipe-gesture.min.js",
+  "browser": "swipe-gesture.min.js",
+  "scripts": {
+    "minify": "npx terser swipe-gesture.js -c -m -o swipe-gesture.min.js --source-map \"filename='swipe-gesture.min.js.map'\"",
+    "prepublishOnly": "npm test && npm run minify",
+    "test": "node -e \"module.exports = 'fake-test'\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dalisoft/swipe-gesture.git"
+  },
+  "keywords": [
+    "swipe-gesture",
+    "simple",
+    "lightweight",
+    "performant"
+  ],
+  "author": "dalisoft",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dalisoft/swipe-gesture/issues"
+  },
+  "homepage": "https://github.com/dalisoft/swipe-gesture#readme",
+  "devDependencies": {
+    "terser": "^3.17.0"
+  },
+  "dependencies": {}
+}
