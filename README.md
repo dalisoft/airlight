@@ -4,13 +4,15 @@
 
 Swipe gesture library
 
+**Note**: _This library focused to performance and simplicity. For complex usecase (like long-tap or pinch), please use other library_
+
 ## Features
 
 - No limit: not only for DOM
 - Handles types for your
 - Clean code
+- Simple & Easy
 - Performant
-- Easy
 - UMD compatible
 
 ## Demos
