@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/dalisoft/swipe-gesture#readme",
   "devDependencies": {
-    "lib-export": "0.0.1",
+    "lib-export": "0.0.2",
     "terser": "^3.17.0"
   },
   "dependencies": {}
