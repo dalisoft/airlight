@@ -1,0 +1,13 @@
+{
+  "src/**/.*rc": [
+    "prettier --write",
+    "git add"
+  ],
+  "src/**/*.{json,md,yml}": [
+    "prettier --write",
+    "git add"
+  ],
+  "ignore": [
+    "**/dist/*.js"
+  ]
+}

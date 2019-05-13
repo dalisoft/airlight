@@ -21,9 +21,7 @@ type typeValue =
   | Promise<typeValueRefOrRefArr>;
 
 const isNonServerEnv =
-  typeof window !== 'undefined' ||
-  typeof require === 'undefined' ||
-  typeof process === 'undefined';
+  typeof window !== 'undefined' || typeof require === 'undefined' || typeof process === 'undefined';
 
 class CustomCache {
   public addedCacheKeys?: string[];
@@ -31,9 +29,7 @@ class CustomCache {
 
   constructor(config: Config) {
     if (isNonServerEnv && config.onlyServer) {
-      console.error(
-        'The CustomCache is available only for server-side Node.js!',
-      );
+      console.error('The CustomCache is available only for server-side Node.js!');
       return this;
     }
 
@@ -66,9 +62,7 @@ class CustomCache {
   }
   public set<T>(key: string, value: T): any {
     if (isNonServerEnv && this.config.onlyServer) {
-      console.error(
-        'The CustomCache is available only for server-side Node.js!',
-      );
+      console.error('The CustomCache is available only for server-side Node.js!');
       return;
     }
     if (!this.config.setTransform) {
@@ -130,9 +124,7 @@ class CustomCache {
     if ((isNonServerEnv && this.config.onlyServer) || !this.addedCacheKeys) {
       return [];
     }
-    return this.addedCacheKeys.map(
-      (key: string): typeValue => this.get(key) as typeValue,
-    );
+    return this.addedCacheKeys.map((key: string): typeValue => this.get(key) as typeValue);
   }
   public forEach(fn: Function): void {
     if ((isNonServerEnv && this.config.onlyServer) || !this.addedCacheKeys) {
@@ -155,17 +147,13 @@ class CustomCache {
           const get = this.get(key);
 
           if ((get as Promise<typeValue>).then) {
-            return (get as Promise<typeValue>).then(
-              (getValue: any): void => fn(key, getValue),
-            );
+            return (get as Promise<typeValue>).then((getValue: any): void => fn(key, getValue));
           }
           fn(get);
         },
       );
     }
-    return this.addedCacheKeys.forEach(
-      (key: string): void => fn(key, this.get(key)),
-    );
+    return this.addedCacheKeys.forEach((key: string): void => fn(key, this.get(key)));
   }
   public clear(): void {
     if (isNonServerEnv && this.config.onlyServer) {

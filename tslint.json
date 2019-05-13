@@ -4,7 +4,8 @@
   "jsRules": {},
   "rules": {
     "no-parameter-reassignment": false,
-    "no-else-after-return": false
+    "no-else-after-return": false,
+    "prefer-template": false
   },
   "rulesDirectory": []
 }

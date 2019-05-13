@@ -2,15 +2,14 @@ import * as FS from 'fs';
 type FsType = typeof FS;
 
 const isFSUnavailabe: boolean =
-  typeof window !== 'undefined' ||
-  typeof require === 'undefined' ||
-  typeof process === 'undefined';
+  typeof window !== 'undefined' || typeof require === 'undefined' || typeof process === 'undefined';
 
 type typeValue = string | number | object | string[] | number[] | object[];
 class FSCache {
   public addedCacheKeys?: string[];
   private rnd: string | boolean | null;
-  private dir: string;
+  private dir!: string;
+  private tmpDir?: string;
   private fs!: FsType;
 
   constructor(randomDir?: boolean | string | null) {
@@ -21,17 +20,16 @@ class FSCache {
         ? randomDir
         : null;
 
-    this.dir = randomDir
-      ? `/tmp/dalisoft-cache-ttl--${this.rnd}/`
-      : '/tmp/dalisoft-cache-ttl/';
-
     if (isFSUnavailabe) {
-      console.error(
-        'The FileCache is available only for server-side File System!',
-      );
+      console.error('The FileCache is available only for server-side File System!');
       return this;
     }
     this.fs = require('fs');
+
+    this.tmpDir = this.fs.realpathSync(require('os').tmpdir());
+    this.dir = randomDir
+      ? this.tmpDir + `/dalisoft-cache-ttl--${this.rnd}/`
+      : this.tmpDir + '/dalisoft-cache-ttl/';
 
     if (!this.fs.existsSync(this.dir)) {
       this.fs.mkdirSync(this.dir);
@@ -51,9 +49,7 @@ class FSCache {
   }
   public set(key: string, value: typeValue): void {
     if (isFSUnavailabe) {
-      console.error(
-        'The FileCache is available only for server-side File System!',
-      );
+      console.error('The FileCache is available only for server-side File System!');
       return;
     }
     if (this.addedCacheKeys) {
@@ -75,9 +71,7 @@ class FSCache {
       return;
     }
     if (this.addedCacheKeys) {
-      this.addedCacheKeys = this.addedCacheKeys.filter(
-        cacheKey => cacheKey !== key,
-      );
+      this.addedCacheKeys = this.addedCacheKeys.filter(cacheKey => cacheKey !== key);
     }
     this.fs.unlinkSync(this.dir + key);
   }
