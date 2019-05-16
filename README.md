@@ -2,7 +2,7 @@
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/dalisoft/cache-ttl.svg)](https://greenkeeper.io/)
 
-In-memory and File-based cache with TTL for Node.js and browser
+Caching Library with TTL for Node.js and browser
 
 ## Features
 
@@ -22,12 +22,12 @@ In-memory and File-based cache with TTL for Node.js and browser
 
 ```js
 // ES6
-import CacheTTL from "@dalisoft/cache-ttl";
+import CacheTTL from '@dalisoft/cache-ttl';
 
 // or
 
 // CommonJS
-const CacheTTL = require("@dalisoft/cache-ttl");
+const CacheTTL = require('@dalisoft/cache-ttl');
 
 // or
 
@@ -48,7 +48,7 @@ or you can see how to define your own caching method (you can use Redis, MongoDB
 
 ```ts
 let _map = new Map();
-const cache = new CacheTTL(5000, "custom", {
+const cache = new CacheTTL(5000, 'custom', {
   getTransform(key: string): any {
     return _map.get(key);
   },
@@ -60,7 +60,7 @@ const cache = new CacheTTL(5000, "custom", {
   },
   deleteTransform(key: string): void {
     _map.delete(key);
-  }
+  },
 });
 ```
 

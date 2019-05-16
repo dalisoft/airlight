@@ -27,6 +27,7 @@ class FSCache {
     this.fs = require('fs');
 
     this.tmpDir = this.fs.realpathSync(require('os').tmpdir());
+
     this.dir = randomDir
       ? this.tmpDir + `/dalisoft-cache-ttl--${this.rnd}/`
       : this.tmpDir + '/dalisoft-cache-ttl/';
@@ -58,7 +59,9 @@ class FSCache {
       }
       this.addedCacheKeys.push(key);
     }
-    this.fs.writeFileSync(this.dir + key, JSON.stringify(value));
+    const file = this.fs.createWriteStream(this.dir + key);
+    file.write(JSON.stringify(value));
+    file.end();
   }
   public has(key: string): boolean {
     if (isFSUnavailabe) {
