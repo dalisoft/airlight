@@ -203,9 +203,11 @@ class AsBatch {
   }
   delete(key: string) {
     this.cache.delete(key);
+    this.callsCache.delete(key);
   }
   clear() {
     this.cache.clear();
+    this.callsCache.clear();
   }
   fetchRegistered() {
     clearTimeout(this.onRegisterTimeoutId);
