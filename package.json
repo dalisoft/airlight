@@ -2,7 +2,7 @@
   "name": "@dalisoft/as-batch",
   "private": false,
   "version": "0.1.7",
-  "description": "Convert many calls to batches",
+  "description": "Convert many calls into batches",
   "types": "dist/es/as-batch.d.ts",
   "module": "dist/es/as-batch.js",
   "main": "dist/cjs/as-batch.js",
