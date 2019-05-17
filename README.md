@@ -2,10 +2,6 @@
 
 An declarative React.js wrapper for es6-tween tweening library
 
-## Frameworks
-
-- [react-es6-tween](https://github.com/dalisoft/react-es6-tween)
-
 ## Installation
 
 ```bash
