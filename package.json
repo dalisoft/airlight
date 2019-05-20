@@ -27,7 +27,7 @@
   "homepage": "https://github.com/dalisoft/event#readme",
   "devDependencies": {
     "ava": "^1.4.1",
-    "terser": "^3.17.0"
+    "terser": "^4.0.0"
   },
   "dependencies": {
     "@dalisoft/args": "0.0.6"
