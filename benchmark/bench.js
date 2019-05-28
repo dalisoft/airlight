@@ -1,4 +1,4 @@
-const strify = require("../json-strify.es");
+const strify = require("../json-strify");
 
 const obj = {
   a: 1,

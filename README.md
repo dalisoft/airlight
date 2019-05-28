@@ -1,15 +1,12 @@
-# args
+# json-strify
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/dalisoft/args.svg)](https://greenkeeper.io/)
+[![Greenkeeper badge](https://badges.greenkeeper.io/dalisoft/json-strify.svg)](https://greenkeeper.io/)
 
-A performant argument pass library
+Faster implementation of JSON.stringify
 
 ## Features
 
-- Ability handle up to 10 arguments
 - Performant
-- Easy
-- Fallback to `fn.apply(this, args)`
 - UMD compatible
 
 ## Installation
@@ -17,26 +14,26 @@ A performant argument pass library
 We recommend install via `npm` because of it's cache and flat node modules tree
 
 ```bash
-npm i @dalisoft/args
+npm i json-strify
 ```
 
 then you able to import to Node.js/Browser easily
 
 ```js
 // Node.js
-const args = require("@dalisoft/args");
+const JSONStringify = require("json-strify");
 
 // Browser
-// window.args OR args
+// window.JSONStringify OR JSONStringify
 
 // ES6
-import args from "@dalisoft/args";
+import JSONStringify from "json-strify";
 ```
 
 ## Usage
 
 ```ts
-args(fn: Function, arguments: any[])
+JSONStringify(object: any)
 ```
 
 ## License
