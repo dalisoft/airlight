@@ -1,0 +1,35 @@
+{
+  "name": "json-strify",
+  "version": "0.0.1",
+  "description": "Faster implementation of JSON.stringify",
+  "main": "json-strify.js",
+  "module": "json-strify.es.js",
+  "cdn": "json-strify.min.js",
+  "browser": "json-strify.min.js",
+  "scripts": {
+    "minify": "npx terser event.js -c -m -o json-strify.min.js --source-map \"filename='json-strify.min.js.map'\"",
+    "prepublishOnly": "npm test && npm run minify",
+    "test": "ava",
+    "compile-module": "lib-export -name JSONStrify -file json-strify.es.js -output json-strify.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dalisoft/json-strify.git"
+  },
+  "keywords": [
+    "json",
+    "stringify",
+    "faster"
+  ],
+  "author": "dalisoft",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dalisoft/json-strify/issues"
+  },
+  "homepage": "https://github.com/dalisoft/json-strify#readme",
+  "devDependencies": {
+    "ava": "^1.4.1",
+    "lib-export": "0.0.3",
+    "terser": "^4.0.0"
+  }
+}
