@@ -1,14 +1,16 @@
 {
   "name": "@dalisoft/events",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "One more event emitter for Node.js and browser",
   "main": "event.js",
+  "module": "event.es.js",
   "cdn": "event.min.js",
   "browser": "event.min.js",
   "scripts": {
     "minify": "npx terser event.js -c -m -o event.min.js --source-map \"filename='event.min.js.map'\"",
-    "prepublishOnly": "npm test && npm run minify",
-    "test": "npx ava"
+    "prepublishOnly": "npm run compile-module && npm test && npm run minify",
+    "test": "npx ava",
+    "compile-module": "lib-export -name Events -file event.es.js -output event.js"
   },
   "repository": {
     "type": "git",
@@ -27,6 +29,7 @@
   "homepage": "https://github.com/dalisoft/event#readme",
   "devDependencies": {
     "ava": "^1.4.1",
+    "lib-export": "0.0.3",
     "terser": "^3.17.0"
   },
   "dependencies": {
