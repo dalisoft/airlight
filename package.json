@@ -8,7 +8,7 @@
   "browser": "json-strify.min.js",
   "scripts": {
     "minify": "npx terser json-strify.js -c -m -o json-strify.min.js --source-map \"filename='json-strify.min.js.map'\"",
-    "prepublishOnly": "npm test && npm run minify",
+    "prepublishOnly": "npm run compile-module && npm test && npm run minify",
     "test": "ava",
     "compile-module": "lib-export -name JSONStrify -file json-strify.es.js -output json-strify.js"
   },
