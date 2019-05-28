@@ -4,9 +4,16 @@
 
 Faster implementation of JSON.stringify
 
+_Performance: This library ~50% faster than `JSON.stringify` on larger objects/arrays_
+
+_Note: This library doesn't handle Ciruclar references, instead of just replaces Circular reference to `[Circular]` string, but doesn't throw error_
+
 ## Features
 
 - Performant
+- Easy
+- No dependencies
+- Circular handling
 - UMD compatible
 
 ## Installation
@@ -33,7 +40,7 @@ import JSONStringify from "json-strify";
 ## Usage
 
 ```ts
-JSONStringify(object: any)
+JSONStringify(object: any): string
 ```
 
 ## License

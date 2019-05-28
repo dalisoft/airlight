@@ -31,7 +31,23 @@ test("stringify array", t => {
 
 test("stringify object", t => {
   const obj = { foo: { bar: "baz" } };
+
   const str = strify(obj);
 
   t.is(str, '{"foo":{"bar":"baz"}}', "Stringify Object not works as excepted");
+});
+
+test("stringify circular", t => {
+  const obj = { foo: { bar: "baz" } };
+  obj.foo.xyz = obj.foo;
+  obj.bar = [1, 2, [obj, { baz: obj.foo }]];
+  obj;
+
+  const str = strify(obj);
+
+  t.is(
+    str,
+    '{"foo":{"bar":"baz","xyz":"[Circular]"},"bar":"[1,2,"["[Circular]",{"baz":{"bar":"baz","xyz":"[Circular]"}}]"]"}',
+    "Stringify Object not works as excepted"
+  );
 });

@@ -6,6 +6,7 @@ const obj = {
   foo: { bar: "baz", nullValue: null },
   qux: [1, "two", { three: true, undef: undefined }]
 };
+obj.c = obj.foo;
 
 const bench = (name, fn, iteration = 1e5) => {
   console.time(name);

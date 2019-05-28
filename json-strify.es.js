@@ -1,4 +1,4 @@
-const jsonStrify = (jsonObject, replacer, space) => {
+const jsonStrify = (jsonObject, replacer, space, jsonParent) => {
   if (jsonObject === undefined || jsonObject === null) {
     return "{}";
   }
@@ -26,12 +26,19 @@ const jsonStrify = (jsonObject, replacer, space) => {
         value = replacer(i, value);
       }
 
-      if (typeof value === "string") {
+      if (
+        value === jsonObject ||
+        value === jsonParent ||
+        (jsonParent && value === jsonParent.parent)
+      ) {
+        result += '"[Circular]"';
+      } else if (typeof value === "string") {
         result += '"' + value + '"';
       } else if (typeof value === "number" || typeof value === "boolean") {
         result += value;
       } else if (typeof value === "object") {
-        result += jsonStrify(value, replacer, space);
+        jsonObject.parent = jsonParent;
+        result += jsonStrify(value, replacer, space, jsonObject);
       }
 
       if (space) {
@@ -65,12 +72,19 @@ const jsonStrify = (jsonObject, replacer, space) => {
         value = replacer(key, value);
       }
 
-      if (typeof value === "string") {
+      if (
+        value === jsonObject ||
+        value === jsonParent ||
+        (jsonParent && value === jsonParent.parent)
+      ) {
+        result += '"[Circular]"';
+      } else if (typeof value === "string") {
         result += '"' + value + '"';
       } else if (typeof value === "number" || typeof value === "boolean") {
         result += value;
       } else if (typeof value === "object") {
-        result += jsonStrify(value, replacer, space);
+        jsonObject.parent = jsonParent;
+        result += jsonStrify(value, replacer, space, jsonObject);
       }
     }
     result += "}";
