@@ -1,6 +1,6 @@
 {
   "name": "@dalisoft/events",
-  "version": "0.0.8",
+  "version": "0.0.8-rc",
   "description": "One more event emitter for Node.js and browser",
   "main": "event.js",
   "module": "event.es.js",
