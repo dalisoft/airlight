@@ -1,6 +1,30 @@
 import test from "ava";
 import Events from "./event";
 
+test("Get prototype", t => {
+  t.plan(4);
+
+  t.is(
+    typeof Events.prototype.on,
+    "function",
+    "Prototype methods not assigned properly"
+  );
+  t.is(
+    typeof Events.prototype.once,
+    "function",
+    "Prototype methods not assigned properly"
+  );
+  t.is(
+    typeof Events.prototype.off,
+    "function",
+    "Prototype methods not assigned properly"
+  );
+  t.is(
+    typeof Events.prototype.emit,
+    "function",
+    "Prototype methods not assigned properly"
+  );
+});
 test("Basic test", t =>
   new Promise(resolve => {
     t.timeout(1000);

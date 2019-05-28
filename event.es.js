@@ -1,13 +1,13 @@
 import args from "@dalisoft/args";
 
-class Events {
-  constructor() {
-    Object.defineProperty(this, "___events", {
-      enumerable: false,
-      writable: true,
-      value: {}
-    });
-  }
+function Events() {
+  Object.defineProperty(this, "___events", {
+    enumerable: false,
+    writable: true,
+    value: {}
+  });
+}
+Events.prototype = {
   on(name, callback) {
     const { ___events } = this;
 
@@ -18,7 +18,7 @@ class Events {
     ___events[name].push(callback);
 
     return this;
-  }
+  },
   once(name, callback) {
     const { ___events } = this;
 
@@ -37,7 +37,7 @@ class Events {
     });
 
     return this;
-  }
+  },
   off(name, callback) {
     if (name !== undefined) {
       const { ___events } = this;
@@ -57,7 +57,7 @@ class Events {
       }
     }
     return this;
-  }
+  },
   emit() {
     const { ___events } = this;
     const argsOfFn = [].slice.call(arguments);
@@ -91,6 +91,6 @@ class Events {
 
     return this;
   }
-}
+};
 
 export default Events;
