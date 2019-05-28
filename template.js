@@ -67,13 +67,14 @@ module.exports = ({ imports, exports }, pureFunction, options) => {
       imports
         .map(({ path, constant, default: isDefault }) =>
           isDefault
-            ? "_interopDefault(self." +
+            ? '_interopDefault(self["' +
               path +
-              (constant && path !== constant ? " || self." + constant : "") +
-              ")"
-            : "self." +
+              (constant && path !== constant ? '"] || self["' + constant : "") +
+              '"])'
+            : 'self["' +
               path +
-              (constant && path !== constant ? " || self." + constant : "")
+              (constant && path !== constant ? '"] || self["' + constant : "") +
+              '"]'
         )
         .join(", ") +
       "));\n";
@@ -92,13 +93,18 @@ module.exports = ({ imports, exports }, pureFunction, options) => {
       imports
         .map(({ path, constant, default: isDefault }) =>
           isDefault
-            ? "_interopDefault(window." +
+            ? '_interopDefault(window["' +
               path +
-              (constant && path !== constant ? " || window." + constant : "") +
-              ")"
-            : "window." +
+              (constant && path !== constant
+                ? '"] || window["' + constant
+                : "") +
+              '"])'
+            : 'window["' +
               path +
-              (constant && path !== constant ? " || window." + constant : "")
+              (constant && path !== constant
+                ? '"] || window["' + constant
+                : "") +
+              '"]'
         )
         .join(", ") +
       "));\n";
@@ -115,13 +121,14 @@ module.exports = ({ imports, exports }, pureFunction, options) => {
       imports
         .map(({ path, constant, default: isDefault }) =>
           isDefault
-            ? "_interopDefault(this." +
+            ? '_interopDefault(this["' +
               path +
-              (constant && path !== constant ? " || this." + constant : "") +
-              ")"
-            : "this." +
+              (constant && path !== constant ? '"] || this["' + constant : "") +
+              '"])'
+            : 'this["' +
               path +
-              (constant && path !== constant ? " || this." + constant : "")
+              (constant && path !== constant ? '"] || this["' + constant : "") +
+              '"]'
         )
         .join(", ") +
       "));\n";

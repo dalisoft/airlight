@@ -1,6 +1,6 @@
 {
   "name": "lib-export",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "CLI for making pure types exportable",
   "main": "lib.js",
   "bin": {
