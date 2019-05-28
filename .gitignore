@@ -64,3 +64,7 @@ typings/
 event.js
 event.min.js
 event.min.js.map
+
+# lockfiles
+package-lock.json
+yarn.lock
