@@ -5,28 +5,37 @@ test("stringify number", t => {
   const obj = { a: 1 };
   const str = strify(obj);
 
-  t.is(str, '{"a":1}', "Stringify Number not works as excepted");
+  t.is(str, JSON.stringify(obj), "Stringify Number not works as excepted");
 });
 
 test("stringify string", t => {
-  const obj = { b: "string" };
+  const obj = { b: "string in object" };
   const str = strify(obj);
 
-  t.is(str, '{"b":"string"}', "Stringify String not works as excepted");
+  t.is(str, JSON.stringify(obj), "Stringify String not works as excepted");
+
+  const str2 = 'This is "string"';
+  const str2conv = strify(str2);
+
+  t.is(
+    str2conv,
+    JSON.stringify('This is "string"'),
+    "Stringify not works as excepted"
+  );
 });
 
 test("stringify boolean", t => {
   const obj = { c: false };
   const str = strify(obj);
 
-  t.is(str, '{"c":false}', "Stringify Boolean not works as excepted");
+  t.is(str, JSON.stringify(obj), "Stringify Boolean not works as excepted");
 });
 
 test("stringify array", t => {
   const obj = { baz: [1, "two"] };
   const str = strify(obj);
 
-  t.is(str, '{"baz":"[1,"two"]"}', "Stringify Array not works as excepted");
+  t.is(str, JSON.stringify(obj), "Stringify Array not works as excepted");
 });
 
 test("stringify object", t => {
@@ -34,20 +43,19 @@ test("stringify object", t => {
 
   const str = strify(obj);
 
-  t.is(str, '{"foo":{"bar":"baz"}}', "Stringify Object not works as excepted");
+  t.is(str, JSON.stringify(obj), "Stringify Object not works as excepted");
 });
 
 test("stringify circular", t => {
   const obj = { foo: { bar: "baz" } };
   obj.foo.xyz = obj.foo;
   obj.bar = [1, 2, [obj, { baz: obj.foo }]];
-  obj;
 
   const str = strify(obj);
 
   t.is(
     str,
-    '{"foo":{"bar":"baz","xyz":"[Circular]"},"bar":"[1,2,"["[Circular]",{"baz":{"bar":"baz","xyz":"[Circular]"}}]"]"}',
+    '{"foo":{"bar":"baz","xyz":"[Circular]"},"bar":[1,2,["[Circular]",{"baz":{"bar":"baz","xyz":"[Circular]"}}]]}',
     "Stringify Object not works as excepted"
   );
 });
