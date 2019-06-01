@@ -1,4 +1,4 @@
-const fastJsonStringify = require("fast-json-stringify");
+const compileJSON = require("compile-json-stringify");
 
 module.exports = schema => {
   let isSchemaGenerated;
@@ -10,7 +10,8 @@ module.exports = schema => {
     schemaStringify = schema;
     isSchemaGenerated = true;
   } else if (typeof schema === "object") {
-    schamaStringify = fastJsonStringify(schema);
+    schema.strict = true;
+    schamaStringify = compileJSON(schema);
     isSchemaGenerated = true;
   } else if (schema === undefined) {
     schema = {};
@@ -36,7 +37,8 @@ module.exports = schema => {
     }
     if (!jsonParent && isSchemaGenerated) {
       if (!schemaStringify) {
-        schemaStringify = fastJsonStringify(jsonSchema);
+        jsonSchema.strict = true;
+        schemaStringify = compileJSON(jsonSchema);
       } else if (jsonObject === prevObj) {
         return schemaPrevResponse;
       }
@@ -53,6 +55,10 @@ module.exports = schema => {
       for (let i = 0, len = jsonObject.length; i < len; i++) {
         let value = jsonObject[i];
         if (value === undefined || value === null) {
+          if (!jsonSchema.items[i]) {
+            jsonSchema.items[i] = { type: "null" };
+          }
+
           continue;
         }
         if (!result) {
@@ -106,6 +112,10 @@ module.exports = schema => {
       for (const key in jsonObject) {
         let value = jsonObject[key];
         if (value === undefined || value === null) {
+          if (!jsonSchema.properties[key]) {
+            jsonSchema.properties[key] = { type: "null" };
+          }
+
           continue;
         }
         if (!result) {
