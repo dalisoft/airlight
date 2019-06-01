@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/dalisoft/event#readme",
   "devDependencies": {
-    "ava": "^1.4.1",
+    "ava": "^2.0.0",
     "lib-export": "0.0.3",
     "terser": "^4.0.0"
   },
