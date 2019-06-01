@@ -1,6 +1,6 @@
 {
   "name": "json-strify",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Faster implementation of JSON.stringify",
   "main": "json-strify.js",
   "scripts": {

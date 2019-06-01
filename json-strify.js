@@ -6,8 +6,11 @@ module.exports = schema => {
   let schemaPrevResponse;
   let prevObj;
 
-  if (typeof schema === "object") {
-    schamaStringify = fastJsonStringify(jsonSchema);
+  if (typeof schema === "function") {
+    schemaStringify = schema;
+    isSchemaGenerated = true;
+  } else if (typeof schema === "object") {
+    schamaStringify = fastJsonStringify(schema);
     isSchemaGenerated = true;
   } else if (schema === undefined) {
     schema = {};
