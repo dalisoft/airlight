@@ -12,9 +12,7 @@ _Note: This library doesn't handle Ciruclar references, instead of just replaces
 
 - Performant
 - Easy
-- No dependencies
-- Circular handling
-- UMD compatible
+- Auto-schema generating
 
 ## Installation
 
@@ -29,9 +27,6 @@ then you able to import to Node.js/Browser easily
 ```js
 // Node.js
 const JSONStringify = require("json-strify");
-
-// Browser
-// window.JSONStringify OR JSONStringify
 
 // ES6
 import JSONStringify from "json-strify";

@@ -16,5 +16,5 @@ const bench = (name, fn, iteration = 1e5) => {
   console.timeEnd(name);
 };
 
-bench("JSON.stringify", JSON.stringify);
-bench("json-strify", strify);
+bench("JSON.stringify", JSON.stringify, 1e5);
+bench("json-strify", strify(), 1e5);
