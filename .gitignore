@@ -63,8 +63,3 @@ typings/
 # lockfiles
 package-lock.json
 yarn.lock
-
-# dist files
-json-strify.js
-json-strify.min.js
-json-strify.min.js.map
