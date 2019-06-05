@@ -7,8 +7,9 @@
   "module": "dist/es/jwt.js",
   "main": "dist/cjs/jwt.js",
   "scripts": {
-    "prepublishOnly": "npx rollup -c && npx ava",
-    "test": "npx rollup -c && npx ava --verbose && rm -rf dist"
+    "build": "rollup -c",
+    "prepublishOnly": "npm run build && npm run test",
+    "test": "ava --verbose"
   },
   "repository": {
     "type": "git",
