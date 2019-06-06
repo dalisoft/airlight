@@ -1,13 +1,14 @@
 {
   "name": "@dalisoft/jwe",
   "private": false,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "JWE Helper for Auth building from scratch",
   "module": "dist/es/jwe.js",
   "main": "dist/cjs/jwe.js",
   "scripts": {
-    "prepublishOnly": "npx rollup -c && npx ava",
-    "test": "npx rollup -c && npx ava --verbose && rm -rf dist"
+    "build": "rollup -c",
+    "prepublishOnly": "npm run build && npm test",
+    "test": "ava"
   },
   "repository": {
     "type": "git",
@@ -29,7 +30,7 @@
   "license": "MIT",
   "devDependencies": {
     "ava": "^2.0.0",
-    "rollup": "^1.11.1",
+    "rollup": "^1.14.3",
     "rollup-plugin-delete": "^1.0.0"
   },
   "dependencies": {
