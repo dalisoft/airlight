@@ -1,7 +1,7 @@
 {
   "name": "@dalisoft/cache-ttl",
   "private": false,
-  "version": "0.3.12",
+  "version": "0.3.13",
   "description": "Caching Library with TTL for Node.js and browser",
   "types": "dist/es/cache.d.ts",
   "module": "dist/es/cache-ttl.js",
@@ -9,8 +9,9 @@
   "cdn": "dist/umd/cache-ttl.min.js",
   "browser": "dist/umd/cache-ttl.min.js",
   "scripts": {
-    "prepublishOnly": "npx rollup -c && npx ava",
-    "test": "npx rollup -c && npx ava --verbose"
+    "build": "rollup -c",
+    "prepublishOnly": "npm run build && npm test",
+    "test": "ava"
   },
   "repository": {
     "type": "git",
@@ -32,17 +33,17 @@
   "author": "dalisoft",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^12.0.0",
+    "@types/node": "^12.0.5",
     "ava": "^2.0.0",
-    "husky": "^2.2.0",
-    "lint-staged": "^8.1.6",
-    "rollup": "^1.11.3",
+    "husky": "^2.4.0",
+    "lint-staged": "^8.2.0",
+    "rollup": "^1.14.3",
     "rollup-plugin-delete": "^1.0.0",
     "rollup-plugin-terser": "^5.0.0",
-    "rollup-plugin-typescript2": "^0.21.0",
-    "tslint": "^5.16.0",
+    "rollup-plugin-typescript2": "^0.21.1",
+    "tslint": "^5.17.0",
     "tslint-config-airbnb": "^5.11.1",
-    "typescript": "^3.4.5"
+    "typescript": "^3.5.1"
   },
   "dependencies": {}
 }
