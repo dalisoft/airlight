@@ -7,9 +7,9 @@
   "cdn": "event.min.js",
   "browser": "event.min.js",
   "scripts": {
-    "minify": "npx terser event.js -c -m -o event.min.js --source-map \"filename='event.min.js.map'\"",
+    "minify": "terser event.js -c -m -o event.min.js --source-map \"filename='event.min.js.map'\"",
     "prepublishOnly": "npm run compile-module && npm test && npm run minify",
-    "test": "npx ava",
+    "test": "ava",
     "compile-module": "lib-export -name Events -file event.es.js -output event.js"
   },
   "repository": {
