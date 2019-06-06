@@ -63,3 +63,7 @@ typings/
 # misc
 dist
 .rpt2_cache
+
+# lockfiles
+package-lock.json
+yarn.lock
