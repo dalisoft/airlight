@@ -25,6 +25,7 @@ export default class CacheTTL {
     ttl: number = 1000,
     saveAsFile?: string | boolean,
     config?: boolean | string | object | null,
+    isPermanent?: boolean,
   ) {
     this.ttl = ttl;
     this.cache = create();
@@ -38,7 +39,7 @@ export default class CacheTTL {
       }
     }
 
-    this.timerId = this.initTimer();
+    this.timerId = !isPermanent && this.initTimer();
   }
   public set<T>(key: string, value: Promise<T> | T, ttl?: number, saveAsFile = this.saveAsFile): T {
     if (ttl && ttl < -1) {
