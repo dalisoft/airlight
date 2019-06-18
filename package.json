@@ -1,13 +1,16 @@
 {
   "name": "@dalisoft/args",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A performant argument pass library",
   "main": "args.js",
+  "module": "args.es.js",
+  "typings": "args.d.ts",
   "cdn": "args.min.js",
   "browser": "args.min.js",
   "scripts": {
+    "build": "lib-export -name args -file args.es.js -output args.js",
     "minify": "npx terser args.js -c -m -o args.min.js --source-map \"filename='args.min.js.map'\"",
-    "prepublishOnly": "npm test && npm run minify",
+    "prepublishOnly": "npm run build && npm test && npm run minify",
     "test": "ava"
   },
   "repository": {
@@ -27,6 +30,7 @@
   "homepage": "https://github.com/dalisoft/args#readme",
   "devDependencies": {
     "ava": "^2.0.0",
+    "lib-export": "0.0.3",
     "terser": "^4.0.0"
   }
 }
