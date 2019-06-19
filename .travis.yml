@@ -15,4 +15,5 @@ before_install:
 before_script:
   - npm prune
 script:
+  - npm run build
   - npm test
