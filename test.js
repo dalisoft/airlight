@@ -1,5 +1,5 @@
 import test from "ava";
-import Events from "./event";
+import Events from ".";
 
 test("Get prototype", t => {
   t.plan(4);
