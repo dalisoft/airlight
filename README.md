@@ -34,6 +34,8 @@ const batchCollect = window.batchCollect;
 
 ## Example
 
+### Basic example
+
 ```js
 const batchQuery = batchCollect(async collects => {
   await timeout(500);
@@ -49,6 +51,20 @@ await batchQuery(async () => {
 });
 
 batchQuery(`getProfile {id, avatar}`);
+```
+
+### N+1 problem solve example
+
+```js
+const batchSQL = batchCollect(async ids => {
+  return orm.getByIds(ids);
+});
+
+batchSQL(() => id, row => doSomething(row));
+
+// This code is executes from different place than above query
+// and both code exetudes once, on DB requests will be called once
+batchSQL(id, row => doSomething(row));
 ```
 
 For more info see tests.

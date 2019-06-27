@@ -1,13 +1,14 @@
-const collector = fn => {
+const collector = (fn, delay = 50 / 3) => {
   const collect = [];
+  const reactFns = {};
 
   let timerId = null;
 
-  const timeoutHandler = async (collectCopy, collect, reactFn, result) => {
+  const timeoutHandler = async (collectCopy, collect, reactFn, result, reactResult) => {
     collect.length = 0;
     timerId = null;
 
-    const index = result.indexOf(collectCopy);
+    const index = collectCopy.indexOf(result);
 
     let resultOfAll =
       fn.constructor.name === "AsyncFunction" ? await fn(collectCopy) : fn(collectCopy);
@@ -16,8 +17,9 @@ const collector = fn => {
       resultOfAll = await resultOfAll;
     }
 
-    if (reactFn && resultOfAll[index]) {
-      reactFn(resultOfAll[index]);
+    if (reactResult && reactResult.length > 0) {
+      reactResult.forEach(reactFn => reactFn(resultOfAll[index]));
+      reactResult.length = 0;
     }
   };
 
@@ -26,9 +28,20 @@ const collector = fn => {
       (item, i, self) => self.indexOf(item) === i
     );
 
+    let reactResult;
+    if (reactFn) {
+      reactResult = reactFns[result];
+      if (reactResult && reactResult.length !== undefined && reactResult.splice) {
+        reactResult.push(reactFn);
+      } else {
+        reactFns[result] = [reactFn];
+        reactResult = reactFns[result];
+      }
+    }
+
     timerId && clearTimeout(timerId);
 
-    timerId = setTimeout(timeoutHandler, 0, collectCopy, collect, reactFn, result);
+    timerId = setTimeout(timeoutHandler, delay, collectCopy, collect, reactFn, result, reactResult);
     timerId.collect = collectCopy;
 
     return result;
