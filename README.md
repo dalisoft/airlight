@@ -4,15 +4,16 @@
 
 Caching Library with TTL for Node.js and browser
 
+**NOTE**: _From latest release, the `sync` variant is removed due of stability, performance and security reasons_
+
 ## Features
 
+- Out-of-the-box Promise & Async/Await support
 - Fast
 - No duplication
 - Almost zero-config
 - Flexible
 - Memory-effecient
-- Promise support
-- Async/Await support
 - On browsers works too
 - Types declaration for IDE/Editor
 - File-based mode (only for Node.js)
@@ -39,9 +40,9 @@ const CacheTTL = window.CacheTTL;
 ```js
 const cache = new CacheTTL(1000 /* in ms */, saveAsFile?: boolean);
 
-cache.set('my-cache', () => 'i am live here around 1 sec'); // Returns String
+await cache.set('my-cache', () => 'i am live here around 1 sec'); // Returns String
 
-cache.set('my-response', async () => await axios({...})); // it's too lives here around 1 sec, returns Promise
+await cache.set('my-response', async () => await axios({...})); // it's too lives here around 1 sec, returns Promise
 ```
 
 or you can see how to define your own caching method (you can use Redis, MongoDB or everywhere). Async/Promise also support out-of-box
@@ -71,27 +72,27 @@ About invalidation, expire time and other things the core takes care of this, yo
 
 ## Methods
 
-### `.get(key: string): CacheItem`
+### `.get(key: string): Promise<CacheItem>`
 
 Returns value of cache if still valid or null if value is expired
 
-### `.has(key: string): Boolean`
+### `.has(key: string): Promise<Boolean>`
 
 Returns the value still valid or removed/expired?!
 
-### `.set(key: string, value: Function | Promise, ttl?: number)`
+### `.set(key: string, value: AsyncFunction | Promise, ttl?: number): AsyncFunction | Promise`
 
 Creates new value for specified key and returns value
 
-### `.expire(key: string, ttl?: number)`
+### `.expire(key: string, ttl?: number): AsyncFunction | Promise`
 
 Sets new expire for specified key and returns value
 
-### `.getOrSet(key: string, value: Function | AsyncFunction | Promise): value`
+### `.getOrSet(key: string, value: AsyncFunction | Promise): AsyncFunction<value> | Promise<value>`
 
 Get if there a valid value or creates a new one
 
-### `.delete(key: string)`
+### `.delete(key: string): AsyncFunction | Promise`
 
 Removes the cache
 

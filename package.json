@@ -1,7 +1,7 @@
 {
   "name": "@dalisoft/cache-ttl",
   "private": false,
-  "version": "0.3.14",
+  "version": "0.4.0",
   "description": "Caching Library with TTL for Node.js and browser",
   "types": "dist/es/cache.d.ts",
   "module": "dist/es/cache-ttl.js",
@@ -9,6 +9,7 @@
   "cdn": "dist/umd/cache-ttl.min.js",
   "browser": "dist/umd/cache-ttl.min.js",
   "scripts": {
+    "dev": "rollup -c -w",
     "build": "rollup -c",
     "prepublishOnly": "npm run build && npm test",
     "test": "ava"

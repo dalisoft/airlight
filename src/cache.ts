@@ -134,11 +134,11 @@ export default class CacheTTL {
 
     return value as T;
   }
-  public has(key: string): boolean {
+  public has(key: string): Promise<boolean> | boolean {
     if (this.cache.has(key)) {
       return this.cache.has(key);
     } else if (this.fileCache) {
-      const has: boolean = this.fileCache.has(key);
+      const has: Promise<boolean> | boolean = this.fileCache.has(key);
 
       return has;
     }
@@ -156,7 +156,7 @@ export default class CacheTTL {
 
       if (get && (get as Promise<FilePoolObject>).then) {
         return (get as Promise<FilePoolObject>).then((val: FilePoolObject) =>
-          val !== undefined ? val.value : undefined,
+          val ? val.value : undefined,
         );
       }
       return get ? (get as FilePoolObject).value : undefined;
@@ -192,7 +192,8 @@ export default class CacheTTL {
     if (get) {
       if (typeof (get as Promise<typeGet>).then === 'function') {
         return (get as any).then(
-          (val: typeGet | void): Fn => (val === undefined ? this.set(key, callback, ttl) : val),
+          (val: typeGet | void): Fn =>
+            val === undefined || val === null ? this.set(key, callback, ttl) : val,
         );
       }
       return get as typeGet;
@@ -227,11 +228,11 @@ export default class CacheTTL {
       }
     });
     this.fileCache &&
-      (await this.fileCache.forEach((key: string, value: FilePoolObject) => {
+      (await this.fileCache.forEach(async (key: string, value: FilePoolObject) => {
         if (value.expiresIn !== undefined) {
           const delta: number = value.expiresIn - currentTime;
           if (delta <= this.checkInterval) {
-            this.fileCache.delete(key);
+            await this.fileCache.delete(key);
           }
         }
       }));
