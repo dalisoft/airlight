@@ -1,8 +1,9 @@
 {
   "name": "@dalisoft/sequelize-wrap",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "An Wrapper for Sequelize Model",
   "main": "sequelize-wrap.js",
+  "typings": "sequelize-wrap.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dalisoft/sequelize-wrap.git"
@@ -18,5 +19,9 @@
   "bugs": {
     "url": "https://github.com/dalisoft/sequelize-wrap/issues"
   },
-  "homepage": "https://github.com/dalisoft/sequelize-wrap#readme"
+  "homepage": "https://github.com/dalisoft/sequelize-wrap#readme",
+  "devDependencies": {
+    "prettier": "^1.18.2",
+    "sequelize": "^5.10.3"
+  }
 }
