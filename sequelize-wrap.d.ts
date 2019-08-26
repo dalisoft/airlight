@@ -1,4 +1,4 @@
-import sequelize from 'sequelize';
+import { Model, WhereOptions, FindOptions } from 'sequelize';
 
 type ModelFieldValue = string | number | null;
 interface ModelResponse {
@@ -7,49 +7,37 @@ interface ModelResponse {
 
 declare class sequelizeWrap {
   fields: string[];
-  model: sequelize.Model;
-  constructor(model: sequelize.Model);
-  private __$$parseWhere(
-    where: sequelize.WhereOptions,
-    stack: number
-  ): sequelize.WhereOptions;
+  model: Model;
+  constructor(model: Model);
+  private __$$parseWhere(where: WhereOptions, stack: number): WhereOptions;
   get(id: string | number): ModelResponse;
-  findOne(
-    config: sequelize.FindOptions,
-    where: sequelize.WhereOptions
-  ): ModelResponse;
-  getOne(
-    where: sequelize.WhereOptions,
-    config: sequelize.FindOptions
-  ): ModelResponse;
+  findOne(config: FindOptions, where: WhereOptions): ModelResponse;
+  getOne(where: WhereOptions, config: FindOptions): ModelResponse;
   findByKey(key: string, value: ModelFieldValue): ModelResponse;
-  findAll(config: sequelize.FindOptions): ModelResponse[];
-  findAllWhere(where: sequelize.WhereOptions): ModelResponse[];
-  findAndCountAll(config: sequelize.FindOptions): ModelResponse[];
-  count(config: sequelize.FindOptions): ModelResponse;
-  countWhere(where: sequelize.WhereOptions): ModelResponse;
+  findAll(config: FindOptions): ModelResponse[];
+  findAllWhere(where: WhereOptions): ModelResponse[];
+  findAndCountAll(config: FindOptions): ModelResponse[];
+  count(config: FindOptions): ModelResponse;
+  countWhere(where: WhereOptions): ModelResponse;
   create(content: ModelResponse): ModelResponse;
   updateOrCreate(content: ModelResponse): ModelResponse;
-  bulkCreate(
-    contents: ModelResponse[],
-    config: sequelize.FindOptions
-  ): ModelResponse[];
-  update(ModelResponse, config: sequelize.FindOptions): ModelResponse;
-  updateWhere(ModelResponse, where: sequelize.WhereOptions): ModelResponse;
+  bulkCreate(contents: ModelResponse[], config: FindOptions): ModelResponse[];
+  update(ModelResponse, config: FindOptions): ModelResponse;
+  updateWhere(ModelResponse, where: WhereOptions): ModelResponse;
   updateByID(ModelResponse, id: string | number): ModelResponse;
-  delete(config: sequelize.FindOptions): ModelResponse;
-  deleteWhere(where: sequelize.WhereOptions): ModelResponse;
+  delete(config: FindOptions): ModelResponse;
+  deleteWhere(where: WhereOptions): ModelResponse;
   deleteAll(): ModelResponse[];
   arrayAppend(
     column: string,
     item: ModelResponse,
-    config: sequelize.FindOptions
+    config: FindOptions
   ): ModelResponse;
   arrayRemove(
     column: string,
     item: ModelResponse,
-    where: sequelize.WhereOptions,
-    config: sequelize.FindOptions
+    where: WhereOptions,
+    config: FindOptions
   ): ModelResponse;
   arrayAppendByID(
     column: string,
@@ -64,14 +52,14 @@ declare class sequelizeWrap {
   arrayAppendWhere(
     column: string,
     item: ModelResponse,
-    where: sequelize.WhereOptions
+    where: WhereOptions
   ): ModelResponse;
   arrayRemoveWhere(
     column: string,
     item: ModelResponse,
-    where: sequelize.WhereOptions
+    where: WhereOptions
   ): ModelResponse;
-  getColumn(where: sequelize.WhereOptions, column: string): ModelFieldValue;
+  getColumn(where: WhereOptions, column: string): ModelFieldValue;
   getLastItem(): ModelResponse;
 }
 
