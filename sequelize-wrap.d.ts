@@ -9,7 +9,7 @@ type ModelModified = typeof Model & {
   new (values?: object, options?: BuildOptions): Model;
 };
 
-declare class sequelizeWrap<Model | ModelModified> {
+declare class sequelizeWrap {
   fields: string[];
   model: Model | ModelModified;
   constructor(model: Model | ModelModified);
