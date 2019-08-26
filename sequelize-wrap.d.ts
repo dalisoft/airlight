@@ -1,14 +1,18 @@
-import { Model, WhereOptions, FindOptions } from 'sequelize';
+import { Model, BuildOptions, WhereOptions, FindOptions } from 'sequelize';
 
 type ModelFieldValue = string | number | null;
 interface ModelResponse {
   [key: string]: ModelFieldValue | ModelFieldValue[];
 }
 
-declare class sequelizeWrap {
+type ModelModified = typeof Model & {
+  new (values?: object, options?: BuildOptions): Model;
+};
+
+declare class sequelizeWrap<Model | ModelModified> {
   fields: string[];
-  model: Model;
-  constructor(model: Model);
+  model: Model | ModelModified;
+  constructor(model: Model | ModelModified);
   private __$$parseWhere(where: WhereOptions, stack: number): WhereOptions;
   get(id: string | number): ModelResponse;
   findOne(config: FindOptions, where: WhereOptions): ModelResponse;

@@ -1,6 +1,6 @@
 {
   "name": "@dalisoft/sequelize-wrap",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "An Wrapper for Sequelize Model",
   "main": "sequelize-wrap.js",
   "typings": "sequelize-wrap.d.ts",
