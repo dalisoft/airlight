@@ -1,11 +1,11 @@
-import sequelize from "sequelize";
+import sequelize from 'sequelize';
 
 type ModelFieldValue = string | number | null;
 interface ModelResponse {
-  [key: string]?: ModelFieldValue | ModelFieldValue[];
+  [key: string]: ModelFieldValue | ModelFieldValue[];
 }
 
-class sequelizeWrap {
+declare class sequelizeWrap {
   fields: string[];
   model: sequelize.Model;
   constructor(model: sequelize.Model);
@@ -30,19 +30,47 @@ class sequelizeWrap {
   countWhere(where: sequelize.WhereOptions): ModelResponse;
   create(content: ModelResponse): ModelResponse;
   updateOrCreate(content: ModelResponse): ModelResponse;
-  bulkCreate(contents: ModelResponse[], config: sequelize.FindOptions): ModelResponse[];
+  bulkCreate(
+    contents: ModelResponse[],
+    config: sequelize.FindOptions
+  ): ModelResponse[];
   update(ModelResponse, config: sequelize.FindOptions): ModelResponse;
   updateWhere(ModelResponse, where: sequelize.WhereOptions): ModelResponse;
   updateByID(ModelResponse, id: string | number): ModelResponse;
   delete(config: sequelize.FindOptions): ModelResponse;
   deleteWhere(where: sequelize.WhereOptions): ModelResponse;
   deleteAll(): ModelResponse[];
-  arrayAppend(column: string, item: ModelResponse, config: sequelize.FindOptions): ModelResponse;
-  arrayRemove(column: string, item: ModelResponse, where: sequelize.WhereOptions, config: sequelize.FindOptions): ModelResponse;
-  arrayAppendByID(column: string, item: ModelResponse, id: string | number): ModelResponse;
-  arrayRemoveByID(column: string, item: ModelResponse, id: string | number): ModelResponse;
-  arrayAppendWhere(column: string, item: ModelResponse, where: sequelize.WhereOptions): ModelResponse;
-  arrayRemoveWhere(column: string, item: ModelResponse, where: sequelize.WhereOptions): ModelResponse;
+  arrayAppend(
+    column: string,
+    item: ModelResponse,
+    config: sequelize.FindOptions
+  ): ModelResponse;
+  arrayRemove(
+    column: string,
+    item: ModelResponse,
+    where: sequelize.WhereOptions,
+    config: sequelize.FindOptions
+  ): ModelResponse;
+  arrayAppendByID(
+    column: string,
+    item: ModelResponse,
+    id: string | number
+  ): ModelResponse;
+  arrayRemoveByID(
+    column: string,
+    item: ModelResponse,
+    id: string | number
+  ): ModelResponse;
+  arrayAppendWhere(
+    column: string,
+    item: ModelResponse,
+    where: sequelize.WhereOptions
+  ): ModelResponse;
+  arrayRemoveWhere(
+    column: string,
+    item: ModelResponse,
+    where: sequelize.WhereOptions
+  ): ModelResponse;
   getColumn(where: sequelize.WhereOptions, column: string): ModelFieldValue;
   getLastItem(): ModelResponse;
 }
