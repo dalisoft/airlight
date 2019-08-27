@@ -4,7 +4,7 @@
 
 JWT Helper for Auth building from scratch
 
-Note: \_Minimum `Node.js` version is `v10.5` for working properly
+Note: _Minimum `Node.js` version is `v10.5` for working properly_
 
 ## Features
 
