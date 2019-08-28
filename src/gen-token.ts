@@ -4,6 +4,10 @@ import { sign } from './sign';
 import { decode } from './decode';
 import { encrypt, decrypt } from './utils';
 
+declare module 'rand-token' {
+  export function uid(size: number): string;
+}
+
 interface SecureMapInterface {
   [key: string]: any;
 }
@@ -25,10 +29,10 @@ async function generateToken(
   const head = (await sign(payload, secretOrPrivate, options)).split('.')[0];
 
   const refreshToken = secure
-    ? `${head}.${encrypt(secretOrPrivate, randToken.uid(64))}.${secureVal(
-        secure,
-      )}`
-    : `${head}.${randToken.uid(64)}.${secureVal(secure)}`;
+    ? `${head}.${encrypt(secretOrPrivate, randToken.uid(
+        64,
+      ) as string)}.${secureVal(secure)}`
+    : `${head}.${randToken.uid(64) as string}.${secureVal(secure)}`;
 
   return {
     accessToken,

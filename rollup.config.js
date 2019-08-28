@@ -14,6 +14,7 @@ export default [
         targets: "dist/*"
       }),
       typescript({
+        abortOnError: false,
         objectHashIgnoreUnknownHack: true,
         tsconfigOverride: {
           compilerOptions: {
@@ -36,6 +37,7 @@ export default [
     ],
     plugins: [
       typescript({
+        abortOnError: false,
         objectHashIgnoreUnknownHack: true,
         tsconfigOverride: {
           compilerOptions: {
