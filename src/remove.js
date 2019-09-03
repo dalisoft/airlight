@@ -42,9 +42,9 @@ const removePoints = shape => {
   const s = []
 
   for (let i = 0, l = shape.length; i < l; i++) {
-    const a = s[ s.length - 1 ]
-    const b = shape[ i + 1 ]
-    const c = shape[ i ]
+    const a = s[s.length - 1]
+    const b = shape[i + 1]
+    const c = shape[i]
 
     if (!(a && b && c) || !(isBetween(a, b, c))) {
       s.push(c)

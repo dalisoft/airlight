@@ -33,7 +33,7 @@ const points = (from, to, t = 0.5) => to.curve
   ? curvedPoints(from, to, t)
   : linearPoints(from, to, t)
 
-let addPoints = (shape, pointsRequired) => {
+const addPoints = (shape, pointsRequired) => {
   if (shape.length >= pointsRequired) {
     return shape
   }
@@ -44,19 +44,19 @@ let addPoints = (shape, pointsRequired) => {
   if (shape.length === 1) {
     const { x, y } = shape[0]
     for (let i = 1, req = pointsRequired; i < req; i++) {
-      shape.push({x, y})
+      shape.push({ x, y })
     }
     return shape
   }
 
   for (let i = 1, len = shape.length; i < len; i++) {
-    let point = shape[i]
-    let prevPoint = shape[i - 1]
+    const point = shape[i]
+    const prevPoint = shape[i - 1]
 
     if (point.moveTo) {
       continue
     } else {
-      let dist = distance(prevPoint, point)
+      const dist = distance(prevPoint, point)
       if (dist > maxDist) {
         maxDist = dist
         maxDistIndex = i
@@ -64,7 +64,7 @@ let addPoints = (shape, pointsRequired) => {
     }
   }
 
-  const [ midPoint, replacementPoint ] = points(shape[maxDistIndex - 1], shape[maxDistIndex])
+  const [midPoint, replacementPoint] = points(shape[maxDistIndex - 1], shape[maxDistIndex])
 
   shape.splice(maxDistIndex, 1, midPoint, replacementPoint)
 

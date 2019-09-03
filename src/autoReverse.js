@@ -3,8 +3,8 @@ import reverse from './reverse'
 import { applyFuncToShapes } from './helpers'
 
 const autoReversePoints = (fromShape, toShape) => {
-  let fromShapeArea = area(fromShape)
-  let toShapeArea = area(toShape)
+  const fromShapeArea = area(fromShape)
+  const toShapeArea = area(toShape)
   if ((fromShapeArea > 0 && toShapeArea < 0) || (toShapeArea > 0 && fromShapeArea < 0)) {
     fromShape = reverse(fromShape)
   }

@@ -1,10 +1,10 @@
 import { applyFuncToShapes } from './helpers'
 
 const vergJoin = ','
-const reducerPath = (prev, {x, y, curve, moveTo}) => {
+const reducerPath = (prev, { x, y, curve, moveTo }) => {
   let red
   if (curve && curve.type) {
-    const {type, x1, y1, x2, y2} = curve
+    const { type, x1, y1, x2, y2 } = curve
     if (type === 'cubic') {
       red = ['C', x1, vergJoin, y1, vergJoin, x2, vergJoin, y2, vergJoin, x, vergJoin, y]
     } else if (type === 'quadratic') {

@@ -7,7 +7,7 @@ const autoFixPoints = (fromShape, toShape, param = {}) => {
   fromShape = autoReverse(fromShape, toShape)
 
   if (!param || typeof param !== 'object') {
-    return new Error(`Invalid parametr of config`)
+    return new Error('Invalid parametr of config')
   }
   param.map = (fromSubPath, toSubPath, index) => {
     fromSubPath = autoReverse(fromSubPath, toSubPath)

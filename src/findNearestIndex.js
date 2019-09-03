@@ -3,8 +3,8 @@ import { applyFuncToShapes, distance } from './helpers'
 
 const findNearestIndexPoints = (points, p, box = false) => {
   let min = Infinity
-  let isBBoxUse = box !== false
-  let bbox = isBBoxUse ? boundingBox(points).center : p
+  const isBBoxUse = box !== false
+  const bbox = isBBoxUse ? boundingBox(points).center : p
 
   if (isBBoxUse) {
     bbox.x += p.x
@@ -15,7 +15,7 @@ const findNearestIndexPoints = (points, p, box = false) => {
 
   for (let i = 0, len = points.length; i < len; i++) {
     let sumOfSquares = 0
-    let dist = distance(points[i], bbox)
+    const dist = distance(points[i], bbox)
 
     sumOfSquares += dist * dist
 

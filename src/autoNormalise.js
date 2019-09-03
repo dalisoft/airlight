@@ -28,10 +28,10 @@ const autoNormalisePoints = (fromShape, toShape, {
   reverse,
   closerBound
 } = {}) => {
-  let fromShapeSubPathsCount = countSubPath(fromShape)
-  let toShapeSubPathsCount = countSubPath(toShape)
+  const fromShapeSubPathsCount = countSubPath(fromShape)
+  const toShapeSubPathsCount = countSubPath(toShape)
   if (fromShapeSubPathsCount === 1 && toShapeSubPathsCount === 1) {
-    let diff = toShape.length - fromShape.length
+    const diff = toShape.length - fromShape.length
     if (typeof moveIndex === 'number' && moveIndex) {
       fromShape = moveIndexFunc(fromShape, moveIndex)
     }
@@ -50,8 +50,8 @@ const autoNormalisePoints = (fromShape, toShape, {
     toShape = autoCurvePoint(toShape, fromShape)
     return [fromShape, toShape]
   } else {
-    let fromShapeSubPaths = splitSubPath(fromShape)
-    let toShapeSubPaths = splitSubPath(toShape)
+    const fromShapeSubPaths = splitSubPath(fromShape)
+    const toShapeSubPaths = splitSubPath(toShape)
 
     if (order) {
       if (order.startOrder) {
@@ -63,7 +63,7 @@ const autoNormalisePoints = (fromShape, toShape, {
         toShapeSubPaths.sort(mapList.get(order))
       }
     }
-    let largestShapeSubPathsMap = fromShapeSubPaths.length > toShapeSubPaths.length ? fromShapeSubPaths
+    const largestShapeSubPathsMap = fromShapeSubPaths.length > toShapeSubPaths.length ? fromShapeSubPaths
       : toShapeSubPaths
 
     // Permutes between multi-path shapes
@@ -75,7 +75,7 @@ const autoNormalisePoints = (fromShape, toShape, {
         if (fromShapeSubPaths[i]) {
           let i2 = 0
           while (i2 < toShapeSubPaths.length) {
-            let currentDistance = distance(boundingBox(fromShapeSubPaths[i])
+            const currentDistance = distance(boundingBox(fromShapeSubPaths[i])
               .center, boundingBox(toShapeSubPaths[i2])
               .center)
             if (currentDistance < minDistance) {
@@ -83,7 +83,7 @@ const autoNormalisePoints = (fromShape, toShape, {
                 skipInfinity = true
               }
               if (skipInfinity && i !== i2 && fromShapeSubPaths[i2]) {
-                let spliced = fromShapeSubPaths.splice(i2, 1)
+                const spliced = fromShapeSubPaths.splice(i2, 1)
                 fromShapeSubPaths.splice(i, 0, spliced[0])
               }
               minDistance = currentDistance
@@ -112,7 +112,7 @@ const autoNormalisePoints = (fromShape, toShape, {
         }
         fromSubPath = cubify(remove(fromSubPath))
         if (bboxCenter) {
-          let findCloser = findNearestIndex(toShape, boundingBox(fromSubPath)
+          const findCloser = findNearestIndex(toShape, boundingBox(fromSubPath)
             .center)
           x = findCloser.x
           y = findCloser.y
@@ -141,7 +141,7 @@ const autoNormalisePoints = (fromShape, toShape, {
       } else if (toSubPath && !fromSubPath) {
         toSubPath = cubify(remove(toSubPath))
         if (bboxCenter) {
-          let findCloser = findNearestIndex(fromShape, boundingBox(toSubPath)
+          const findCloser = findNearestIndex(fromShape, boundingBox(toSubPath)
             .center)
           x = findCloser.x
           y = findCloser.y

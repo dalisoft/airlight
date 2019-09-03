@@ -2,10 +2,10 @@ import { applyFuncToShapes } from './helpers'
 
 const autoCurveSinglePoint = (fromShape, toShape) => {
   for (let index = 0, len = fromShape.length; index < len; index++) {
-    let point = fromShape[index]
-    let point2 = toShape[index]
+    const point = fromShape[index]
+    const point2 = toShape[index]
     if (point2 && !point.curve && point2.curve && !point.moveTo) {
-      let prevPoint = index === 0 ? null : fromShape[index - 1]
+      const prevPoint = index === 0 ? null : fromShape[index - 1]
       point.curve = {
         type: 'cubic',
         x1: prevPoint.x,

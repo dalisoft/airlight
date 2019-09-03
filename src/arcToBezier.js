@@ -108,7 +108,7 @@ const getArcCenter = (
   const vx2 = (-pxp - centerxp) / rx
   const vy2 = (-pyp - centeryp) / ry
 
-  let ang1 = vectorAngle(1, 0, vx1, vy1)
+  const ang1 = vectorAngle(1, 0, vx1, vy1)
   let ang2 = vectorAngle(vx1, vy1, vx2, vy2)
 
   if (sweepFlag === 0 && ang2 > 0) {
@@ -119,7 +119,7 @@ const getArcCenter = (
     ang2 += TAU
   }
 
-  return [ centerx, centery, ang1, ang2 ]
+  return [centerx, centery, ang1, ang2]
 }
 
 const arcToBezier = ({
@@ -161,7 +161,7 @@ const arcToBezier = ({
     ry *= Math.sqrt(lambda)
   }
 
-  let [ centerx, centery, ang1, ang2 ] = getArcCenter(
+  let [centerx, centery, ang1, ang2] = getArcCenter(
     px,
     py,
     cx,
@@ -186,9 +186,9 @@ const arcToBezier = ({
   }
 
   return curves.map(curve => {
-    const { x: x1, y: y1 } = mapToEllipse(curve[ 0 ], rx, ry, cosphi, sinphi, centerx, centery)
-    const { x: x2, y: y2 } = mapToEllipse(curve[ 1 ], rx, ry, cosphi, sinphi, centerx, centery)
-    const { x, y } = mapToEllipse(curve[ 2 ], rx, ry, cosphi, sinphi, centerx, centery)
+    const { x: x1, y: y1 } = mapToEllipse(curve[0], rx, ry, cosphi, sinphi, centerx, centery)
+    const { x: x2, y: y2 } = mapToEllipse(curve[1], rx, ry, cosphi, sinphi, centerx, centery)
+    const { x, y } = mapToEllipse(curve[2], rx, ry, cosphi, sinphi, centerx, centery)
 
     return { curve: { type: 'cubic', x1, y1, x2, y2 }, x, y }
   })

@@ -8,10 +8,10 @@ import { applyFuncToShapes } from './helpers'
 const cubifyShape = shape => {
   let i = 0
   while (i < shape.length) {
-    const point = shape[ i ]
+    const point = shape[i]
 
     if (point.curve && point.curve.type !== 'cubic') {
-      const { x: px, y: py } = shape[ i - 1 ]
+      const { x: px, y: py } = shape[i - 1]
       const { x: cx, y: cy } = point
 
       if (point.curve.type === 'arc') {

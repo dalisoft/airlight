@@ -7,18 +7,18 @@ const countLinePoints = lines => lines.reduce((count, points) => (
 const countPoints = points => points.length - (isJoined(points) ? 1 : 0)
 
 const isJoined = points => {
-  const firstPoint = points[ 0 ]
-  const lastPoint = points[ points.length - 1 ]
+  const firstPoint = points[0]
+  const lastPoint = points[points.length - 1]
   return firstPoint.x === lastPoint.x && firstPoint.y === lastPoint.y
 }
 
 const joinLines = lines => lines.reduce((shape, line) => (
-  [ ...shape, ...line ]
+  [...shape, ...line]
 ), [])
 
 const nextIndex = (lines, offset) => {
   for (let i = 0, l = lines.length; i < l; i++) {
-    const count = countPoints(lines[ i ])
+    const count = countPoints(lines[i])
 
     if (offset <= count - 1) {
       return {
@@ -31,9 +31,9 @@ const nextIndex = (lines, offset) => {
   }
 }
 
-const reorderLines = (lines, offset) => [ ...lines ]
+const reorderLines = (lines, offset) => [...lines]
   .splice(offset)
-  .concat([ ...lines ].splice(0, offset))
+  .concat([...lines].splice(0, offset))
 
 const reorderPoints = (points, offset) => {
   if (!offset) {
@@ -41,20 +41,20 @@ const reorderPoints = (points, offset) => {
   }
 
   const nextPoints = [
-    { x: points[ offset ].x, y: points[ offset ].y, moveTo: true },
-    ...[ ...points ].splice(offset + 1)
+    { x: points[offset].x, y: points[offset].y, moveTo: true },
+    ...[...points].splice(offset + 1)
   ]
 
   if (isJoined(points)) {
     return [
       ...nextPoints,
-      ...[ ...points ].splice(1, offset)
+      ...[...points].splice(1, offset)
     ]
   }
 
   return [
     ...nextPoints,
-    ...[ ...points ].splice(0, offset + 1)
+    ...[...points].splice(0, offset + 1)
   ]
 }
 
@@ -63,7 +63,7 @@ const splitLines = shape => shape.reduce((lines, point) => {
     lines.push([])
   }
 
-  lines[ lines.length - 1 ].push(point)
+  lines[lines.length - 1].push(point)
 
   return lines
 }, [])
@@ -79,10 +79,10 @@ const movePointsIndex = (shape, offset) => {
 
   const { lineIndex, pointIndex } = nextIndex(lines, normalisedOffset)
   const reorderedLines = reorderLines(lines, lineIndex)
-  const firstLine = reorderPoints(reorderedLines[ 0 ], pointIndex)
-  const restOfLines = [ ...reorderedLines ].splice(1)
+  const firstLine = reorderPoints(reorderedLines[0], pointIndex)
+  const restOfLines = [...reorderedLines].splice(1)
 
-  return joinLines([ firstLine, ...restOfLines ])
+  return joinLines([firstLine, ...restOfLines])
 }
 
 const moveIndex = (s, offset) => applyFuncToShapes(movePointsIndex, s, offset)

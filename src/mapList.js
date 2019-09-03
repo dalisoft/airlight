@@ -24,7 +24,7 @@ const mapList = {
       .center
 
     const aa = boundingBox(a)
-    .center
+      .center
 
     return (bb.x + bb.y) - (aa.x + aa.y)
   },

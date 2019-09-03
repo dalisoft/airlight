@@ -18,8 +18,8 @@ const angle = (x1, y1, x2, y2, a) => {
 }
 
 const over = (shape, length, totalLength, desiredLength) => {
-  const { x: x1, y: y1 } = shape[ length - 2 ]
-  const { x: x2, y: y2 } = shape[ length - 1 ]
+  const { x: x1, y: y1 } = shape[length - 2]
+  const { x: x2, y: y2 } = shape[length - 1]
   const segmentLength = linearLength(x1, y1, x2, y2)
   const segmentInterval = (desiredLength - totalLength) / segmentLength + 1
   return { x1, y1, x2, y2, segmentInterval, segmentLength }
@@ -42,8 +42,8 @@ const position = (s, interval) => {
 }
 
 const under = (shape, desiredLength) => {
-  const { x: x1, y: y1 } = shape[ 0 ]
-  const { x: x2, y: y2 } = shape[ 1 ]
+  const { x: x1, y: y1 } = shape[0]
+  const { x: x2, y: y2 } = shape[1]
   const segmentLength = linearLength(x1, y1, x2, y2)
   const segmentInterval = desiredLength / segmentLength
   return { x1, y1, x2, y2, segmentInterval, segmentLength }
@@ -53,11 +53,11 @@ const within = (shape, length, desiredLength) => {
   let currentLength = 0
 
   for (let i = 0; i < length; i++) {
-    const { moveTo } = shape[ i ]
+    const { moveTo } = shape[i]
 
     if (!moveTo) {
-      const { x: x1, y: y1 } = shape[ i - 1 ]
-      const { x: x2, y: y2 } = shape[ i ]
+      const { x: x1, y: y1 } = shape[i - 1]
+      const { x: x2, y: y2 } = shape[i]
 
       const segmentLength = linearLength(x1, y1, x2, y2)
 

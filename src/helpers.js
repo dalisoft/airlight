@@ -17,20 +17,20 @@ const applyFuncToShapes = (f, s, ...args) => {
   return f(s, ...args)
 }
 
-const getShapeArray = s => isShapeArray(s) ? s : [ s ]
+const getShapeArray = s => isShapeArray(s) ? s : [s]
 
-const isShapeArray = s => s && Array.isArray(s[ 0 ])
+const isShapeArray = s => s && Array.isArray(s[0])
 
 const numberAtInterval = (a, b, interval) => {
   const c = a === b ? 0 : Math.abs(b - a)
   return c === 0 ? a : (a < b ? a + c * interval : a - c * interval)
 }
 
-const distance = ({x, y}, {x: bx, y: by}) => {
+const distance = ({ x, y }, { x: bx, y: by }) => {
   return Math.sqrt((x - bx) * (x - bx) + (y - by) * (y - by))
 }
 
-const sqrt = ({x, y}) => Math.sqrt(x * x + y * y)
+const sqrt = ({ x, y }) => Math.sqrt(x * x + y * y)
 
 const splitSubPath = points => {
   return points.reduce((lines, point) => {

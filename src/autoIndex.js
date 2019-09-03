@@ -2,7 +2,7 @@ import moveIndex from './moveIndex'
 import { applyFuncToShapes, distance } from './helpers'
 
 function autoIndexPoints (ring, vs) {
-  let len = ring.length
+  const len = ring.length
   let min = Infinity
   let bestOffset
   let sumOfSquares
