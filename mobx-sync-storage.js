@@ -1,4 +1,4 @@
-import { autorun } from "mobx";
+import { autorun, toJS } from "mobx";
 
 class SyncStorage {
   constructor(name, store, storage = "sessionStorage") {
@@ -46,7 +46,7 @@ class SyncStorage {
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const isStorageChanged = argument.key === name;
-    const storeState = Object.assign({}, store);
+    const storeState = toJS(store);
     let mixedState = null;
     let session = storage.getItem(name)
       ? JSON.parse(storage.getItem(name))
