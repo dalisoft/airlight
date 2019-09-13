@@ -1,8 +1,8 @@
 {
   "name": "mobx-sync-storage",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Sync persist storage between Local/Session Storage and MobX",
-  "main": "mobx-sync-storage.js",
+  "main": "mobx-sync-storage.es.js",
   "module": "mobx-sync-storage.es.js",
   "typings": "mobx-sync-storage.d.ts",
   "cdn": "mobx-sync-storage.min.js",

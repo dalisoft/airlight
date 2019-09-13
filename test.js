@@ -1,5 +1,5 @@
 import test from "ava";
-import SyncStore from ".";
+import SyncStore from "./mobx-sync-storage";
 
 test("Basic test", t => {
   class Store extends SyncStore {

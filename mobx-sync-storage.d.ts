@@ -18,7 +18,6 @@ class SyncStorage<T> {
 }
 
 class Store {
-  protected secureStorage: any;
   public constructor(name: string) {}
 }
 
