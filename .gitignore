@@ -59,8 +59,3 @@ typings/
 
 # next.js build output
 .next
-
-# dist files
-mobx-sync-storage.js
-mobx-sync-storage.min.js
-mobx-sync-storage.min.js.map
