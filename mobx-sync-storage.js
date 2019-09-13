@@ -15,7 +15,13 @@ class SyncStorage {
     }
 
     if (typeof mobx === "undefined" || typeof window.mobx === "undefined") {
-      throw new Error("MobX is not loaded, please install MobX first");
+      if (typeof require !== "undefined" && require("mobx")) {
+        this.mobx = require("mobx");
+      } else {
+        throw new Error("MobX is not loaded, please install MobX first");
+      }
+    } else {
+      this.mobx = mobx || window.mobx;
     }
 
     this.storage = storage === "sessionStorage" ? sessionStorage : localStorage;
@@ -33,15 +39,15 @@ class SyncStorage {
     window.removeEventListener("storage", this.onRun);
   }
   attachAutoRun() {
-    this.autorun = window.mobx.autorun(this.onRun);
+    this.autorun = this.mobx.autorun(this.onRun);
     window.addEventListener("storage", this.onRun);
   }
   onRun(argument) {
-    const { name, store, storage, initialized } = this;
+    const { name, store, storage, initialized, mobx } = this;
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const isStorageChanged = argument.key === name;
-    const storeState = window.mobx.toJS(store);
+    const storeState = mobx.toJS(store);
     let mixedState = null;
     let session = storage.getItem(name)
       ? JSON.parse(storage.getItem(name))
