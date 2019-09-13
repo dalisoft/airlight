@@ -10,7 +10,7 @@ class SyncStorage {
       typeof localStorage === "undefined"
     ) {
       throw new Error(
-        "Module requires working Envoriment with Session and Local Storage"
+        "Module requires Browser with Session and Local Storage support"
       );
     }
 
