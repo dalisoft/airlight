@@ -14,6 +14,7 @@ Sync persist storage between Local/Session Storage and MobX
 ## Note
 
 - Available only for Browsers
+- Available only for ES6/Class supported browsers
 
 ## Installation
 
