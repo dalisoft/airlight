@@ -57,11 +57,11 @@ store.myKey = "or no??";
 
 ```js
 // attach-mobx.ts
-import { toJS, autorun } from 'mobx';
+import { autorun } from 'mobx';
 
 // These functions are needed for working properly
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-(window as any).mobx = { toJS, autorun };
+(window as any).mobx = { autorun };
 ```
 
 and then load created file. Should work as works for me too!

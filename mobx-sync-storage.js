@@ -14,16 +14,6 @@ class SyncStorage {
       );
     }
 
-    if (typeof mobx === "undefined" || typeof window.mobx === "undefined") {
-      if (typeof require !== "undefined" && require("mobx")) {
-        this.mobx = require("mobx");
-      } else {
-        throw new Error("MobX is not loaded, please install MobX first");
-      }
-    } else {
-      this.mobx = mobx || window.mobx;
-    }
-
     this.storage = storage === "sessionStorage" ? sessionStorage : localStorage;
 
     this.onRun = this.onRun.bind(this);
@@ -39,15 +29,30 @@ class SyncStorage {
     window.removeEventListener("storage", this.onRun);
   }
   attachAutoRun() {
-    this.autorun = this.mobx.autorun(this.onRun);
+    let autorun;
+    if (typeof mobx !== "undefined") {
+      autorun = mobx.autorun;
+    } else if (typeof window !== "undefined" && window.mobx) {
+      autorun = window.mobx.autorun;
+    } else if (typeof require !== "undefined" && require("mobx")) {
+      autorun = require("mobx").autorun;
+    }
+    if (autorun) {
+      this.autorun = autorun(this.onRun);
+    } else {
+      console.error(
+        "[MobX-Sync-Storage]: MobX was not loaded at Window-level, so please load first to be working properly"
+      );
+    }
+
     window.addEventListener("storage", this.onRun);
   }
   onRun(argument) {
-    const { name, store, storage, initialized, mobx } = this;
+    const { name, store, storage, initialized } = this;
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const isStorageChanged = argument.key === name;
-    const storeState = mobx.toJS(store);
+    const storeState = Object.assign({}, store);
     let mixedState = null;
     let session = storage.getItem(name)
       ? JSON.parse(storage.getItem(name))
