@@ -51,6 +51,21 @@ const store = new Store();
 store.myKey = "or no??";
 ```
 
+## Known Bugs
+
+### Webpack workaround
+
+```js
+// attach-mobx.ts
+import { toJS, autorun } from 'mobx';
+
+// These functions are needed for working properly
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+(window as any).mobx = { toJS, autorun };
+```
+
+and then load created file. Should work as works for me too!
+
 ## Caveats
 
 - `null` not work or converting not working properly
