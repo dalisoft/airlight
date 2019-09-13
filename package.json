@@ -1,0 +1,41 @@
+{
+  "name": "mobx-sync-storage",
+  "version": "0.0.1",
+  "description": "Sync persist storage between Local/Session Storage and MobX",
+  "main": "mobx-sync-storage.js",
+  "module": "mobx-sync-storage.es.js",
+  "typings": "mobx-sync-storage.d.ts",
+  "cdn": "mobx-sync-storage.min.js",
+  "browser": "mobx-sync-storage.min.js",
+  "scripts": {
+    "build": "lib-export -name SyncStore -file mobx-sync-storage.es.js -output mobx-sync-storage.js",
+    "minify": "npx terser mobx-sync-storage.js -c -m -o mobx-sync-storage.min.js --source-map \"filename='mobx-sync-storage.min.js.map'\"",
+    "prepublishOnly": "npm run build && npm test && npm run minify",
+    "test": "ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dalisoft/mobx-sync-storage.git"
+  },
+  "keywords": [
+    "mobx",
+    "localstorage",
+    "sessionstorage",
+    "sync",
+    "performant"
+  ],
+  "author": "dalisoft",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dalisoft/mobx-sync-storage/issues"
+  },
+  "homepage": "https://github.com/dalisoft/mobx-sync-storage#readme",
+  "devDependencies": {
+    "ava": "^2.3.0",
+    "lib-export": "0.0.3",
+    "terser": "^4.3.1"
+  },
+  "dependencies": {
+    "mobx": "^5.13.0"
+  }
+}
