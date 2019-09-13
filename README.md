@@ -69,7 +69,7 @@ and then load created file. Should work as works for me too!
 ## Caveats
 
 - `null` not work or converting not working properly
-- Only `number`, `string` and `boolean` works properly
+- Only Primite values works properly
 - When you changing something in current tab, things will change into `current tab`, on other all tabs are Synced only when you visit to that tab
 
 ## License
