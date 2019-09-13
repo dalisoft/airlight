@@ -60,4 +60,11 @@ class SyncStorage {
   }
 }
 
-export default SyncStorage;
+class Store {
+  constructor(name) {
+    this.secureStorage = new SyncStorage(name, this);
+    return this;
+  }
+}
+
+export default Store;
