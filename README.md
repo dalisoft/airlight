@@ -8,13 +8,11 @@ Sync persist storage between Local/Session Storage and MobX
 
 - Available both LocalStorage and SessionStorage
 - Performant
-- Good browsers support
 - Easy
 
 ## Note
 
-- Available only for Browsers
-- Available only for ES6/Class supported browsers
+- Available only for ES6 & Class supported browsers
 
 ## Installation
 

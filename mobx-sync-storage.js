@@ -1,3 +1,5 @@
+import { toJS, autorun } from "mobx";
+
 class SyncStorage {
   constructor(name, store, storage = "sessionStorage") {
     this.name = name;
@@ -29,14 +31,6 @@ class SyncStorage {
     window.removeEventListener("storage", this.onRun);
   }
   attachAutoRun() {
-    let autorun;
-    if (typeof mobx !== "undefined") {
-      autorun = mobx.autorun;
-    } else if (typeof window !== "undefined" && window.mobx) {
-      autorun = window.mobx.autorun;
-    } else if (typeof require !== "undefined" && require("mobx")) {
-      autorun = require("mobx").autorun;
-    }
     if (autorun) {
       this.autorun = autorun(this.onRun);
     } else {
@@ -52,7 +46,7 @@ class SyncStorage {
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const isStorageChanged = argument.key === name;
-    const storeState = Object.assign({}, store);
+    const storeState = toJS(store);
     let mixedState = null;
     let session = storage.getItem(name)
       ? JSON.parse(storage.getItem(name))
@@ -74,18 +68,9 @@ class SyncStorage {
   }
 }
 
-class Store {
+export default class Store {
   constructor(name) {
     new SyncStorage(name, this);
     return this;
   }
-}
-
-if (typeof module !== "undefined" && module.exports) {
-  module.exports = Store;
-} else if (typeof window !== "undefined") {
-  window.SyncStore = SyncStore;
-} else if (typeof exports !== "undefined") {
-  exports.default = Store;
-  exports.__esModule = true;
 }
