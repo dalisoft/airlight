@@ -71,7 +71,7 @@ class SyncStorage {
 
 class Store {
   constructor(name) {
-    this.secureStorage = new SyncStorage(name, this);
+    new SyncStorage(name, this);
     return this;
   }
 }
