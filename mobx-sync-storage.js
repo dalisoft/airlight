@@ -15,6 +15,7 @@ function diff(tree, compare) {
       break;
     }
   }
+  return different;
 }
 
 class SyncStorage {
