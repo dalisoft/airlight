@@ -96,10 +96,10 @@ class SyncStorage {
       );
 
       if (store.onSessionSaved) {
-        store.onSessionSaved(mixedState, session);
+        store.onSessionSaved(mixedState, storeState, session);
       }
 
-      if (store.onStore) Object.assign(store, mixedState);
+      Object.assign(store, mixedState);
     }
     if (!initialized) {
       this.initialized = true;

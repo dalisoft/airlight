@@ -43,6 +43,9 @@ class Store extends SyncStore {
   constructor() {
     super("StoreName", "localStorage" /* or nothing for sessionStorage */);
   }
+  onSessionRestore(session) {
+    // do something
+  }
 }
 
 const store = new Store();
@@ -50,6 +53,17 @@ store.myKey = "or no??";
 ```
 
 and then load created file. Should work as works for me too!
+
+## Lifecycles
+
+- onSessionRestore(session?: DeserializedSession)
+- onSessionSaved(merged?: MergedSession, store?: StoreProperties, session?: DeserializedSession)
+- onSessionUnchanged(store?: StoreProperties)
+
+## Methods
+
+- deserialize
+- serialize
 
 ## Caveats
 
