@@ -18,7 +18,7 @@ class SyncStorage<T> {
 }
 
 class Store {
-  public constructor(name: string) {}
+  public constructor(name: string, type?: string) {}
 }
 
 export = Store;

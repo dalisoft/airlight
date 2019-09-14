@@ -1,7 +1,24 @@
 import { autorun, toJS } from "mobx";
 
+function diff(tree, compare) {
+  if (typeof tree !== "object") {
+    return tree !== compare;
+  }
+  if (Array.isArray(tree)) {
+    return tree.some((item, index) => diff(item, compare[index]));
+  }
+  let different = false;
+  for (let property in tree) {
+    if (!different) {
+      different = diff(tree[property], compare[property]);
+    } else {
+      break;
+    }
+  }
+}
+
 class SyncStorage {
-  constructor(name, store, storage = "sessionStorage") {
+  constructor(name, store, storage) {
     this.name = name;
     this.store = store;
 
@@ -16,7 +33,7 @@ class SyncStorage {
       );
     }
 
-    this.storage = storage === "sessionStorage" ? sessionStorage : localStorage;
+    this.storage = storage === "localStorage" ? localStorage : sessionStorage;
 
     this.onRun = this.onRun.bind(this);
 
@@ -49,18 +66,40 @@ class SyncStorage {
     const storeState = toJS(store);
     let mixedState = null;
     let session = storage.getItem(name)
-      ? JSON.parse(storage.getItem(name))
+      ? store.deserialize
+        ? store.deserialize(storage.getItem(name))
+        : JSON.parse(storage.getItem(name))
       : null;
 
-    mixedState = session
-      ? initialized && !isStorageChanged
-        ? Object.assign(session, storeState)
-        : Object.assign(storeState, session)
-      : storeState;
+    if (session && store.onSessionRestore) {
+      store.onSessionRestore(session);
+    }
+
+    if (session && !diff(session, storeState)) {
+      if (store.onSessionUnchanged) {
+        store.onSessionUnchanged(storeState);
+      }
+    } else {
+      mixedState = session
+        ? initialized && !isStorageChanged
+          ? Object.assign(session, storeState)
+          : Object.assign(storeState, session)
+        : storeState;
+    }
 
     if (mixedState) {
-      storage.setItem(name, JSON.stringify(mixedState));
-      Object.assign(store, mixedState);
+      storage.setItem(
+        name,
+        store.serialize
+          ? store.serialize(mixedState)
+          : JSON.stringify(mixedState)
+      );
+
+      if (store.onSessionSaved) {
+        store.onSessionSaved(mixedState, session);
+      }
+
+      if (store.onStore) Object.assign(store, mixedState);
     }
     if (!initialized) {
       this.initialized = true;
@@ -69,8 +108,8 @@ class SyncStorage {
 }
 
 export default class Store {
-  constructor(name) {
-    new SyncStorage(name, this);
+  constructor(name, type) {
+    new SyncStorage(name, this, type);
     return this;
   }
 }

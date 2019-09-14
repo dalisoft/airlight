@@ -41,25 +41,12 @@ import SyncStore from "mobx-sync-storage";
 class Store extends SyncStore {
   @action myKey: string = "works?";
   constructor() {
-    super("StoreName");
+    super("StoreName", "localStorage" /* or nothing for sessionStorage */);
   }
 }
 
 const store = new Store();
 store.myKey = "or no??";
-```
-
-## Known Bugs
-
-### Webpack workaround
-
-```js
-// attach-mobx.ts
-import { autorun } from 'mobx';
-
-// These functions are needed for working properly
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-(window as any).mobx = { autorun };
 ```
 
 and then load created file. Should work as works for me too!
