@@ -49,7 +49,7 @@ class SyncStorage {
     window.removeEventListener("storage", this.onRun);
   }
   attachAutoRun() {
-    if (autorun) {
+    if (mobx && mobx.autorun) {
       this.autorun = mobx.autorun(this.onRun);
     } else {
       console.error(
