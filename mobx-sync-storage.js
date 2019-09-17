@@ -1,4 +1,4 @@
-import { autorun, toJS } from "mobx";
+const mobx = require("mobx");
 
 function diff(tree, compare) {
   if (typeof tree !== "object") {
@@ -50,7 +50,7 @@ class SyncStorage {
   }
   attachAutoRun() {
     if (autorun) {
-      this.autorun = autorun(this.onRun);
+      this.autorun = mobx.autorun(this.onRun);
     } else {
       console.error(
         "[MobX-Sync-Storage]: MobX was not loaded at Window-level, so please load first to be working properly"
@@ -64,7 +64,7 @@ class SyncStorage {
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const isStorageChanged = argument.key === name;
-    const storeState = toJS(store);
+    const storeState = mobx.toJS(store);
     let mixedState = null;
     let session = storage.getItem(name)
       ? store.deserialize
@@ -108,7 +108,7 @@ class SyncStorage {
   }
 }
 
-export default class Store {
+module.exports = class Store {
   constructor(name, type) {
     new SyncStorage(name, this, type);
     return this;
