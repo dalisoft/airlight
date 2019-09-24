@@ -108,9 +108,15 @@ class SyncStorage {
   }
 }
 
-module.exports = class Store {
+class Store {
   constructor(name, type) {
     new SyncStorage(name, this, type);
     return this;
   }
 }
+
+module.exports = Store;
+
+// For Using as ES6 Module
+exports.default = Store;
+exports.__esModule = true;
