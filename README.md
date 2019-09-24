@@ -25,25 +25,22 @@ npm i mobx-sync-storage
 then you able to import to Node.js/Browser easily
 
 ```js
-// Node.js
-const SyncStore = require("mobx-sync-storage");
-
-// Browser
-// window.SyncStore OR SyncStore
-
-// ES6
+// only ES6 or Browser ES6 Module loading works
 import SyncStore from "mobx-sync-storage";
 ```
 
 ## Usage
 
 ```ts
-class Store extends SyncStore {
-  @action myKey: string = "works?";
+interface MyStoreInterface {
+  myKey: string;
+}
+class Store extends SyncStore implements MyStoreInterface {
+  public @observable myKey = "works?";
   constructor() {
     super("StoreName", "localStorage" /* or nothing for sessionStorage */);
   }
-  onSessionRestore(session) {
+  public onSessionRestore(session) {
     // do something
   }
 }
@@ -68,8 +65,9 @@ and then load created file. Should work as works for me too!
 ## Caveats
 
 - `null` not work or converting not working properly
-- Only Primite values works properly
-- When you changing something in current tab, things will change into `current tab`, on other all tabs are Synced only when you visit to that tab
+- Only Primitive values works properly
+- When you changing something in current tab, things will change into `current tab`, all others tab keep their state, for `localStorage`, things will change only you visit to that tab
+- When you using `localStorage` on 2+ tabs, latest changes may bypass previous change by force-pushing changes and you may lose prev-last state
 
 ## License
 
