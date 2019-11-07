@@ -261,7 +261,7 @@
           const q = this.queue[i];
 
           if (q.to === "$self") {
-            ws.send(q);
+            ws.send(q.data);
             this.queue.splice(i, 1);
           } else {
             i++;
