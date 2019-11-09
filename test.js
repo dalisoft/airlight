@@ -34,7 +34,7 @@ test("WebSocket.Server test", t =>
           "Message did not match to text from client"
         );
       });
-      wsWrapper.on("close", () => {
+      ws.on("close", () => {
         t.pass("Close passed");
 
         server.close();

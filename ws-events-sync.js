@@ -46,7 +46,7 @@
             const [, ev, ...arg] = e.split(";");
             return this.emit(ev, ...arg);
           } else {
-            return this.emit("message", e);
+            return super.emit("message", e);
           }
         }
         let parseJSON;
@@ -61,7 +61,7 @@
           return;
         }
         if (parseJSON) {
-          this.emit("message", parseJSON);
+          super.emit("message", parseJSON);
         }
       });
 
@@ -72,10 +72,6 @@
           this.queue.splice(i, 1);
         }
       }
-
-      this.ws.on("close", e => {
-        this.emit("close", e);
-      });
       return this;
     }
     ping() {
@@ -100,21 +96,12 @@
       return this;
     }
     emit(name, ...args) {
-      const isTypicalEvents = name === "message" || name === "close";
-
-      if (isTypicalEvents || this.___events[name]) {
-        if (!isTypicalEvents && !this.___events[name]) {
-          return this;
-        }
-        super.emit(name, ...args);
-      } else {
-        this.send(
-          "event;" +
-            (args && args.length > 0
-              ? [name, ...args.map(JSON.stringify)].join(";")
-              : name)
-        );
-      }
+      this.send(
+        "event;" +
+          (args && args.length > 0
+            ? [name, ...args.map(JSON.stringify)].join(";")
+            : name)
+      );
       return this;
     }
     close(reason) {
@@ -148,7 +135,7 @@
             const [, ev, ...arg] = e.split(";");
             return this.emit(ev, ...arg);
           } else {
-            return this.emit("message", e);
+            return super.emit("message", e);
           }
         }
         let parseJSON;
@@ -163,11 +150,11 @@
           return;
         }
         if (parseJSON) {
-          this.emit("message", parseJSON);
+          super.emit("message", parseJSON);
         }
       };
       this.ws.onopen = e => {
-        this.emit("open", e);
+        super.emit("open", e);
 
         if (enableQueue) {
           let i = 0;
@@ -178,10 +165,10 @@
         }
       };
       this.ws.onerror = e => {
-        this.emit("error", e);
+        super.emit("error", e);
       };
       this.ws.onclose = e => {
-        this.emit("close", e);
+        super.emit("close", e);
       };
       return this;
     }
@@ -207,25 +194,12 @@
       return this;
     }
     emit(name, ...args) {
-      const isTypicalEvents =
-        name === "open" ||
-        name === "message" ||
-        name === "error" ||
-        name === "close";
-
-      if (isTypicalEvents || this.___events[name]) {
-        if (!isTypicalEvents && !this.___events[name]) {
-          return this;
-        }
-        super.emit(name, ...args);
-      } else {
-        this.send(
-          "event;" +
-            (args && args.length > 0
-              ? [name, ...args.map(JSON.stringify)].join(";")
-              : name)
-        );
-      }
+      this.send(
+        "event;" +
+          (args && args.length > 0
+            ? [name, ...args.map(JSON.stringify)].join(";")
+            : name)
+      );
       return this;
     }
     close(reason) {
