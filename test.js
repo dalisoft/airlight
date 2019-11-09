@@ -1,5 +1,5 @@
 import test from "ava";
-import { Server, Client } from "./ws-events-sync";
+import { Server, Client } from ".";
 
 import http from "http";
 import Websocket from "ws";
