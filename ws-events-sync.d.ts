@@ -3,7 +3,7 @@ import Events from "@dalisoft/events";
 export class WebSocketInstance extends Events {
   close(code?: number, message?: string);
 }
-export class Server extends Events {
+export class Server extends WebSocketInstance {
   constructor(ws: WebSocketInstance);
   ping(): this;
   pong(): this;
