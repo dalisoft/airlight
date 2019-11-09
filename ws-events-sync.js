@@ -122,8 +122,8 @@
           }
         }
       });
-      this.ws.on("close", e => {
-        this.emit("close", e);
+      this.ws.on('close', e => {
+        this.emit('close', e);
       });
       return this;
     }
@@ -188,12 +188,14 @@
       return this;
     }
     emit(name, ...args) {
+      const isTypicalEvents = name === 'connection' || name === 'message' || name === 'close';
+
       if (
-        name === "close" ||
-        name === "message" ||
-        name === "connection" ||
-        this.___events[name]
+        isTypicalEvents || this.___events[name]
       ) {
+        if (!isTypicalEvents && !this.___events[name]) {
+          return this;
+        }
         super.emit(name, ...args);
       } else {
         this.send(
@@ -206,7 +208,7 @@
       return this;
     }
     close(reason) {
-      this.ws.close(reason);
+      this.ws.close();
     }
   }
   class Client extends Events {
@@ -301,13 +303,15 @@
       return this;
     }
     emit(name, ...args) {
+      const isTypicalEvents = name === 'open' || name === 'message' || name === 'error' || name === 'close';
+
       if (
-        name === "close" ||
-        name === "error" ||
-        name === "message" ||
-        name === "open" ||
+        isTypicalEvents ||
         this.___events[name]
       ) {
+        if (!isTypicalEvents && !this.___events[name]) {
+          return this;
+        }
         super.emit(name, ...args);
       } else {
         this.send(

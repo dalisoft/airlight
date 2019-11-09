@@ -1,14 +1,14 @@
 {
   "name": "@dalisoft/ws-events-sync",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "Event sync between server and client in Websocket",
   "main": "ws-events-sync.js",
   "cdn": "ws-events-sync.min.js",
   "browser": "ws-events-sync.min.js",
   "scripts": {
-    "minify": "npx terser ws-events-sync.js -c -m -o ws-events-sync.min.js --source-map \"filename='ws-events-sync.min.js.map'\"",
+    "minify": "terser ws-events-sync.js -c -m -o ws-events-sync.min.js --source-map \"filename='ws-events-sync.min.js.map'\"",
     "prepublishOnly": "npm test && npm run minify",
-    "test": "npx ava"
+    "test": "ava"
   },
   "repository": {
     "type": "git",
