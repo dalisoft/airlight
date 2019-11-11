@@ -44,7 +44,7 @@
             return this.emit("pong");
           } else if (e.includes("event;")) {
             const [, ev, ...arg] = e.split(";");
-            return this.emit(ev, ...arg);
+            return super.emit(ev, ...arg);
           } else {
             return super.emit("message", e);
           }
@@ -133,7 +133,7 @@
             return this.emit("pong");
           } else if (e.includes("event;")) {
             const [, ev, ...arg] = e.split(";");
-            return this.emit(ev, ...arg);
+            return super.emit(ev, ...arg);
           } else {
             return super.emit("message", e);
           }
