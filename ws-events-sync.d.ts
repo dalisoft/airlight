@@ -4,7 +4,7 @@ export class WebSocketInstance extends Events {
   close(code?: number, message?: string);
 }
 export class Server extends WebSocketInstance {
-  constructor(ws: WebSocketInstance);
+  constructor(ws: WebSocketInstance, enableQueue?: boolean);
   ping(): this;
   pong(): this;
   close(code?: number, message?: string): this;
