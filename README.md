@@ -59,6 +59,16 @@ ws.on("connection", client => {
 });
 ```
 
+## Browser snippet
+
+Add this script into your before script and after body to be this library working out-of-the-box.
+
+Thanks to jsDelivr!
+
+```html
+<script src="https://cdn.jsdelivr.net/combine/npm/@dalisoft/args,npm/@dalisoft/events,npm/@dalisoft/ws-events-sync"></script>
+```
+
 ## License
 
 MIT
