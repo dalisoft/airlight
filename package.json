@@ -1,6 +1,6 @@
 {
   "name": "@dalisoft/events",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "One more event emitter for Node.js and browser",
   "main": "event.js",
   "module": "event.es.js",
@@ -29,11 +29,11 @@
   },
   "homepage": "https://github.com/dalisoft/event#readme",
   "devDependencies": {
-    "ava": "^2.0.0",
+    "ava": "^2.4.0",
     "lib-export": "0.0.3",
-    "terser": "^4.0.0"
+    "terser": "^4.4.0"
   },
   "dependencies": {
-    "@dalisoft/args": "0.0.7"
+    "@dalisoft/args": "^0.0.8"
   }
 }
