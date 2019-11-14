@@ -22,6 +22,8 @@
   }
 })(function(Events) {
   const disallowedKeys = ["send", "emit", "on", "once", "off"];
+  const PLAIN_NEW_LINE = /[\r]?[\n]/g;
+
   class WebSocketBase extends Events {
     constructor(ws, enableQueue) {
       super();
@@ -66,6 +68,9 @@
     send(data) {
       if (typeof data !== "string") {
         data = JSON.stringify(data);
+      }
+      if (PLAIN_NEW_LINE.test(data)) {
+        data = data.replace(PLAIN_NEW_LINE, "\\n");
       }
       if (this.enableQueue && this.ws.readyState !== this.ws.OPEN) {
         this.queue.push(data);
