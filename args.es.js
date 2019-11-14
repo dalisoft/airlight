@@ -1,3 +1,5 @@
+const PLAIN_NEW_LINE = /[\r]?[\n]/g;
+
 function normalizeArg(type) {
   if (typeof type !== "string") {
     return type;
@@ -6,6 +8,9 @@ function normalizeArg(type) {
     type.charAt(0) === "{" ||
     (type.charAt(0) === "[" && typeof JSON !== "undefined")
   ) {
+    if (PLAIN_NEW_LINE.test(type)) {
+      type = type.replace(PLAIN_NEW_LINE, "\\n");
+    }
     return JSON.parse(type);
   }
   if (isNaN(+type)) {
