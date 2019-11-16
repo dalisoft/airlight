@@ -25,6 +25,8 @@ test("WebSocket.Server test", t =>
     ws.on("connection", ws => {
       const wsWrapper = new Server(ws);
 
+      wsWrapper.m;
+
       t.pass("Connection passed");
 
       wsWrapper.on("message", data => {
