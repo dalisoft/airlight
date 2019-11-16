@@ -40,8 +40,28 @@ test("Type and Value parsing test", t => {
     t.is(typeof s, "string", "String type parsing does not work as excepted");
   };
 
-  args(num, ["500", 500]);
-  args(arr, ["[1,2,3]", [1, 2, 3]]);
-  args(obj, ['{"foo":"bar"}', { foo: "bar" }]);
-  args(str, ["1 is not 2", "1 is not 2"]);
+  function normalizeArg(type) {
+    if (typeof type !== "string") {
+      return type;
+    }
+    if (
+      type.charAt(0) === "{" ||
+      (type.charAt(0) === "[" && typeof JSON !== "undefined")
+    ) {
+      return JSON.parse(type);
+    }
+    if (isNaN(+type)) {
+      return type;
+    }
+    return +type;
+  }
+
+  const parse = args => {
+    return args.map(normalizeArg);
+  };
+
+  args(num, ["500", 500], parse);
+  args(arr, ["[1,2,3]", [1, 2, 3]], parse);
+  args(obj, ['{"foo":"bar"}', { foo: "bar" }], parse);
+  args(str, ["1 is not 2", "1 is not 2"], parse);
 });
