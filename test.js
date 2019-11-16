@@ -58,6 +58,24 @@ test("Type and Value parsing test", t => {
 
   const ev = new Events();
 
+  ev.modifyArgs(args => {
+    return args.map(type => {
+      if (typeof type !== "string") {
+        return type;
+      }
+      if (
+        type.charAt(0) === "{" ||
+        (type.charAt(0) === "[" && typeof JSON !== "undefined")
+      ) {
+        return JSON.parse(type);
+      }
+      if (isNaN(+type)) {
+        return type;
+      }
+      return +type;
+    });
+  });
+
   ev.on("num", (n, excepted) => {
     t.is(n, excepted, "Number parsing does not work as excepted");
     t.is(typeof n, "number", "Number type parsing does not work as excepted");

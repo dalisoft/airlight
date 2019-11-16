@@ -6,8 +6,18 @@ function Events() {
     writable: true,
     value: {}
   });
+  Object.defineProperty(this, "___modifyArgs", {
+    enumerable: false,
+    writable: true,
+    value: null
+  });
 }
 Events.prototype = {
+  modifyArgs(callback) {
+    this.___modifyArgs = callback;
+
+    return this;
+  },
   on(name, callback) {
     const { ___events } = this;
 
@@ -59,7 +69,7 @@ Events.prototype = {
     return this;
   },
   emit() {
-    const { ___events } = this;
+    const { ___events, ___modifyArgs } = this;
     const argsOfFn = [].slice.call(arguments);
     const name = argsOfFn.shift();
 
@@ -72,21 +82,21 @@ Events.prototype = {
     if (__event.length === 0) {
       return this;
     } else if (__event.length === 1) {
-      args(__event[0], argsOfFn);
+      args(__event[0], argsOfFn, ___modifyArgs);
       return this;
     } else if (__event.length === 2) {
-      args(__event[0], argsOfFn);
-      args(__event[1], argsOfFn);
+      args(__event[0], argsOfFn, ___modifyArgs);
+      args(__event[1], argsOfFn, ___modifyArgs);
       return this;
     } else if (__event.length === 3) {
-      args(__event[0], argsOfFn);
-      args(__event[1], argsOfFn);
-      args(__event[2], argsOfFn);
+      args(__event[0], argsOfFn, ___modifyArgs);
+      args(__event[1], argsOfFn, ___modifyArgs);
+      args(__event[2], argsOfFn, ___modifyArgs);
       return this;
     }
 
     for (let i = 0, len = __event.length; i < len; i++) {
-      args(__event[i], argsOfFn);
+      args(__event[i], argsOfFn, ___modifyArgs);
     }
 
     return this;
