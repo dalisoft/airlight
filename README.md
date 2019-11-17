@@ -2,6 +2,12 @@
 
 MacOS Font Smoothing Configuration Utility
 
+## Installation
+
+```bash
+npm i -g dalisoft/mfscu
+```
+
 ## Requirements
 
 - Node.js
