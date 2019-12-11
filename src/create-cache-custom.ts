@@ -49,7 +49,7 @@ class CustomCache {
     if (!this.config.getTransform) {
       console.error(
         'The CustomCache is requires `getTransform` property' +
-          ' on configuration parameter to be working properly',
+          ' on configuration parameter to be working properly'
       );
       return;
     }
@@ -77,7 +77,7 @@ class CustomCache {
     if (!this.config.setTransform) {
       console.error(
         'The CustomCache is requires `setTransform` property' +
-          ' on configuration parameter to be working properly',
+          ' on configuration parameter to be working properly'
       );
       return;
     }
@@ -88,7 +88,7 @@ class CustomCache {
     }
     return this.config.setTransform(
       key,
-      this.config.jsonEnforce ? (JSON.stringify(value) as string) : (value as T),
+      this.config.jsonEnforce ? (JSON.stringify(value) as string) : (value as T)
     );
   }
   public has(key: string): Promise<boolean> | boolean {
@@ -98,7 +98,7 @@ class CustomCache {
     if (!this.config.hasTransform) {
       console.error(
         'The CustomCache is requires `hasTransform` property' +
-          ' on configuration parameter to be working properly',
+          ' on configuration parameter to be working properly'
       );
       return false;
     }
@@ -111,13 +111,13 @@ class CustomCache {
     if (!this.config.deleteTransform) {
       console.error(
         'The CustomCache is requires `deleteTransform` property' +
-          ' on configuration parameter to be working properly',
+          ' on configuration parameter to be working properly'
       );
       return;
     }
     if (this.addedCacheKeys) {
       this.addedCacheKeys = this.addedCacheKeys.filter(
-        (cacheKey: string): boolean => cacheKey !== key,
+        (cacheKey: string): boolean => cacheKey !== key
       );
     }
     return this.config.deleteTransform(key);
@@ -139,27 +139,24 @@ class CustomCache {
       return;
     }
 
-    const isAsyncItem: boolean = this.addedCacheKeys.some(
-      (key: string): boolean => {
-        const item = this.get(key) as Promise<typeValue>;
-        if (item.then) {
-          return true;
-        }
-        return false;
-      },
-    );
+    const isAsyncItem: boolean = this.addedCacheKeys.some((key: string): boolean => {
+      const item = this.get(key) as Promise<typeValue>;
+      // @ts-ignore
+      if (item.then) {
+        return true;
+      }
+      return false;
+    });
 
     if (isAsyncItem) {
-      return this.addedCacheKeys.forEach(
-        (key: string): Promise<void> | void => {
-          const get = this.get(key);
+      return this.addedCacheKeys.forEach((key: string): Promise<void> | void => {
+        const get = this.get(key);
 
-          if ((get as Promise<typeValue>).then) {
-            return (get as Promise<typeValue>).then((getValue: any): void => fn(key, getValue));
-          }
-          fn(get);
-        },
-      );
+        if ((get as Promise<typeValue>).then) {
+          return (get as Promise<typeValue>).then((getValue: any): void => fn(key, getValue));
+        }
+        fn(get);
+      });
     }
     return this.addedCacheKeys.forEach((key: string): void => fn(key, this.get(key)));
   }

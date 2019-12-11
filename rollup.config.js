@@ -3,6 +3,9 @@ import { terser } from 'rollup-plugin-terser';
 import del from 'rollup-plugin-delete';
 
 const external = ['fs', 'terser', 'typescript'];
+const globals = {
+  fs: 'FS',
+};
 
 export default [
   {
@@ -11,6 +14,7 @@ export default [
       format: 'esm',
       file: './dist/es/cache-ttl.js',
       esModule: true,
+      globals,
     },
     plugins: [
       del({
@@ -34,11 +38,13 @@ export default [
         name: 'CacheTTL',
         file: './dist/umd/cache-ttl.js',
         esModule: true,
+        globals,
       },
       {
         format: 'cjs',
         file: './dist/cjs/cache-ttl.js',
         esModule: false,
+        globals,
       },
     ],
     plugins: [
@@ -59,6 +65,7 @@ export default [
       name: 'CacheTTL',
       file: './dist/umd/cache-ttl.min.js',
       esModule: true,
+      globals,
     },
     plugins: [
       typescript({
