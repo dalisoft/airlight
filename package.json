@@ -1,6 +1,6 @@
 {
   "name": "gsheet-ql",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "An Google Sheet Query language ORM",
   "main": "lib/gsheet-ql.js",
   "module": "gsheet-ql.es.js",
@@ -28,13 +28,13 @@
   "author": "dalisoft",
   "license": "MIT",
   "devDependencies": {
-    "rollup": "^1.10.1",
+    "rollup": "^1.27.10",
     "rollup-plugin-delete": "^0.2.2",
     "rollup-plugin-sucrase": "^2.1.0",
     "rollup-plugin-terser": "^4.0.4",
-    "tslint": "^5.16.0",
-    "tslint-config-airbnb": "^5.11.1",
-    "typescript": "^3.4.4"
+    "tslint": "^5.20.1",
+    "tslint-config-airbnb": "^5.11.2",
+    "typescript": "^3.7.3"
   },
   "dependencies": {}
 }
