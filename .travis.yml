@@ -6,14 +6,10 @@ cache:
 notifications:
   email: false
 node_js:
-  - "8"
-  - "10"
-  - "11"
   - "12"
-before_install:
-  - npm i -g npm@^6.0.0
-before_script:
-  - npm prune
+  - "13"
+install:
+  - npm install
 script:
   - npm run build
   - npm test
