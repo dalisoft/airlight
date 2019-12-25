@@ -1,0 +1,14 @@
+{
+  "eslint.validate": [
+    "javascript"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.prettier": false
+  },
+  "editor.defaultFormatter": "vscode.typescript-language-features",
+  "typescript.validate.enable": true,
+  "files.associations": {
+    "*.js": "javascript",
+    "*.d.ts": "typescript"
+  }
+}

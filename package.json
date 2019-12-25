@@ -1,0 +1,40 @@
+{
+  "name": "microhelpers",
+  "version": "0.0.1",
+  "description": "Pack of micro-helpers helper for uWebSockets.js",
+  "main": "cjs/index.js",
+  "module": "esm/index.js",
+  "typings": "microserver.d.ts",
+  "scripts": {
+    "dev": "rollup -c -w",
+    "build": "rollup -c",
+    "lint": "eslint ./esm",
+    "prepublishOnly": "npm run lint"
+  },
+  "engines": {
+    "node": ">=12.10"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dalisoft/microhelpers"
+  },
+  "keywords": [
+    "ast-parser",
+    "nanoexpress"
+  ],
+  "author": "dalisoft",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/dalisoft/microhelpers/issues"
+  },
+  "homepage": "https://github.com/dalisoft/microhelpers#readme",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "husky": "^3.1.0",
+    "lint-staged": "^9.5.0",
+    "rollup": "^1.27.14"
+  },
+  "dependencies": {
+    "cookie": "^0.4.0"
+  }
+}
