@@ -23,7 +23,7 @@
     "nanoexpress"
   ],
   "author": "dalisoft",
-  "license": "GPL-3.0",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/dalisoft/microhelpers/issues"
   },
