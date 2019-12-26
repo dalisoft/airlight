@@ -5,6 +5,7 @@ export default (...middlewares) => {
       _middleware = await middleware(req, res);
 
       if (_middleware === res) {
+        res.close();
         break;
       }
     }

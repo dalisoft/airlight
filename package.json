@@ -1,7 +1,7 @@
 {
   "name": "microhelpers",
   "version": "0.0.1",
-  "description": "Pack of micro-helpers helper for uWebSockets.js",
+  "description": "Pack of micro-helpers for uWebSockets.js",
   "main": "./cjs/index.cjs",
   "exports": {
     ".": {
