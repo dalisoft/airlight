@@ -1,4 +1,5 @@
 import middleware from "./middleware.js";
+import config from "./config.js";
 import json from "./json.js";
 import headers from "./headers.js";
 import params from "./params.js";
@@ -12,6 +13,7 @@ import * as legacy from "./legacy.js";
 
 export {
   middleware,
+  config,
   json,
   headers,
   params,

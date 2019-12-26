@@ -1,12 +1,4 @@
-const reqBodyPipe = function reqBodyPipe(stream) {
-  stream.write(this.body);
-  stream.end();
-  return stream;
-};
-const reqPipe = function reqPipe(stream) {
-  this.stream.pipe(stream);
-  return stream;
-};
+import { reqBodyPipe, reqPipe, resPipe } from "./utils/index.js";
 
 export default ({ req: request = true, res: response = true } = {}) => {
   return (res, req) => {
@@ -16,7 +8,8 @@ export default ({ req: request = true, res: response = true } = {}) => {
       req.pipe = reqPipe;
     }
     if (response) {
-      //
+      res._req = req;
+      res.pipe = resPipe;
     }
   };
 };

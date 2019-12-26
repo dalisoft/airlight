@@ -1,9 +1,10 @@
-import { parse } from "cookie";
+import cookie from "cookie";
 
 export default () => {
   return (res, req) => {
-    const cookie = req.headers && req.headers.cookie || req.getHeader("cookie");
+    const _cookie = req.headers && req.headers.cookie
+    || req.getHeader("cookie");
 
-    req.cookies = parse(cookie);
+    req.cookies = cookie.parse(_cookie);
   };
 };

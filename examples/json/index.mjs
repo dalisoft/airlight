@@ -1,5 +1,5 @@
 import uWebSockets from "uWebSockets.js";
-import json from "../../esm/json.js";
+import { json } from "../../esm/index.js";
 
 const app = uWebSockets.App().get("/", json({ status: "success" }));
 
