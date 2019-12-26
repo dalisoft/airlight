@@ -9,8 +9,9 @@ export default function resPipe(stream, size, compressed = false) {
 
   if (compressed) {
     const compressedStream = compressStream.call(this, stream,
-      req && req.headers && req.headers["accept-encoding"]
-       || req.getHeader("accept-encoding"));
+      typeof req !== "undefined" && (req.headers
+        && req.headers["accept-encoding"]
+       || req.getHeader("accept-encoding")));
 
     if (compressedStream) {
       stream = compressedStream;
