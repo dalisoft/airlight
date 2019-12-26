@@ -9,6 +9,7 @@ This project is provides helpers for faster development without layer overhead. 
 
 ## Features
 
+- Lightweight
 - Stability
 - Performance
 - Ease-of-use
