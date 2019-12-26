@@ -1,3 +1,4 @@
+/** global: Buffer */
 import { Readable } from "stream";
 
 export default () => {
