@@ -2,8 +2,15 @@
   "name": "microhelpers",
   "version": "0.0.1",
   "description": "Pack of micro-helpers helper for uWebSockets.js",
-  "main": "cjs/index.js",
-  "module": "esm/index.js",
+  "main": "./cjs/index.cjs",
+  "exports": {
+    ".": {
+      "require":  "./cjs/index.cjs",
+      "default": "./esm/index.js"
+    }
+  },
+  "module": "./esm/index.js",
+  "type": "module",
   "typings": "microserver.d.ts",
   "scripts": {
     "dev": "rollup -c -w",

@@ -3,9 +3,9 @@
     "javascript"
   ],
   "editor.codeActionsOnSave": {
-    "source.fixAll.prettier": false
+    "source.fixAll.prettier": true
   },
-  "editor.defaultFormatter": "vscode.typescript-language-features",
+  "prettier.requireConfig": false,
   "typescript.validate.enable": true,
   "files.associations": {
     "*.js": "javascript",
