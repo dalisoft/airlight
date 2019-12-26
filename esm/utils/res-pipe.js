@@ -1,3 +1,4 @@
+/** global: req */
 import compressStream from "./compress-stream.js";
 
 export default function resPipe(stream, size, compressed = false) {
