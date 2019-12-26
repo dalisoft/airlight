@@ -9,6 +9,7 @@ export const useConnectMiddleware = middleware => {
         if (done !== false) {
           return resolve();
         }
+        return undefined;
       });
     });
 };
