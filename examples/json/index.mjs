@@ -1,7 +1,8 @@
 import uWebSockets from "uWebSockets.js";
 import { json } from "../../esm/index.js";
 
-const app = uWebSockets.App().get("/", json({ status: "success" }));
+const app = uWebSockets.App()
+  .get("/", json({ status: "success" }));
 
 app.listen(8111, token => {
   if (token) {

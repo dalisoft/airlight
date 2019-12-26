@@ -1,11 +1,19 @@
 export default (...middlewares) => {
   return async (res, req) => {
+    let isAborted = false;
+    res.onAborted(() => {
+      isAborted = true;
+    });
+
     let _middleware;
     for await (const middleware of middlewares) {
-      _middleware = await middleware(req, res);
+      if (isAborted) {
+        break;
+      }
+
+      _middleware = await middleware(res, req);
 
       if (_middleware === res) {
-        res.close();
         break;
       }
     }

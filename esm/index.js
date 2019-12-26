@@ -8,6 +8,7 @@ import cookies from "./cookies.js";
 import stream from "./stream.js";
 import body from "./body.js";
 import pipe from "./pipe.js";
+import sendFile from "./sendFile.js";
 
 import * as legacy from "./legacy.js";
 
@@ -22,5 +23,6 @@ export {
   stream,
   body,
   pipe,
+  sendFile,
   legacy
 };
