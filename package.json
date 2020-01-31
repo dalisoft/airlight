@@ -34,7 +34,7 @@
   "author": "dalisoft",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^12.12.21",
+    "@types/node": "^13.7.0",
     "ava": "^2.4.0",
     "husky": "^4.0.2",
     "lint-staged": "^10.0.3",
