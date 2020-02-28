@@ -1,4 +1,4 @@
-import test from 'ava';
+const test = require('ava');
 const CacheTTL = require('./dist/cjs/cache-ttl');
 
 const timeout = ms => new Promise(resolve => setTimeout(resolve, ms));

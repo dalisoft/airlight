@@ -7,6 +7,8 @@ const globals = {
   fs: 'FS',
 };
 
+const watch = process.env.ROLLUP_WATCH;
+
 export default [
   {
     input: './src/cache.ts',
@@ -75,10 +77,11 @@ export default [
           },
         },
       }),
-      terser({
-        compress: true,
-        mangle: true,
-      }),
+      !watch &&
+        terser({
+          compress: true,
+          mangle: true,
+        }),
     ],
     external,
   },
