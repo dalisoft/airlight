@@ -34,13 +34,20 @@ const spreadsheetId = "spreadsheetId";
 
 const gsheet = new GSheetQL(spreadsheetId, sheets, auth);
 
-gsheet
-  .get(["Users", "Messages"], true, [["ID", "Name", "Age"]])
-  .then(res => console.log(res));
+const getRes = await gsheet.get(["Users", "Messages"], true, [
+  ["ID", "Name", "Age"]
+]);
 
-await gsheet
-  .update("Users!A2:D4", ["ID", "Name", "Age"], null, true)
-  .then(res => console.log("log", res));
+console.log(getRes);
+
+const updateRes = await gsheet.update(
+  "Users!A2:D4",
+  ["ID", "Name", "Age"],
+  null,
+  true
+);
+
+console.log(updateRes);
 ```
 
 ### Usage
