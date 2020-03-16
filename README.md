@@ -1,6 +1,5 @@
 # batchCollect
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/dalisoft/batch-collect.svg)](https://greenkeeper.io/)
 Collect calls and make them batching
 
 > _Mostly use this for solving 1+N (N+1) problem_
