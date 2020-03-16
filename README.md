@@ -1,7 +1,5 @@
 # swipe-gesture
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/dalisoft/swipe-gesture.svg)](https://greenkeeper.io/)
-
 Swipe gesture library
 
 **Note**: _This library focused to performance and simplicity. For complex usecase (like long-tap or pinch), please use other library_
