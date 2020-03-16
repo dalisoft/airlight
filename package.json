@@ -10,7 +10,7 @@
   "scripts": {
     "minify": "terser event.js -c -m -o event.min.js --source-map \"filename='event.min.js.map'\"",
     "prepublishOnly": "npm run build && npm test && npm run minify",
-    "test": "ava",
+    "test": "npm run build && ava",
     "build": "lib-export -name Events -file event.es.js -output event.js"
   },
   "repository": {
@@ -29,9 +29,9 @@
   },
   "homepage": "https://github.com/dalisoft/event#readme",
   "devDependencies": {
-    "ava": "^2.4.0",
+    "ava": "^3.5.0",
     "lib-export": "0.0.3",
-    "terser": "^4.4.0"
+    "terser": "^4.6.6"
   },
   "dependencies": {
     "@dalisoft/args": "^0.1.1"

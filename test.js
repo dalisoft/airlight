@@ -1,5 +1,5 @@
-import test from "ava";
-import Events from ".";
+const test = require("ava");
+const Events = require(".");
 
 test("Get prototype", t => {
   t.plan(4);
