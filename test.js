@@ -1,9 +1,9 @@
-import test from "ava";
-import { Server, Client } from ".";
+const test = require("ava");
+const { Server, Client } = require(".");
 
-import http from "http";
-import Websocket from "ws";
-import W3CWebSocket from "websocket";
+const http = require("http");
+const Websocket = require("ws");
+const W3CWebSocket = require("websocket");
 
 const createServer = () =>
   http.createServer((req, res) => {
