@@ -1,7 +1,5 @@
 # ws-events-sync
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/dalisoft/ws-events-sync.svg)](https://greenkeeper.io/)
-
 Event sync between server and client in Websocket
 
 ## Features
