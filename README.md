@@ -1,7 +1,4 @@
 # args
-
-[![Greenkeeper badge](https://badges.greenkeeper.io/dalisoft/args.svg)](https://greenkeeper.io/)
-
 A performant argument pass library
 
 ## Features
