@@ -11,7 +11,7 @@
     "build": "lib-export -name args -file args.es.js -output args.js",
     "minify": "npx terser args.js -c -m -o args.min.js --source-map \"filename='args.min.js.map'\"",
     "prepublishOnly": "npm run build && npm test && npm run minify",
-    "test": "ava"
+    "test": "npm run build && ava"
   },
   "repository": {
     "type": "git",
@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/dalisoft/args#readme",
   "devDependencies": {
-    "ava": "^2.0.0",
+    "ava": "^3.5.0",
     "lib-export": "0.0.3",
     "terser": "^4.3.1"
   }

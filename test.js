@@ -1,5 +1,5 @@
-import test from "ava";
-import args from ".";
+const test = require("ava");
+const args = require(".");
 
 test("Basic test", t => {
   const fn1 = arg1 => arg1 && t.pass("Argument was passed", arg1);
