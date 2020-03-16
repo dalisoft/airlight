@@ -1,7 +1,5 @@
 # asBatch
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/dalisoft/as-batch.svg)](https://greenkeeper.io/)
-
 Convert many calls into batches
 
 > _Mostly use this for solving 1+N (N+1) problem_
