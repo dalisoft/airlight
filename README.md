@@ -1,7 +1,5 @@
 # cookie
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/dalisoft/cookie.svg)](https://greenkeeper.io/)
-
 Cookie utility for everyone
 
 Note: _Requires Node.js framework Response and Request instance for some methods_
