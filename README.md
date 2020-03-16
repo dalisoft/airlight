@@ -1,7 +1,5 @@
 # mobx-sync-storage
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/dalisoft/mobx-sync-storage.svg)](https://greenkeeper.io/)
-
 Sync persist storage between Local/Session Storage and MobX
 
 ## Features
