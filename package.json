@@ -14,9 +14,9 @@
         "module"
     ],
     "scripts": {
-        "minify": "npx terser deepcopy.js -c -m -o deepcopy.min.js --source-map \"filename='deepcopy.min.js.map'\"",
+        "minify": "terser deepcopy.js -c -m -o deepcopy.min.js --source-map \"filename='deepcopy.min.js.map'\"",
         "prepublishOnly": "npm test && npm run minify",
-        "test": "npx ava"
+        "test": "ava"
     },
     "repository": {
         "type": "git",
@@ -29,7 +29,7 @@
     },
     "homepage": "https://github.com/dalisoft/deepcopy#readme",
     "devDependencies": {
-        "ava": "^2.0.0",
+        "ava": "^3.5.0",
         "terser": "^4.0.0"
     }
 }

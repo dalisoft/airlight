@@ -1,5 +1,5 @@
-import test from "ava";
-import DeepCopy from "./deepcopy";
+const test = require("ava");
+const DeepCopy = require(".');
 
 test("Object clone", t => {
   const obj = { a: "b", 2: 3 };

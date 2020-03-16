@@ -1,8 +1,12 @@
 # deepcopy
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/dalisoft/deepcopy.svg)](https://greenkeeper.io/)
-
 Simple, yet smart Javascript instance cloner
+
+## Warning
+
+This project no longer maintaining. PR are welcome.
+
+You can use [lodash.clonedeep](https://www.npmjs.com/package/lodash.clonedeep) as alternate solution
 
 ## Features
 
