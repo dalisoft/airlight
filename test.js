@@ -1,5 +1,5 @@
-import test from "ava";
-import batchCollect from ".";
+const test = require("ava");
+const batchCollect = require(".");
 
 const timeout = ms => new Promise(resolve => setTimeout(resolve, ms));
 
