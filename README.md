@@ -1,7 +1,5 @@
 # CacheTTL
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/dalisoft/cache-ttl.svg)](https://greenkeeper.io/)
-
 Caching Library with TTL for Node.js and browser
 
 **NOTE**: _From latest release, the `sync` variant is removed due of stability, performance and security reasons_
