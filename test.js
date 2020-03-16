@@ -1,5 +1,5 @@
 const test = require("ava");
-const DeepCopy = require(".');
+const DeepCopy = require(".");
 
 test("Object clone", t => {
   const obj = { a: "b", 2: 3 };
