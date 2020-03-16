@@ -2,6 +2,10 @@
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/dalisoft/batch-collect.svg)](https://greenkeeper.io/)
 
+## Warning
+
+I recommend you using [DataLoader](https://github.com/graphql/dataloader) instead of this utility. In my own benchmark this utility has lower memory overhead and higher performance, it's not solution for your tasks, for my tasks this tool does the job, but [DataLoader](https://github.com/graphql/dataloader) has better community and maintained well by very opinionated developers
+
 Collect calls and make them batching
 
 > _Mostly use this for solving 1+N (N+1) problem_
@@ -43,7 +47,10 @@ const batchQuery = batchCollect(async collects => {
   return collects.map(requestToSomeWhere);
 });
 
-batchQuery(() => `getUser { id, name }`, user => doSomething(user));
+batchQuery(
+  () => `getUser { id, name }`,
+  user => doSomething(user)
+);
 
 await batchQuery(async () => {
   await timeout(100);
@@ -60,7 +67,10 @@ const batchSQL = batchCollect(async ids => {
   return orm.getByIds(ids);
 });
 
-batchSQL(() => id, row => doSomething(row));
+batchSQL(
+  () => id,
+  row => doSomething(row)
+);
 
 // This code is executes from different place than above query
 // and both code exetudes once, on DB requests will be called once
