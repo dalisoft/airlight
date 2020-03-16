@@ -1,7 +1,5 @@
 # events
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/dalisoft/event.svg)](https://greenkeeper.io/)
-
 One more event emitter for Node.js and browser
 
 ## Features
