@@ -1,7 +1,5 @@
 # json-strify
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/dalisoft/json-strify.svg)](https://greenkeeper.io/)
-
 Faster implementation of JSON.stringify
 
 _Performance: This library ~50% faster than `JSON.stringify` on larger objects/arrays_
