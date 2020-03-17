@@ -2,6 +2,10 @@
 
 > An Google Sheet Query language ORM
 
+## Warning
+
+This project not anymore was maintained, so i recommend you using `Google`'s official `node.js` library as they now also supports `Promise`s
+
 ## Features
 
 - Promise support
