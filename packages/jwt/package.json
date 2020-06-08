@@ -1,0 +1,46 @@
+{
+  "name": "@dalisoft/jwt",
+  "private": false,
+  "version": "0.0.7",
+  "description": "JWT Helper for Auth building from scratch",
+  "types": "dist/es/jwt.d.ts",
+  "module": "dist/es/jwt.js",
+  "main": "dist/cjs/jwt.js",
+  "scripts": {
+    "build": "rollup -c",
+    "prepublishOnly": "npm run build && npm run test",
+    "test": "ava --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dalisoft/jwt.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dalisoft/jwt/issues"
+  },
+  "homepage": "https://github.com/dalisoft/jwt#readme",
+  "keywords": [
+    "auth",
+    "jwt",
+    "promise",
+    "async",
+    "await",
+    "fast"
+  ],
+  "author": "dalisoft",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jsonwebtoken": "^8.3.3",
+    "ava": "^2.3.0",
+    "rollup": "^1.19.2",
+    "rollup-plugin-delete": "^1.1.0",
+    "rollup-plugin-typescript2": "^0.27.0",
+    "tslint": "^5.19.0",
+    "tslint-config-airbnb": "^5.11.1",
+    "typescript": "^3.5.3"
+  },
+  "dependencies": {
+    "jsonwebtoken": "^8.5.1",
+    "rand-token": "^0.4.0"
+  }
+}
