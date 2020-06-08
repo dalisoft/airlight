@@ -1,0 +1,14 @@
+{
+  "main": "index.mjs",
+  "module": "index.mjs",
+  "type": "module",
+  "scripts": {
+    "start": "node --experimental-modules index.mjs"
+  },
+  "engines": {
+    "node": ">=12.10"
+  },
+  "dependencies": {
+    "uWebSockets.js": "uNetworking/uWebSockets.js#v16.5.0"
+  }
+}

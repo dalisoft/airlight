@@ -1,0 +1,12 @@
+{
+  "eslint.validate": ["javascript"],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.prettier": true
+  },
+  "prettier.requireConfig": true,
+  "typescript.validate.enable": true,
+  "files.associations": {
+    "*.js": "javascript",
+    "*.d.ts": "typescript"
+  }
+}
