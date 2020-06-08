@@ -1,0 +1,4 @@
+.prettier_rc
+.git/
+node_modules/
+example.html

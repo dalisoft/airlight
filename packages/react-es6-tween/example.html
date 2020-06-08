@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React ES6 Tween Example</title>
+    <style>
+      #tween-node {
+        background-color: #fc0;
+        width: 200px;
+        height: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- My Root Node -->
+    <div id="root"></div>
+    <!-- End My Root Node-->
+
+    <!-- Scripts -->
+    <script
+      src="https://unpkg.com/react@16/umd/react.production.min.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/es6-tween@5.5.10/bundled/Tween.min.js"></script>
+    <script src="https://unpkg.com/getcssstyle@0.0.4/index.js"></script>
+    <script src="https://unpkg.com/es6tween-plugin-render@0.0.16/render.min.js"></script>
+    <script src="./react-es6-tween.js"></script>
+    <script>
+      class App extends React.Component {
+        render() {
+          return React.createElement(
+            ES6Tween,
+            {
+              duration: 4000,
+              easing: TWEEN.Easing.Exponential.InOut,
+              autoPlay: true,
+              from: {
+                x: 200,
+                backgroundColor: "#0cf"
+              }
+            },
+            React.createElement("div", { id: "tween-node" })
+          );
+        }
+      }
+
+      ReactDOM.render(
+        React.createElement(App),
+        document.getElementById("root")
+      );
+    </script>
+  </body>
+</html>
