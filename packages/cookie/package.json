@@ -1,0 +1,33 @@
+{
+  "name": "@dalisoft/cookie",
+  "version": "0.0.4",
+  "description": "Cookie utility for everyone",
+  "main": "cookie.js",
+  "cdn": "cookie.min.js",
+  "browser": "cookie.min.js",
+  "scripts": {
+    "minify": "npx terser cookie.js -c -m -o cookie.min.js --source-map \"filename='cookie.min.js.map'\"",
+    "prepublishOnly": "npm test && npm run minify",
+    "test": "npx ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dalisoft/cookie.git"
+  },
+  "keywords": [
+    "cookie",
+    "parse",
+    "performant"
+  ],
+  "author": "dalisoft",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dalisoft/cookie/issues"
+  },
+  "homepage": "https://github.com/dalisoft/cookie#readme",
+  "devDependencies": {
+    "ava": "^2.0.0",
+    "terser": "^4.0.0"
+  },
+  "dependencies": {}
+}
