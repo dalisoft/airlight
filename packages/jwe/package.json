@@ -1,0 +1,39 @@
+{
+  "name": "@dalisoft/jwe",
+  "private": false,
+  "version": "0.0.2",
+  "description": "JWE Helper for Auth building from scratch",
+  "module": "dist/es/jwe.js",
+  "main": "dist/cjs/jwe.js",
+  "scripts": {
+    "build": "rollup -c",
+    "prepublishOnly": "npm run build && npm test",
+    "test": "ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dalisoft/jwe.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dalisoft/jwe/issues"
+  },
+  "homepage": "https://github.com/dalisoft/jwe#readme",
+  "keywords": [
+    "auth",
+    "jwe",
+    "promise",
+    "async",
+    "await",
+    "fast"
+  ],
+  "author": "dalisoft",
+  "license": "MIT",
+  "devDependencies": {
+    "ava": "^2.0.0",
+    "rollup": "^1.14.3",
+    "rollup-plugin-delete": "^1.0.0"
+  },
+  "dependencies": {
+    "node-webtokens": "^1.0.0"
+  }
+}
