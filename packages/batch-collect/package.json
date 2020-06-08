@@ -1,0 +1,37 @@
+{
+  "name": "@dalisoft/batch-collect",
+  "private": false,
+  "version": "0.0.3",
+  "description": "Collect calls and make them batching",
+  "typings": "batch-collect.d.ts",
+  "module": "src/batch-collect.js",
+  "main": "dist/cjs/batch-collect.js",
+  "cdn": "dist/umd/batch-collect.min.js",
+  "browser": "dist/umd/batch-collect.min.js",
+  "scripts": {
+    "build": "rollup -c",
+    "prepublishOnly": "npm run build && npm test",
+    "test": "npm run build && ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dalisoft/batch-collect.git"
+  },
+  "keywords": [
+    "call",
+    "batch"
+  ],
+  "author": "dalisoft",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dalisoft/batch-collect/issues"
+  },
+  "homepage": "https://github.com/dalisoft/batch-collect#readme",
+  "devDependencies": {
+    "ava": "^3.5.0",
+    "rollup": "^2.0.6",
+    "rollup-plugin-delete": "^1.0.0",
+    "rollup-plugin-terser": "^5.0.0"
+  },
+  "dependencies": {}
+}
