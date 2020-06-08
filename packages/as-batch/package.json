@@ -1,0 +1,41 @@
+{
+  "name": "@dalisoft/as-batch",
+  "private": false,
+  "version": "0.1.8",
+  "description": "Convert many calls into batches",
+  "types": "dist/es/as-batch.d.ts",
+  "module": "dist/es/as-batch.js",
+  "main": "dist/cjs/as-batch.js",
+  "cdn": "dist/umd/as-batch.min.js",
+  "browser": "dist/umd/as-batch.min.js",
+  "scripts": {
+    "build": "rollup -c",
+    "prepublishOnly": "npm run build && npm test",
+    "test": "npm run build && ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dalisoft/as-batch.git"
+  },
+  "keywords": [
+    "call",
+    "batch"
+  ],
+  "author": "dalisoft",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dalisoft/as-batch/issues"
+  },
+  "homepage": "https://github.com/dalisoft/as-batch#readme",
+  "devDependencies": {
+    "ava": "^3.5.0",
+    "rollup": "^2.0.6",
+    "rollup-plugin-delete": "^1.0.0",
+    "rollup-plugin-terser": "^5.0.0",
+    "rollup-plugin-typescript2": "^0.27.0",
+    "tslint": "^6.1.0",
+    "tslint-config-airbnb": "^5.11.1",
+    "typescript": "^3.5.1"
+  },
+  "dependencies": {}
+}
