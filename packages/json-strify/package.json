@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/dalisoft/json-strify#readme",
   "devDependencies": {
-    "ava": "^2.0.0"
+    "ava": "^3.9.0"
   },
   "dependencies": {
     "compile-json-stringify": "^0.1.2"

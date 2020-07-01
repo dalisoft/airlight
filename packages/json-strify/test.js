@@ -1,5 +1,5 @@
-import test from "ava";
-import strify from "./json-strify";
+const test = require("ava");
+const strify = require("./json-strify");
 
 test("stringify number", t => {
   const instance = strify();
