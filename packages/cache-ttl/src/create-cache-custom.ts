@@ -152,6 +152,7 @@ class CustomCache {
       return this.addedCacheKeys.forEach((key: string): Promise<void> | void => {
         const get = this.get(key);
 
+        // @ts-ignore-line
         if ((get as Promise<typeValue>).then) {
           return (get as Promise<typeValue>).then((getValue: any): void => fn(key, getValue));
         }

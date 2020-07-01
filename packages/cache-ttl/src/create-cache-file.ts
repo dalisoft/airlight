@@ -4,7 +4,18 @@ import { Cache, Config } from './create-cache-custom';
 const isFSUnavailabe: boolean =
   typeof window !== 'undefined' || typeof require === 'undefined' || typeof process === 'undefined';
 
-type typeValue = string | number | object | string[] | number[] | object[];
+type typeValue =
+  | string
+  | Uint8Array
+  | Uint8ClampedArray
+  | Uint16Array
+  | Uint32Array
+  | Int8Array
+  | Int16Array
+  | Int32Array
+  | Float32Array
+  | Float64Array
+  | DataView;
 class FSCache extends Cache {
   constructor(randomDir?: boolean | string | null) {
     const rnd =
