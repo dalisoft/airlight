@@ -1,6 +1,6 @@
 {
   "name": "getdirname",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Get callee directory",
   "type": "module",
   "main": "esm.js",

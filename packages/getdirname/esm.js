@@ -2,13 +2,11 @@ export default function getdirname(){
   try {
     throw new Error('__get__dirname__')
   } catch (e) {
-    var currStackTrace = e.stack.split("at ")[2];
-    var currStack = currStackTrace.match(/\((.*)\:[0-9]/);
-    var matchCurrStack = currStack && currStack[1];
+    const currStackTrace = e.stack.split("at ")[2];
 
-    var lastSlashIndex = matchCurrStack.lastIndexOf('/');
-    var realdirname = matchCurrStack.substr(0, lastSlashIndex);
+    const lastSlashIndex = currStackTrace.lastIndexOf('/');
+    const realdirname = currStackTrace.substr(0, lastSlashIndex);
 
-    return realdirname
+    return realdirname.replace('file://', '')
   }
 }
