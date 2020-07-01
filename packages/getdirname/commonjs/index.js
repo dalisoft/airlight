@@ -1,4 +1,4 @@
-module.exports = function(){
+module.exports = function getdirname(){
   try {
     throw new Error('__get__dirname__')
   } catch (e) {

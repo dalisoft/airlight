@@ -2,8 +2,6 @@
 
 Get callee directory
 
-> Much compatible way of `__dirname`
-
 ## Usage
 
 ### ESM
