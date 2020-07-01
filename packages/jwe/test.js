@@ -1,7 +1,8 @@
 import test from "ava";
-const JWE = require("./dist/cjs/jwe");
+import * as JWE from './src/jwe.js';
+import crypto from 'crypto';
 
-const key = require("crypto").randomBytes(64);
+const key = crypto.randomBytes(64);
 
 test("JWE Basic features ", t =>
   new Promise(async resolve => {
@@ -23,7 +24,7 @@ test("JWE Basic features ", t =>
 
     t.throwsAsync(
       JWE.verify("a" + signed, key),
-      "Validation error",
+      {instanceOf: Error, message: 'Validation error'},
       "Verify invalid token is passed and this mean this does not work properly"
     );
 
@@ -33,7 +34,7 @@ test("JWE Basic features ", t =>
     setTimeout(async () => {
       await t.throwsAsync(
         JWE.verify(signed, key),
-        "Token expired",
+      {instanceOf: Error, message: 'Token expired'},
         "JWE Expiration does not work properly"
       );
       resolve();

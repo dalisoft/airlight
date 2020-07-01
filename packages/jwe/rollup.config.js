@@ -1,30 +1,12 @@
-import del from "rollup-plugin-delete";
-
-export default [
-  {
-    input: "./src/jwe.js",
-    output: {
-      format: "es",
-      file: "./dist/es/jwe.js",
-      esModule: true
+export default {
+  input: "./src/jwe.js",
+  output: [
+    {
+      format: "cjs",
+      file: "jwe.cjs",
+      esModule: false,
+      exports: "named",
     },
-    plugins: [
-      del({
-        targets: "dist/*"
-      })
-    ],
-    external: ["node-webtokens", "crypto"]
-  },
-  {
-    input: "./src/jwe.js",
-    output: [
-      {
-        format: "cjs",
-        file: "./dist/cjs/jwe.js",
-        esModule: false,
-        exports: "named"
-      }
-    ],
-    external: ["node-webtokens", "crypto"]
-  }
-];
+  ],
+  external: ["node-webtokens", "crypto"],
+};

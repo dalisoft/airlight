@@ -13,7 +13,7 @@ const signJWT = (
         payload,
         secretOrPrivate,
         options,
-        (err: Error, encoded: string): void => {
+        (err, encoded): void => {
           if (err) {
             return reject(err);
           }

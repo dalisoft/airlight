@@ -134,12 +134,14 @@ askpass.sh
 ## Build files ##
 #################
 
+.cjs
 cjs
 dist
 build/Release
 functions-build
 
 ## Make sure subfolders also does not exist
+**/.cjs
 **/dist
 **/build/Release
 **/functions-build

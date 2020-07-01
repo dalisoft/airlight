@@ -3,6 +3,7 @@ import {
   VerifyOptions,
   VerifyErrors,
   GetPublicKeyOrSecret,
+  VerifyCallback
 } from 'jsonwebtoken';
 import { decrypt } from './utils';
 
@@ -18,7 +19,7 @@ const verifyJWT = (
         encoded ? decrypt(secretOrPrivate, token) : token,
         secretOrPrivate,
         options,
-        (err: VerifyErrors, decoded: object | string): any => {
+        (err, decoded): any => {
           if (err) {
             return reject(err);
           }

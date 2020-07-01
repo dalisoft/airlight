@@ -1,8 +1,8 @@
-import { parse } from "node-webtokens";
+import nodeWebToken from "node-webtokens";
 
 const decodeJWE = (token, key) =>
   new Promise((resolve, reject) => {
-    parse(token).verify(key, (err, decoded) => {
+    nodeWebToken.parse(token).verify(key, (err, decoded) => {
       if (err) {
         return reject(err);
       }

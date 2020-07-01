@@ -3,10 +3,11 @@
   "private": false,
   "version": "0.0.2",
   "description": "JWE Helper for Auth building from scratch",
-  "module": "dist/es/jwe.js",
-  "main": "dist/cjs/jwe.js",
+  "module": "src/jwe.js",
+  "main": "jwe.cjs",
+  "type": "module",
   "scripts": {
-    "build": "rollup -c",
+    "build": "rm -rf jwe.cjs && rollup -c",
     "prepublishOnly": "npm run build && npm test",
     "test": "ava"
   },
@@ -29,11 +30,10 @@
   "author": "dalisoft",
   "license": "MIT",
   "devDependencies": {
-    "ava": "^2.0.0",
-    "rollup": "^1.14.3",
-    "rollup-plugin-delete": "^1.0.0"
+    "ava": "^3.9.0",
+    "rollup": "^2.18.1"
   },
   "dependencies": {
-    "node-webtokens": "^1.0.0"
+    "node-webtokens": "^1.0.4"
   }
 }

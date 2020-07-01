@@ -15,7 +15,6 @@ export default [
       }),
       typescript({
         abortOnError: false,
-        objectHashIgnoreUnknownHack: true,
         tsconfigOverride: {
           compilerOptions: {
             declaration: true
@@ -38,7 +37,6 @@ export default [
     plugins: [
       typescript({
         abortOnError: false,
-        objectHashIgnoreUnknownHack: true,
         tsconfigOverride: {
           compilerOptions: {
             declaration: false

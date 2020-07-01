@@ -1,8 +1,8 @@
-import { parse } from "node-webtokens";
+import nodeWebToken from "node-webtokens";
 
 const verifyJWE = (token, key) =>
   new Promise((resolve, reject) => {
-    parse(token).verify(key, (err, result) => {
+    nodeWebToken.parse(token).verify(key, (err, result) => {
       const validExpiration =
         result && result.payload
           ? Number(result.payload.exp - Math.floor(Date.now() / 1000)) > 0

@@ -30,17 +30,17 @@
   "author": "dalisoft",
   "license": "MIT",
   "devDependencies": {
-    "@types/jsonwebtoken": "^8.3.3",
-    "ava": "^2.3.0",
-    "rollup": "^1.19.2",
-    "rollup-plugin-delete": "^1.1.0",
+    "@types/jsonwebtoken": "^8.5.0",
+    "ava": "^3.9.0",
+    "rollup": "^2.18.1",
+    "rollup-plugin-delete": "^2.0.0",
     "rollup-plugin-typescript2": "^0.27.0",
-    "tslint": "^5.19.0",
-    "tslint-config-airbnb": "^5.11.1",
-    "typescript": "^3.5.3"
+    "tslint": "^6.1.2",
+    "tslint-config-airbnb": "^5.11.2",
+    "typescript": "^3.9.5"
   },
   "dependencies": {
     "jsonwebtoken": "^8.5.1",
-    "rand-token": "^0.4.0"
+    "rand-token": "^1.0.1"
   }
 }
