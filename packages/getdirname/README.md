@@ -10,16 +10,12 @@ Get callee directory
 
 ```js
 import dirname from 'getdirname'
-// or
-import dirname from 'getdirname/esm.js'
 ```
 
 ### CJS
 
 ```js
-const dirname = require('getdirname')
-// or
-const dirname = require('getdirname/cjs')
+const dirname = require('getdirname/commonjs')
 ```
 
 ## License

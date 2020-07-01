@@ -1,9 +1,9 @@
 {
   "name": "getdirname",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Get callee directory",
-  "module": "esm.js",
-  "main": "cjs.js",
+  "type": "module",
+  "main": "esm.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dalisoft/npm-packages.git"
