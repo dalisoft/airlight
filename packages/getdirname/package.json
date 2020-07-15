@@ -1,6 +1,6 @@
 {
   "name": "getdirname",
-  "version": "0.0.7",
+  "version": "0.1.0",
   "description": "Get callee directory",
   "type": "module",
   "main": "cjs.js",
