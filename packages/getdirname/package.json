@@ -3,7 +3,12 @@
   "version": "0.0.7",
   "description": "Get callee directory",
   "type": "module",
-  "main": "esm.js",
+  "main": "cjs.js",
+  "module": "esm.js",
+  "exports": {
+    ".": "./cjs.js",
+    "./module": "./esm.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dalisoft/npm-packages.git"
@@ -20,5 +25,5 @@
   "bugs": {
     "url": "https://github.com/dalisoft/npm-packages/issues"
   },
-  "homepage": "https://github.com/dalisoft/npm-packages#readme"
+  "homepage": "https://github.com/dalisoft/npm-packages/tree/master/packages/getdirname"
 }
