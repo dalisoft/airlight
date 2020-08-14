@@ -29,10 +29,10 @@
   },
   "homepage": "https://github.com/dalisoft/ws-events-sync#readme",
   "devDependencies": {
-    "ava": "^3.5.0",
-    "terser": "^4.4.0",
+    "ava": "^3.11.1",
+    "terser": "^4.8.0",
     "websocket": "^1.0.30",
-    "ws": "^7.2.0"
+    "ws": "^7.3.1"
   },
   "dependencies": {
     "@dalisoft/events": "^0.2.0"
