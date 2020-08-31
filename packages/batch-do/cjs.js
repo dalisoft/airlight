@@ -1,7 +1,7 @@
 let nextTick = null;
 
 const defaultContext = {
-  batchesCallback: requestIdleCallback,
+  batchesCallback: process.nextTick,
   pendingCallback(cb) {
     return Promise.resolve().then(cb);
   },

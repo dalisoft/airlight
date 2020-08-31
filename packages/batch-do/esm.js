@@ -1,7 +1,7 @@
 let nextTick = null;
 
 const defaultContext = {
-  batchesCallback: requestIdleCallback,
+  batchesCallback: typeof requestIdleCallback !== 'undefined' ? requestIdleCallback : requestAnimation,
   pendingCallback(cb) {
     return Promise.resolve().then(cb);
   },
@@ -15,7 +15,7 @@ const runBatches = (context) => {
   context.batches = [];
   nextTick = null;
 
-  context.batchesCallback(context.awaitBatch ? () => {
+  context.batchesCallback.call(window, context.awaitBatch ? () => {
     return Promise.all(context.batches);
   } : async () => {
     for (let callback of context.batches) {
