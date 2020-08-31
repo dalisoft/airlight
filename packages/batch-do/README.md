@@ -6,7 +6,7 @@ Do batched tasks easily
 - Relatively fast
 - Splitted into two mode
 - Single micro-task batching
-- UMD compatible
+- ESM & CJS compatible
 
 ## Installation
 
@@ -35,7 +35,7 @@ import { after } from "batch-do";
 ## Usage
 
 ```ts
-const [state, setState] = React.useState(0);
+const [state: number, setState: (value: number) => void] = React.useState(0);
 after(() => {
   setState(state + 1);
 });
