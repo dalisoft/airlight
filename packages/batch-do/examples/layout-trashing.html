@@ -14,64 +14,128 @@
         display: flex;
         align-items: center;
         justify-content: space-around;
+        font-family: monospace;
       }
-      #a, #b {
+      .square {
         width: 200px;
         height: 200px;
-        background-color: #0cf;
-        transition: 1s ease-out;
+        transition: .75s ease-in-out;
+      }
+      .square .child {
+        width: 50px;
+        height: 40px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: .75s ease-in-out;
+        user-select: none;
+        color: #fff;
+        font-size: x-large;
       }
 
-      #b {
+      #first {
+        background-color: #0cf;
+      }
+      #second {
         background-color: #fc0;
       }
     </style>
   </head>
   <body>
-    <div id="a"></div>
-    <div id="b"></div>
+    <div id="first" class="square"></div>
+    <div id="second" class="square"></div>
+    <script>
+      function debounce (fn, delay) {
+        let timerId;
+        return function() {
+          clearTimeout(timerId);
+          timerId = setTimeout(fn.bind(this), delay, ...[].slice.call(arguments))
+        }
+      }
+      function createLoopedChilds(el, count, each) {
+        for (let i = 0; i < count; i++) {
+          const child = document.createElement('div');
+          if (each) {
+            each(child, i);
+          }
+          el.appendChild(child);
+        }
+        return el;
+      }
+    </script>
     <script type="module">
       import batch, { createContext } from '../esm.js';
 
-      const ctx = createContext(requestAnimationFrame.bind(window));
+      const ctx = createContext(requestAnimationFrame.bind(window), (cb) => {
+        setTimeout(cb, 300);
+      });
 
-      const a = document.getElementById('a');
-      const b = document.getElementById('b');
+      const TOUCH_TAP_DELAY = 301; /* 300ms is Touch-screen delays + 1 fire action delay */
 
-      a.addEventListener('click', function handleBatchDo(e) {
-        let width;
-        let height;
+      const firstDiv = document.getElementById('first');
+      const secondDiv = document.getElementById('second');
+
+      createLoopedChilds(firstDiv, 20, (child, i) => {
+        child.textContent = i;
+        child.classList.add('child');
+        child.style.backgroundColor = '#' + Math.round(Math.random() * 0xffffff).toString(16);
+      })
+      createLoopedChilds(secondDiv, 20, (child, i) => {
+        child.textContent = i;
+        child.classList.add('child');
+        child.style.backgroundColor = '#' + Math.round(Math.random() * 0xffffff).toString(16);
+      })
+
+      let activeDiv;
+      let bounds;
+      let childSizes = [];
 
         ctx.preBatch = () => {
           console.log('Read');
 
-          const bounds = a.getBoundingClientRect();
+          bounds = activeDiv.getBoundingClientRect();
 
-          width = bounds.width;
-          height = bounds.height;
+          childSizes.length = 0;
+
+          [].slice.call(activeDiv.children).forEach(child => {
+            childSizes.push(child.getBoundingClientRect());
+          })
         };
+
+      firstDiv.addEventListener('click', debounce(function handleBatchDo(e) {
+        activeDiv = firstDiv;
 
         batch(() => {
           console.log('Write');
 
-            a.style.width = width * 1.5 + 'px';
-            a.style.height = height * 1.5 + 'px';
-        }, ctx);
-      });
+            firstDiv.style.width = bounds.width * 1.5 + 'px';
+            firstDiv.style.height = bounds.height * 1.5 + 'px';
 
-      b.addEventListener('click', function handleBatchDo(e) {
-        let width;
-        let height;
+            [].slice.call(activeDiv.children).forEach((child, index) => {
+              const bounds = childSizes[index];
+
+              child.style.width = bounds.width * 1.5 + 'px';
+              child.style.height = bounds.height * 1.5 + 'px';
+            });
+        }, ctx);
+      }, TOUCH_TAP_DELAY));
+
+      secondDiv.addEventListener('click', debounce(function handleBatchDo(e) {
 
           console.log('Read & Write');
-          const bounds = b.getBoundingClientRect();
 
-          width = bounds.width;
-          height = bounds.height;
+          const bounds = secondDiv.getBoundingClientRect();
 
-          b.style.width = width * 1.5 + 'px';
-          b.style.height = height * 1.5 + 'px';
-      })
+          secondDiv.style.width = bounds.width * 1.5 + 'px';
+          secondDiv.style.height = bounds.height * 1.5 + 'px';
+
+            [].slice.call(secondDiv.children).forEach((child) => {
+              const bounds = child.getBoundingClientRect();
+
+              child.style.width = bounds.width * 1.5 + 'px';
+              child.style.height = bounds.height * 1.5 + 'px';
+            });
+      }, TOUCH_TAP_DELAY))
     </script>
   </body>
 </html>
