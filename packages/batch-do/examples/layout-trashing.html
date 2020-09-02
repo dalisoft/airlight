@@ -19,6 +19,7 @@
         width: 200px;
         height: 200px;
         background-color: #0cf;
+        transition: 1s ease-out;
       }
 
       #b {
@@ -30,7 +31,9 @@
     <div id="a"></div>
     <div id="b"></div>
     <script type="module">
-      import { before, after } from '../esm.js';
+      import batch, { createContext } from '../esm.js';
+
+      const ctx = createContext(requestAnimationFrame.bind(window));
 
       const a = document.getElementById('a');
       const b = document.getElementById('b');
@@ -39,16 +42,36 @@
         let width;
         let height;
 
-        before(() => {
+        ctx.preBatch = () => {
+          console.log('Read');
+
           const bounds = a.getBoundingClientRect();
 
           width = bounds.width;
           height = bounds.height;
-        });
-        after(() => {
-          console.log({ width, height });
-        });
+        };
+
+        batch(() => {
+          console.log('Write');
+
+            a.style.width = width * 1.5 + 'px';
+            a.style.height = height * 1.5 + 'px';
+        }, ctx);
       });
+
+      b.addEventListener('click', function handleBatchDo(e) {
+        let width;
+        let height;
+
+          console.log('Read & Write');
+          const bounds = b.getBoundingClientRect();
+
+          width = bounds.width;
+          height = bounds.height;
+
+          b.style.width = width * 1.5 + 'px';
+          b.style.height = height * 1.5 + 'px';
+      })
     </script>
   </body>
 </html>

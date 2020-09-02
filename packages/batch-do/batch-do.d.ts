@@ -1,14 +1,15 @@
 interface IBatchContext {
-    batchesCallback: (fn: Function) => void;
-    pendingCallback: (fn: Function) => void;
+    resolveBatchs: (fn: Function) => Promise<void>;
+    pendingResolve: (fn: Function) => void;
     batches: (() => void)[];
     awaitBatch?: boolean;
     maxCallsPerBatch?: boolean;
+    preBatch?: (fn: Function) => Promise<void>
 }
 
 export function createContext (
-  batchesCallback: (fn: Function) => void,
-  pendingCallback: (fn: Function) => void,
+  resolveBatchs: (fn: Function) => void,
+  pendingResolve: (fn: Function) => void,
   awaitBatch?: boolean,
   maxCallsPerBatch?: boolean
 ): IBatchContext;

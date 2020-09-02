@@ -4,9 +4,10 @@ Do batched tasks easily
 ## Features
 
 - Relatively fast
-- Splitted into two mode
 - Single micro-task batching
 - ESM & CJS compatible
+
+## How it works
 
 ## Installation
 
@@ -20,23 +21,17 @@ then you able to import to Node.js/Browser easily
 
 ```js
 // Node.js
-const { after } = require("batch-do");
+const batch = require("batch-do");
 
 // ES6
-import { after } from "batch-do";
+import batch from "batch-do";
 ```
-
-## Imports
-
-- `before` - Tasks will be called before any calls
-- `after` - Tasks will be called after any calls
-- `createContext` - Create context different than default context
 
 ## Usage
 
 ```ts
 const [state: number, setState: (value: number) => void] = React.useState(0);
-after(() => {
+batch(() => {
   setState(state + 1);
 });
 ```

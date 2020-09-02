@@ -1,65 +1,73 @@
 let nextTick = null;
 
 const defaultContext = {
-  batchesCallback: typeof requestIdleCallback !== 'undefined' ? requestIdleCallback : requestAnimation,
-  pendingCallback(cb) {
+  resolveBatchs(cb) {
+    cb();
+  },
+  pendingResolve(cb) {
     return Promise.resolve().then(cb);
   },
   batches: [],
   awaitBatch: false,
-  calls: 0
+  calls: 0,
 };
 
-const runBatches = (context) => {
-  const { batches } = context;
+const runBatches = async (context) => {
+  const { batches, tasks } = context;
   context.batches = [];
   nextTick = null;
 
-  context.batchesCallback.call(window, context.awaitBatch ? () => {
-    return Promise.all(context.batches);
-  } : async () => {
-    for (let callback of context.batches) {
-      await callback();
-    }
-  });
+  if (context.preBatch) {
+    await context.preBatch(context);
+  }
+
+  return context.resolveBatchs(
+    context.awaitBatch
+      ? () => {
+          return Promise.all(batches);
+        }
+      : async () => {
+          for (let callback of batches) {
+            await callback();
+          }
+        }
+  );
 };
 
 const callNextTick = (context) => {
   if (context.maxCallsPerBatch) {
     if (context.calls >= context.maxCallsPerBatch) {
-      runBatches(context);
+      const promise = runBatches(context);
       context.calls = 0;
+      return promise;
     }
   } else if (nextTick === null) {
-    nextTick = context.pendingCallback(() => runBatches(context));
+    nextTick = context.pendingResolve(() => runBatches(context));
+    return nextTick;
   }
 };
 
-export const createContext = (
-  batchesCallback = defaultContext.batchesCallback,
-  pendingCallback = defaultContext.pendingCallback,
+const createContext = (
+  resolveBatchs = defaultContext.resolveBatchs,
+  pendingResolve = defaultContext.pendingResolve,
   awaitBatch = false,
   maxCallsPerBatch
 ) => {
   return {
-    batchesCallback,
-    pendingCallback,
+    resolveBatchs,
+    pendingResolve,
     batches: [],
     awaitBatch,
     maxCallsPerBatch,
-    calls: 0
+    calls: 0,
   };
 };
 
-export const before = (fn, context = defaultContext) => {
+const batch = (fn, context = defaultContext) => {
   context.batches.unshift(fn);
   context.calls++;
 
-  callNextTick(context);
+  return callNextTick(context);
 };
-export const after = (fn, context = defaultContext) => {
-  context.batches.push(fn);
-  context.calls++;
 
-  callNextTick(context);
-};
+export { batch as default, createContext }
