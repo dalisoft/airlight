@@ -34,9 +34,9 @@
   "author": "dalisoft",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^14.0.27",
-    "ava": "^3.11.1",
-    "rollup": "^2.23.1",
+    "@types/node": "^14.6.3",
+    "ava": "^3.12.1",
+    "rollup": "^2.26.9",
     "rollup-plugin-delete": "^1.2.0",
     "rollup-plugin-terser": "^6.1.0",
     "rollup-plugin-typescript2": "^0.27.2",

@@ -28,7 +28,7 @@
   "author": "dalisoft",
   "license": "MIT",
   "devDependencies": {
-    "rollup": "^2.23.1",
+    "rollup": "^2.26.9",
     "rollup-plugin-delete": "^1.x",
     "rollup-plugin-sucrase": "^2.1.0",
     "rollup-plugin-terser": "^5.x",

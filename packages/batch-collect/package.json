@@ -28,8 +28,8 @@
   },
   "homepage": "https://github.com/dalisoft/batch-collect#readme",
   "devDependencies": {
-    "ava": "^3.11.1",
-    "rollup": "^2.23.1",
+    "ava": "^3.12.1",
+    "rollup": "^2.26.9",
     "rollup-plugin-delete": "^1.0.0",
     "rollup-plugin-terser": "^5.0.0"
   },
