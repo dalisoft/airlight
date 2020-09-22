@@ -14,5 +14,4 @@ export function createContext (
   maxCallsPerBatch?: boolean
 ): IBatchContext;
 
-export function before (fn: Function, context?: IBatchContext): void;
-export function after (fn: Function, context?: IBatchContext): void;
+export default function batch (fn: Function, context?: IBatchContext): void;

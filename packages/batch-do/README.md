@@ -1,4 +1,5 @@
 # batch-do
+
 Do batched tasks easily
 
 ## Features
@@ -22,9 +23,10 @@ then you able to import to Node.js/Browser easily
 ```js
 // Node.js
 const batch = require("batch-do");
+const { createContext } = batch;
 
 // ES6
-import batch from "batch-do";
+import batch, { createContext } from "batch-do";
 ```
 
 ## Usage
@@ -35,6 +37,43 @@ batch(() => {
   setState(state + 1);
 });
 ```
+
+## Documentation
+
+### `batch`
+
+```js
+batch(() => {
+  console.log("log 1");
+}, ctx?);
+batch(() => {
+  console.log("log 2");
+}, ctx?);
+// log 1
+// log 2
+```
+
+Arguments list
+
+- `ctx` - Context list
+
+### `createContext`
+
+```js
+const ctx = createContext(
+  resolveBatchs,
+  pendingResolve,
+  awaitBatch,
+  maxCallsPerBatch
+);
+```
+
+Arguments list
+
+- `resolveBatchs` - Function to apply batched functions and frees up current batch pending list
+- `pendingResolve` - Function to resolve **apply batchs** function
+- `awaitBatch` - Merge all **async** batches into single call or ordered
+- `maxCallsPerBatch` - Argument to enable max limit for batches
 
 ## License
 
