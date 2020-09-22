@@ -64,7 +64,7 @@ const createContext = (
 };
 
 const batch = (fn, context = defaultContext) => {
-  context.batches.unshift(fn);
+  context.batches.push(fn);
   context.calls++;
 
   return callNextTick(context);

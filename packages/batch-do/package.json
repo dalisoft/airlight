@@ -1,6 +1,6 @@
 {
   "name": "batch-do",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Do batched tasks easily",
   "type": "module",
   "typings": "batch-do.d.ts",
