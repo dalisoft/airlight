@@ -41,7 +41,7 @@
   },
   "homepage": "https://github.com/dalisoft/points.js#readme",
   "devDependencies": {
-    "rollup": "^2.26.10",
+    "rollup": "^2.28.2",
     "rollup-plugin-buble": "latest",
     "rollup-plugin-commonjs": "latest",
     "rollup-plugin-node-resolve": "latest",
