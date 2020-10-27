@@ -30,8 +30,8 @@
   "author": "dalisoft",
   "license": "MIT",
   "devDependencies": {
-    "ava": "^3.12.1",
-    "rollup": "^2.28.2"
+    "ava": "^3.13.0",
+    "rollup": "^2.32.1"
   },
   "dependencies": {
     "node-webtokens": "^1.0.4"

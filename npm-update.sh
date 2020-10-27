@@ -9,6 +9,7 @@ for pkg in $(ls packages); do
   npm i
   npm outdated
   npm update
+  npm audit fix
   done
 
 cd "$pwd_cache";
