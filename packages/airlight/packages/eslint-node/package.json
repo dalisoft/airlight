@@ -1,7 +1,7 @@
 {
   "name": "airlight-config-eslint-node",
   "version": "0.0.1",
-  "description": "ESLint configure focused for code quality, security and performance on top of ESLint AirBnB config",
+  "description": "ESLint configure for Node.js focused on code quality, security and performance on top of eslint-config-airbnb-typescript/base",
   "main": "config.js",
   "files": [
     "config.js"

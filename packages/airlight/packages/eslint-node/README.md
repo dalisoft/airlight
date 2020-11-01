@@ -1,6 +1,6 @@
 # airlight-config-eslint-node
 
-ESLint configure focused on code quality, security and performance on top of [eslint-config-airbnb-base](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb-base)
+ESLint configure for Node.js focused on code quality, security and performance on top of [eslint-config-airbnb-typescript/base](https://github.com/iamturns/eslint-config-airbnb-typescript)
 
 ## Installation
 
