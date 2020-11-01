@@ -12,15 +12,19 @@ yarn add lintstaged-config-airlight -D
 
 ## Peer dependencies
 
-For working properly, you may need any of these dependencies.
+For working properly, you may need one or all of these dependencies.
 
 For more information about each dependencies, click to dependecy link to learn about configs, features and how they work
 
 - [eslint](http://eslint.org)
+- [prettier](https://prettier.io)
+- [lint-staged](https://github.com/okonet/lint-staged)
+
+## Dependencies
+
 - [stylelint](https://stylelint.io)
 - [markdownlint-cli2](https://github.com/DavidAnson/markdownlint-cli2)
 - [@stoplight/spectral](https://github.com/stoplightio/spectral)
-- [prettier](https://prettier.io)
 - [DockerfileLint](https://github.com/replicatedhq/dockerfilelint)
 - [HTMLHint](https://github.com/htmlhint/HTMLHint)
 
