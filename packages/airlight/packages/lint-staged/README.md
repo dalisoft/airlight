@@ -1,6 +1,6 @@
 # airlight-config-lint-staged
 
-[lint-staged](https://github.com/okonet/lint-staged) configuration
+Almost zero-config [lint-staged](https://github.com/okonet/lint-staged) configuration
 
 ## Installation
 
@@ -21,44 +21,26 @@ For more information about each dependencies, click to dependecy link to learn a
 - [markdownlint-cli2](https://github.com/DavidAnson/markdownlint-cli2)
 - [@stoplight/spectral](https://github.com/stoplightio/spectral)
 - [prettier](https://prettier.io)
+- [DockerfileLint](https://github.com/replicatedhq/dockerfilelint)
+- [HTMLHint](https://github.com/htmlhint/HTMLHint)
 
 ## Usage
 
 `.lintstagedrc.js`
 
 ```js
-module.exports = require('airlight-config-lint-staged')(linters, languages);
+module.exports = require('airlight-config-lint-staged')(languages?);
 ```
 
 ### Arguments
 
-#### **linters**
-
-Allowed linters
-
-Type: `Object`
-
-Default: `{ eslint: true, prettier: true }`
-
-Values:
-
-```typescript
-{
-  eslint: boolean;
-  stylelint: boolean;
-  markdown: boolean;
-  spectral: boolean;
-  prettier: boolean;
-}
-```
-
-#### **languages**
+#### **languages** [Optional]
 
 Allowed languages to lint
 
 Type: `String[]`
 
-Default: `['ts', 'js', 'tsx', 'jsx', 'json', 'yml', 'css', 'scss', 'sass', 'less', 'md']`
+Default: `['ts', 'js', 'tsx', 'jsx', 'json', 'yml', 'css', 'scss', 'sass', 'less', 'md', 'dockerfile']`
 
 ## Rules
 
