@@ -1,0 +1,22 @@
+{
+  "name": "airlight-config",
+  "description": "Shared configs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dalisoft/npm-packages.git"
+  },
+  "keywords": [
+    "prettier",
+    "eslint",
+    "config"
+  ],
+  "author": "dalisoft",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dalisoft/npm-packages/issues"
+  },
+  "homepage": "https://github.com/dalisoft/npm-packages#readme",
+  "devDependencies": {
+    "lerna": "^3.22.1"
+  }
+}

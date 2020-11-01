@@ -1,0 +1,39 @@
+{
+  "name": "airlight-config-eslint-node",
+  "version": "0.0.1",
+  "description": "ESLint configure focused for code quality, security and performance on top of ESLint AirBnB config",
+  "main": "config.js",
+  "files": [
+    "config.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dalisoft/npm-packages.git"
+  },
+  "keywords": [
+    "eslint",
+    "config",
+    "airbnb",
+    "node"
+  ],
+  "author": "dalisoft",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dalisoft/npm-packages/issues"
+  },
+  "homepage": "https://github.com/dalisoft/npm-packages#readme",
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.6.0",
+    "eslint-config-airbnb-typescript": "^12.0.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-no-secrets": "^0.6.8",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-optimize-regex": "^1.2.0",
+    "eslint-plugin-security-node": "^1.0.12"
+  },
+  "peerDependencies": {
+    "eslint": "^7.12.1",
+    "prettier": "^2.1.2"
+  }
+}

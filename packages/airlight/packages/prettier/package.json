@@ -1,0 +1,26 @@
+{
+  "name": "airlight-config-prettier",
+  "version": "0.0.1",
+  "description": "Prettier config for use of combining to airlight-config-eslint(-node)",
+  "main": "config.js",
+  "files": [
+    "config.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dalisoft/npm-packages.git"
+  },
+  "keywords": [
+    "prettier",
+    "config"
+  ],
+  "author": "dalisoft",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dalisoft/npm-packages/issues"
+  },
+  "homepage": "https://github.com/dalisoft/npm-packages#readme",
+  "peerDependencies": {
+    "prettier": "^2.1.2"
+  }
+}
