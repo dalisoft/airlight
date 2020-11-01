@@ -12,6 +12,8 @@ yarn add airlight-config-lint-staged -D
 
 ## Peer dependencies
 
+For working properly, you may need any of these dependencies.
+
 For more information about each dependencies, click to dependecy link to learn about configs, features and how they work
 
 - [eslint](http://eslint.org)
