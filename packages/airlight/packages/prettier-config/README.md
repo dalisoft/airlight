@@ -5,9 +5,9 @@ Prettier configuration to use with combine of [prettier-config-airlight](../esli
 ## Installation
 
 ```bash
-npm install airlight-config-airlight --save-dev
+npm install prettier-config-airlight --save-dev
 # or
-yarn add airlight-config-airlight -D
+yarn add prettier-config-airlight -D
 ```
 
 ## Usage

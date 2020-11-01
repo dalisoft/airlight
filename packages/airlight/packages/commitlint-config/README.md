@@ -10,6 +10,10 @@ npm install commitlint-config-airlight --save-dev
 yarn add commitlint-config-airlight -D
 ```
 
+## Dependencies
+
+- [@commitlint/config-conventional](https://github.com/conventional-changelog/commitlint/tree/master/@commitlint/config-conventional)
+
 ## Usage
 
 `commitlint.config.js`
@@ -24,16 +28,7 @@ We used following rules.
 
 Change these configs by your needs
 
-```json
-{
-  "singleQuote": true,
-  "printWidth": 80,
-  "trailingComma": "none",
-  "arrowParens": "always",
-  "bracketSpacing": true,
-  "useTabs": false
-}
-```
+See [here](https://github.com/conventional-changelog/commitlint/tree/master/@commitlint/config-conventional)
 
 ## License
 

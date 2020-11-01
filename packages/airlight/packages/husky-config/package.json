@@ -1,0 +1,27 @@
+{
+  "name": "husky-config-airlight",
+  "version": "0.0.1",
+  "description": "Husky config for use of combining all linters and formatters",
+  "main": "config.js",
+  "files": [
+    "config.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dalisoft/npm-packages.git"
+  },
+  "keywords": [
+    "husky",
+    "lint",
+    "config"
+  ],
+  "author": "dalisoft",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dalisoft/npm-packages/issues"
+  },
+  "homepage": "https://github.com/dalisoft/npm-packages#readme",
+  "peerDependencies": {
+    "husky": "^4.3.0"
+  }
+}
