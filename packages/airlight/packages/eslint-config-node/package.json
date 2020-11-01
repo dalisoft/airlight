@@ -12,6 +12,7 @@
   },
   "keywords": [
     "eslint",
+    "lint",
     "config",
     "airbnb",
     "node"

@@ -12,6 +12,7 @@
   },
   "keywords": [
     "prettier",
+    "lint",
     "config"
   ],
   "author": "dalisoft",
