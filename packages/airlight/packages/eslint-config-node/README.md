@@ -1,13 +1,13 @@
-# airlight-config-eslint-node
+# eslint-config-airlight-node
 
 ESLint configure for Node.js focused on code quality, security and performance on top of [eslint-config-airbnb-typescript/base](https://github.com/iamturns/eslint-config-airbnb-typescript)
 
 ## Installation
 
 ```bash
-npm install airlight-config-eslint-node --save-dev
+npm install eslint-config-airlight-node --save-dev
 # or
-yarn add airlight-config-eslint-node -D
+yarn add eslint-config-airlight-node -D
 ```
 
 ## Dependencies

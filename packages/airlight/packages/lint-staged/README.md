@@ -1,13 +1,13 @@
-# airlight-config-lint-staged
+# lintstaged-config-airlight
 
 Almost zero-config [lint-staged](https://github.com/okonet/lint-staged) configuration
 
 ## Installation
 
 ```bash
-npm install airlight-config-lint-staged --save-dev
+npm install lintstaged-config-airlight --save-dev
 # or
-yarn add airlight-config-lint-staged -D
+yarn add lintstaged-config-airlight -D
 ```
 
 ## Peer dependencies
@@ -29,7 +29,7 @@ For more information about each dependencies, click to dependecy link to learn a
 `.lintstagedrc.js`
 
 ```js
-module.exports = require('airlight-config-lint-staged')(languages?);
+module.exports = require('lintstaged-config-airlight')(languages?);
 ```
 
 ### Arguments

@@ -1,6 +1,6 @@
-# airlight-config-prettier
+# prettier-config-airlight
 
-Prettier configuration to use with combine of [airlight-config-prettier](../eslint-node)
+Prettier configuration to use with combine of [prettier-config-airlight](../eslint-config-node)
 
 ## Installation
 
@@ -15,7 +15,7 @@ yarn add airlight-config-airlight -D
 `.prettierrc.js`
 
 ```js
-module.exports = require('airlight-config-prettier');
+module.exports = require('prettier-config-airlight');
 ```
 
 ## Rules
