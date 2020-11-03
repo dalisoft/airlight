@@ -1,5 +1,5 @@
 {
-  "name": "root",
+  "name": "@dalisoft/npm-packages",
   "private": true,
   "devDependencies": {
     "eslint": "^7.12.1",
