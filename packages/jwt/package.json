@@ -32,7 +32,7 @@
   "devDependencies": {
     "@types/jsonwebtoken": "^8.5.0",
     "ava": "^3.13.0",
-    "rollup": "^2.33.0",
+    "rollup": "^2.33.1",
     "rollup-plugin-delete": "^2.0.0",
     "rollup-plugin-typescript2": "^0.29.0",
     "tslint": "^6.1.3",

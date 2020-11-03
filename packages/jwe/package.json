@@ -31,7 +31,7 @@
   "license": "MIT",
   "devDependencies": {
     "ava": "^3.13.0",
-    "rollup": "^2.33.0"
+    "rollup": "^2.33.1"
   },
   "dependencies": {
     "node-webtokens": "^1.0.4"
