@@ -1,27 +1,27 @@
-(function(factory) {
-  if (typeof define === "function" && define.amd) {
-    define(["@dalisoft/events"], factory);
-  } else if (typeof module !== "undefined" && module.exports) {
-    module.exports = factory(require("@dalisoft/events"));
-  } else if (typeof exports !== "undefined") {
+(function (factory) {
+  if (typeof define === 'function' && define.amd) {
+    define(['@dalisoft/events'], factory);
+  } else if (typeof module !== 'undefined' && module.exports) {
+    module.exports = factory(require('@dalisoft/events'));
+  } else if (typeof exports !== 'undefined') {
     const { Server, Client } = factory(
-      exports.Events || require("@dalisoft/events")
+      exports.Events || require('@dalisoft/events')
     );
     exports.Server = Server;
     exports.Client = Client;
     exports.__esModule = true;
-  } else if (typeof self !== "undefined") {
+  } else if (typeof self !== 'undefined') {
     self.WSEventsSync = factory(self.Events);
     self.WSEventsSync.__esModule = true;
-  } else if (typeof window !== "undefined" && window.document) {
+  } else if (typeof window !== 'undefined' && window.document) {
     window.WSEventsSync = factory(window.Events);
     window.WSEventsSync.__esModule = true;
   } else {
     this.WSEventsSync = factory(this.Events);
     this.WSEventsSync.__esModule = true;
   }
-})(function(Events) {
-  const disallowedKeys = ["send", "emit", "on", "once", "off"];
+})(function (Events) {
+  const disallowedKeys = ['send', 'emit', 'on', 'once', 'off'];
   class WebSocketBase extends Events {
     constructor(ws, enableQueue) {
       super();
@@ -31,8 +31,8 @@
       this.ws = ws;
 
       Object.keys(ws)
-        .filter(key => disallowedKeys.indexOf(key) === -1)
-        .map(key => {
+        .filter((key) => disallowedKeys.indexOf(key) === -1)
+        .map((key) => {
           this[key] = ws[key];
         });
 
@@ -55,16 +55,16 @@
     }
     ping() {
       if (this.ws.readyState === this.ws.OPEN) {
-        this.ws.send("ping");
+        this.ws.send('ping');
       }
     }
     pong() {
       if (this.ws.readyState === this.ws.OPEN) {
-        this.ws.send("pong");
+        this.ws.send('pong');
       }
     }
     send(data) {
-      if (typeof data !== "string") {
+      if (typeof data !== 'string') {
         data = JSON.stringify(data);
       }
       if (this.enableQueue && this.ws.readyState !== this.ws.OPEN) {
@@ -76,9 +76,9 @@
     }
     emit(name, ...args) {
       this.send(
-        "event;" +
+        'event;' +
           (args && args.length > 0
-            ? [name, ...args.map(JSON.stringify)].join(";")
+            ? [name, ...args.map(JSON.stringify)].join(';')
             : name)
       );
       return this;
@@ -97,17 +97,17 @@
         this.runPendingQueue();
       }
 
-      this.ws.on("message", e => {
-        if (typeof e === "string") {
-          if (e === "ping") {
+      this.ws.on('message', (e) => {
+        if (typeof e === 'string') {
+          if (e === 'ping') {
             return super.pong();
-          } else if (e === "pong") {
-            return super.emit("pong");
-          } else if (e.includes("event;")) {
-            const [, ev, ...arg] = e.split(";");
+          } else if (e === 'pong') {
+            return super.emit('pong');
+          } else if (e.includes('event;')) {
+            const [, ev, ...arg] = e.split(';');
             return super._emit(ev, ...arg);
           } else {
-            return super._emit("message", e);
+            return super._emit('message', e);
           }
         }
         let parseJSON;
@@ -115,14 +115,14 @@
           parseJSON = JSON.parse(e);
         } catch (err) {
           this.send({
-            status: "error",
+            status: 'error',
             data: err,
-            reason: "JSON parse failed"
+            reason: 'JSON parse failed'
           });
           return;
         }
         if (parseJSON) {
-          super._emit("message", parseJSON);
+          super._emit('message', parseJSON);
         }
       });
     }
@@ -131,28 +131,28 @@
     init() {
       const { ws, enableQueue } = this;
 
-      ws.onopen = e => {
+      ws.onopen = (e) => {
         this.readyState = ws.readyState;
-        super._emit("open", e);
+        super._emit('open', e);
 
         if (enableQueue) {
           this.runPendingQueue();
         }
       };
-      ws.onmessage = e => {
-        if (typeof e !== "string") {
+      ws.onmessage = (e) => {
+        if (typeof e !== 'string') {
           e = e.data;
         }
-        if (typeof e === "string") {
-          if (e === "ping") {
+        if (typeof e === 'string') {
+          if (e === 'ping') {
             return super.pong();
-          } else if (e === "pong") {
-            return super.emit("pong");
-          } else if (e.includes("event;")) {
-            const [, ev, ...arg] = e.split(";");
+          } else if (e === 'pong') {
+            return super.emit('pong');
+          } else if (e.includes('event;')) {
+            const [, ev, ...arg] = e.split(';');
             return super._emit(ev, ...arg);
           } else {
-            return super._emit("message", e);
+            return super._emit('message', e);
           }
         }
         let parseJSON;
@@ -160,25 +160,25 @@
           parseJSON = JSON.parse(e);
         } catch (err) {
           this.send({
-            status: "error",
+            status: 'error',
             data: err,
-            reason: "JSON parse failed"
+            reason: 'JSON parse failed'
           });
           return;
         }
         if (parseJSON) {
-          super._emit("message", parseJSON);
+          super._emit('message', parseJSON);
         }
       };
-      ws.onerror = e => {
+      ws.onerror = (e) => {
         this.readyState = ws.readyState;
 
-        super._emit("error", e);
+        super._emit('error', e);
       };
-      ws.onclose = e => {
+      ws.onclose = (e) => {
         this.readyState = ws.readyState;
 
-        super._emit("close", e);
+        super._emit('close', e);
       };
     }
   }

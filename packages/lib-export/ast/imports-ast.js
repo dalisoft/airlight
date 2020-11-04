@@ -2,13 +2,13 @@ const {
   moduleImportRegExp,
   requireRegExp,
   lineBreakRegExp
-} = require("./regexp");
+} = require('./regexp');
 
-module.exports = fileData => {
+module.exports = (fileData) => {
   const lines = fileData.split(lineBreakRegExp);
   return lines
-    .filter(line => line)
-    .map(line => {
+    .filter((line) => line)
+    .map((line) => {
       let moduleMatch = moduleImportRegExp.exec(line);
       const requireMatch = requireRegExp.exec(line);
 
@@ -20,10 +20,10 @@ module.exports = fileData => {
       }
 
       if (moduleMatch) {
-        if (moduleMatch[2].indexOf("{") === 0) {
+        if (moduleMatch[2].indexOf('{') === 0) {
           let exportsList = moduleMatch[2].substr(2);
           exportsList = exportsList.substr(0, exportsList.length - 2);
-          exportsList = exportsList.split(",").map(v => v.trim());
+          exportsList = exportsList.split(',').map((v) => v.trim());
 
           return {
             path: moduleMatch[3],
@@ -46,5 +46,5 @@ module.exports = fileData => {
         };
       }
     })
-    .filter(imports => imports);
+    .filter((imports) => imports);
 };

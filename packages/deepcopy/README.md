@@ -27,19 +27,19 @@ then you able to import to Node.js/Browser easily
 
 ```js
 // Node.js
-const DeepCopy = require("deepcopy");
+const DeepCopy = require('deepcopy');
 
 // Browser
 // window.DeepCopy OR DeepCopy
 
 // ES6
-import DeepCopy from "deepcopy";
+import DeepCopy from 'deepcopy';
 ```
 
 ## Usage
 
 ```js
-const foo = { foo: "bar" };
+const foo = { foo: 'bar' };
 const copyFoo = DeepCopy(foo);
 ```
 

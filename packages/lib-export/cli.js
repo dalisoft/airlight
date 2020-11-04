@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const processFile = require("./lib");
+const processFile = require('./lib');
 
 // Constants
 const params = {};
@@ -9,7 +9,7 @@ const [node, cliFile, ...args] = process.argv;
 for (let i = 0, len = args.length; i < len; ) {
   let key = args[i];
 
-  if (key.substr(0, 2) !== "--") {
+  if (key.substr(0, 2) !== '--') {
     const value = args[i + 1];
     params[key.substr(1)] = value;
     i += 2;
@@ -21,4 +21,4 @@ for (let i = 0, len = args.length; i < len; ) {
 }
 
 // Processing step
-processFile(params).catch(err => err);
+processFile(params).catch((err) => err);

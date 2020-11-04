@@ -4,7 +4,7 @@ import del from 'rollup-plugin-delete';
 
 const external = ['fs', 'terser', 'typescript'];
 const globals = {
-  fs: 'FS',
+  fs: 'FS'
 };
 
 const watch = process.env.ROLLUP_WATCH;
@@ -16,21 +16,21 @@ export default [
       format: 'esm',
       file: './dist/es/cache-ttl.js',
       esModule: true,
-      globals,
+      globals
     },
     plugins: [
       del({
-        targets: 'dist/*',
+        targets: 'dist/*'
       }),
       typescript({
         tsconfigOverride: {
           compilerOptions: {
-            declaration: true,
-          },
-        },
-      }),
+            declaration: true
+          }
+        }
+      })
     ],
-    external,
+    external
   },
   {
     input: './src/cache.ts',
@@ -40,25 +40,25 @@ export default [
         name: 'CacheTTL',
         file: './dist/umd/cache-ttl.js',
         esModule: true,
-        globals,
+        globals
       },
       {
         format: 'cjs',
         file: './dist/cjs/cache-ttl.js',
         esModule: false,
-        globals,
-      },
+        globals
+      }
     ],
     plugins: [
       typescript({
         tsconfigOverride: {
           compilerOptions: {
-            declaration: false,
-          },
-        },
-      }),
+            declaration: false
+          }
+        }
+      })
     ],
-    external,
+    external
   },
   {
     input: './src/cache.ts',
@@ -67,22 +67,22 @@ export default [
       name: 'CacheTTL',
       file: './dist/umd/cache-ttl.min.js',
       esModule: true,
-      globals,
+      globals
     },
     plugins: [
       typescript({
         tsconfigOverride: {
           compilerOptions: {
-            declaration: false,
-          },
-        },
+            declaration: false
+          }
+        }
       }),
       !watch &&
         terser({
           compress: true,
-          mangle: true,
-        }),
+          mangle: true
+        })
     ],
-    external,
-  },
+    external
+  }
 ];

@@ -14,13 +14,13 @@ Get callee directory
 ### ESM
 
 ```js
-import dirname from 'getdirname'
+import dirname from 'getdirname';
 ```
 
 ### CJS
 
 ```js
-const dirname = require('getdirname')
+const dirname = require('getdirname');
 ```
 
 ## License

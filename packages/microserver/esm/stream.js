@@ -1,5 +1,5 @@
 /** global: Buffer */
-import { Readable } from "stream";
+import { Readable } from 'stream';
 
 export default () => {
   return (res, req) => {

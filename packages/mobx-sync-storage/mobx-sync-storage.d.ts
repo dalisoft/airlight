@@ -1,4 +1,4 @@
-import { IReactionDisposer, IReactionPublic } from "mobx";
+import { IReactionDisposer, IReactionPublic } from 'mobx';
 
 interface SessionItem {
   [key: string]: string | number;

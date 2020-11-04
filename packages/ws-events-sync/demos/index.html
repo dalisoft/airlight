@@ -3,52 +3,53 @@
   <head>
     <title>WS Events Sync test</title>
     <style lang="css">
-      html, body {
+      html,
+      body {
         margin: 0;
         padding: 0;
         -webkit-font-smoothing: antialiased;
       }
 
       #log {
-          width: 80vw;
-          height: 80vh;
-          background: #eee;
-          border: solid 1px #ddd;
-          border-radius: 5px;
-          font-family: monospace;
-          font-size: 12px;
-          margin: 10vh auto;
-          white-space: pre;
-          padding: 8px;
-          box-sizing: border-box;
-          text-shadow: 0 1px 0 #ccc;
+        width: 80vw;
+        height: 80vh;
+        background: #eee;
+        border: solid 1px #ddd;
+        border-radius: 5px;
+        font-family: monospace;
+        font-size: 12px;
+        margin: 10vh auto;
+        white-space: pre;
+        padding: 8px;
+        box-sizing: border-box;
+        text-shadow: 0 1px 0 #ccc;
       }
       #log .success {
-          color: green;
+        color: green;
       }
       #log .waiting {
-          color: #fc0;
+        color: #fc0;
       }
       #log .error {
-          color: red;
+        color: red;
       }
       #log .spinner {
-          animation: spinner 2s infinite 0s steps(16);
-          display: inline-block;
-          transform: rotate(360deg);
-          color: #000;
-          text-shadow: 0 0 5px #999;
-          position: relative;
-          bottom: -2px;
+        animation: spinner 2s infinite 0s steps(16);
+        display: inline-block;
+        transform: rotate(360deg);
+        color: #000;
+        text-shadow: 0 0 5px #999;
+        position: relative;
+        bottom: -2px;
       }
 
       @keyframes spinner {
-          0% {
-              transform: rotate(0deg);
-          }
-          100% {
-              transform: rotate(360deg);
-          }
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
       }
     </style>
   </head>
@@ -60,41 +61,41 @@
   <script src="../ws-events-sync.js"></script>
   <script>
     const { Client } = WSEventsSync;
-    const log_el = document.getElementById("log");
-    const ws = new WebSocket("ws://0.0.0.0:3001");
+    const log_el = document.getElementById('log');
+    const ws = new WebSocket('ws://0.0.0.0:3001');
     const wsWrapped = new Client(ws);
 
-    wsWrapped.on("open", () => {
+    wsWrapped.on('open', () => {
       log_el.innerHTML = '<span class="success">+ connected</span>\n';
     });
-    wsWrapped.on("connected", userId => {
+    wsWrapped.on('connected', (userId) => {
       log_el.innerHTML +=
         '<span class="success">+ received connection verify [userId: ' +
         userId +
-        "]</span>\n";
+        ']</span>\n';
 
-      wsWrapped.emit("verified", userId);
+      wsWrapped.emit('verified', userId);
     });
-    wsWrapped.on("user-data", data => {
-      console.log("Got user data", data);
+    wsWrapped.on('user-data', (data) => {
+      console.log('Got user data', data);
       log_el.innerHTML +=
         '<span class="success">+ got user data ' +
         JSON.stringify(data) +
-        "</span>\n";
-      wsWrapped.send("Client message to server");
+        '</span>\n';
+      wsWrapped.send('Client message to server');
     });
-    wsWrapped.on("message", data => {
+    wsWrapped.on('message', (data) => {
       log_el.innerHTML +=
         '<span class="success">+ message got from server [' +
         JSON.stringify(data) +
-        "]</span>\n";
+        ']</span>\n';
     });
-    wsWrapped.on("error", err => {
+    wsWrapped.on('error', (err) => {
       log_el.innerHTML += '<span class="error">- error</span>\n';
     });
-    wsWrapped.on("close", e => {
+    wsWrapped.on('close', (e) => {
       log_el.innerHTML =
-        '<span class="success">- close [code: ' + e.code + "]</span>\n";
+        '<span class="success">- close [code: ' + e.code + ']</span>\n';
     });
   </script>
 </html>

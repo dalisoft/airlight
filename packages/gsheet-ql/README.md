@@ -33,20 +33,20 @@ const auth = new google.auth.OAuth2(client_id, client_secret, redirect_uris[0]);
 const token: any = await fs.readFile(TOKEN_PATH).catch(() => getNewToken(auth));
 auth.setCredentials(JSON.parse(token));
 
-const sheets = google.sheets({ auth, version: "v4" });
-const spreadsheetId = "spreadsheetId";
+const sheets = google.sheets({ auth, version: 'v4' });
+const spreadsheetId = 'spreadsheetId';
 
 const gsheet = new GSheetQL(spreadsheetId, sheets, auth);
 
-const getRes = await gsheet.get(["Users", "Messages"], true, [
-  ["ID", "Name", "Age"]
+const getRes = await gsheet.get(['Users', 'Messages'], true, [
+  ['ID', 'Name', 'Age']
 ]);
 
 console.log(getRes);
 
 const updateRes = await gsheet.update(
-  "Users!A2:D4",
-  ["ID", "Name", "Age"],
+  'Users!A2:D4',
+  ['ID', 'Name', 'Age'],
   null,
   true
 );

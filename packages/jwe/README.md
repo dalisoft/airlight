@@ -13,12 +13,12 @@ JWE Helper for Auth building from scratch
 
 ```js
 // ES6
-import { sign, verify, decode } from "@dalisoft/jwe";
+import { sign, verify, decode } from '@dalisoft/jwe';
 
 // or
 
 // CommonJS
-const JWE = require("@dalisoft/jwe");
+const JWE = require('@dalisoft/jwe');
 ```
 
 ## Example

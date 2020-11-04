@@ -21,7 +21,6 @@
   },
   "homepage": "https://github.com/dalisoft/sequelize-wrap#readme",
   "devDependencies": {
-    "prettier": "^2.1.2",
     "sequelize": "^5.22.3"
   }
 }

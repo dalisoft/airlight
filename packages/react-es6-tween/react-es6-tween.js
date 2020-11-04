@@ -1,10 +1,13 @@
-(function(libName, factory) {
+(function (libName, factory) {
   if (typeof define === 'function' && define.amd) {
     define(['react', 'es6-tween'], factory);
   } else if (typeof module !== 'undefined' && module.exports) {
     module.exports = factory(require('react'), require('es6-tween'));
   } else if (typeof exports !== 'undefined') {
-    exports.__default = factory(exports.React || require('react'), exports.TWEEN || require('es6-tween'));
+    exports.__default = factory(
+      exports.React || require('react'),
+      exports.TWEEN || require('es6-tween')
+    );
     exports.__esModule = true;
   } else if (typeof self !== 'undefined') {
     self[libName] = factory(self.React, self.TWEEN);
@@ -16,7 +19,7 @@
     this[libName] = factory(this.React, this.TWEEN);
     this[libName].__esModule = true;
   }
-})('ES6Tween', function(React, TWEEN) {
+})('ES6Tween', function (React, TWEEN) {
   if (React === undefined) {
     throw new Error('Requires React.js for creating Component class');
   }
@@ -48,7 +51,7 @@
         autoPlay,
         onStart,
         onUpdate,
-        onComplete,
+        onComplete
       } = this.props;
 
       this.tween = new TWEEN.Tween(this.node.current, from)

@@ -13,7 +13,7 @@ export default class GSheetSQL {
     range: string | string[],
     batch?: boolean,
     fields?: any,
-    asRaw?: boolean,
+    asRaw?: boolean
   ) {
     return get(
       range,
@@ -22,14 +22,14 @@ export default class GSheetSQL {
       this.auth,
       batch,
       fields,
-      asRaw,
+      asRaw
     );
   }
   update(
     range: string | string[],
     fields: string[],
     rows: any,
-    batch?: boolean,
+    batch?: boolean
   ) {
     return update(
       range,
@@ -38,7 +38,7 @@ export default class GSheetSQL {
       this.auth,
       fields,
       rows,
-      batch,
+      batch
     );
   }
   insert(range: string, fields: string[], rows: ObjStringAny | ObjStringAny[]) {
@@ -48,7 +48,7 @@ export default class GSheetSQL {
       this.sheets,
       this.auth,
       fields,
-      rows,
+      rows
     );
   }
 }

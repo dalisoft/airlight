@@ -1,6 +1,16 @@
 {
   "name": "@dalisoft/npm-packages",
   "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "installConfig": {
+    "pnp": true
+  },
+  "scripts": {
+    "lint:eslint": "eslint --ext .js,.ts .",
+    "lint:prettier": "prettier -c ."
+  },
   "devDependencies": {
     "eslint": "^7.12.1",
     "lerna": "^3.22.1",

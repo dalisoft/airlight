@@ -4,7 +4,6 @@ export const bodyPipe = function reqBodyPipe(stream) {
   return stream;
 };
 
-
 export const pipe = function reqPipe(stream) {
   this.stream.pipe(stream);
   return stream;

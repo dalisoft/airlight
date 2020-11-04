@@ -24,7 +24,7 @@ then you able to import to Node.js/Browser easily
 
 ```js
 // only ES6 or Browser ES6 Module loading works
-import SyncStore from "mobx-sync-storage";
+import SyncStore from 'mobx-sync-storage';
 
 // or CJS
 const SyncStore = require('mobx-sync-storage');

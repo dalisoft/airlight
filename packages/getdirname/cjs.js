@@ -1,12 +1,12 @@
 module.exports = function getdirname() {
   try {
-    throw new Error("__get__dirname__");
+    throw new Error('__get__dirname__');
   } catch (e) {
-    var currStackTrace = e.stack.split("at ");
+    var currStackTrace = e.stack.split('at ');
 
     var stackTraceRun = currStackTrace.shift();
     while (true) {
-      if (currStackTrace[0].indexOf(" (/") !== -1) {
+      if (currStackTrace[0].indexOf(' (/') !== -1) {
         stackTraceRun = currStackTrace.shift();
       } else {
         break;
@@ -17,8 +17,8 @@ module.exports = function getdirname() {
       return null;
     }
 
-    var lastSlashIndex = stackTraceRun.lastIndexOf("/");
-    var firstBrace = stackTraceRun.indexOf(" (/");
+    var lastSlashIndex = stackTraceRun.lastIndexOf('/');
+    var firstBrace = stackTraceRun.indexOf(' (/');
 
     if (firstBrace !== -1 && lastSlashIndex !== -1) {
       firstBrace += 2;

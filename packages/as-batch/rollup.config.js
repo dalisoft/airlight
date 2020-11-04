@@ -1,18 +1,18 @@
-import typescript from "rollup-plugin-typescript2";
-import { terser } from "rollup-plugin-terser";
-import del from "rollup-plugin-delete";
+import typescript from 'rollup-plugin-typescript2';
+import { terser } from 'rollup-plugin-terser';
+import del from 'rollup-plugin-delete';
 
 export default [
   {
-    input: "./src/as-batch.ts",
+    input: './src/as-batch.ts',
     output: {
-      format: "es",
-      file: "./dist/es/as-batch.js",
+      format: 'es',
+      file: './dist/es/as-batch.js',
       esModule: true
     },
     plugins: [
       del({
-        targets: "dist/*"
+        targets: 'dist/*'
       }),
       typescript({
         tsconfigOverride: {
@@ -22,20 +22,20 @@ export default [
         }
       })
     ],
-    external: ["terser", "typescript"]
+    external: ['terser', 'typescript']
   },
   {
-    input: "./src/as-batch.ts",
+    input: './src/as-batch.ts',
     output: [
       {
-        format: "umd",
-        name: "asBatch",
-        file: "./dist/umd/as-batch.js",
+        format: 'umd',
+        name: 'asBatch',
+        file: './dist/umd/as-batch.js',
         esModule: true
       },
       {
-        format: "cjs",
-        file: "./dist/cjs/as-batch.js",
+        format: 'cjs',
+        file: './dist/cjs/as-batch.js',
         esModule: false
       }
     ],
@@ -48,14 +48,14 @@ export default [
         }
       })
     ],
-    external: ["terser", "typescript"]
+    external: ['terser', 'typescript']
   },
   {
-    input: "./src/as-batch.ts",
+    input: './src/as-batch.ts',
     output: {
-      format: "umd",
-      name: "asBatch",
-      file: "./dist/umd/as-batch.min.js",
+      format: 'umd',
+      name: 'asBatch',
+      file: './dist/umd/as-batch.min.js',
       esModule: true
     },
     plugins: [
@@ -71,6 +71,6 @@ export default [
         mangle: true
       })
     ],
-    external: ["terser", "typescript"]
+    external: ['terser', 'typescript']
   }
 ];

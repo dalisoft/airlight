@@ -2,7 +2,9 @@ import * as FS from 'fs';
 import { Cache, Config } from './create-cache-custom';
 
 const isFSUnavailabe: boolean =
-  typeof window !== 'undefined' || typeof require === 'undefined' || typeof process === 'undefined';
+  typeof window !== 'undefined' ||
+  typeof require === 'undefined' ||
+  typeof process === 'undefined';
 
 type typeValue =
   | string
@@ -26,7 +28,9 @@ class FSCache extends Cache {
         : null;
 
     if (isFSUnavailabe) {
-      console.error('The FileCache is available only for server-side File System!');
+      console.error(
+        'The FileCache is available only for server-side File System!'
+      );
       return;
     }
 
@@ -79,7 +83,7 @@ class FSCache extends Cache {
             resolve(true);
           });
         });
-      },
+      }
     };
 
     super(config);

@@ -1,7 +1,7 @@
 const fieldsIntoObject = (fields: string[]) => (
   row: any,
   col: any,
-  index: number,
+  index: number
 ) => {
   const field: string = fields[index];
   row[field] = col;

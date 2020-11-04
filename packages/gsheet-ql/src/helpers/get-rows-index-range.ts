@@ -11,7 +11,7 @@ export interface RowIndexReturn {
 }
 
 const getRowsIndex = (
-  range: string[] | string,
+  range: string[] | string
 ): RowIndexReturn | RowIndexReturn[] | any => {
   if (Array.isArray(range)) {
     return range.map(getRowsIndex) as RowIndexReturn[];
@@ -21,8 +21,8 @@ const getRowsIndex = (
   const indexMap: IndexRage[] = splitIndex.map(
     (v: string): IndexRage => ({
       column: v[0],
-      index: +v[1],
-    }),
+      index: +v[1]
+    })
   );
   if (indexMap.length === 2) {
     const [start, end] = indexMap;
@@ -31,7 +31,7 @@ const getRowsIndex = (
       startRowColumn: start.column,
       startRowIndex: start.index,
       endRowColumn: end.column,
-      endRowIndex: end.index,
+      endRowIndex: end.index
     };
   }
   if (indexMap.length === 0) {
@@ -44,7 +44,7 @@ const getRowsIndex = (
     startRowColumn: item.column,
     startRowIndex: item.index,
     endRowColumn: item.column,
-    endRowIndex: item.index + 1,
+    endRowIndex: item.index + 1
   };
 };
 

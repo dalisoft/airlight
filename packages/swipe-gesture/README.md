@@ -29,13 +29,13 @@ then you able to import to Node.js/Browser easily
 
 ```js
 // Node.js
-const SwipeGesture = require("@dalisoft/swipe-gesture");
+const SwipeGesture = require('@dalisoft/swipe-gesture');
 
 // Browser
 // window.SwipeGesture OR SwipeGesture
 
 // ES6
-import SwipeGesture from "@dalisoft/swipe-gesture";
+import SwipeGesture from '@dalisoft/swipe-gesture';
 ```
 
 ## Parameters
@@ -54,12 +54,12 @@ import SwipeGesture from "@dalisoft/swipe-gesture";
 
 ```js
 const swipe = SwipeGesture({
-  onPanX: delta => console.log("pan x delta", delta)
+  onPanX: (delta) => console.log('pan x delta', delta)
 });
 
-yourDom.addEventListener("pointerdown", swipe.onStart);
-yourDom.addEventListener("pointermove", swipe.onMove);
-yourDom.addEventListener("pointerup", swipe.onEnd);
+yourDom.addEventListener('pointerdown', swipe.onStart);
+yourDom.addEventListener('pointermove', swipe.onMove);
+yourDom.addEventListener('pointerup', swipe.onEnd);
 ```
 
 ## License

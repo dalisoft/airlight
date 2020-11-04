@@ -1,10 +1,10 @@
-const strify = require("../json-strify");
+const strify = require('../json-strify');
 
 const obj = {
   a: 1,
-  b: "string",
-  foo: { bar: "baz", nullValue: null },
-  qux: [1, "two", { three: true, undef: undefined }]
+  b: 'string',
+  foo: { bar: 'baz', nullValue: null },
+  qux: [1, 'two', { three: true, undef: undefined }]
 };
 obj.c = obj.foo;
 
@@ -16,5 +16,5 @@ const bench = (name, fn, iteration = 1e5) => {
   console.timeEnd(name);
 };
 
-bench("JSON.stringify", JSON.stringify, 1e5);
-bench("json-strify", strify(), 1e5);
+bench('JSON.stringify', JSON.stringify, 1e5);
+bench('json-strify', strify(), 1e5);

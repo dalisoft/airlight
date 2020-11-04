@@ -1,12 +1,12 @@
 export default {
-  input: "./src/jwe.js",
+  input: './src/jwe.js',
   output: [
     {
-      format: "cjs",
-      file: "jwe.cjs",
+      format: 'cjs',
+      file: 'jwe.cjs',
       esModule: false,
-      exports: "named",
-    },
+      exports: 'named'
+    }
   ],
-  external: ["node-webtokens", "crypto"],
+  external: ['node-webtokens', 'crypto']
 };

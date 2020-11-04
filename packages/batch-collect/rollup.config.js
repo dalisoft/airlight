@@ -1,42 +1,42 @@
-import {terser} from "rollup-plugin-terser";
-import del from "rollup-plugin-delete";
+import { terser } from 'rollup-plugin-terser';
+import del from 'rollup-plugin-delete';
 
-const external = ["@dalisoft/args", "terser"];
+const external = ['@dalisoft/args', 'terser'];
 const globals = {
-  "@dalisoft/args": "args"
+  '@dalisoft/args': 'args'
 };
 
 export default [
   {
-    input: "./src/batch-collect.js",
+    input: './src/batch-collect.js',
     output: [
       {
-        format: "umd",
-        name: "batchCollect",
-        file: "./dist/umd/batch-collect.js",
+        format: 'umd',
+        name: 'batchCollect',
+        file: './dist/umd/batch-collect.js',
         esModule: true,
         globals
       },
       {
-        format: "cjs",
-        file: "./dist/cjs/batch-collect.js",
+        format: 'cjs',
+        file: './dist/cjs/batch-collect.js',
         esModule: false,
         globals
       }
     ],
     plugins: [
       del({
-        targets: "dist/*"
+        targets: 'dist/*'
       })
     ],
     external
   },
   {
-    input: "./src/batch-collect.js",
+    input: './src/batch-collect.js',
     output: {
-      format: "umd",
-      name: "batchCollect",
-      file: "./dist/umd/batch-collect.min.js",
+      format: 'umd',
+      name: 'batchCollect',
+      file: './dist/umd/batch-collect.min.js',
       esModule: true,
       globals
     },

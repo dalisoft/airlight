@@ -2,12 +2,12 @@ const {
   moduleExportRegExp,
   cjsExportRegExp,
   lineBreakRegExp
-} = require("./regexp");
+} = require('./regexp');
 
-module.exports = fileData => {
+module.exports = (fileData) => {
   const lines = fileData.split(lineBreakRegExp);
   return lines
-    .map(line => {
+    .map((line) => {
       let moduleExportsMatch = moduleExportRegExp.exec(line);
       const cjsExportMatch = cjsExportRegExp.exec(line);
 
@@ -20,7 +20,7 @@ module.exports = fileData => {
 
       if (moduleExportsMatch) {
         if (moduleExportsMatch[4]) {
-          if (moduleExportsMatch[4].includes("default")) {
+          if (moduleExportsMatch[4].includes('default')) {
             return {
               constant: moduleExportsMatch[4].substr(8),
               module: true,
@@ -29,15 +29,15 @@ module.exports = fileData => {
           }
           if (
             moduleExportsMatch[4] &&
-            moduleExportsMatch[4].indexOf("{") === 0
+            moduleExportsMatch[4].indexOf('{') === 0
           ) {
             let exportsList = moduleExportsMatch[4].substr(2);
             exportsList = exportsList.substr(0, exportsList.length - 2);
-            exportsList = exportsList.split(",");
-            exportsList = exportsList.map(v =>
-              v.includes("as") ? v.split("as")[1] : v
+            exportsList = exportsList.split(',');
+            exportsList = exportsList.map((v) =>
+              v.includes('as') ? v.split('as')[1] : v
             );
-            exportsList = exportsList.map(v => v.trim());
+            exportsList = exportsList.map((v) => v.trim());
 
             return {
               namedExports: exportsList,
@@ -53,7 +53,7 @@ module.exports = fileData => {
           };
         } else {
           console.warn(
-            "CLI [lib-export::ExportParser]: Export from module not supported by this module. This plug-in is made for creating single-file simple modules, for complex modules, please use Rollup, Webpack, Gulp or other tools"
+            'CLI [lib-export::ExportParser]: Export from module not supported by this module. This plug-in is made for creating single-file simple modules, for complex modules, please use Rollup, Webpack, Gulp or other tools'
           );
 
           return null; /* {
@@ -81,5 +81,5 @@ module.exports = fileData => {
         }
       }
     })
-    .filter(imports => imports);
+    .filter((imports) => imports);
 };

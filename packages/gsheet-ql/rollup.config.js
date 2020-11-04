@@ -1,28 +1,28 @@
-import sucrase from "rollup-plugin-sucrase";
+import sucrase from 'rollup-plugin-sucrase';
 // import { terser } from "rollup-plugin-terser";
-import del from "rollup-plugin-delete";
+import del from 'rollup-plugin-delete';
 
 export default [
   {
-    input: "./src/_class.ts",
+    input: './src/_class.ts',
     output: {
-      format: "es",
-      file: "./gsheet-ql.es.js",
+      format: 'es',
+      file: './gsheet-ql.es.js',
       esModule: true
     },
     plugins: [
       del({
-        targets: "./gsheet-ql.es.js"
+        targets: './gsheet-ql.es.js'
       }),
       sucrase({
-        exclude: ["node_modules/**"],
-        transforms: ["typescript"]
+        exclude: ['node_modules/**'],
+        transforms: ['typescript']
       })
     ],
-    external: ["fs-extra", "readline", "googleapis"]
+    external: ['fs-extra', 'readline', 'googleapis']
   },
   {
-    input: "./src/_class.ts",
+    input: './src/_class.ts',
     output: [
       /* {
         format: "umd",
@@ -32,22 +32,22 @@ export default [
         esModule: true
       },*/
       {
-        format: "cjs",
-        file: "./lib/gsheet-ql.js",
+        format: 'cjs',
+        file: './lib/gsheet-ql.js',
         esModule: false,
-        exports: "named"
+        exports: 'named'
       }
     ],
     plugins: [
       del({
-        targets: ["lib", "dist"]
+        targets: ['lib', 'dist']
       }),
       sucrase({
-        exclude: ["node_modules/**"],
-        transforms: ["typescript"]
+        exclude: ['node_modules/**'],
+        transforms: ['typescript']
       })
     ],
-    external: ["fs-extra", "readline", "googleapis"]
+    external: ['fs-extra', 'readline', 'googleapis']
   }
   /* {
     input: "./src/_class.ts",

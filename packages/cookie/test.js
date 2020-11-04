@@ -1,25 +1,25 @@
-import test from "ava";
-import { parse, stringify, getFromHeaders, set, remove } from "./cookie";
+import test from 'ava';
+import { parse, stringify, getFromHeaders, set, remove } from './cookie';
 
-test("Cookie core features", t => {
+test('Cookie core features', (t) => {
   t.deepEqual(
-    parse("foo=bar"),
-    { foo: "bar" },
-    "Parse feature does not work properly"
+    parse('foo=bar'),
+    { foo: 'bar' },
+    'Parse feature does not work properly'
   );
   t.is(
-    stringify({ bar: "baz" }),
-    "bar=baz",
-    "Stringify feature does not work properly"
+    stringify({ bar: 'baz' }),
+    'bar=baz',
+    'Stringify feature does not work properly'
   );
   t.deepEqual(
-    getFromHeaders({ cookie: "user=john_doe" }),
-    { user: "john_doe" },
-    "Get from header feature does not work properly"
+    getFromHeaders({ cookie: 'user=john_doe' }),
+    { user: 'john_doe' },
+    'Get from header feature does not work properly'
   );
 });
 
-test("Cookie basic features", t => {
+test('Cookie basic features', (t) => {
   // Fake Framework.Core.prototype.Response
   const cookie = {};
   const res = {
@@ -32,11 +32,11 @@ test("Cookie basic features", t => {
     }
   };
 
-  set(res, "foo", "bar");
+  set(res, 'foo', 'bar');
 
-  t.is(cookie.foo, "bar", "Set does not work properly");
+  t.is(cookie.foo, 'bar', 'Set does not work properly');
 
-  remove(res, "foo");
+  remove(res, 'foo');
 
-  t.not(cookie.foo, "bar", "Remove does not work properly");
+  t.not(cookie.foo, 'bar', 'Remove does not work properly');
 });

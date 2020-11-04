@@ -3,7 +3,8 @@
   <head>
     <title>batch-do - Layout trashing example</title>
     <style>
-      html, body {
+      html,
+      body {
         width: 100%;
         height: 100%;
         margin: 0;
@@ -19,7 +20,7 @@
       .square {
         width: 200px;
         height: 200px;
-        transition: .75s ease-in-out;
+        transition: 0.75s ease-in-out;
       }
       .square .child {
         width: 50px;
@@ -27,7 +28,7 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        transition: .75s ease-in-out;
+        transition: 0.75s ease-in-out;
         user-select: none;
         color: #fff;
         font-size: x-large;
@@ -45,12 +46,16 @@
     <div id="first" class="square"></div>
     <div id="second" class="square"></div>
     <script>
-      function debounce (fn, delay) {
+      function debounce(fn, delay) {
         let timerId;
-        return function() {
+        return function () {
           clearTimeout(timerId);
-          timerId = setTimeout(fn.bind(this), delay, ...[].slice.call(arguments))
-        }
+          timerId = setTimeout(
+            fn.bind(this),
+            delay,
+            ...[].slice.call(arguments)
+          );
+        };
       }
       function createLoopedChilds(el, count, each) {
         for (let i = 0; i < count; i++) {
@@ -78,35 +83,39 @@
       createLoopedChilds(firstDiv, 20, (child, i) => {
         child.textContent = i;
         child.classList.add('child');
-        child.style.backgroundColor = '#' + Math.round(Math.random() * 0xffffff).toString(16);
-      })
+        child.style.backgroundColor =
+          '#' + Math.round(Math.random() * 0xffffff).toString(16);
+      });
       createLoopedChilds(secondDiv, 20, (child, i) => {
         child.textContent = i;
         child.classList.add('child');
-        child.style.backgroundColor = '#' + Math.round(Math.random() * 0xffffff).toString(16);
-      })
+        child.style.backgroundColor =
+          '#' + Math.round(Math.random() * 0xffffff).toString(16);
+      });
 
       let activeDiv;
       let bounds;
       let childSizes = [];
 
-        ctx.preBatch = () => {
-          console.log('Read');
+      ctx.preBatch = () => {
+        console.log('Read');
 
-          bounds = activeDiv.getBoundingClientRect();
+        bounds = activeDiv.getBoundingClientRect();
 
-          childSizes.length = 0;
+        childSizes.length = 0;
 
-          [].slice.call(activeDiv.children).forEach(child => {
-            childSizes.push(child.getBoundingClientRect());
-          })
-        };
+        [].slice.call(activeDiv.children).forEach((child) => {
+          childSizes.push(child.getBoundingClientRect());
+        });
+      };
 
-      firstDiv.addEventListener('click', debounce(function handleBatchDo(e) {
-        activeDiv = firstDiv;
+      firstDiv.addEventListener(
+        'click',
+        debounce(function handleBatchDo(e) {
+          activeDiv = firstDiv;
 
-        batch(() => {
-          console.log('Write');
+          batch(() => {
+            console.log('Write');
 
             firstDiv.style.width = bounds.width * 1.5 + 'px';
             firstDiv.style.height = bounds.height * 1.5 + 'px';
@@ -117,11 +126,13 @@
               child.style.width = bounds.width * 1.5 + 'px';
               child.style.height = bounds.height * 1.5 + 'px';
             });
-        }, ctx);
-      }, TOUCH_TAP_DELAY));
+          }, ctx);
+        }, TOUCH_TAP_DELAY)
+      );
 
-      secondDiv.addEventListener('click', debounce(function handleBatchDo(e) {
-
+      secondDiv.addEventListener(
+        'click',
+        debounce(function handleBatchDo(e) {
           console.log('Read & Write');
 
           const bounds = secondDiv.getBoundingClientRect();
@@ -129,13 +140,14 @@
           secondDiv.style.width = bounds.width * 1.5 + 'px';
           secondDiv.style.height = bounds.height * 1.5 + 'px';
 
-            [].slice.call(secondDiv.children).forEach((child) => {
-              const bounds = child.getBoundingClientRect();
+          [].slice.call(secondDiv.children).forEach((child) => {
+            const bounds = child.getBoundingClientRect();
 
-              child.style.width = bounds.width * 1.5 + 'px';
-              child.style.height = bounds.height * 1.5 + 'px';
-            });
-      }, TOUCH_TAP_DELAY))
+            child.style.width = bounds.width * 1.5 + 'px';
+            child.style.height = bounds.height * 1.5 + 'px';
+          });
+        }, TOUCH_TAP_DELAY)
+      );
     </script>
   </body>
 </html>

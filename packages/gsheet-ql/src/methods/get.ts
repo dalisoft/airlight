@@ -8,14 +8,14 @@ const getRows = (
   auth: any,
   batch?: boolean,
   fields?: string[],
-  asRaw?: boolean,
+  asRaw?: boolean
 ) => {
   return new Promise((resolve, reject) => {
     sheets.spreadsheets.values[batch ? 'batchGet' : 'get'](
       {
         auth,
         spreadsheetId,
-        ...(batch ? { ranges: range } : { range }),
+        ...(batch ? { ranges: range } : { range })
       },
       (err: Error, res: Response) => {
         if (err) {
@@ -32,10 +32,10 @@ const getRows = (
                     ? parseValues(
                         data.valueRanges[i],
                         false,
-                        fields && (Array.isArray(fields[i]) && fields[i]),
+                        fields && Array.isArray(fields[i]) && fields[i]
                       )
                     : {}) && obj,
-                {},
+                {}
               );
             }
             {
@@ -47,20 +47,19 @@ const getRows = (
                 if (asRaw) {
                   return {
                     fields: valueFields,
-                    values: values.map(parseTypes),
+                    values: values.map(parseTypes)
                   };
                 }
-                return values.map(
-                  (value: any[]): ObjStringAny[] =>
-                    value
-                      .map(val => parseTypes(val))
-                      .reduce(fieldsIntoObject(valueFields), {}),
+                return values.map((value: any[]): ObjStringAny[] =>
+                  value
+                    .map((val) => parseTypes(val))
+                    .reduce(fieldsIntoObject(valueFields), {})
                 );
               }
             }
-          })(res.data, batch, fields),
+          })(res.data, batch, fields)
         );
-      },
+      }
     );
   });
 };

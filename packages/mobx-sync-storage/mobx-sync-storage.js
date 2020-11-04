@@ -1,7 +1,7 @@
-const mobx = require("mobx");
+const mobx = require('mobx');
 
 function diff(tree, compare) {
-  if (typeof tree !== "object") {
+  if (typeof tree !== 'object') {
     return tree !== compare;
   }
   if (Array.isArray(tree)) {
@@ -26,15 +26,15 @@ class SyncStorage {
     this.initialized = false;
 
     if (
-      typeof sessionStorage === "undefined" ||
-      typeof localStorage === "undefined"
+      typeof sessionStorage === 'undefined' ||
+      typeof localStorage === 'undefined'
     ) {
       throw new Error(
-        "Module requires Browser with Session and Local Storage support"
+        'Module requires Browser with Session and Local Storage support'
       );
     }
 
-    this.storage = storage === "localStorage" ? localStorage : sessionStorage;
+    this.storage = storage === 'localStorage' ? localStorage : sessionStorage;
 
     this.onRun = this.onRun.bind(this);
 
@@ -46,18 +46,18 @@ class SyncStorage {
     if (this.autorun) {
       this.autorun();
     }
-    window.removeEventListener("storage", this.onRun);
+    window.removeEventListener('storage', this.onRun);
   }
   attachAutoRun() {
     if (mobx && mobx.autorun) {
       this.autorun = mobx.autorun(this.onRun);
     } else {
       console.error(
-        "[MobX-Sync-Storage]: MobX was not loaded at Window-level, so please load first to be working properly"
+        '[MobX-Sync-Storage]: MobX was not loaded at Window-level, so please load first to be working properly'
       );
     }
 
-    window.addEventListener("storage", this.onRun);
+    window.addEventListener('storage', this.onRun);
   }
   onRun(argument) {
     const { name, store, storage, initialized } = this;

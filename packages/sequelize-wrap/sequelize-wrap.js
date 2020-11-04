@@ -1,4 +1,4 @@
-(function(factory) {
+(function (factory) {
   if (typeof define === 'function' && define.amd) {
     define(['sequelize'], factory);
   } else if (typeof module !== 'undefined' && module.exports) {
@@ -6,7 +6,7 @@
   } else if (typeof exports !== 'undefined') {
     exports.default = factory(exports.sequelize || require('sequelize'));
   }
-})(function(sequelize) {
+})(function (sequelize) {
   return class SequelizeWrapper {
     get fields() {
       return this.__$$fields;

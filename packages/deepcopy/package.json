@@ -1,35 +1,35 @@
 {
-    "name": "deepycopy",
-    "version": "1.1.1",
-    "description": "Simple, yet smart Javascript instance cloner",
-    "main": "deepcopy.js",
-    "cdn": "deepcopy.min.js",
-    "browser": "deepcopy.min.js",
-    "keywords": [
-        "deep",
-        "copy",
-        "diff",
-        "smart",
-        "fast",
-        "module"
-    ],
-    "scripts": {
-        "minify": "terser deepcopy.js -c -m -o deepcopy.min.js --source-map \"filename='deepcopy.min.js.map'\"",
-        "prepublishOnly": "npm test && npm run minify",
-        "test": "ava"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/dalisoft/deepcopy.git"
-    },
-    "author": "dalisoft",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/dalisoft/deepcopy/issues"
-    },
-    "homepage": "https://github.com/dalisoft/deepcopy#readme",
-    "devDependencies": {
-        "ava": "^3.13.0",
-        "terser": "^4.8.0"
-    }
+  "name": "deepycopy",
+  "version": "1.1.1",
+  "description": "Simple, yet smart Javascript instance cloner",
+  "main": "deepcopy.js",
+  "cdn": "deepcopy.min.js",
+  "browser": "deepcopy.min.js",
+  "keywords": [
+    "deep",
+    "copy",
+    "diff",
+    "smart",
+    "fast",
+    "module"
+  ],
+  "scripts": {
+    "minify": "terser deepcopy.js -c -m -o deepcopy.min.js --source-map \"filename='deepcopy.min.js.map'\"",
+    "prepublishOnly": "npm test && npm run minify",
+    "test": "ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dalisoft/deepcopy.git"
+  },
+  "author": "dalisoft",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dalisoft/deepcopy/issues"
+  },
+  "homepage": "https://github.com/dalisoft/deepcopy#readme",
+  "devDependencies": {
+    "ava": "^3.13.0",
+    "terser": "^4.8.0"
+  }
 }

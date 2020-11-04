@@ -1,5 +1,5 @@
 /** global: req */
-import compressStream from "./compress-stream.js";
+import compressStream from './compress-stream.js';
 
 export default function resPipe(stream, size, compressed = false) {
   const { _req: req } = this;
@@ -9,10 +9,13 @@ export default function resPipe(stream, size, compressed = false) {
   this.stream = true;
 
   if (compressed) {
-    const compressedStream = compressStream.call(this, stream,
-      typeof req !== "undefined" && (req.headers
-        && req.headers["accept-encoding"]
-       || req.getHeader("accept-encoding")));
+    const compressedStream = compressStream.call(
+      this,
+      stream,
+      typeof req !== 'undefined' &&
+        ((req.headers && req.headers['accept-encoding']) ||
+          req.getHeader('accept-encoding'))
+    );
 
     if (compressedStream) {
       stream = compressedStream;
@@ -30,7 +33,7 @@ export default function resPipe(stream, size, compressed = false) {
   });
 
   if (compressed || !size) {
-    stream.on("data", (buffer) => {
+    stream.on('data', (buffer) => {
       if (isAborted) {
         stream.destroy();
         return;
@@ -43,7 +46,7 @@ export default function resPipe(stream, size, compressed = false) {
       );
     });
   } else {
-    stream.on("data", (buffer) => {
+    stream.on('data', (buffer) => {
       if (isAborted) {
         stream.destroy();
         return;
@@ -80,17 +83,17 @@ export default function resPipe(stream, size, compressed = false) {
     });
   }
   stream
-    .on("error", () => {
+    .on('error', () => {
       this.stream = -1;
       if (!isAborted) {
-        this.writeStatus("500 Internal server error");
+        this.writeStatus('500 Internal server error');
         this.end();
       } else {
         this.close();
       }
       stream.destroy();
     })
-    .on("end", () => {
+    .on('end', () => {
       this.stream = 1;
       if (!isAborted) {
         this.end();

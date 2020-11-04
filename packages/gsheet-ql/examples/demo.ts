@@ -9,15 +9,15 @@ const TOKEN_PATH = 'token.json';
 async function getNewToken(oAuth2Client: any) {
   const rl = readline.createInterface({
     input: process.stdin,
-    output: process.stdout,
+    output: process.stdout
   });
   const authUrl = oAuth2Client.generateAuthUrl({
     access_type: 'offline',
-    scope: SCOPES,
+    scope: SCOPES
   });
   console.log('Authorize this app by visiting this url:', authUrl);
   return new Promise((resolve, reject) => {
-    rl.question('Enter the code from that page here: ', code => {
+    rl.question('Enter the code from that page here: ', (code) => {
       rl.close();
       oAuth2Client.getToken(code, async (err: Error, token: any) => {
         if (err) {
@@ -39,7 +39,7 @@ async function getNewToken(oAuth2Client: any) {
   const auth = new google.auth.OAuth2(
     client_id,
     client_secret,
-    redirect_uris[0],
+    redirect_uris[0]
   );
 
   const token: any = await fs
@@ -53,7 +53,7 @@ async function getNewToken(oAuth2Client: any) {
   const gsheet = new GSheetQL(spreadsheetId, sheets, auth);
 
   const getRes = await gsheet.get(['Users', 'Messages'], true, [
-    ['ID', 'Name', 'Age'],
+    ['ID', 'Name', 'Age']
   ]);
 
   console.log(getRes);
@@ -62,7 +62,7 @@ async function getNewToken(oAuth2Client: any) {
     'Users!A2:D4',
     ['ID', 'Name', 'Age'],
     null,
-    true,
+    true
   );
 
   console.log('log', updateResponse);

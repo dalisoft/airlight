@@ -1,7 +1,7 @@
-import fs from "fs";
+import fs from 'fs';
 
 const Simple = () => {
-  console.log("Simple test function");
+  console.log('Simple test function');
 };
 
 export default Simple;

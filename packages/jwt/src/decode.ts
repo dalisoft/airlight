@@ -5,11 +5,11 @@ const decodeJWT = (
   token: string,
   secretOrPrivate: GetPublicKeyOrSecret,
   options?: DecodeOptions | undefined,
-  encoded?: boolean,
+  encoded?: boolean
 ): object | string | null =>
   decode(
     encoded && secretOrPrivate ? decrypt(secretOrPrivate, token) : token,
-    options,
+    options
   );
 
 export { decodeJWT as decode };

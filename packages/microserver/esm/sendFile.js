@@ -1,7 +1,7 @@
-import { getMime } from "./utils/index.js";
-import { statSync, createReadStream } from "fs";
+import { getMime } from './utils/index.js';
+import { statSync, createReadStream } from 'fs';
 
-export default function(path, lastModified = true, compressed = false) {
+export default function (path, lastModified = true, compressed = false) {
   const stat = statSync(path);
   // eslint-disable-next-line prefer-const
   let { size, mtime } = stat;
@@ -15,27 +15,28 @@ export default function(path, lastModified = true, compressed = false) {
       const mtimeutc = mtime.toUTCString();
 
       // Return 304 if last-modified
-      const modifiedSince = headers && headers["if-modified-since"]
-      || req.getHeader("if-modified-since");
+      const modifiedSince =
+        (headers && headers['if-modified-since']) ||
+        req.getHeader('if-modified-since');
       if (modifiedSince) {
         if (new Date(modifiedSince) >= mtime) {
-          res.writeStatus("304 Not Modified");
+          res.writeStatus('304 Not Modified');
           return res.end();
         }
       }
-      res.writeHeader("last-modified", mtimeutc);
+      res.writeHeader('last-modified', mtimeutc);
     }
-    res.writeHeader("content-type", mimeType);
+    res.writeHeader('content-type', mimeType);
 
     // write data
     let start = 0;
     let end = 0;
 
-    const range = headers && headers.range || req.getHeader("range");
+    const range = (headers && headers.range) || req.getHeader('range');
     if (range) {
       [start, end] = range
         .substr(6)
-        .split("-")
+        .split('-')
         .map((byte) => (byte ? parseInt(byte, 10) : undefined));
 
       // Chrome patch for work
@@ -44,9 +45,9 @@ export default function(path, lastModified = true, compressed = false) {
       }
 
       if (start !== undefined) {
-        res.writeStatus("206 Partial Content");
-        res.writeHeader("accept-ranges", "bytes");
-        res.writeHeader("content-range", `bytes ${start}-${end}/${size}`);
+        res.writeStatus('206 Partial Content');
+        res.writeHeader('accept-ranges', 'bytes');
+        res.writeHeader('content-range', `bytes ${start}-${end}/${size}`);
         size = end - start + 1;
       }
     }

@@ -22,11 +22,11 @@ then you able to import to Node.js/Browser easily
 
 ```js
 // Node.js
-const batch = require("batch-do");
+const batch = require('batch-do');
 const { createContext } = batch;
 
 // ES6
-import batch, { createContext } from "batch-do";
+import batch, { createContext } from 'batch-do';
 ```
 
 ## Usage

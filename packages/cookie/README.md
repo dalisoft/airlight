@@ -24,13 +24,13 @@ then you able to import to Node.js/Browser easily
 
 ```js
 // Node.js
-const Cookie = require("@dalisoft/cookie");
+const Cookie = require('@dalisoft/cookie');
 
 // Browser
 // window.Cookie OR Cookie
 
 // ES6
-import Cookie from "@dalisoft/cookie";
+import Cookie from '@dalisoft/cookie';
 ```
 
 ## Methods
@@ -44,9 +44,9 @@ import Cookie from "@dalisoft/cookie";
 ## Usage
 
 ```js
-app.get("/delete_cookie", (req, res) => {
-  Cookie.set(res, "deleted", true);
-  Cookie.remove(res, "public_cookie");
+app.get('/delete_cookie', (req, res) => {
+  Cookie.set(res, 'deleted', true);
+  Cookie.remove(res, 'public_cookie');
 });
 ```
 

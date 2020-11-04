@@ -1,0 +1,3 @@
+{
+  "extends": "./packages/airlight/packages/eslint-config-node"
+}

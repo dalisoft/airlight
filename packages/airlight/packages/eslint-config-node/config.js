@@ -10,7 +10,13 @@ module.exports = {
     'plugin:node/recommended',
     'plugin:security-node/recommended'
   ],
-  plugins: ['import', 'optimize-regex', 'security-node', 'no-secrets'],
+  plugins: [
+    '@typescript-eslint',
+    'import',
+    'optimize-regex',
+    'security-node',
+    'no-secrets'
+  ],
   rules: {
     '@typescript-eslint/indent': ['off'],
     'operator-linebreak': ['off', 'after'],

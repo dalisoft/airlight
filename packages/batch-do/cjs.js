@@ -9,7 +9,7 @@ const defaultContext = {
   },
   batches: [],
   awaitBatch: false,
-  calls: 0,
+  calls: 0
 };
 
 const runBatches = async (context) => {
@@ -59,7 +59,7 @@ const createContext = (
     batches: [],
     awaitBatch,
     maxCallsPerBatch,
-    calls: 0,
+    calls: 0
   };
 };
 

@@ -1,15 +1,15 @@
-const compileJSON = require("compile-json-stringify");
+const compileJSON = require('compile-json-stringify');
 
-module.exports = schema => {
+module.exports = (schema) => {
   let isSchemaGenerated;
   let schemaStringify;
   let schemaPrevResponse;
   let prevObj;
 
-  if (typeof schema === "function") {
+  if (typeof schema === 'function') {
     schemaStringify = schema;
     isSchemaGenerated = true;
-  } else if (typeof schema === "object") {
+  } else if (typeof schema === 'object') {
     schema.strict = true;
     schamaStringify = compileJSON(schema);
     isSchemaGenerated = true;
@@ -25,14 +25,14 @@ module.exports = schema => {
     jsonSchema = schema
   ) {
     if (jsonObject === undefined || jsonObject === null) {
-      return "{}";
+      return '{}';
     }
-    if (typeof jsonObject === "string") {
+    if (typeof jsonObject === 'string') {
       if (jsonObject.indexOf('"') !== -1) {
         return '"' + jsonObject.replace(/"/g, '\\"') + '"';
       }
       return jsonObject;
-    } else if (typeof jsonObject !== "object") {
+    } else if (typeof jsonObject !== 'object') {
       return jsonObject;
     }
     if (!jsonParent && isSchemaGenerated) {
@@ -49,22 +49,22 @@ module.exports = schema => {
     let result;
     if (jsonObject.length) {
       if (!jsonSchema.type) {
-        jsonSchema.type = "array";
+        jsonSchema.type = 'array';
         jsonSchema.items = [];
       }
       for (let i = 0, len = jsonObject.length; i < len; i++) {
         let value = jsonObject[i];
         if (value === undefined || value === null) {
           if (!jsonSchema.items[i]) {
-            jsonSchema.items[i] = { type: "null" };
+            jsonSchema.items[i] = { type: 'null' };
           }
 
           continue;
         }
         if (!result) {
-          result = "[";
+          result = '[';
         } else {
-          result += ",";
+          result += ',';
         }
         if (
           value === jsonObject ||
@@ -72,7 +72,7 @@ module.exports = schema => {
           (jsonParent && value === topParent)
         ) {
           result += '"[Circular]"';
-        } else if (typeof value === "string") {
+        } else if (typeof value === 'string') {
           if (value.indexOf('"') !== -1) {
             result += '"' + value.replace(/"/g, '\\"') + '"';
           } else {
@@ -80,15 +80,15 @@ module.exports = schema => {
           }
 
           if (!jsonSchema.items[i]) {
-            jsonSchema.items[i] = { type: "string" };
+            jsonSchema.items[i] = { type: 'string' };
           }
-        } else if (typeof value === "number" || typeof value === "boolean") {
+        } else if (typeof value === 'number' || typeof value === 'boolean') {
           result += value;
 
           if (!jsonSchema.items[i]) {
             jsonSchema.items[i] = { type: typeof value };
           }
-        } else if (typeof value === "object") {
+        } else if (typeof value === 'object') {
           jsonObject.parent = jsonParent;
 
           if (!jsonSchema.items[i]) {
@@ -103,25 +103,25 @@ module.exports = schema => {
           );
         }
       }
-      result += "]";
+      result += ']';
     } else {
       if (!jsonSchema.type) {
-        jsonSchema.type = "object";
+        jsonSchema.type = 'object';
         jsonSchema.properties = {};
       }
       for (const key in jsonObject) {
         let value = jsonObject[key];
         if (value === undefined || value === null) {
           if (!jsonSchema.properties[key]) {
-            jsonSchema.properties[key] = { type: "null" };
+            jsonSchema.properties[key] = { type: 'null' };
           }
 
           continue;
         }
         if (!result) {
-          result = "{";
+          result = '{';
         } else {
-          result += ",";
+          result += ',';
         }
         result += '"' + key + '":';
         if (
@@ -130,7 +130,7 @@ module.exports = schema => {
           (jsonParent && value === topParent)
         ) {
           result += '"[Circular]"';
-        } else if (typeof value === "string") {
+        } else if (typeof value === 'string') {
           if (value.indexOf('"') !== -1) {
             result += '"' + value.replace(/"/g, '\\"') + '"';
           } else {
@@ -138,15 +138,15 @@ module.exports = schema => {
           }
 
           if (!jsonSchema.properties[key]) {
-            jsonSchema.properties[key] = { type: "string" };
+            jsonSchema.properties[key] = { type: 'string' };
           }
-        } else if (typeof value === "number" || typeof value === "boolean") {
+        } else if (typeof value === 'number' || typeof value === 'boolean') {
           result += value;
 
           if (!jsonSchema.properties[key]) {
             jsonSchema.properties[key] = { type: typeof value };
           }
-        } else if (typeof value === "object") {
+        } else if (typeof value === 'object') {
           jsonObject.parent = jsonParent;
 
           if (!jsonSchema.properties[key]) {
@@ -161,7 +161,7 @@ module.exports = schema => {
           );
         }
       }
-      result += "}";
+      result += '}';
     }
     isSchemaGenerated = true;
     return result;

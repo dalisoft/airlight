@@ -59,7 +59,7 @@ const cache = new CacheTTL(5000, 'custom', {
   },
   deleteTransform(key: string): void {
     _map.delete(key);
-  },
+  }
 });
 ```
 

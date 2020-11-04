@@ -41,7 +41,11 @@ class AsBatch {
     this.onCallsTimeoutDelay = options.onCallsTimeoutDelay || 100;
     this.onCallsTimeoutId = null;
   }
-  register(key?: string | Function | any, value?: Function, resolveFn?: Function) {
+  register(
+    key?: string | Function | any,
+    value?: Function,
+    resolveFn?: Function
+  ) {
     if (typeof key === 'function') {
       if (value !== undefined) {
         resolveFn = value;
@@ -78,7 +82,7 @@ class AsBatch {
             clearInterval(timerId);
             resolve(this.timeoutResponse);
           }
-        },                          100);
+        }, 100);
         !this.allowWithoutWait &&
           (this.onRegisterTimeoutId = setTimeout(() => {
             if (typeof onRegisterTimeout === 'function') {
@@ -97,29 +101,27 @@ class AsBatch {
             }
 
             resolve(onRegisterTimeout);
-          },                                     this.onRegisterTimeoutDelay));
+          }, this.onRegisterTimeoutDelay));
       })
         .then(resolveFn as any)
-        .then(
-          (res: any): any => {
-            const tm = setTimeout((): void => {
-              this.timeoutResponse = undefined;
-              delete this.timeoutResponse;
-              const tm2 = setTimeout(() => {
-                this.cache.delete(key);
-                clearTimeout(tm2);
-              },                     this.maxAgeOfCache);
-              clearTimeout(tm);
-            },                    100);
-            return res;
-          },
-        );
+        .then((res: any): any => {
+          const tm = setTimeout((): void => {
+            this.timeoutResponse = undefined;
+            delete this.timeoutResponse;
+            const tm2 = setTimeout(() => {
+              this.cache.delete(key);
+              clearTimeout(tm2);
+            }, this.maxAgeOfCache);
+            clearTimeout(tm);
+          }, 100);
+          return res;
+        });
     }
     this.onRegisterTimeoutId =
       !this.allowWithoutWait &&
       setTimeout(
         (onRegisterTimeout as Function).bind(this, transform),
-        this.onRegisterTimeoutDelay,
+        this.onRegisterTimeoutDelay
       );
 
     return this.allowWithoutWait
@@ -161,7 +163,7 @@ class AsBatch {
             clearInterval(timerId);
             resolve(this.timeoutResponseOfCall);
           }
-        },                          100);
+        }, 100);
         this.onCallsTimeoutId = setTimeout(() => {
           if (typeof onCallsTimeout === 'function') {
             onCallsTimeout = onCallsTimeout(cache);
@@ -179,7 +181,7 @@ class AsBatch {
           }
 
           resolve(onCallsTimeout);
-        },                                 this.onCallsTimeoutDelay);
+        }, this.onCallsTimeoutDelay);
       })
         .then(resolveFn as any)
         .then((res: any) => {
@@ -189,16 +191,16 @@ class AsBatch {
             const tm2 = setTimeout(() => {
               this.cache.delete(key);
               clearTimeout(tm2);
-            },                     this.maxAgeOfCache);
+            }, this.maxAgeOfCache);
             clearTimeout(tm);
-          },                    100);
+          }, 100);
           return res;
         });
     }
 
     this.onCallsTimeoutId = setTimeout(
       (onCallsTimeout as Function).bind(this, cache),
-      this.onCallsTimeoutDelay,
+      this.onCallsTimeoutDelay
     );
   }
   delete(key: string) {

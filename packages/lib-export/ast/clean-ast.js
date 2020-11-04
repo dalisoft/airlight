@@ -4,14 +4,14 @@ const {
   moduleExportRegExp,
   cjsExportRegExp,
   lineBreakRegExp
-} = require("./regexp");
+} = require('./regexp');
 
-module.exports = fileData => {
+module.exports = (fileData) => {
   const lines = fileData
-    .replace(/["']use strict["'][;]/g, "")
+    .replace(/["']use strict["'][;]/g, '')
     .split(lineBreakRegExp);
   return lines
-    .filter(line => {
+    .filter((line) => {
       let importModule = moduleImportRegExp.exec(line);
       const requireMatch = requireRegExp.exec(line);
       const exportModule = moduleExportRegExp.exec(line);
@@ -23,5 +23,5 @@ module.exports = fileData => {
 
       return !(importModule || requireMatch || exportModule || cjsExport);
     })
-    .join("\n");
+    .join('\n');
 };

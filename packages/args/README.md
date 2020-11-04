@@ -1,4 +1,5 @@
 # args
+
 A performant argument pass library
 
 ## Features
@@ -21,13 +22,13 @@ then you able to import to Node.js/Browser easily
 
 ```js
 // Node.js
-const args = require("@dalisoft/args");
+const args = require('@dalisoft/args');
 
 // Browser
 // window.args OR args
 
 // ES6
-import args from "@dalisoft/args";
+import args from '@dalisoft/args';
 ```
 
 ## Usage

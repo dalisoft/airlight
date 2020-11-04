@@ -1,4 +1,4 @@
-import nodeWebToken from "node-webtokens";
+import nodeWebToken from 'node-webtokens';
 
 const signJWE = (payload, key, options = {}) =>
   new Promise((resolve, reject) => {
@@ -15,8 +15,8 @@ const signJWE = (payload, key, options = {}) =>
       payload.exp = exp;
     }
     nodeWebToken.generate(
-      options.alg || "PBES2-HS512+A256KW",
-      options.enc || "A256CBC-HS512",
+      options.alg || 'PBES2-HS512+A256KW',
+      options.enc || 'A256CBC-HS512',
       payload,
       key,
       (err, token) => {

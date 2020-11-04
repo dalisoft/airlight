@@ -20,7 +20,9 @@ type typeValue =
   | Promise<typeValueRefOrRefArr>;
 
 const isNonServerEnv =
-  typeof window !== 'undefined' || typeof require === 'undefined' || typeof process === 'undefined';
+  typeof window !== 'undefined' ||
+  typeof require === 'undefined' ||
+  typeof process === 'undefined';
 
 class CustomCache {
   public addedCacheKeys?: string[];
@@ -28,7 +30,9 @@ class CustomCache {
 
   constructor(config: Config) {
     if (isNonServerEnv && config.onlyServer) {
-      console.error('The CustomCache is available only for server-side Node.js!');
+      console.error(
+        'The CustomCache is available only for server-side Node.js!'
+      );
       return this;
     }
 
@@ -71,7 +75,9 @@ class CustomCache {
   }
   public set<T>(key: string, value: T): Promise<any> | any {
     if (isNonServerEnv && this.config.onlyServer) {
-      console.error('The CustomCache is available only for server-side Node.js!');
+      console.error(
+        'The CustomCache is available only for server-side Node.js!'
+      );
       return;
     }
     if (!this.config.setTransform) {
@@ -132,41 +138,53 @@ class CustomCache {
     if ((isNonServerEnv && this.config.onlyServer) || !this.addedCacheKeys) {
       return [];
     }
-    return this.addedCacheKeys.map((key: string): typeValue => this.get(key) as typeValue);
+    return this.addedCacheKeys.map(
+      (key: string): typeValue => this.get(key) as typeValue
+    );
   }
   public forEach(fn: Function): void {
     if ((isNonServerEnv && this.config.onlyServer) || !this.addedCacheKeys) {
       return;
     }
 
-    const isAsyncItem: boolean = this.addedCacheKeys.some((key: string): boolean => {
-      const item = this.get(key) as Promise<typeValue>;
-      // @ts-ignore
-      if (item.then) {
-        return true;
+    const isAsyncItem: boolean = this.addedCacheKeys.some(
+      (key: string): boolean => {
+        const item = this.get(key) as Promise<typeValue>;
+        // @ts-ignore
+        if (item.then) {
+          return true;
+        }
+        return false;
       }
-      return false;
-    });
+    );
 
     if (isAsyncItem) {
-      return this.addedCacheKeys.forEach((key: string): Promise<void> | void => {
+      return this.addedCacheKeys.forEach((key: string): Promise<
+        void
+      > | void => {
         const get = this.get(key);
 
         // @ts-ignore-line
         if ((get as Promise<typeValue>).then) {
-          return (get as Promise<typeValue>).then((getValue: any): void => fn(key, getValue));
+          return (get as Promise<typeValue>).then((getValue: any): void =>
+            fn(key, getValue)
+          );
         }
         fn(get);
       });
     }
-    return this.addedCacheKeys.forEach((key: string): void => fn(key, this.get(key)));
+    return this.addedCacheKeys.forEach((key: string): void =>
+      fn(key, this.get(key))
+    );
   }
   public clear(): void {
     if (isNonServerEnv && this.config.onlyServer) {
       return;
     }
     if (this.addedCacheKeys) {
-      this.addedCacheKeys.forEach((key: string): Promise<void> | void => this.delete(key));
+      this.addedCacheKeys.forEach((key: string): Promise<void> | void =>
+        this.delete(key)
+      );
     }
     return;
   }

@@ -5,13 +5,13 @@ function args(fn, args, modifyArgs) {
   if (argsLen === 0) {
     return fn();
   } else if (argsLen === 1) {
-    if (typeof modifyArgs === "function") {
+    if (typeof modifyArgs === 'function') {
       args = modifyArgs(args);
     }
 
     return fn(args[0]);
   } else if (argsLen <= 11) {
-    if (typeof modifyArgs === "function") {
+    if (typeof modifyArgs === 'function') {
       args = modifyArgs(args);
     }
 
@@ -63,7 +63,7 @@ function args(fn, args, modifyArgs) {
       );
     }
   } else {
-    if (typeof modifyArgs === "function") {
+    if (typeof modifyArgs === 'function') {
       args = modifyArgs(args);
     } else {
       args = [].slice.call(args);

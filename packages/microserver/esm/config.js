@@ -4,9 +4,9 @@ export default (config) => {
       if (req[conf] !== undefined) {
         continue;
       }
-      if (conf === "path" || conf === "url") {
+      if (conf === 'path' || conf === 'url') {
         req[conf] = req.getUrl();
-      } else if (conf === "method") {
+      } else if (conf === 'method') {
         req[conf] = req.getMethod();
       }
     }

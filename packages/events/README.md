@@ -20,13 +20,13 @@ then you able to import to Node.js/Browser easily
 
 ```js
 // Node.js
-const Events = require("@dalisoft/events");
+const Events = require('@dalisoft/events');
 
 // Browser
 // window.Events OR Events
 
 // ES6
-import Events from "@dalisoft/events";
+import Events from '@dalisoft/events';
 ```
 
 ## Usage
@@ -34,8 +34,8 @@ import Events from "@dalisoft/events";
 ```js
 const ev = new Events();
 
-ev.on("hello", name => console.log("Hello ", name));
-ev.emit("hello", "world");
+ev.on('hello', (name) => console.log('Hello ', name));
+ev.emit('hello', 'world');
 ```
 
 ## License

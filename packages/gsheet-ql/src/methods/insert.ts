@@ -3,7 +3,7 @@ import {
   Resource,
   Error,
   Response,
-  ObjStringAny,
+  ObjStringAny
 } from '../ts-interfaces';
 import { parseTypes } from '../helpers/index';
 
@@ -13,16 +13,16 @@ const insertRows = (
   sheets: Sheets,
   auth: any,
   fields: string[],
-  row: ObjStringAny | ObjStringAny[],
+  row: ObjStringAny | ObjStringAny[]
 ) => {
   const values = Array.isArray(row)
     ? row.map((row: ObjStringAny) =>
-        fields.map((field: string): any => parseTypes(row[field], false)),
+        fields.map((field: string): any => parseTypes(row[field], false))
       )
     : [fields.map((field: string) => parseTypes(row[field], false))];
 
   const resource: Resource = {
-    values,
+    values
   };
 
   return new Promise((resolve, reject) => {
@@ -33,14 +33,14 @@ const insertRows = (
         spreadsheetId,
         range,
         valueInputOption: 'RAW',
-        insertDataOption: 'INSERT_ROWS',
+        insertDataOption: 'INSERT_ROWS'
       },
       (err: Error, res: Response) => {
         if (err) {
           return reject(err);
         }
         resolve(res.data);
-      },
+      }
     );
   });
 };

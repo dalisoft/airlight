@@ -1,14 +1,14 @@
 // Imports
-const fs = require("fs");
+const fs = require('fs');
 
-const { importsAst, exportsAst, cleanAst } = require("./ast");
-const template = require("./template");
+const { importsAst, exportsAst, cleanAst } = require('./ast');
+const template = require('./template');
 
-module.exports = params =>
+module.exports = (params) =>
   new Promise((resolve, reject) => {
-    fs.readFile(params.file, { encoding: "utf-8" }, (err, fileData) => {
+    fs.readFile(params.file, { encoding: 'utf-8' }, (err, fileData) => {
       if (err) {
-        console.log("CLI [Lib-Export]: Error was occured", err);
+        console.log('CLI [Lib-Export]: Error was occured', err);
         reject(err);
         return;
       }
@@ -23,12 +23,12 @@ module.exports = params =>
       );
 
       fs.writeFile(
-        params.output || params.file.replace(/\.js/g, "") + ".processed.js",
+        params.output || params.file.replace(/\.js/g, '') + '.processed.js',
         processedFileString,
-        errWrite => {
+        (errWrite) => {
           if (errWrite) {
             console.log(
-              "CLI [Lib-Export]: Error was occured during save processed file",
+              'CLI [Lib-Export]: Error was occured during save processed file',
               errWrite
             );
             reject(errWrite);

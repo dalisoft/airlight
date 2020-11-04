@@ -34,19 +34,19 @@ lib-export -name LibraryName -file YOUR_FILE.js -output YOUR_FILE.browser.js --n
 ### Library mode
 
 ```js
-const libexport = require("lib-export");
+const libexport = require('lib-export');
 
 libexport({
-  name: "LibraryName",
-  output: "YOUR_FILE.browser.js", // Optional, by default suffix will be .processed.js
-  file: "YOUR_FILE.js",
-  "no-amd": true,
-  "no-worker": true,
-  "no-this": true,
-  "no-commonjs": true
+  name: 'LibraryName',
+  output: 'YOUR_FILE.browser.js', // Optional, by default suffix will be .processed.js
+  file: 'YOUR_FILE.js',
+  'no-amd': true,
+  'no-worker': true,
+  'no-this': true,
+  'no-commonjs': true
 })
-  .then(() => console.log("Done"))
-  .catch(err => console.error("What??", err));
+  .then(() => console.log('Done'))
+  .catch((err) => console.error('What??', err));
 ```
 
 ## License

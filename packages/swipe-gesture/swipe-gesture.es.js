@@ -1,4 +1,4 @@
-const Swipe = props => {
+const Swipe = (props) => {
   let isPressed = false;
   let startX = 0;
   let startY = 0;
@@ -15,7 +15,7 @@ const Swipe = props => {
     type = null;
   };
 
-  const onTouchStartHandler = e => {
+  const onTouchStartHandler = (e) => {
     e =
       e.pageX !== undefined
         ? e
@@ -36,7 +36,7 @@ const Swipe = props => {
       props.onPointerDown(e);
     }
   };
-  const onTouchMoveHandler = e => {
+  const onTouchMoveHandler = (e) => {
     if (isPressed && startX > 0 && startY > 0) {
       if (e.touches) {
         if (e.touches.length > 1 || (e.scale && e.scale !== 1)) {
@@ -65,11 +65,11 @@ const Swipe = props => {
         delta = dx;
         if (dx < 0) {
           if (props.onSwipeLeft) {
-            type = "onSwipeLeft";
+            type = 'onSwipeLeft';
           }
         } else if (dx > 0) {
           if (props.onSwipeRight) {
-            type = "onSwipeRight";
+            type = 'onSwipeRight';
           }
         }
       } else if (ay > ax) {
@@ -79,17 +79,17 @@ const Swipe = props => {
         delta = dy;
         if (dy < 0) {
           if (props.onSwipeUp) {
-            type = "onSwipeUp";
+            type = 'onSwipeUp';
           }
         } else if (dy > 0) {
           if (props.onSwipeDown) {
-            type = "onSwipeDown";
+            type = 'onSwipeDown';
           }
         }
       }
     }
   };
-  const onTouchEndHandler = e => {
+  const onTouchEndHandler = (e) => {
     requestAnimationFrame(onLeaveHandle);
     isPressed = false;
   };

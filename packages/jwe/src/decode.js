@@ -1,4 +1,4 @@
-import nodeWebToken from "node-webtokens";
+import nodeWebToken from 'node-webtokens';
 
 const decodeJWE = (token, key) =>
   new Promise((resolve, reject) => {

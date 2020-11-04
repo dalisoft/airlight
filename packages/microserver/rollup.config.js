@@ -1,15 +1,15 @@
-import pkg from "./package.json";
+import pkg from './package.json';
 
 const external = (pkg.dependencies
   ? Object.keys(pkg.dependencies)
   : []
-).concat(["querystring", "stream"]);
+).concat(['querystring', 'stream']);
 
 export default {
-  input: "./esm/index.js",
+  input: './esm/index.js',
   output: {
-    format: "cjs",
-    file: "./cjs/index.cjs",
+    format: 'cjs',
+    file: './cjs/index.cjs',
     esModule: false,
     sourcemap: true
   },

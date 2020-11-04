@@ -22,12 +22,12 @@ I recommend you using [DataLoader](https://github.com/graphql/dataloader) instea
 
 ```js
 // ES6
-import batchCollect from "@dalisoft/batch-collect";
+import batchCollect from '@dalisoft/batch-collect';
 
 // or
 
 // CommonJS
-const batchCollect = require("@dalisoft/batch-collect");
+const batchCollect = require('@dalisoft/batch-collect');
 
 // or
 
@@ -39,7 +39,7 @@ const batchCollect = window.batchCollect;
 ### Basic example
 
 ```js
-const batchQuery = batchCollect(async collects => {
+const batchQuery = batchCollect(async (collects) => {
   await timeout(500);
 
   return collects.map(requestToSomeWhere);
@@ -47,7 +47,7 @@ const batchQuery = batchCollect(async collects => {
 
 batchQuery(
   () => `getUser { id, name }`,
-  user => doSomething(user)
+  (user) => doSomething(user)
 );
 
 await batchQuery(async () => {
@@ -61,18 +61,18 @@ batchQuery(`getProfile {id, avatar}`);
 ### N+1 problem solve example
 
 ```js
-const batchSQL = batchCollect(async ids => {
+const batchSQL = batchCollect(async (ids) => {
   return orm.getByIds(ids);
 });
 
 batchSQL(
   () => id,
-  row => doSomething(row)
+  (row) => doSomething(row)
 );
 
 // This code is executes from different place than above query
 // and both code exetudes once, on DB requests will be called once
-batchSQL(id, row => doSomething(row));
+batchSQL(id, (row) => doSomething(row));
 ```
 
 For more info see tests.

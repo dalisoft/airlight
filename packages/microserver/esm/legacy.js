@@ -1,6 +1,6 @@
-export const useConnectMiddleware = middleware => {
+export const useConnectMiddleware = (middleware) => {
   return (res, req) =>
-    new Promise(resolve =>
+    new Promise((resolve) =>
       middleware(req, res, (err, done) => {
         if (err) {
           res.end(JSON.stringify({ message: err.message, code: err.code }));

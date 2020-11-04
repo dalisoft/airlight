@@ -1,12 +1,12 @@
-import args from "@dalisoft/args";
+import args from '@dalisoft/args';
 
 function Events() {
-  Object.defineProperty(this, "___events", {
+  Object.defineProperty(this, '___events', {
     enumerable: false,
     writable: true,
     value: {}
   });
-  Object.defineProperty(this, "___modifyArgs", {
+  Object.defineProperty(this, '___modifyArgs', {
     enumerable: false,
     writable: true,
     value: null
@@ -57,7 +57,7 @@ Events.prototype = {
       }
 
       const __event = ___events[name];
-      if (typeof callback === "function") {
+      if (typeof callback === 'function') {
         const i = __event.indexOf(callback);
         if (i !== -1) {
           __event.splice(i, 1);

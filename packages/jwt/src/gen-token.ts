@@ -13,7 +13,7 @@ interface SecureMapInterface {
 }
 const secureMap: SecureMapInterface = {
   S128: true,
-  S96: false,
+  S96: false
 };
 const secureVal = (v: boolean | undefined): string =>
   v ? 'S128' : v === false ? 'S96' : 'S32';
@@ -23,15 +23,16 @@ async function generateToken(
   secretOrPrivate: Secret,
   options?: SignOptions,
   secure?: boolean,
-  salt?: string,
+  salt?: string
 ) {
   const accessToken = await sign(payload, secretOrPrivate, options, secure);
   const head = (await sign(payload, secretOrPrivate, options)).split('.')[0];
 
   const refreshToken = secure
-    ? `${head}.${encrypt(secretOrPrivate, randToken.uid(
-        64,
-      ) as string)}.${secureVal(secure)}`
+    ? `${head}.${encrypt(
+        secretOrPrivate,
+        randToken.uid(64) as string
+      )}.${secureVal(secure)}`
     : `${head}.${randToken.uid(64) as string}.${secureVal(secure)}`;
 
   return {
@@ -39,7 +40,7 @@ async function generateToken(
     refreshToken,
     publicKey: salt
       ? encrypt(`${refreshToken}.${salt}`, secretOrPrivate as any)
-      : null,
+      : null
   };
 }
 
@@ -52,7 +53,7 @@ async function refreshToken({
   publicKey,
   salt,
   refreshToken,
-  privateKey: privateKeyManual,
+  privateKey: privateKeyManual
 }: OKS) {
   if (!salt && publicKey) {
     return null;
@@ -66,14 +67,14 @@ async function refreshToken({
     accessToken,
     privateKey,
     { complete: true },
-    isSecure,
+    isSecure
   );
   let payloadPeriod = decoded.payload.exp - decoded.payload.iat;
 
   if (payloadPeriod <= 0) {
     console.error(
       '@dalisoft/jwt [RefreshToken]: The old JWT token period is negative' +
-        ' or zero, we normalize it is to good value, at least is 100',
+        ' or zero, we normalize it is to good value, at least is 100'
     );
     payloadPeriod = 100;
   }
@@ -89,10 +90,10 @@ async function refreshToken({
     decoded.payload,
     privateKey as any,
     {
-      expiresIn: payloadPeriod,
+      expiresIn: payloadPeriod
     },
     isSecure,
-    salt,
+    salt
   );
 }
 

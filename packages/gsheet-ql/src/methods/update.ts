@@ -3,7 +3,7 @@ import {
   Error,
   Response,
   Resource,
-  ObjStringAny,
+  ObjStringAny
 } from '../ts-interfaces';
 import { parseTypes, getRowsIndexRange } from '../helpers/index';
 
@@ -14,7 +14,7 @@ const updateRows = (
   auth: any,
   fields: any[],
   row: ObjStringAny | ObjStringAny[] | any,
-  batch?: boolean,
+  batch?: boolean
 ) => {
   let isDelete = false;
   if (typeof row === 'string' || typeof row === 'number') {
@@ -31,26 +31,23 @@ const updateRows = (
   const values =
     !isDelete &&
     (batch && Array.isArray(range)
-      ? range.map(range => ({
+      ? range.map((range) => ({
           range,
           values: row.map(
             (row: ObjStringAny | string | any, rowIndex: number) =>
               Array.isArray(fields[0])
-                ? fields[rowIndex].map(
-                    (field: string): any =>
-                      row === '' ? '' : parseTypes(row[field], false),
+                ? fields[rowIndex].map((field: string): any =>
+                    row === '' ? '' : parseTypes(row[field], false)
                   )
-                : fields.map(
-                    (field: string): any =>
-                      row === '' ? '' : parseTypes(row[field], false),
-                  ),
-          ),
+                : fields.map((field: string): any =>
+                    row === '' ? '' : parseTypes(row[field], false)
+                  )
+          )
         }))
       : row.map((row: string | ObjStringAny | any) =>
-          fields.map(
-            (field: string): any =>
-              row === '' ? '' : parseTypes(row[field], false),
-          ),
+          fields.map((field: string): any =>
+            row === '' ? '' : parseTypes(row[field], false)
+          )
         ));
 
   const resource: Resource = {};
@@ -72,9 +69,9 @@ const updateRows = (
             sheetId: spreadsheetId,
             dimension: 'ROWS',
             startIndex: req.startRowIndex,
-            endIndex: req.endRowIndex,
-          },
-        },
+            endIndex: req.endRowIndex
+          }
+        }
       };
       requests.push(deleteRequest);
     });
@@ -87,7 +84,7 @@ const updateRows = (
         auth,
         spreadsheetId,
         resource,
-        ...(batch ? {} : { range, valueInputOption: 'USER_ENTERED' }),
+        ...(batch ? {} : { range, valueInputOption: 'USER_ENTERED' })
       },
       (err: Error, res: Response) => {
         if (err) {
@@ -103,7 +100,7 @@ const updateRows = (
                   (obj[range] = data.valueRanges
                     ? parseValues(data.valueRanges[i])
                     : {}) && obj,
-                {},
+                {}
               );
             }
             {
@@ -111,9 +108,9 @@ const updateRows = (
 
               return updatedRange;
             }
-          })(res.data, batch),
+          })(res.data, batch)
         );
-      },
+      }
     );
   });
 };

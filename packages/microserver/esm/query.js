@@ -1,4 +1,4 @@
-import { parse } from "querystring";
+import { parse } from 'querystring';
 
 export default () => {
   return (res, req) => {

@@ -1,19 +1,19 @@
-import buble from 'rollup-plugin-buble'
-import { terser } from 'rollup-plugin-terser'
-import resolve from 'rollup-plugin-node-resolve'
+import buble from 'rollup-plugin-buble';
+import { terser } from 'rollup-plugin-terser';
+import resolve from 'rollup-plugin-node-resolve';
 
-const { BUILD } = process.env
+const { BUILD } = process.env;
 
-let dest = 'points'
+let dest = 'points';
 
-let uglifyPlugin
+let uglifyPlugin;
 
 if (BUILD === 'prod') {
-  uglifyPlugin = terser()
-  dest = dest + '.min'
+  uglifyPlugin = terser();
+  dest = dest + '.min';
 }
 
-dest = dest + '.js'
+dest = dest + '.js';
 
 export default {
   input: 'index.js',
@@ -40,4 +40,4 @@ export default {
     }),
     uglifyPlugin
   ]
-}
+};
