@@ -18,7 +18,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x, 14.x]
+        node-version: [15.x]
         os: [ubuntu-latest, macos-latest]
 
     steps:
@@ -28,6 +28,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+
+      - name: Upgrade npm to v7
+        run: |
+          npm i -g npm@7
 
       - name: Install
         run: |
