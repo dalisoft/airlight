@@ -31,7 +31,11 @@ jobs:
 
       - name: Upgrade npm to v7
         run: |
-          npm i -g npm@7
+          npm i -g npm@7 lerna
+      - name: Lerna configure
+        run: |
+          npx lerna bootstrap
+          npx lerna link
 
       - name: Install
         run: |
