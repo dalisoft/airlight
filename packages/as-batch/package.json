@@ -1,6 +1,5 @@
 {
   "name": "@dalisoft/as-batch",
-  "private": false,
   "version": "0.1.8",
   "description": "Convert many calls into batches",
   "types": "dist/es/as-batch.d.ts",

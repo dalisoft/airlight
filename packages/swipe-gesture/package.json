@@ -31,6 +31,5 @@
   "devDependencies": {
     "lib-export": "0.0.3",
     "terser": "^4.8.0"
-  },
-  "dependencies": {}
+  }
 }

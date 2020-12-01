@@ -2,9 +2,7 @@
   "name": "mfscu",
   "version": "0.0.1",
   "description": "MacOS Font Smoothing Configuration Utility",
-  "bin": {
-    "mfscu": "./cli.js"
-  },
+  "bin": "./cli.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dalisoft/mfscu.git"

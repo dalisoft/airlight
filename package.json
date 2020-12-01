@@ -4,15 +4,13 @@
   "workspaces": [
     "packages/*"
   ],
-  "installConfig": {
-    "pnp": true
-  },
   "scripts": {
     "lint:eslint": "eslint --ext .js,.ts .",
     "lint:prettier": "prettier -c ."
   },
   "devDependencies": {
     "eslint": "^7.12.1",
+    "eslint-config-airlight-node": "./packages/airlight/packages/eslint-config-node",
     "lerna": "^3.22.1",
     "prettier": "^2.1.2"
   }

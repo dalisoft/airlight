@@ -6,9 +6,6 @@
   "files": [
     "config.js"
   ],
-  "installConfig": {
-    "pnp": true
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dalisoft/npm-packages.git"

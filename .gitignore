@@ -67,6 +67,12 @@ __snapshots__
 tmp
 styleguide/
 
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+
 ## Make sure subfolders also does not exist
 **/.grunt
 **/.npm
@@ -83,6 +89,12 @@ styleguide/
 **/__snapshots__
 **/tmp
 **/styleguide/
+
+**/.yarn/*
+**/!.yarn/releases
+**/!.yarn/plugins
+**/!.yarn/sdks
+**/!.yarn/versions
 
 #################
 #### Modules ####

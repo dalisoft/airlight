@@ -3,9 +3,7 @@
   "version": "0.0.3",
   "description": "CLI for making pure types exportable",
   "main": "lib.js",
-  "bin": {
-    "lib-export": "./cli.js"
-  },
+  "bin": "./cli.js",
   "scripts": {
     "test": "./cli.js -name Simple -file test/simple.js -output test/simple.umd.js"
   },

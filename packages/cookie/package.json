@@ -28,6 +28,5 @@
   "devDependencies": {
     "ava": "^2.0.0",
     "terser": "^4.0.0"
-  },
-  "dependencies": {}
+  }
 }

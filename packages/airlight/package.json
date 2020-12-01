@@ -5,9 +5,6 @@
   "workspaces": [
     "packages/*"
   ],
-  "installConfig": {
-    "pnp": true
-  },
   "description": "Shared configs",
   "repository": {
     "type": "git",

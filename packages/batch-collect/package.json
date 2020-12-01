@@ -1,6 +1,5 @@
 {
   "name": "@dalisoft/batch-collect",
-  "private": false,
   "version": "0.0.3",
   "description": "Collect calls and make them batching",
   "typings": "batch-collect.d.ts",
@@ -32,6 +31,5 @@
     "rollup": "^2.33.1",
     "rollup-plugin-delete": "^1.0.0",
     "rollup-plugin-terser": "^5.3.1"
-  },
-  "dependencies": {}
+  }
 }
