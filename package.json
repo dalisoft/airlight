@@ -1,5 +1,6 @@
 {
   "name": "airlight-config",
+  "description": "Shared configurations to use with combine of each other to get cleaner, better, reusable, secure and effecient codebase",
   "private": true,
   "workspaces": [
     "packages/*"
