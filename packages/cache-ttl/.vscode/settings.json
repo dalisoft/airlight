@@ -1,9 +1,0 @@
-{
-  "eslint.enable": false,
-  "prettier.requireConfig": true,
-  "typescript.validate.enable": true,
-  "files.associations": {
-    "*.ts": "typescript",
-    "*rc": "json"
-  }
-}

@@ -1,7 +1,0 @@
-{
-  "eslint.enable": false,
-  "prettier.requireConfig": false,
-  "files.associations": {
-    "*.ts": "typescript"
-  }
-}

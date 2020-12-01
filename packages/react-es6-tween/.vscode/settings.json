@@ -1,6 +1,0 @@
-{
-  "eslint.enable": false,
-  "javascript.validate.enable": true,
-  "javascript.format.enable": true,
-  "prettier.requireConfig": false
-}

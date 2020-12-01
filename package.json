@@ -1,5 +1,5 @@
 {
-  "name": "@dalisoft/npm-packages",
+  "name": "airlight-config",
   "private": true,
   "workspaces": [
     "packages/*"
@@ -8,9 +8,24 @@
     "lint:eslint": "eslint --ext .js,.ts .",
     "lint:prettier": "prettier -c ."
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dalisoft/airlight.git"
+  },
+  "keywords": [
+    "prettier",
+    "eslint",
+    "config"
+  ],
+  "author": "dalisoft",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dalisoft/airlight/issues"
+  },
+  "homepage": "https://github.com/dalisoft/airlight#readme",
   "devDependencies": {
     "eslint": "^7.12.1",
-    "eslint-config-airlight-node": "./packages/airlight/packages/eslint-config-node",
+    "eslint-config-airlight-node": "./packages/eslint-config-node",
     "lerna": "^3.22.1",
     "prettier": "^2.1.2"
   }
