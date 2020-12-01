@@ -19,16 +19,18 @@ module.exports = {
   ],
   rules: {
     '@typescript-eslint/indent': ['off'],
+    '@typescript-eslint/comma-dangle': ['error', 'never'],
     'operator-linebreak': ['off', 'after'],
     'no-underscore-dangle': ['off'],
     'import/prefer-default-export': ['warn'],
-    'comma-dangle': ['error', 'never'],
     'no-console': ['warn'],
     'import/extensions': [
       'error',
       'never',
       {
-        js: 'always'
+        js: 'always',
+        json: 'always',
+        wasm: 'always'
       }
     ]
   }

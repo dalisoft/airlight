@@ -19,7 +19,7 @@ yarn add commitlint-config-airlight -D
 `commitlint.config.js`
 
 ```js
-module.exports = { extends: ['@commitlint/config-conventional'] };
+module.exports = { extends: ['commitlint-config-airlight'] };
 ```
 
 ## Rules

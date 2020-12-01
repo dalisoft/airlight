@@ -3,8 +3,10 @@
   "version": "0.0.1",
   "description": "Prettier config for use of combining to airlight-config-eslint(-node)",
   "main": "config.js",
+  "types": "interface.d.ts",
   "files": [
-    "config.js"
+    "config.js",
+    "interface.d.ts"
   ],
   "repository": {
     "type": "git",

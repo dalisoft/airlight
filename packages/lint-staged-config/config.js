@@ -9,12 +9,8 @@ const linterCommandsMap = {
 };
 
 const applyLinterCommands = (lint_names = []) => {
-  return include
-    .map((lint) => {
-      if (linterCommandsMap[lint]) {
-        return linterCommandsMap[lint];
-      }
-    })
+  return lint_names
+    .map((lint) => linterCommandsMap[lint])
     .filter((command) => command);
 };
 

@@ -1,1 +1,1 @@
-module.exports = require('./packages/airlight/packages/prettier-config');
+module.exports = require('prettier-config-airlight');

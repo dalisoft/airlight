@@ -1,3 +1,6 @@
 {
-  "extends": "airlight-node"
+  "extends": "airlight-node",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  }
 }
