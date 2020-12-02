@@ -20,9 +20,9 @@
   "author": "dalisoft",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dalisoft/npm-packages/issues"
+    "url": "https://github.com/dalisoft/airlight/issues"
   },
-  "homepage": "https://github.com/dalisoft/npm-packages#readme",
+  "homepage": "https://github.com/dalisoft/airlight#readme",
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^4.6.1",
     "eslint-config-airbnb-typescript": "^12.0.0",

@@ -20,9 +20,9 @@
   "author": "dalisoft",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dalisoft/npm-packages/issues"
+    "url": "https://github.com/dalisoft/airlight/issues"
   },
-  "homepage": "https://github.com/dalisoft/npm-packages#readme",
+  "homepage": "https://github.com/dalisoft/airlight#readme",
   "peerDependencies": {
     "husky": "^4.3.0"
   }
