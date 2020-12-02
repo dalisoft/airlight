@@ -2,5 +2,10 @@
   "version": "independent",
   "npmClient": "npm",
   "useWorkspaces": true,
-  "stream": true
+  "stream": true,
+  "command": {
+    "publish": {
+      "conventionalCommits": true
+    }
+  }
 }
