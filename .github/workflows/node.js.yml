@@ -18,8 +18,8 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [15.x]
-        os: [ubuntu-latest, macos-latest]
+        node-version: [14.x]
+        os: [ubuntu-18.04]
 
     steps:
       - uses: actions/checkout@v2
@@ -31,7 +31,7 @@ jobs:
 
       - name: Upgrade npm to v7
         run: |
-          npm i -g npm@7 lerna
+          npm install -g npm@7 lerna
       - name: Lerna configure
         run: |
           npx lerna bootstrap
@@ -43,3 +43,36 @@ jobs:
       - name: Lint code
         run: |
           npm run lint
+  release:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+        os: [ubuntu-18.04]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Upgrade npm to v7
+        run: |
+          npm install -g npm@7 lerna semantic-release
+      - name: Lerna configure
+        run: |
+          npx lerna bootstrap
+          npx lerna link
+
+      - name: Install
+        run: |
+          npm install
+          npm install semantic-release-monorepo
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npx lerna exec --concurrency 1 -- npx semantic-release -e semantic-release-monorepo
