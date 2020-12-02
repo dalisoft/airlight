@@ -8,7 +8,8 @@
   "scripts": {
     "lint": "npm run lint:eslint && npm run lint:prettier",
     "lint:eslint": "eslint --ext .js,.ts .",
-    "lint:prettier": "prettier -c ."
+    "lint:prettier": "prettier -c .",
+    "postinstall": "node postinstall.js"
   },
   "repository": {
     "type": "git",
