@@ -1,5 +1,5 @@
 {
   "extends": [
-    "commitlint-config-airlight"
+    "@commitlint/config-lerna-scopes"
   ]
 }
