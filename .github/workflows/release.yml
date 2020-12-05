@@ -1,0 +1,44 @@
+# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Linting and release
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+env:
+  CI: true
+
+jobs:
+  release:
+    needs: lint
+    runs-on: ubuntu-18.04
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+
+      - name: Upgrade npm to v7
+        run: |
+          npm install -g npm@7 lerna semantic-release
+      - name: Lerna configure
+        run: |
+          npx lerna bootstrap
+          npx lerna link
+
+      - name: Install
+        run: |
+          npm install
+          npm install semantic-release-monorepo
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npx lerna exec --concurrency 1 -- npx semantic-release -e semantic-release-monorepo
