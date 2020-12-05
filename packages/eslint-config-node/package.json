@@ -38,7 +38,5 @@
     "eslint": "^7.12.x",
     "prettier": "^2.1.x"
   },
-  "devDependencies": {
-    "@commitlint/config-lerna-scopes": "^11.0.0"
-  }
+  "devDependencies": {}
 }
