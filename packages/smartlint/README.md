@@ -1,6 +1,6 @@
 # smartlint
 
-Tool for lint entire codebase with single execution
+Tool for lint entire codebase with single CLI command
 
 ## Installation
 
@@ -14,9 +14,9 @@ yarn add smartlint -D
 
 For working properly, you may need one or all of these dependencies.
 
-For more information about each dependencies, click to dependecy link to learn about configs, features and how they work
-
-## Dependencies
+For more information about each dependencies,
+click to dependecy link to learn about configs,
+features and how they work
 
 - [eslint](http://eslint.org)
 - [prettier](https://prettier.io)
@@ -28,25 +28,35 @@ For more information about each dependencies, click to dependecy link to learn a
 
 ## Usage
 
-`.lintstagedrc.js`
-
-```js
-module.exports = require('lintstaged-config-airlight')(languages?);
+```bash
+npx smartlint --linters=eslint,prettier .
 ```
 
 ### Arguments
 
-#### **languages** [Optional]
+#### `--linters`
 
-Allowed languages to lint
+Linters to run
 
-Type: `String[]`
+Type: `String`
 
-Default: `['ts', 'js', 'tsx', 'jsx', 'json', 'yml', 'css', 'scss', 'sass', 'less', 'md', 'dockerfile']`
+Default:
 
-## Rules
+```js
+[
+  'eslint',
+  'stylelint',
+  'markdownlint',
+  'htmllint',
+  'jsonymllint',
+  'prettier',
+  'dockerfile'
+];
+```
 
-See [config.js](./config.js)
+Example: `npx smartlint --linters=eslint,stylelint ./src`
+
+> You can change order of linting if you need
 
 ## License
 

@@ -45,6 +45,7 @@ module.exports = (languages = LANGUAGES_SUPPORT) => {
         commands = applyLinterCommands(['eslint', 'prettier']);
         break;
       case 'json':
+      case 'yaml':
       case 'yml':
         regex += language;
         commands = applyLinterCommands(['jsonymllint', 'prettier']);

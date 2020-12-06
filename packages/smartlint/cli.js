@@ -39,16 +39,17 @@ for (let i = 0; i < args.length; i += 1) {
 const lintCommand = smartlint(options.linters, path);
 
 if (lintCommand) {
-  util
+  return util
     .execAsync(lintCommand)
-    .then(console.log)
-    .catch((err) => {
-      const [, error, ...messages] = err.message.split('\n\n');
-
-      util.error(error);
-
-      // eslint-disable-next-line security-node/detect-crlf
-      messages.forEach((logMessage) => console.log(logMessage));
+    .catch((std) => std)
+    .then(({ stdout, stderr }) => {
+      if (stdout) {
+        process.stdout.write(util.reinspectLog(stdout));
+      }
+      if (stderr) {
+        process.stderr.write(util.reinspectLog(stderr));
+      }
+      return null;
     });
 }
 

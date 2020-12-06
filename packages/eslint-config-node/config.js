@@ -20,6 +20,7 @@ module.exports = {
   rules: {
     '@typescript-eslint/indent': ['off'],
     '@typescript-eslint/comma-dangle': ['error', 'never'],
+    '@typescript-eslint/no-unused-vars': 'error',
     'operator-linebreak': ['off', 'after'],
     'no-underscore-dangle': ['off'],
     'import/prefer-default-export': ['warn'],

@@ -34,6 +34,9 @@
     "lint-staged": "^10.5.2",
     "prettier": "^2.1.2",
     "eslint-config-airlight-node": "./packages/eslint-config-node",
-    "husky-config-airlight": "./packages/husky-config"
+    "husky-config-airlight": "./packages/husky-config",
+    "lintstaged-config-airlight": "./packages/lint-staged-config",
+    "prettier-config-airlight": "./packages/prettier-config",
+    "smartlint": "./packages/smartlint"
   }
 }
