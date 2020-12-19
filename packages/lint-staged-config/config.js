@@ -1,9 +1,9 @@
 const linterCommandsMap = {
-  eslint: 'eslint',
-  stylelint: 'stylelint',
+  eslint: 'eslint --color',
+  stylelint: 'stylelint --color',
   markdownlint: 'markdownlint-cli2',
   htmllint: 'htmlhint',
-  jsonymllint: 'spectral lint',
+  jsonymllint: 'spectral lint --ignore-unknown-format',
   dockerfile: 'dockerfilelint',
   prettier: 'prettier -c'
 };

@@ -1,5 +1,5 @@
 {
-  "name": "lintstaged-config-airlight",
+  "name": "lint-staged-config-airlight",
   "version": "0.0.1",
   "description": "Almost zero-config `lint-staged` configuration",
   "main": "config.js",
