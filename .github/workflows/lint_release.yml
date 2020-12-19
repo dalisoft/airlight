@@ -33,3 +33,28 @@ jobs:
 
       - name: Lint code
         run: yarn lint
+  release:
+    needs: lint
+    runs-on: ubuntu-18.04
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+
+      - name: Install
+        run: yarn
+      - name: Lerna configure
+        run: |
+          yarn add semantic-release-monorepo
+          yarn lerna bootstrap
+          yarn lerna link
+
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: yarn lerna exec --concurrency 1 -- yarn semantic-release -e semantic-release-monorepo
