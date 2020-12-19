@@ -47,15 +47,12 @@ jobs:
 
       - name: Install
         run: yarn
+      - name: semantic-release Prepare
+        run: yarn add semantic-release semantic-release-monorepo -W
       - name: Lerna configure
         run: |
           yarn lerna bootstrap
           yarn lerna link
-
-      - name: semantic-release Prepare
-        run: |
-          yarn global add lerna semantic-release
-          yarn add semantic-release-monorepo -W
 
       - name: Release
         env:
