@@ -28,7 +28,7 @@ module.exports = (linters = DEFAULT_LINTERS, path = '.') => {
     .map(
       (linter) =>
         linterCommandsMap[linter] &&
-        `npx ${linterCommandsMap[linter]} ${
+        `${linterCommandsMap[linter]} ${
           defaultArgumentsMap[linter] && path === '.'
             ? defaultArgumentsMap[linter]
             : path

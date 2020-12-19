@@ -29,7 +29,7 @@ features and how they work
 ## Usage
 
 ```bash
-npx smartlint --linters=eslint,prettier .
+yarn smartlint --linters=eslint,prettier .
 ```
 
 ### Arguments
@@ -53,7 +53,7 @@ Default:
 ['eslint', 'markdownlint', 'htmllint', 'jsonymllint', 'prettier'];
 ```
 
-Example: `npx smartlint --linters=eslint,stylelint .`
+Example: `yarn smartlint --linters=eslint,stylelint .`
 
 > You can change order of linting if you need
 
