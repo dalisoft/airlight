@@ -49,12 +49,16 @@ jobs:
         run: yarn
       - name: Lerna configure
         run: |
-          yarn global add semantic-release semantic-release-monorepo
           yarn lerna bootstrap
           yarn lerna link
+
+      - name: semantic-release Prepare
+        run: |
+          yarn global add lerna semantic-release
+          yarn add semantic-release-monorepo
 
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: yarn semantic-release
+        run: lerna exec --concurrency 1 -- semantic-release -e semantic-release-monorepo
