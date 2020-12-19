@@ -38,4 +38,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: yarn lerna exec --concurrency 1 -- npx semantic-release -e semantic-release-monorepo
+        run: yarn lerna exec --concurrency 1 -- yarn semantic-release -e semantic-release-monorepo
