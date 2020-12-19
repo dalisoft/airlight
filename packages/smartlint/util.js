@@ -35,6 +35,8 @@ const execCommand = (command) =>
       }
       if (stderr && stderr.length > 0) {
         process.stderr.write(reinspectLog(stderr));
+        // eslint-disable-next-line no-process-exit
+        process.exit(1);
       }
       return null;
     });
