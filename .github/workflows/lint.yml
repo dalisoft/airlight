@@ -14,12 +14,7 @@ env:
 
 jobs:
   lint:
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      matrix:
-        node-version: [14.x]
-        os: [ubuntu-18.04]
+    runs-on: ubuntu-18.04
 
     steps:
       - uses: actions/checkout@v2
@@ -27,7 +22,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 14.x
 
       - name: Install
         run: yarn
