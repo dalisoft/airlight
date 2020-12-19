@@ -6,9 +6,7 @@
     "packages/*"
   ],
   "scripts": {
-    "lint": "npm run lint:eslint && npm run lint:prettier",
-    "lint:eslint": "eslint --ext .js,.ts .",
-    "lint:prettier": "prettier -c ."
+    "lint": "smartlint"
   },
   "repository": {
     "type": "git",
@@ -32,11 +30,6 @@
     "husky": "^4.3.0",
     "lerna": "^3.22.1",
     "lint-staged": "^10.5.2",
-    "prettier": "^2.1.2",
-    "eslint-config-airlight-node": "./packages/eslint-config-node",
-    "husky-config-airlight": "./packages/husky-config",
-    "lintstaged-config-airlight": "./packages/lint-staged-config",
-    "prettier-config-airlight": "./packages/prettier-config",
-    "smartlint": "./packages/smartlint"
+    "prettier": "^2.1.2"
   }
 }
