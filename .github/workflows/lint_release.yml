@@ -55,7 +55,7 @@ jobs:
       - name: semantic-release Prepare
         run: |
           yarn global add lerna semantic-release
-          yarn add semantic-release-monorepo
+          yarn add semantic-release-monorepo -W
 
       - name: Release
         env:
