@@ -1,4 +1,4 @@
-# lintstaged-config-airlight
+# lint-staged-config-airlight
 
 Almost zero-config [lint-staged](https://github.com/okonet/lint-staged) configuration
 
@@ -14,7 +14,8 @@ yarn add lintstaged-config-airlight -D
 
 For working properly, you may need one or all of these dependencies.
 
-For more information about each dependencies, click to dependecy link to learn about configs, features and how they work
+For more information about each dependencies, click to dependecy link
+to learn about configs, features and how they work
 
 - [eslint](http://eslint.org)
 - [prettier](https://prettier.io)
@@ -44,7 +45,24 @@ Allowed languages to lint
 
 Type: `String[]`
 
-Default: `['ts', 'js', 'tsx', 'jsx', 'json', 'yml', 'css', 'scss', 'sass', 'less', 'md', 'dockerfile']`
+Default:
+
+```js
+[
+  'ts',
+  'js',
+  'tsx',
+  'jsx',
+  'json',
+  'yml',
+  'css',
+  'scss',
+  'sass',
+  'less',
+  'md',
+  'dockerfile'
+];
+```
 
 ## Rules
 

@@ -25,20 +25,17 @@ jobs:
         with:
           node-version: 14.x
 
-      - name: Upgrade npm to v7
-        run: |
-          npm install -g npm@7 lerna semantic-release
       - name: Lerna configure
         run: |
-          npx lerna bootstrap
-          npx lerna link
+          yarn lerna bootstrap
+          yarn lerna link
 
       - name: Install
         run: |
-          npm install
-          npm install semantic-release-monorepo
+          yarn
+          yarn add semantic-release-monorepo
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npx lerna exec --concurrency 1 -- npx semantic-release -e semantic-release-monorepo
+        run: yarn lerna exec --concurrency 1 -- yarn semantic-release -e semantic-release-monorepo

@@ -1,17 +1,24 @@
 {
-  "name": "lint-staged-config-airlight",
+  "name": "smartlint",
   "version": "0.0.1",
-  "description": "Almost zero-config `lint-staged` configuration",
+  "description": "Tool for lint entire codebase with single CLI command",
   "main": "config.js",
+  "bin": "cli.js",
+  "types": "interface.d.ts",
   "files": [
-    "config.js"
+    "config.js",
+    "cli.js",
+    "interface.d.ts"
   ],
+  "engines": {
+    "node": ">=10.16"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dalisoft/airlight.git"
   },
   "keywords": [
-    "lint-staged",
+    "format",
     "git",
     "lint",
     "config"
@@ -22,12 +29,9 @@
     "url": "https://github.com/dalisoft/airlight/issues"
   },
   "homepage": "https://github.com/dalisoft/airlight#readme",
-  "peerDependencies": {
-    "eslint": "^7.12.1",
-    "lint-staged": "^10.5.0",
-    "prettier": "^2.1.2"
-  },
   "dependencies": {
+    "eslint": "^7.12.1",
+    "prettier": "^2.1.2",
     "@stoplight/spectral": "^5.6.0",
     "dockerfilelint": "^1.8.0",
     "htmlhint": "^0.14.1",

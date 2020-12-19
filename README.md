@@ -1,6 +1,7 @@
 # airlight
 
-Shared configurations to use with combine of each other to get cleaner, better, reusable, secure and effecient codebase
+Shared configurations to use with combine of each other to
+get cleaner, better, reusable, secure and effecient codebase
 
 ## Packages
 
@@ -9,6 +10,7 @@ Shared configurations to use with combine of each other to get cleaner, better, 
 - [lint-staged-config-airlight](./packages/lint-staged-config)
 - [commitlint-config-airlight](./packages/commitlint-config)
 - [husky-config-airlight](./packages/husky-config)
+- [smartlint](./packages/smartlint)
 
 ## License
 
