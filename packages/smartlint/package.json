@@ -10,6 +10,9 @@
     "cli.js",
     "interface.d.ts"
   ],
+  "engines": {
+    "node": ">=10.16"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dalisoft/airlight.git"

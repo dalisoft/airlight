@@ -7,6 +7,10 @@ type Lint =
   | 'prettier'
   | 'dockerfile';
 
-declare function smartlint(linters?: Lint, path?: string): string;
+interface ISmartLintReturn {
+  cmd: string;
+  name: Lint;
+}
+declare function smartlint(linters?: Lint, path?: string): ISmartLintReturn[];
 
 export = smartlint;

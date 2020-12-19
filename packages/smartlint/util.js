@@ -8,19 +8,13 @@ const FgYellow = '\x1b[33m';
 const FgBlue = '\x1b[34m';
 
 const error = (...args) => {
-  console.log(FgRed);
-  console.log(...args);
-  console.log(Reset);
+  console.log(FgRed, ...args, Reset);
 };
 const warn = (...args) => {
-  console.log(FgYellow);
-  console.log(...args);
-  console.log(Reset);
+  console.log(FgYellow, ...args, Reset);
 };
 const debug = (...args) => {
-  console.log(FgBlue);
-  console.log(...args);
-  console.log(Reset);
+  console.log(FgBlue, ...args, Reset);
 };
 
 const reinspectLog = (log) => {
@@ -32,6 +26,19 @@ const reinspectLog = (log) => {
 
 const execAsync = util.promisify(exec);
 
+const execCommand = (command) =>
+  execAsync(command)
+    .catch((std) => std)
+    .then(({ stdout, stderr }) => {
+      if (stdout && stdout.length > 0) {
+        process.stdout.write(reinspectLog(stdout));
+      }
+      if (stderr && stderr.length > 0) {
+        process.stderr.write(reinspectLog(stderr));
+      }
+      return null;
+    });
+
 module.exports = {
   error,
   warn,
@@ -39,6 +46,7 @@ module.exports = {
   reinspectLog,
   exec,
   execAsync,
+  execCommand,
   Reset,
   FgRed
 };

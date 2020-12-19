@@ -1,6 +1,6 @@
 const linterCommandsMap = {
-  eslint: 'eslint --color --ext .js,.ts,.jsx,.tsx',
-  stylelint: 'stylelint',
+  eslint: 'eslint --color',
+  stylelint: 'stylelint --color',
   markdownlint: 'markdownlint-cli2',
   htmllint: 'htmlhint',
   jsonymllint: 'spectral lint --ignore-unknown-format',
@@ -8,35 +8,32 @@ const linterCommandsMap = {
   prettier: 'prettier -c'
 };
 
+const defaultArgumentsMap = {
+  dockerfile: 'Dockerfile',
+  markdownlint: '{*.md,**/*.md} "#node_modules"'
+};
+
 const DEFAULT_LINTERS = [
   'eslint',
-  'stylelint',
+  // 'stylelint',
   'markdownlint',
   'htmllint',
   'jsonymllint',
-  'prettier',
-  'dockerfile'
+  'prettier'
+  // 'dockerfile'
 ];
 
 module.exports = (linters = DEFAULT_LINTERS, path = '.') => {
-  // eslint-disable-next-line no-console
-  console.log(
-    // eslint-disable-next-line security-node/detect-crlf
-    linters
-      .map(
-        (linter) =>
-          linterCommandsMap[linter] &&
-          `npx ${linterCommandsMap[linter]} ${path}`
-      )
-      .filter((lint) => lint)
-      .join(' && ')
-  );
-
   return linters
     .map(
       (linter) =>
-        linterCommandsMap[linter] && `npx ${linterCommandsMap[linter]} ${path}`
+        linterCommandsMap[linter] &&
+        `npx ${linterCommandsMap[linter]} ${
+          defaultArgumentsMap[linter] && path === '.'
+            ? defaultArgumentsMap[linter]
+            : path
+        }`
     )
-    .filter((lint) => lint)
-    .join(' && ');
+    .map((cmd, index) => ({ cmd, name: linters[index] }))
+    .filter((lint) => lint.cmd);
 };

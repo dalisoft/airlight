@@ -1,4 +1,4 @@
-# smartlint
+# smartlint [**alpha**]
 
 Tool for lint entire codebase with single CLI command
 
@@ -40,21 +40,20 @@ Linters to run
 
 Type: `String`
 
+Allowed values:
+
+```md
+'eslint' | 'stylelint' | 'markdownlint' | 'htmllint' |
+'jsonymllint' | 'prettier' | 'dockerfile'
+```
+
 Default:
 
 ```js
-[
-  'eslint',
-  'stylelint',
-  'markdownlint',
-  'htmllint',
-  'jsonymllint',
-  'prettier',
-  'dockerfile'
-];
+['eslint', 'markdownlint', 'htmllint', 'jsonymllint', 'prettier'];
 ```
 
-Example: `npx smartlint --linters=eslint,stylelint ./src`
+Example: `npx smartlint --linters=eslint,stylelint .`
 
 > You can change order of linting if you need
 
