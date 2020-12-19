@@ -34,5 +34,19 @@ module.exports = {
         wasm: 'always'
       }
     ]
+  },
+  settings: {
+    node: {
+      tryExtensions: [
+        '.ts',
+        '.js',
+        '.tsx',
+        '.jsx',
+        '.d.ts',
+        '.html',
+        '.md',
+        '.json'
+      ]
+    }
   }
 };
