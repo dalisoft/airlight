@@ -49,7 +49,7 @@ jobs:
         run: yarn
       - name: Lerna configure
         run: |
-          yarn global add semantic-release semantic-release-monorepo -W
+          yarn global add semantic-release semantic-release-monorepo
           yarn lerna bootstrap
           yarn lerna link
 
