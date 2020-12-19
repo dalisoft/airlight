@@ -6,7 +6,7 @@ jobs:
   auto-merge:
     timeout-minutes: 5
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
 
     steps:
       - uses: actions/checkout@v2
