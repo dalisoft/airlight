@@ -7,7 +7,7 @@
   ],
   "scripts": {
     "lint": "smartlint",
-    "semantic-release": "lerna exec --concurrency 1 -- semantic-release -e semantic-release-monorepo"
+    "semantic-release": "lerna exec --concurrency 1 -- yarn semantic-release -e semantic-release-monorepo"
   },
   "repository": {
     "type": "git",
