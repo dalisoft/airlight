@@ -29,14 +29,12 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
+      - name: Install
+        run: yarn
       - name: Lerna configure
         run: |
           yarn lerna bootstrap
           yarn lerna link
 
-      - name: Install
-        run: |
-          yarn
       - name: Lint code
-        run: |
-          yarn lint
+        run: yarn lint
