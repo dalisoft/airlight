@@ -37,7 +37,11 @@ const execCommand = (command) =>
         // eslint-disable-next-line no-process-exit
         process.exit(1);
       }
-      if (stdout.includes('error')) {
+      if (
+        stdout.includes('error') &&
+        !stdout.includes('0 error') &&
+        !stdout.includes('no error')
+      ) {
         // eslint-disable-next-line no-process-exit
         process.exit(1);
       }
