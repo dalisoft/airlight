@@ -23,8 +23,8 @@ const DEFAULT_LINTERS = [
   // 'dockerfile'
 ];
 
-module.exports = (linters = DEFAULT_LINTERS, path = '.') => {
-  return linters
+module.exports = (linters = DEFAULT_LINTERS, path = '.') =>
+  linters
     .map(
       (linter) =>
         linterCommandsMap[linter] &&
@@ -36,4 +36,3 @@ module.exports = (linters = DEFAULT_LINTERS, path = '.') => {
     )
     .map((cmd, index) => ({ cmd, name: linters[index] }))
     .filter((lint) => lint.cmd);
-};
