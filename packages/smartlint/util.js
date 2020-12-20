@@ -40,7 +40,8 @@ const execCommand = (command) =>
       if (
         stdout.includes('error') &&
         !stdout.includes('0 error') &&
-        !stdout.includes('no error')
+        !stdout.includes('no error') &&
+        !stdout.includes('No results')
       ) {
         // eslint-disable-next-line no-process-exit
         process.exit(1);
