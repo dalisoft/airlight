@@ -5,6 +5,7 @@
   "stream": true,
   "command": {
     "publish": {
+      "changelogPreset": "@commitlint/config-lerna-scopes",
       "conventionalCommits": true,
       "createRelease": "github",
       "message": "chore(release): publish %s",
