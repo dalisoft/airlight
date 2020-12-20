@@ -19,6 +19,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Git Identity
+        run: |
+          git config --global user.name 'dalisoft'
+          git config --global user.email 'dalisoft@mail.ru'
+          git remote set-url origin https://x-access-token:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Use Node.js
         uses: actions/setup-node@v1
         with:
