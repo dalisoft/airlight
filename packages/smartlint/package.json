@@ -8,6 +8,7 @@
   "files": [
     "config.js",
     "cli.js",
+    "util.js",
     "interface.d.ts"
   ],
   "engines": {
