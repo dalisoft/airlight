@@ -19,6 +19,7 @@ module.exports = {
   ],
   rules: {
     '@typescript-eslint/explicit-function-return-type': ['off'],
+    '@typescript-eslint/explicit-module-boundary-types': ['off'],
     '@typescript-eslint/indent': ['off'],
     '@typescript-eslint/comma-dangle': ['error', 'never'],
     '@typescript-eslint/no-unused-vars': 'error',
@@ -41,7 +42,8 @@ module.exports = {
       // enable the rule specifically for TypeScript files
       files: ['*.ts', '*.tsx'],
       rules: {
-        '@typescript-eslint/explicit-function-return-type': ['error']
+        '@typescript-eslint/explicit-function-return-type': ['error'],
+        '@typescript-eslint/explicit-module-boundary-types': ['error']
       }
     }
   ],
