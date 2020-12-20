@@ -13,19 +13,11 @@ env:
   CI: true
 
 jobs:
-  lint_release:
+  lint:
     runs-on: ubuntu-18.04
 
     steps:
       - uses: actions/checkout@v2
-
-      - name: Git Identity
-        run: |
-          git config --global user.name 'dalisoft'
-          git config --global user.email 'dalisoft@mail.ru'
-          git remote set-url origin https://x-access-token:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Use Node.js
         uses: actions/setup-node@v1
@@ -41,9 +33,29 @@ jobs:
 
       - name: Lint code
         run: yarn lint
+  release:
+    needs: lint
+    runs-on: ubuntu-18.04
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+
+      - name: Install
+        run: yarn
+      - name: semantic-release Prepare
+        run: yarn add semantic-release semantic-release-monorepo -W
+      - name: Lerna configure
+        run: |
+          yarn lerna bootstrap
+          yarn lerna link
 
       - name: Release
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-        run: yarn lerna publish
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: yarn run semantic-release
