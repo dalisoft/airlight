@@ -11,6 +11,8 @@ on:
 
 env:
   CI: true
+  GIT_AUTHOR_NAME: dalisoft
+  GIT_AUTHOR_EMAIL: dalisoft@mail.ru
 
 jobs:
   lint_release:
