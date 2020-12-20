@@ -7,9 +7,7 @@
     "publish": {
       "changelogPreset": "@commitlint/config-lerna-scopes",
       "conventionalCommits": true,
-      "createRelease": "github",
-      "message": "chore(release): publish %s",
-      "yes": true
+      "createRelease": "github"
     }
   }
 }
