@@ -52,6 +52,8 @@ module.exports = {
       tryExtensions: [
         '.ts',
         '.js',
+        '.cjs',
+        '.mjs',
         '.tsx',
         '.jsx',
         '.d.ts',
