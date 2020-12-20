@@ -18,6 +18,7 @@ module.exports = {
     'no-secrets'
   ],
   rules: {
+    '@typescript-eslint/explicit-function-return-type': ['off'],
     '@typescript-eslint/indent': ['off'],
     '@typescript-eslint/comma-dangle': ['error', 'never'],
     '@typescript-eslint/no-unused-vars': 'error',
@@ -35,6 +36,15 @@ module.exports = {
       }
     ]
   },
+  overrides: [
+    {
+      // enable the rule specifically for TypeScript files
+      files: ['*.ts', '*.tsx'],
+      rules: {
+        '@typescript-eslint/explicit-function-return-type': ['error']
+      }
+    }
+  ],
   settings: {
     node: {
       tryExtensions: [
