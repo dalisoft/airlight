@@ -1,4 +1,4 @@
-# smartlint [**alpha**]
+# smartlint
 
 Tool for lint entire codebase with single CLI command
 
