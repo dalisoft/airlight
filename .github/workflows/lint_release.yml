@@ -11,8 +11,6 @@ on:
 
 env:
   CI: true
-  GIT_AUTHOR_NAME: dalisoft
-  GIT_AUTHOR_EMAIL: dalisoft@mail.ru
 
 jobs:
   lint_release:
@@ -38,6 +36,6 @@ jobs:
 
       - name: Release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: yarn lerna publish
