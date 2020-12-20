@@ -13,7 +13,8 @@ env:
   CI: true
 
 jobs:
-  lint:
+  release:
+    needs: lint
     runs-on: ubuntu-18.04
 
     steps:
@@ -26,13 +27,12 @@ jobs:
 
       - name: Install
         run: yarn
+      - name: semantic-release Prepare
+        run: yarn add semantic-release semantic-release-monorepo -W
       - name: Lerna configure
         run: |
           yarn lerna bootstrap
           yarn lerna link
-
-      - name: Lint code
-        run: yarn lint
 
       - name: Release
         env:
