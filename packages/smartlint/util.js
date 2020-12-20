@@ -17,12 +17,11 @@ const debug = (...args) => {
   console.log(FgBlue, ...args, Reset);
 };
 
-const reinspectLog = (log) => {
-  return log
+const reinspectLog = (log) =>
+  log
     .replace(/\[error\]/g, `${FgRed}[error]${Reset}`)
     .replace(/\[warn\]/g, `${FgYellow}[warn]${Reset}`)
     .replace(/\[debug\]/g, `${FgBlue}[debug]${Reset}`);
-};
 
 const execAsync = util.promisify(exec);
 
