@@ -8,11 +8,10 @@ const linterCommandsMap = {
   prettier: 'prettier -c'
 };
 
-const applyLinterCommands = (lint_names = []) => {
-  return lint_names
+const applyLinterCommands = (lint_names = []) =>
+  lint_names
     .map((lint) => linterCommandsMap[lint])
     .filter((command) => command);
-};
 
 const LANGUAGES_SUPPORT = [
   'ts',
