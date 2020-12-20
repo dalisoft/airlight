@@ -34,7 +34,7 @@
     "dockerfilelint": "^1.8.0",
     "eslint": "^7.12.1",
     "htmlhint": "^0.14.1",
-    "markdownlint-cli2": "0.0.10",
+    "markdownlint-cli2": "0.0.13",
     "prettier": "^2.1.2",
     "stylelint": "^13.7.2"
   }
