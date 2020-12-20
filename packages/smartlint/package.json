@@ -1,5 +1,6 @@
 {
   "name": "smartlint",
+  "version": "1.0.0",
   "description": "Tool for lint entire codebase with single CLI command",
   "main": "config.js",
   "bin": "cli.js",
