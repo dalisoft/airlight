@@ -4,14 +4,20 @@ module.exports = {
   },
   extends: [
     'eslint:recommended',
+    'airbnb-base',
     'airbnb-typescript/base',
-    'prettier',
     'plugin:@typescript-eslint/recommended',
+    'plugin:eslint-comments/recommended',
+    'plugin:promise/recommended',
     'plugin:node/recommended',
-    'plugin:security-node/recommended'
+    'plugin:security-node/recommended',
+    'prettier',
+    'prettier/@typescript-eslint'
   ],
   plugins: [
     '@typescript-eslint',
+    'eslint-comments',
+    'promise',
     'import',
     'optimize-regex',
     'security-node',

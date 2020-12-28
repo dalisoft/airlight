@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-/* eslint-disable no-console, node/no-unpublished-require */
 
+/* eslint-disable-next-line node/no-unpublished-require */
 const smartlint = require('.');
 const util = require('./util');
 

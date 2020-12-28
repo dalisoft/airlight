@@ -37,5 +37,9 @@
   "peerDependencies": {
     "eslint": "^7.12.x",
     "prettier": "^2.1.x"
+  },
+  "devDependencies": {
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-promise": "^4.2.1"
   }
 }

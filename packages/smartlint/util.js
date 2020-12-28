@@ -1,4 +1,4 @@
-/* eslint-disable no-console, security-node/detect-crlf */
+/* eslint-disable no-console, security-node/detect-crlf, eslint-comments/disable-enable-pair */
 const util = require('util');
 const { exec } = require('child_process');
 
@@ -35,7 +35,7 @@ const execCommand = (command) =>
       if (stderr && stderr.length > 0) {
         process.stderr.write(reinspectLog(stderr));
         // eslint-disable-next-line no-process-exit
-        process.exit(1);
+        return process.exit(1);
       }
       if (
         stdout.includes('error') &&
@@ -44,7 +44,7 @@ const execCommand = (command) =>
         !stdout.includes('No results')
       ) {
         // eslint-disable-next-line no-process-exit
-        process.exit(1);
+        return process.exit(1);
       }
       return null;
     });
