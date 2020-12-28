@@ -20,9 +20,6 @@ to learn about configs, features and how they work
 - [eslint](http://eslint.org)
 - [prettier](https://prettier.io)
 - [lint-staged](https://github.com/okonet/lint-staged)
-
-## Dependencies
-
 - [stylelint](https://stylelint.io)
 - [markdownlint-cli2](https://github.com/DavidAnson/markdownlint-cli2)
 - [@stoplight/spectral](https://github.com/stoplightio/spectral)
