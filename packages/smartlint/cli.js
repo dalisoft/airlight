@@ -46,6 +46,8 @@ if (linterCommands && linterCommands.length > 0) {
       await util.execCommand(cmd);
       util.debug(`Linter ${name} is done!`);
     }
+    // eslint-disable-next-line no-process-exit
+    return process.exit(0);
   })();
   return true;
 }
