@@ -12,6 +12,10 @@ npm install eslint-config-airlight-node --save-dev
 yarn add eslint-config-airlight-node -D
 ```
 
+## Peer dependencies
+
+- <https://github.com/microsoft/TypeScript>@4.0.5
+
 ## Dependencies
 
 - <https://github.com/iamturns/eslint-config-airbnb-typescript>
