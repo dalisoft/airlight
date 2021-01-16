@@ -51,6 +51,12 @@ module.exports = {
         '@typescript-eslint/explicit-function-return-type': ['error'],
         '@typescript-eslint/explicit-module-boundary-types': ['error']
       }
+    },
+    {
+      files: ['*.cjs'],
+      rules: {
+        '@typescript-eslint/no-var-requires': 'off'
+      }
     }
   ],
   settings: {
