@@ -6,7 +6,8 @@ get cleaner, better, reusable, secure and effecient codebase
 ## Packages
 
 - [eslint-config-airlight-node](./packages/eslint-config-node)
-- eslint-config-airlight-react\*
+- eslint-config-airlight-react-web\*
+- eslint-config-airlight-react-native\*
 - stylelint-config-airlight\*
 - [prettier-config-airlight](./packages/prettier-config)
 - [lint-staged-config-airlight](./packages/lint-staged-config)
