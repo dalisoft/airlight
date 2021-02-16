@@ -45,6 +45,19 @@ module.exports = {
         modifiers: ['const'],
         format: ['UPPER_CASE'],
         leadingUnderscore: 'forbid'
+      },
+      {
+        selector: 'typeLike',
+        format: ['StrictPascalCase'],
+        leadingUnderscore: 'forbid'
+      },
+      {
+        selector: 'interface',
+        format: ['PascalCase'],
+        custom: {
+          regex: '^I[A-Z]',
+          match: false
+        }
       }
     ],
     '@typescript-eslint/explicit-function-return-type': ['off'],
@@ -89,22 +102,6 @@ module.exports = {
       // enable the rule specifically for TypeScript files
       files: ['*.ts', '*.tsx'],
       rules: {
-        '@typescript-eslint/naming-convention': [
-          'error',
-          {
-            selector: 'typeLike',
-            format: ['StrictPascalCase'],
-            leadingUnderscore: 'forbid'
-          },
-          {
-            selector: 'interface',
-            format: ['PascalCase'],
-            custom: {
-              regex: '^I[A-Z]',
-              match: false
-            }
-          }
-        ],
         '@typescript-eslint/explicit-function-return-type': ['error'],
         '@typescript-eslint/explicit-module-boundary-types': ['error'],
         '@typescript-eslint/quotes': [
