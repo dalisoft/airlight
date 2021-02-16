@@ -15,7 +15,7 @@ const applyLinterCommands = (lint_names = []) =>
     .map((lint) => linterCommandsMap[lint])
     .filter((command) => command);
 
-const LANGUAGES_SUPPORT = [
+const languagesSupport = [
   'ts',
   'js',
   'tsx',
@@ -30,7 +30,7 @@ const LANGUAGES_SUPPORT = [
   'dockerfile'
 ];
 
-module.exports = (languages = LANGUAGES_SUPPORT) => {
+module.exports = (languages = languagesSupport) => {
   const config = {};
 
   // eslint-disable-next-line complexity
