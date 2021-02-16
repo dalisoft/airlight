@@ -4,6 +4,24 @@
     "project": "./tsconfig.json"
   },
   "rules": {
-    "@typescript-eslint/no-var-requires": "off"
+    "@typescript-eslint/no-var-requires": "off",
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": ["function", "method"],
+        "format": ["strictCamelCase"],
+        "leadingUnderscore": "allow"
+      },
+      {
+        "selector": ["property"],
+        "format": ["camelCase"]
+      }
+    ],
+    "complexity": ["error", { "max": 4 }],
+    "max-lines-per-function": [
+      "error",
+      // eslint-disable-next-line @typescript-eslint/naming-convention
+      { "max": 24, "skipBlankLines": true, "skipComments": true, "IIFEs": true }
+    ]
   }
 }

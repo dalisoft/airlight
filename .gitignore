@@ -16,6 +16,9 @@ artifacts
 # nano
 .nano/search_history
 
+# husky
+.husky
+
 
 #################
 #####  Logs #####
