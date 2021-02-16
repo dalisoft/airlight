@@ -77,11 +77,12 @@ module.exports = {
       'error',
       { max: 160, skipBlankLines: true, skipComments: true }
     ],
-    'no-underscore-dangle': ['off'],
-    'no-useless-concat': ['error'],
-    'no-console': ['error'],
+    'no-useless-concat': 'error',
+    'no-console': 'error',
     'no-template-curly-in-string': 'error',
-    'no-shadow': 'error'
+    'no-underscore-dangle': 'off',
+    'no-shadow': 'error',
+    camelcase: 'off'
   },
   overrides: [
     {
