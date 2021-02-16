@@ -90,20 +90,6 @@ module.exports = {
         quotes: 'off',
         'no-shadow': 'off'
       }
-    },
-    {
-      files: ['*.js'],
-      rules: {
-        'import/extensions': [
-          'error',
-          'never',
-          {
-            js: 'always',
-            json: 'always',
-            wasm: 'always'
-          }
-        ]
-      }
     }
   ],
   settings: {
