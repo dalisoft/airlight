@@ -1,4 +1,4 @@
-declare class IPrettierConfig {
+declare class PrettierConfig {
   static singleQuote: true;
 
   static printWidth: 80;
@@ -12,4 +12,4 @@ declare class IPrettierConfig {
   static useTabs: false;
 }
 
-export = IPrettierConfig;
+export = PrettierConfig;
