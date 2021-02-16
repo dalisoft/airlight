@@ -3,8 +3,8 @@ interface IHook {
   'commit-msg': 'commitlint -E HUSKY_GIT_PARAMS';
 }
 
-declare class IHuskyConfig {
+declare class HuskyConfig {
   static hooks: IHook;
 }
 
-export = IHuskyConfig;
+export = HuskyConfig;
