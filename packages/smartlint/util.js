@@ -2,26 +2,26 @@
 const util = require('util');
 const { exec } = require('child_process');
 
-const Reset = '\x1b[0m';
-const FgRed = '\x1b[31m';
-const FgYellow = '\x1b[33m';
-const FgBlue = '\x1b[34m';
+const fgReset = '\x1b[0m';
+const fgRed = '\x1b[31m';
+const fgYellow = '\x1b[33m';
+const fgBlue = '\x1b[34m';
 
 const error = (...args) => {
-  console.log(FgRed, ...args, Reset);
+  console.log(fgRed, ...args, fgReset);
 };
 const warn = (...args) => {
-  console.log(FgYellow, ...args, Reset);
+  console.log(fgYellow, ...args, fgReset);
 };
 const debug = (...args) => {
-  console.log(FgBlue, ...args, Reset);
+  console.log(fgBlue, ...args, fgReset);
 };
 
 const reinspectLog = (log) =>
   log
-    .replace(/\[error\]/g, `${FgRed}[error]${Reset}`)
-    .replace(/\[warn\]/g, `${FgYellow}[warn]${Reset}`)
-    .replace(/\[debug\]/g, `${FgBlue}[debug]${Reset}`);
+    .replace(/\[error\]/g, `${fgRed}[error]${fgReset}`)
+    .replace(/\[warn\]/g, `${fgYellow}[warn]${fgReset}`)
+    .replace(/\[debug\]/g, `${fgBlue}[debug]${fgReset}`);
 
 const execAsync = util.promisify(exec);
 
@@ -59,7 +59,7 @@ module.exports = {
   execAsync,
   execCommand,
   // eslint-disable-next-line @typescript-eslint/naming-convention
-  Reset,
+  fgReset,
   // eslint-disable-next-line @typescript-eslint/naming-convention
-  FgRed
+  fgRed
 };
