@@ -31,12 +31,12 @@ module.exports = {
       },
       {
         selector: 'property',
-        format: ['snake_case'],
+        format: ['snake_case', 'strictCamelCase'],
         leadingUnderscore: 'forbid'
       },
       {
         selector: 'variable',
-        format: ['camelCase'],
+        format: ['strictCamelCase'],
         leadingUnderscore: 'forbid'
       },
       {
@@ -53,10 +53,10 @@ module.exports = {
       },
       {
         selector: 'interface',
-        format: ['PascalCase'],
+        format: ['StrictPascalCase'],
         custom: {
           regex: '^I[A-Z]',
-          match: false
+          match: true
         }
       }
     ],
