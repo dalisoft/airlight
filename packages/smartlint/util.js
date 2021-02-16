@@ -28,6 +28,7 @@ const execAsync = util.promisify(exec);
 const execCommand = (command) =>
   execAsync(command)
     .catch((std) => std)
+    // eslint-disable-next-line complexity
     .then(({ stdout, stderr }) => {
       if (stdout && stdout.length > 0) {
         process.stdout.write(reinspectLog(stdout));
@@ -57,6 +58,8 @@ module.exports = {
   exec,
   execAsync,
   execCommand,
+  // eslint-disable-next-line @typescript-eslint/naming-convention
   Reset,
+  // eslint-disable-next-line @typescript-eslint/naming-convention
   FgRed
 };
