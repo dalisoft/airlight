@@ -5,7 +5,8 @@ const linterCommandsMap = {
   htmllint: 'htmlhint',
   jsonymllint: 'spectral lint --ignore-unknown-format',
   dockerfile: 'dockerfilelint',
-  prettier: 'prettier -c'
+  prettier: 'prettier -c',
+  lslint: 'ls-lint'
 };
 
 const defaultArgumentsMap = {
@@ -14,6 +15,7 @@ const defaultArgumentsMap = {
 };
 
 const DEFAULT_LINTERS = [
+  'lslint',
   'eslint',
   // 'stylelint',
   'markdownlint',

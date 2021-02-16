@@ -1,4 +1,5 @@
 type Lint =
+  | 'lslint'
   | 'eslint'
   | 'stylelint'
   | 'markdownlint'
