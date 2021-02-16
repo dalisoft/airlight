@@ -58,6 +58,7 @@ module.exports = {
     'max-nested-callbacks': ['error', { max: 2 }],
     'max-lines-per-function': [
       'error',
+      // eslint-disable-next-line @typescript-eslint/naming-convention
       { max: 20, skipBlankLines: true, skipComments: true, IIFEs: true }
     ],
     'max-lines': [
@@ -103,12 +104,6 @@ module.exports = {
           }
         ]
       }
-    },
-    {
-      files: ['*.cjs'],
-      rules: {
-        '@typescript-eslint/no-var-requires': 'off'
-      }
     }
   ],
   settings: {
@@ -116,7 +111,6 @@ module.exports = {
       tryExtensions: [
         '.ts',
         '.js',
-        '.cjs',
         '.mjs',
         '.tsx',
         '.jsx',
