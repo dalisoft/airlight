@@ -40,42 +40,7 @@ yarn add eslint-config-airlight-node -D
 
 We customized following rules.
 
-Change these configs by your needs
-
-```json
-{
-  "rules": {
-    "@typescript-eslint/explicit-function-return-type": ["off"],
-    "@typescript-eslint/explicit-module-boundary-types": ["off"],
-    "@typescript-eslint/indent": ["off"],
-    "@typescript-eslint/comma-dangle": ["error", "never"],
-    "@typescript-eslint/no-unused-vars": "error",
-    "operator-linebreak": ["off", "after"],
-    "no-underscore-dangle": ["off"],
-    "import/prefer-default-export": ["warn"],
-    "no-console": ["warn"],
-    "import/extensions": [
-      "error",
-      "never",
-      {
-        "js": "always",
-        "json": "always",
-        "wasm": "always"
-      }
-    ]
-  },
-  "overrides": [
-    {
-      // enable the rule specifically for TypeScript files
-      "files": ["*.ts", "*.tsx"],
-      "rules": {
-        "@typescript-eslint/explicit-function-return-type": ["error"],
-        "@typescript-eslint/explicit-module-boundary-types": ["error"]
-      }
-    }
-  ]
-}
-```
+Change these [configs](./config.js) by your needs
 
 ## License
 
