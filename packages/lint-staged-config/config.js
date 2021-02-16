@@ -1,3 +1,5 @@
+// eslint-disable-next-line eslint-comments/disable-enable-pair
+/* eslint-disable max-lines-per-function */
 const linterCommandsMap = {
   eslint: 'eslint --color',
   stylelint: 'stylelint --color',
@@ -31,6 +33,7 @@ const LANGUAGES_SUPPORT = [
 module.exports = (languages = LANGUAGES_SUPPORT) => {
   const config = {};
 
+  // eslint-disable-next-line complexity
   languages.forEach((language) => {
     let regex = '*.';
     let commands;
