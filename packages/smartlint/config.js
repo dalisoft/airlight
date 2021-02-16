@@ -14,7 +14,7 @@ const defaultArgumentsMap = {
   markdownlint: '{*.md,**/*.md} "#node_modules"'
 };
 
-const DEFAULT_LINTERS = [
+const defaultLinters = [
   'lslint',
   'eslint',
   // 'stylelint',
@@ -25,7 +25,7 @@ const DEFAULT_LINTERS = [
   // 'dockerfile'
 ];
 
-module.exports = (linters = DEFAULT_LINTERS, path = '.') =>
+module.exports = (linters = defaultLinters, path = '.') =>
   linters
     .map(
       (linter) =>
