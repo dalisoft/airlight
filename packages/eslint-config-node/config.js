@@ -28,20 +28,25 @@ module.exports = {
     '@typescript-eslint/explicit-module-boundary-types': ['off'],
     '@typescript-eslint/indent': ['off'],
     '@typescript-eslint/comma-dangle': ['error', 'never'],
-    '@typescript-eslint/no-unused-vars': 'error',
+    '@typescript-eslint/no-unused-vars': ['error'],
+    '@typescript-eslint/no-non-null-asserted-optional-chain': ['error'],
+    '@typescript-eslint/restrict-plus-operands': ['error'],
     'operator-linebreak': ['off', 'after'],
+    'prefer-template': 'error',
     'no-underscore-dangle': ['off'],
-    'import/prefer-default-export': ['warn'],
-    'no-console': ['warn'],
-    'import/extensions': [
+    'no-useless-concat': ['error'],
+    'no-console': ['error'],
+    'no-template-curly-in-string': 'error',
+    quotes: [
       'error',
-      'never',
+      'single',
       {
-        js: 'always',
-        json: 'always',
-        wasm: 'always'
+        avoidEscape: true,
+        allowTemplateLiterals: true
       }
-    ]
+    ],
+    'no-shadow': 'error',
+    'import/prefer-default-export': ['error']
   },
   overrides: [
     {
@@ -49,7 +54,32 @@ module.exports = {
       files: ['*.ts', '*.tsx'],
       rules: {
         '@typescript-eslint/explicit-function-return-type': ['error'],
-        '@typescript-eslint/explicit-module-boundary-types': ['error']
+        '@typescript-eslint/explicit-module-boundary-types': ['error'],
+        '@typescript-eslint/quotes': [
+          'error',
+          'single',
+          {
+            avoidEscape: true,
+            allowTemplateLiterals: true
+          }
+        ],
+        '@typescript-eslint/no-shadow': 'error',
+        quotes: 'off',
+        'no-shadow': 'off'
+      }
+    },
+    {
+      files: ['*.js'],
+      rules: {
+        'import/extensions': [
+          'error',
+          'never',
+          {
+            js: 'always',
+            json: 'always',
+            wasm: 'always'
+          }
+        ]
       }
     },
     {
