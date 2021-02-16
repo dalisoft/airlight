@@ -28,7 +28,7 @@ yarn add eslint-config-airlight-base -D
 ## Dependencies reason
 
 - eslint-config-airbnb-typescript - Main config
-- @typescript-eslint/eslint-plugin - Config for TypeScript Node.js codebase
+- @typescript-eslint/eslint-plugin - Config for TypeScript codebase
 - eslint-config-prettier - Prettier config
 - eslint-plugin-import - ESLint plugin with rules that help validate proper imports
 - eslint-plugin-no-secrets - secrets/credentials finder/matched plug-in for ESLint
