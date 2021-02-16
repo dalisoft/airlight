@@ -30,7 +30,7 @@ module.exports = Object.assign(baseConfig, {
   ]),
   settings: {
     node: {
-      tryExtensions: baseConfig.settings.node.tryExtensions.concat([
+      tryExtensions: [
         '.ts',
         '.js',
         '.cjs',
@@ -39,7 +39,7 @@ module.exports = Object.assign(baseConfig, {
         '.html',
         '.md',
         '.json'
-      ])
+      ]
     }
   }
 });
