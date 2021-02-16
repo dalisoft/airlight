@@ -27,11 +27,24 @@ module.exports = {
       {
         selector: ['function', 'method'],
         format: ['strictCamelCase'],
-        leadingUnderscore: 'allow'
+        leadingUnderscore: 'forbid'
       },
       {
-        selector: ['property'],
-        format: ['snake_case']
+        selector: 'property',
+        format: ['snake_case'],
+        leadingUnderscore: 'forbid'
+      },
+      {
+        selector: 'variable',
+        format: ['camelCase'],
+        leadingUnderscore: 'forbid'
+      },
+      {
+        selector: 'variable',
+        types: ['boolean', 'number'],
+        modifiers: ['const'],
+        format: ['UPPER_CASE'],
+        leadingUnderscore: 'forbid'
       }
     ],
     '@typescript-eslint/explicit-function-return-type': ['off'],
@@ -49,8 +62,7 @@ module.exports = {
       'error',
       'single',
       {
-        avoidEscape: true,
-        allowTemplateLiterals: true
+        avoidEscape: true
       }
     ],
     complexity: ['error', { max: 3 }],
@@ -76,14 +88,29 @@ module.exports = {
       // enable the rule specifically for TypeScript files
       files: ['*.ts', '*.tsx'],
       rules: {
+        '@typescript-eslint/naming-convention': [
+          'error',
+          {
+            selector: 'typeLike',
+            format: ['StrictPascalCase'],
+            leadingUnderscore: 'forbid'
+          },
+          {
+            selector: 'interface',
+            format: ['PascalCase'],
+            custom: {
+              regex: '^I[A-Z]',
+              match: false
+            }
+          }
+        ],
         '@typescript-eslint/explicit-function-return-type': ['error'],
         '@typescript-eslint/explicit-module-boundary-types': ['error'],
         '@typescript-eslint/quotes': [
           'error',
           'single',
           {
-            avoidEscape: true,
-            allowTemplateLiterals: true
+            avoidEscape: true
           }
         ],
         '@typescript-eslint/no-shadow': 'error',
