@@ -55,8 +55,8 @@ const ruleNamingConvention = JSON.parse(
   JSON.stringify(config.rules['@typescript-eslint/naming-convention'])
 );
 
-ruleNamingConvention[2].format.push('StrictPascalCase');
-ruleNamingConvention[3].format.push('strictCamelCase');
+ruleNamingConvention[3].format.push('StrictPascalCase');
+ruleNamingConvention[4].format.push('strictCamelCase');
 
 // Override some rules for React files
 overrideForTsxAndJsx.rules = {
