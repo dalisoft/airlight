@@ -50,19 +50,11 @@ config.rules = {
 };
 
 // There rules can't be pushed
-config.rules['@typescript-eslint/naming-convention'].splice(
-  1,
-  1,
-  {
-    selector: ['function'],
-    format: null
-  },
-  {
-    selector: ['method'],
-    format: ['strictCamelCase'],
-    leadingUnderscore: 'forbid'
-  }
-);
+const ruleNamingConvention =
+  config.rules['@typescript-eslint/naming-convention'];
+
+ruleNamingConvention[2].format.push('StrictPascalCase');
+ruleNamingConvention[3].format.push('strictCamelCase');
 
 // Resolve JSX and TSX files too
 config.settings.node.tryExtensions.push('.jsx', '.tsx');
