@@ -45,7 +45,7 @@ const overrideForTsx = {
   }
 };
 
-config.overrides[0].files.push('tsx');
+config.overrides[0].files.push('*.tsx');
 config.overrides.push(overrideForTsxAndJsx, overrideForTsx);
 
 // Rules
