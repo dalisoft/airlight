@@ -5,7 +5,16 @@ const config = JSON.parse(JSON.stringify(baseConfig));
 
 // Extends
 config.extends.splice(1, 1, 'airbnb-typescript', 'airbnb/hooks');
-config.extends.splice(config.extends.length - 1, 0, 'prettier/react');
+config.extends.splice(
+  config.extends.length - 2,
+  1,
+  'plugin:jest/recommended',
+  'prettier',
+  'prettier/react'
+);
+
+// Plugins
+config.plugins.splice(3, 0, 'jest');
 
 // Add support for TSX files
 config.overrides[0].files.push('tsx');
