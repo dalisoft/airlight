@@ -60,8 +60,9 @@ module.exports = {
         }
       }
     ],
-    '@typescript-eslint/explicit-function-return-type': ['off'],
-    '@typescript-eslint/explicit-module-boundary-types': ['off'],
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/no-shadow': 'off',
     '@typescript-eslint/indent': ['off'],
     '@typescript-eslint/class-literal-property-style': ['error'],
     '@typescript-eslint/comma-dangle': ['error', 'never'],
@@ -84,13 +85,13 @@ module.exports = {
     ],
     // eslint-disable-next-line @typescript-eslint/naming-convention
     indent: ['error', 2, { SwitchCase: 1 }],
-    complexity: ['error', { max: 3 }],
-    'max-depth': ['error', { max: 2 }],
-    'max-nested-callbacks': ['error', { max: 2 }],
+    complexity: ['error', { max: 5 }],
+    'max-depth': ['error', { max: 3 }],
+    'max-nested-callbacks': ['error', { max: 3 }],
     'max-lines-per-function': [
       'error',
       // eslint-disable-next-line @typescript-eslint/naming-convention
-      { max: 20, skipBlankLines: true, skipComments: true, IIFEs: true }
+      { max: 40, skipBlankLines: true, skipComments: true, IIFEs: true }
     ],
     'max-lines': [
       'error',
@@ -100,7 +101,7 @@ module.exports = {
     'no-console': 'error',
     'no-template-curly-in-string': 'error',
     'no-underscore-dangle': 'off',
-    'no-shadow': 'error',
+    'no-shadow': ['error', { hoist: 'functions' }],
     camelcase: 'off',
     'import/prefer-default-export': ['error']
   },
@@ -121,9 +122,9 @@ module.exports = {
             avoidEscape: true
           }
         ],
+        '@typescript-eslint/no-shadow': ['error', { hoist: 'functions' }],
         '@typescript-eslint/consistent-indexed-object-style': ['error'],
         indent: 'off',
-        '@typescript-eslint/no-shadow': 'error',
         quotes: 'off',
         'no-shadow': 'off'
       }
