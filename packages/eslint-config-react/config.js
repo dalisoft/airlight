@@ -65,8 +65,8 @@ config.rules['@typescript-eslint/naming-convention'].splice(
 );
 
 // Resolve JSX and TSX files too
-config.settings.node.tryExtensions.push('jsx', 'tsx');
-config.settings['import/resolver'].node.extensions.push('jsx', 'tsx');
-config.settings['import/extensions'].push('jsx', 'tsx');
+config.settings.node.tryExtensions.push('.jsx', '.tsx');
+config.settings['import/resolver'].node.extensions.push('.jsx', '.tsx');
+config.settings['import/extensions'].push('.jsx', '.tsx');
 
 module.exports = config;
