@@ -11,7 +11,8 @@ const linterCommandsMap = {
 
 const defaultArgumentsMap = {
   dockerfile: 'Dockerfile',
-  markdownlint: '{*.md,**/*.md} "#node_modules"'
+  markdownlint: '{*.md,**/*.md} "#node_modules"',
+  stylelint: '{**/*,*}.{css,sass,scss,md,html}'
 };
 
 const defaultLinters = [
