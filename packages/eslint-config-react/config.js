@@ -16,6 +16,14 @@ config.extends.splice(
 // Plugins
 config.plugins.splice(3, 0, 'jest');
 
+// Add env
+config.env = {
+  es6: true,
+  node: true,
+  browser: true,
+  jest: true
+};
+
 // Add support for TSX files
 config.overrides[0].files.push('tsx');
 
