@@ -41,15 +41,28 @@ config.overrides.push({
 });
 
 // Rules
-config.rules['@typescript-eslint/naming-convention'].splice(1, 1, {
-  selector: ['method'],
-  format: ['strictCamelCase'],
-  leadingUnderscore: 'forbid'
-});
-config.rules['react/jsx-filename-extension'] = [
-  'error',
-  { extensions: ['.jsx', '.tsx'] }
-];
+config.rules = {
+  ...config.rules,
+  'react/jsx-pascal-case': ['error'],
+  'react/jsx-no-useless-fragment': ['error'],
+  'react/no-deprecated': ['error'],
+  'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx'] }]
+};
+
+// There rules can't be pushed
+config.rules['@typescript-eslint/naming-convention'].splice(
+  1,
+  1,
+  {
+    selector: ['function'],
+    format: null
+  },
+  {
+    selector: ['method'],
+    format: ['strictCamelCase'],
+    leadingUnderscore: 'forbid'
+  }
+);
 
 // Resolve JSX and TSX files too
 config.settings.node.tryExtensions.push('jsx', 'tsx');
