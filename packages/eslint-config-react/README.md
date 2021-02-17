@@ -36,7 +36,7 @@ yarn add eslint-config-airlight-react -D
 
 ```json
 {
-  "extends": "airlight-node"
+  "extends": "airlight-react"
 }
 ```
 
