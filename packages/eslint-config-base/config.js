@@ -84,7 +84,8 @@ module.exports = {
         avoidEscape: true
       }
     ],
-    indent: ['error', 2],
+    // eslint-disable-next-line @typescript-eslint/naming-convention
+    indent: ['error', 2, { SwitchCase: 1 }],
     complexity: ['error', { max: 3 }],
     'max-depth': ['error', { max: 2 }],
     'max-nested-callbacks': ['error', { max: 2 }],
@@ -112,7 +113,8 @@ module.exports = {
         '@typescript-eslint/explicit-function-return-type': ['error'],
         '@typescript-eslint/explicit-module-boundary-types': ['error'],
         '@typescript-eslint/await-thenable': ['error'],
-        '@typescript-eslint/indent': ['error', 2],
+        // eslint-disable-next-line @typescript-eslint/naming-convention
+        '@typescript-eslint/indent': ['error', 2, { SwitchCase: 1 }],
         '@typescript-eslint/quotes': [
           'error',
           'single',
