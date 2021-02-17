@@ -7,8 +7,7 @@
   ],
   "scripts": {
     "lint": "smartlint",
-    "semantic-release": "lerna exec --concurrency 1 -- semantic-release -e semantic-release-monorepo",
-    "postinstall": "husky install"
+    "semantic-release": "lerna exec --concurrency 1 -- semantic-release -e semantic-release-monorepo"
   },
   "repository": {
     "type": "git",
