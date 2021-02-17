@@ -32,6 +32,7 @@ yarn add eslint-config-airlight-base -D
 - eslint-config-prettier - Prettier config
 - eslint-plugin-import - ESLint plugin with rules that help validate proper imports
 - eslint-plugin-no-secrets - secrets/credentials finder/matched plug-in for ESLint
+- eslint-plugin-filename-rules - Rule for directory and file names
 
 ## Usage
 
