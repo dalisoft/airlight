@@ -63,6 +63,7 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-shadow': 'off',
+    '@typescript-eslint/no-empty-function': 'off',
     '@typescript-eslint/indent': ['off'],
     '@typescript-eslint/class-literal-property-style': ['error'],
     '@typescript-eslint/comma-dangle': ['error', 'never'],
@@ -110,6 +111,7 @@ module.exports = {
     'no-template-curly-in-string': 'error',
     'no-underscore-dangle': 'off',
     'no-shadow': ['error', { hoist: 'functions' }],
+    'no-empty-function': ['error'],
     camelcase: 'off',
     'import/prefer-default-export': ['error']
   },
@@ -139,10 +141,12 @@ module.exports = {
           }
         ],
         '@typescript-eslint/no-shadow': ['error', { hoist: 'functions' }],
+        '@typescript-eslint/no-empty-function': ['error'],
         '@typescript-eslint/consistent-indexed-object-style': ['error'],
         indent: 'off',
         quotes: 'off',
-        'no-shadow': 'off'
+        'no-shadow': 'off',
+        'no-empty-function': 'off'
       }
     }
   ],
@@ -158,4 +162,5 @@ module.exports = {
     'import/extensions': ['.ts', '.js', '.d.ts', '.html', '.md', '.json'],
     'import/external-module-folders': ['node_modules', 'node_modules/@types']
   }
+  // eslint-disable-next-line max-lines
 };
