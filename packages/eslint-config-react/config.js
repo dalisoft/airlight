@@ -11,6 +11,11 @@ config.extends.splice(config.extends.length - 1, 0, 'prettier/react');
 config.overrides[0].files.push('tsx');
 
 // Rules
+config.rules['@typescript-eslint/naming-convention'].splice(1, 1, {
+  selector: ['method'],
+  format: ['strictCamelCase'],
+  leadingUnderscore: 'forbid'
+});
 config.rules['react/jsx-filename-extension'] = [
   'error',
   { extensions: ['.jsx', '.tsx'] }
