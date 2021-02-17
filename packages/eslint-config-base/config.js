@@ -83,8 +83,16 @@ module.exports = {
         avoidEscape: true
       }
     ],
-    // eslint-disable-next-line @typescript-eslint/naming-convention
-    indent: ['error', 2, { SwitchCase: 1 }],
+    indent: [
+      'error',
+      2,
+      {
+        // eslint-disable-next-line @typescript-eslint/naming-convention
+        SwitchCase: 1,
+        flatTernaryExpressions: false,
+        offsetTernaryExpressions: true
+      }
+    ],
     complexity: ['error', { max: 5 }],
     'max-depth': ['error', { max: 3 }],
     'max-nested-callbacks': ['error', { max: 3 }],
@@ -113,8 +121,16 @@ module.exports = {
         '@typescript-eslint/explicit-function-return-type': ['error'],
         '@typescript-eslint/explicit-module-boundary-types': ['error'],
         '@typescript-eslint/await-thenable': ['error'],
-        // eslint-disable-next-line @typescript-eslint/naming-convention
-        '@typescript-eslint/indent': ['error', 2, { SwitchCase: 1 }],
+        '@typescript-eslint/indent': [
+          'error',
+          2,
+          {
+            // eslint-disable-next-line @typescript-eslint/naming-convention
+            SwitchCase: 1,
+            flatTernaryExpressions: false,
+            offsetTernaryExpressions: true
+          }
+        ],
         '@typescript-eslint/quotes': [
           'error',
           'single',
