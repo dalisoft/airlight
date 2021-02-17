@@ -7,6 +7,12 @@ module.exports = {
     'plugin:security-node/recommended'
   ]),
   plugins: baseConfig.plugins.concat(['security-node']),
+  env: {
+    es6: true,
+    node: true,
+    browser: false,
+    jest: true
+  },
   overrides: baseConfig.overrides.concat([
     {
       files: ['*.js'],
