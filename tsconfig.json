@@ -34,6 +34,7 @@
     "strictFunctionTypes": true,
     "strictBindCallApply": true,
     "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true,
 
     "moduleResolution": "node",
     // "baseUrl": "src" ,

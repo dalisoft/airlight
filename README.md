@@ -16,6 +16,7 @@ get cleaner, better, reusable, secure and effecient codebase
 - [commitlint-config-airlight](./packages/commitlint-config)
 - [husky-config-airlight](./packages/husky-config)
 - [smartlint](./packages/smartlint)
+- [typescript-config](./tsconfig.json)
 
 `* - These configurations may be created in future`
 
