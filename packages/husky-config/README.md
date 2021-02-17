@@ -10,6 +10,16 @@ npm install husky-config-airlight --save-dev
 yarn add husky-config-airlight -D
 ```
 
+## Peer dependencies
+
+For working properly, you may need one or all of these dependencies.
+
+For more information about each dependencies, click to dependecy link
+to learn about configs, features and how they work
+
+- [husky](https://github.com/typicode/husky)
+- [@commitlint/cli](https://github.com/conventional-changelog/commitlint)
+
 ## Usage
 
 `.huskyrc.js`
