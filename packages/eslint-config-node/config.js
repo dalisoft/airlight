@@ -1,6 +1,7 @@
 const baseConfig = require('eslint-config-airlight-base');
 
-module.exports = Object.assign(baseConfig, {
+module.exports = {
+  ...baseConfig,
   extends: baseConfig.extends.concat([
     'plugin:node/recommended',
     'plugin:security-node/recommended'
@@ -29,17 +30,23 @@ module.exports = Object.assign(baseConfig, {
     }
   ]),
   settings: {
+    ...baseConfig.settings,
     node: {
-      tryExtensions: [
-        '.ts',
-        '.js',
+      tryExtensions: baseConfig.settings.node.tryExtensions.concat([
         '.cjs',
-        '.mjs',
-        '.d.ts',
-        '.html',
-        '.md',
-        '.json'
-      ]
-    }
+        '.mjs'
+      ])
+    },
+    'import/resolver': {
+      node: {
+        extensions: baseConfig.settings[
+          'import/resolver'
+        ].node.extensions.concat(['.cjs', '.mjs'])
+      }
+    },
+    'import/extensions': baseConfig.settings['import/extensions'].concat([
+      '.cjs',
+      '.mjs'
+    ])
   }
-});
+};
