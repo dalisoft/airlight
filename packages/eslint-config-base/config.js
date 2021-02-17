@@ -54,6 +54,7 @@ module.exports = {
       {
         selector: 'interface',
         format: ['PascalCase'],
+        leadingUnderscore: 'forbid',
         custom: {
           regex: '^I[A-Z]',
           match: true
@@ -63,7 +64,12 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': ['off'],
     '@typescript-eslint/explicit-module-boundary-types': ['off'],
     '@typescript-eslint/indent': ['off'],
+    '@typescript-eslint/class-literal-property-style': ['error'],
     '@typescript-eslint/comma-dangle': ['error', 'never'],
+    '@typescript-eslint/comma-spacing': [
+      'error',
+      { before: false, after: true }
+    ],
     '@typescript-eslint/no-unused-vars': ['error'],
     '@typescript-eslint/no-non-null-asserted-optional-chain': ['error'],
     '@typescript-eslint/restrict-plus-operands': ['error'],
@@ -78,6 +84,7 @@ module.exports = {
         avoidEscape: true
       }
     ],
+    indent: ['error', 2],
     complexity: ['error', { max: 3 }],
     'max-depth': ['error', { max: 2 }],
     'max-nested-callbacks': ['error', { max: 2 }],
@@ -104,6 +111,8 @@ module.exports = {
       rules: {
         '@typescript-eslint/explicit-function-return-type': ['error'],
         '@typescript-eslint/explicit-module-boundary-types': ['error'],
+        '@typescript-eslint/await-thenable': ['error'],
+        '@typescript-eslint/indent': ['error', 2],
         '@typescript-eslint/quotes': [
           'error',
           'single',
@@ -111,6 +120,8 @@ module.exports = {
             avoidEscape: true
           }
         ],
+        '@typescript-eslint/consistent-indexed-object-style': ['error'],
+        indent: 'off',
         '@typescript-eslint/no-shadow': 'error',
         quotes: 'off',
         'no-shadow': 'off'
