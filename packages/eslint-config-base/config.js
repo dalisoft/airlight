@@ -4,7 +4,6 @@ module.exports = {
   },
   extends: [
     'eslint:recommended',
-    'airbnb-base',
     'airbnb-typescript/base',
     'plugin:@typescript-eslint/recommended',
     'plugin:eslint-comments/recommended',
@@ -75,7 +74,6 @@ module.exports = {
     '@typescript-eslint/restrict-plus-operands': ['error'],
     'operator-linebreak': ['off', 'after'],
     'prefer-template': 'error',
-    'import/prefer-default-export': ['error'],
     'filename-rules/match': ['error', 'kebab-case'],
     quotes: [
       'error',
@@ -103,12 +101,13 @@ module.exports = {
     'no-template-curly-in-string': 'error',
     'no-underscore-dangle': 'off',
     'no-shadow': 'error',
-    camelcase: 'off'
+    camelcase: 'off',
+    'import/prefer-default-export': ['error']
   },
   overrides: [
     {
       // enable the rule specifically for TypeScript files
-      files: ['*.ts', '*.tsx'],
+      files: ['*.ts'],
       rules: {
         '@typescript-eslint/explicit-function-return-type': ['error'],
         '@typescript-eslint/explicit-module-boundary-types': ['error'],
@@ -132,17 +131,14 @@ module.exports = {
   ],
   settings: {
     node: {
-      tryExtensions: [
-        '.ts',
-        '.js',
-        '.mjs',
-        '.tsx',
-        '.jsx',
-        '.d.ts',
-        '.html',
-        '.md',
-        '.json'
-      ]
-    }
+      tryExtensions: ['.ts', '.js', '.d.ts', '.html', '.md', '.json']
+    },
+    'import/resolver': {
+      node: {
+        extensions: ['.ts', '.js', '.d.ts', '.html', '.md', '.json']
+      }
+    },
+    'import/extensions': ['.ts', '.js', '.d.ts', '.html', '.md', '.json'],
+    'import/external-module-folders': ['node_modules', 'node_modules/@types']
   }
 };
