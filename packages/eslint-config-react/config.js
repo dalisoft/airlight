@@ -26,6 +26,19 @@ config.env = {
 
 // Add support for TSX files
 config.overrides[0].files.push('tsx');
+config.overrides.push({
+  files: ['*.jsx', '*.tsx'],
+  rules: {
+    'import/extensions': [
+      'error',
+      'never',
+      {
+        json: 'always',
+        wasm: 'always'
+      }
+    ]
+  }
+});
 
 // Rules
 config.rules['@typescript-eslint/naming-convention'].splice(1, 1, {
