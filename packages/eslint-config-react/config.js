@@ -38,8 +38,15 @@ const overrideForTsxAndJsx = {
     ]
   }
 };
+const overrideForTsx = {
+  files: ['*.tsx'],
+  rules: {
+    'react/prop-types': 'off'
+  }
+};
+
 config.overrides[0].files.push('tsx');
-config.overrides.push(overrideForTsxAndJsx);
+config.overrides.push(overrideForTsxAndJsx, overrideForTsx);
 
 // Rules
 config.rules = {
