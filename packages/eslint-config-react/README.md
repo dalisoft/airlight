@@ -1,4 +1,4 @@
-# eslint-config-airlight-node
+# eslint-config-airlight-react
 
 ESLint configure for Node.js focused on code quality,
 security and performance on top of [eslint-config-airlight-base](../eslint-config-airlight-base)
@@ -6,9 +6,9 @@ security and performance on top of [eslint-config-airlight-base](../eslint-confi
 ## Installation
 
 ```bash
-npm install eslint-config-airlight-node --save-dev
+npm install eslint-config-airlight-react --save-dev
 # or
-yarn add eslint-config-airlight-node -D
+yarn add eslint-config-airlight-react -D
 ```
 
 ## Peer dependencies
@@ -18,13 +18,17 @@ yarn add eslint-config-airlight-node -D
 ## Dependencies
 
 - [eslint-config-airlight-base](../eslint-config-base)
-- <https://github.com/mysticatea/eslint-plugin-node>
-- <https://github.com/gkouziik/eslint-plugin-security-node>
+- <https://github.com/yannickcr/eslint-plugin-react>
+- <https://www.npmjs.com/package/eslint-plugin-react-hooks>
+- <https://github.com/jsx-eslint/eslint-plugin-jsx-a11y>
+- <https://github.com/jest-community/eslint-plugin-jest>
 
 ## Dependencies reason
 
-- eslint-plugin-node - Node.js rules plug-in for ESLint
-- eslint-plugin-security-node - Node.js security roles plug-in for ESLint
+- eslint-plugin-react - React specific linting rules for ESLint
+- eslint-plugin-react-hooks - React rules for React Hooks
+- eslint-plugin-jsx-a11y - Static AST checker for accessibility rules on JSX elements
+- eslint-plugin-jest - Jest testing rules for ESLint
 
 ## Usage
 
