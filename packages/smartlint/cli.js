@@ -5,7 +5,22 @@ const smartlint = require('.');
 const util = require('./util');
 
 const [, , ...args] = process.argv;
-const path = args.pop();
+let path;
+
+if (args.length === 1) {
+  if (args[0].substr(0, 2) !== '--') {
+    path = args.shift();
+  }
+} else {
+  for (let i = 0; i < args.length; i += 2) {
+    // eslint-disable-next-line max-depth
+    if (args[i].substr(0, 2) !== '--') {
+      path = args[i];
+      args.splice(i, 1);
+      break;
+    }
+  }
+}
 
 const options = {};
 
