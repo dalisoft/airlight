@@ -25,8 +25,7 @@ config.env = {
 };
 
 // Add support for TSX files
-config.overrides[0].files.push('tsx');
-config.overrides.push({
+const overrideForTsxAndJsx = {
   files: ['*.jsx', '*.tsx'],
   rules: {
     'import/extensions': [
@@ -38,7 +37,9 @@ config.overrides.push({
       }
     ]
   }
-});
+};
+config.overrides[0].files.push('tsx');
+config.overrides.push(overrideForTsxAndJsx);
 
 // Rules
 config.rules = {
@@ -50,11 +51,18 @@ config.rules = {
 };
 
 // There rules can't be pushed
-const ruleNamingConvention =
-  config.rules['@typescript-eslint/naming-convention'];
+const ruleNamingConvention = JSON.parse(
+  JSON.stringify(config.rules['@typescript-eslint/naming-convention'])
+);
 
 ruleNamingConvention[2].format.push('StrictPascalCase');
 ruleNamingConvention[3].format.push('strictCamelCase');
+
+// Override some rules for React files
+overrideForTsxAndJsx.rules = {
+  ...overrideForTsxAndJsx.rules,
+  '@typescript-eslint/naming-convention': ruleNamingConvention
+};
 
 // Resolve JSX and TSX files too
 config.settings.node.tryExtensions.push('.jsx', '.tsx');
