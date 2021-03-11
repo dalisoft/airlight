@@ -1,6 +1,22 @@
 ls:
-  packages/*/src: kebab-case
+  packages:
+    .dir: kebab-case
+    .ts: kebab-case
+    .tsx: kebab-case
+    .js: kebab-case
+    .d.ts: kebab-case
+    .html: kebab-case
+    .scss: kebab-case
+    .spec.ts: kebab-case | pointcase
 
 ignore:
   - .git
-  - node_modules
+  - .bin
+  - packages/commitlint-config/node_modules
+  - packages/eslint-config-base/node_modules
+  - packages/eslint-config-node/node_modules
+  - packages/eslint-config-react/node_modules
+  - packages/husky-config/node_modules
+  - packages/lint-staged-config/node_modules
+  - packages/prettier-config/node_modules
+  - packages/smartlint/node_modules
