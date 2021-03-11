@@ -34,7 +34,7 @@
     "@ls-lint/ls-lint": "^1.9.2",
     "@stoplight/spectral": "^5.8.0",
     "dockerfilelint": "^1.8.0",
-    "eslint": "^7.19.0",
+    "eslint": "7.19.0",
     "htmlhint": "^0.14.1",
     "markdownlint-cli2": "0.0.13",
     "prettier": "^2.1.2",
