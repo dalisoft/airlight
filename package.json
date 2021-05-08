@@ -30,7 +30,7 @@
     "@commitlint/config-lerna-scopes": "^12.1.1",
     "husky": "^6.0.0",
     "lerna": "^4.0.0",
-    "lint-staged": "^10.5.4",
+    "lint-staged": "^11.0.0",
     "typescript": "^4.2.4"
   }
 }
