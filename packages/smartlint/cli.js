@@ -2,7 +2,7 @@
 
 /* eslint-disable-next-line node/no-unpublished-require */
 const smartlint = require('.');
-const util = require('./util');
+const util = require('./util.js');
 
 const [, , ...args] = process.argv;
 let path;
