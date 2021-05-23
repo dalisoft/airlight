@@ -29,7 +29,7 @@
   "dependencies": {
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-security-node": "^1.0.12",
-    "eslint-config-airlight-base": "^1.0.0"
+    "eslint-config-airlight-base": "^1.x.x"
   },
   "peerDependencies": {
     "eslint": "^7.23.0",
