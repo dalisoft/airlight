@@ -3694,9 +3694,9 @@ html-tags@^3.1.0:
   integrity sha512-1qYz89hW3lFDEazhjW0yVAV87lw8lVkrJocr72XmBkMKsoSVJCQx3W8BXsC7hO2qAt8BoVjYjtAcZ9perqGnNg==
 
 htmlhint@^0.15.0:
-  version "0.15.0"
-  resolved "https://registry.yarnpkg.com/htmlhint/-/htmlhint-0.15.0.tgz#6a5ed1dae819f69150cb76816e36b68b4cb78044"
-  integrity sha512-AgD9iX1hyvcmw3/XRs0IuIfNH5gLyemL02HSldUBwhFDlVMJPYeiKulPx+iOU20JzJwSbf4yGoKYfTZLzKnndg==
+  version "0.15.1"
+  resolved "https://registry.yarnpkg.com/htmlhint/-/htmlhint-0.15.1.tgz#28e1caa89f62ab82130cd37a39d2b7e507ae7019"
+  integrity sha512-uNbgqqBiD2ko4QQOYAHTPwDMluc9X81NwzlrJN7yExCoM6dHNgRFjVI+4TEdRrF/EqUzl1dpMUn7GYbu/qCKmA==
   dependencies:
     async "3.2.0"
     chalk "4.1.0"
