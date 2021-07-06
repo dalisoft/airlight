@@ -24,7 +24,6 @@
   },
   "homepage": "https://github.com/dalisoft/airlight#readme",
   "peerDependencies": {
-    "husky": "^6.0.0",
     "@commitlint/cli": "^11.x, ^12.x"
   }
 }

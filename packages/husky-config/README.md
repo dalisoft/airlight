@@ -2,6 +2,10 @@
 
 Husky config for use of combining all linters and formatters
 
+## Deprecated
+
+This package deprecated due of husky new architecture
+
 ## Installation
 
 ```bash
