@@ -14,7 +14,7 @@ get cleaner, better, reusable, secure and effecient codebase
 - [prettier-config-airlight](./packages/prettier-config)
 - [lint-staged-config-airlight](./packages/lint-staged-config)
 - [commitlint-config-airlight](./packages/commitlint-config)
-- [husky-config-airlight](./packages/husky-config)
+- [husky-config-airlight](./packages/husky-config) [DEPRECATED]
 - [smartlint](./packages/smartlint)
 - [typescript-config](./tsconfig.json) (this project config)
 
