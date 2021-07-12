@@ -24,7 +24,6 @@ features and how they work
 - [markdownlint-cli2](https://github.com/DavidAnson/markdownlint-cli2)
 - [@stoplight/spectral](https://github.com/stoplightio/spectral)
 - [DockerfileLint](https://github.com/replicatedhq/dockerfilelint)
-- [HTMLHint](https://github.com/htmlhint/HTMLHint)
 - [ls-lint](https://github.com/loeffel-io/ls-lint)
 
 ## Usage
@@ -44,14 +43,14 @@ Type: `String`
 Allowed values:
 
 ```md
-'lslint' | 'eslint' | 'stylelint' | 'markdownlint' | 'htmllint' |
+'lslint' | 'eslint' | 'stylelint' | 'markdownlint' |
 'jsonymllint' | 'prettier' | 'dockerfile'
 ```
 
 Default:
 
 ```js
-['lslint', 'eslint', 'markdownlint', 'htmllint', 'jsonymllint', 'prettier'];
+['lslint', 'eslint', 'markdownlint', 'jsonymllint', 'prettier'];
 ```
 
 Example: `yarn smartlint --linters=eslint,stylelint .`
