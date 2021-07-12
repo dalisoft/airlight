@@ -24,7 +24,6 @@ to learn about configs, features and how they work
 - [markdownlint-cli2](https://github.com/DavidAnson/markdownlint-cli2)
 - [@stoplight/spectral](https://github.com/stoplightio/spectral)
 - [DockerfileLint](https://github.com/replicatedhq/dockerfilelint)
-- [HTMLHint](https://github.com/htmlhint/HTMLHint)
 
 ## Usage
 

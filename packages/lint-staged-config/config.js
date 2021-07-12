@@ -53,9 +53,10 @@ module.exports = (languages = languagesSupport) => {
         commands = applyLinterCommands(['jsonymllint', 'prettier']);
         break;
       case 'html':
-        regex += language;
-        commands = applyLinterCommands(['htmllint', 'prettier']);
-        break;
+        throw new Error('Due of security issues, we currently disabled it');
+      // regex += language;
+      // commands = applyLinterCommands(['htmllint', 'prettier']);
+      // break;
       case 'css':
       case 'scss':
       case 'sass':
