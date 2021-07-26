@@ -31,7 +31,7 @@
   },
   "homepage": "https://github.com/dalisoft/airlight#readme",
   "dependencies": {
-    "@ls-lint/ls-lint": "^1.9.2",
+    "@ls-lint/ls-lint": "^1.10.0",
     "@stoplight/spectral": "^5.9.1",
     "dockerfilelint": "^1.8.0",
     "eslint": "^7.27.0",
