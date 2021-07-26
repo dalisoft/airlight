@@ -27,7 +27,7 @@
   "homepage": "https://github.com/dalisoft/airlight#readme",
   "devDependencies": {
     "@commitlint/cli": "^12.1.4",
-    "@commitlint/config-lerna-scopes": "^12.1.4",
+    "@commitlint/config-lerna-scopes": "^13.1.0",
     "husky": "^7.0.1",
     "lerna": "^4.0.0",
     "lint-staged": "^11.0.0",
