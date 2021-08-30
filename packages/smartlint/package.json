@@ -35,7 +35,7 @@
     "@stoplight/spectral": "^5.9.1",
     "dockerfilelint": "^1.8.0",
     "eslint": "^7.27.0",
-    "markdownlint-cli2": "0.2.0",
+    "markdownlint-cli2": "0.3.0",
     "prettier": "^2.3.0",
     "stylelint": "^13.13.1"
   },
