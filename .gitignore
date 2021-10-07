@@ -55,6 +55,7 @@ coverage
 #### Cachings ###
 #################
 
+.history
 .grunt
 .npm
 .pnp
