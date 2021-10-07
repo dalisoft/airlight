@@ -32,8 +32,10 @@ click to dependecy link to learn about configs,
 features and how they work
 
 - [DockerfileLint](https://github.com/replicatedhq/dockerfilelint)
-- [@stoplight/spectral](https://github.com/stoplightio/spectral) **[Contains security issues]**
-- [stylelint](https://stylelint.io) **[Contains security issues]**
+- [@stoplight/spectral](https://github.com/stoplightio/spectral)\*
+- [stylelint](https://stylelint.io)\*
+
+`* - These packages may contain security issues`
 
 ## Usage
 
