@@ -22,7 +22,6 @@ features and how they work
 - [ls-lint](https://github.com/loeffel-io/ls-lint)
 - [markdownlint-cli2](https://github.com/DavidAnson/markdownlint-cli2)
 - [prettier](https://prettier.io)
-- [@stoplight/spectral](https://github.com/stoplightio/spectral)
 
 ## Peer dependencies
 
@@ -33,7 +32,8 @@ click to dependecy link to learn about configs,
 features and how they work
 
 - [DockerfileLint](https://github.com/replicatedhq/dockerfilelint)
-- [stylelint](https://stylelint.io)
+- [@stoplight/spectral](https://github.com/stoplightio/spectral) **[Contains security issues]**
+- [stylelint](https://stylelint.io) **[Contains security issues]**
 
 ## Usage
 

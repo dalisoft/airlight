@@ -21,7 +21,7 @@ const defaultLinters = [
   // 'stylelint',
   'markdownlint',
   // 'htmllint',
-  'jsonymllint',
+  // 'jsonymllint',
   'prettier'
   // 'dockerfile'
 ];
