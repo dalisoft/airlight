@@ -10,6 +10,20 @@ npm install smartlint --save-dev
 yarn add smartlint -D
 ```
 
+## Dependencies
+
+These dependencies are comes built-in and you have no requirement to install these
+
+For more information about each dependencies,
+click to dependecy link to learn about configs,
+features and how they work
+
+- [eslint](http://eslint.org)
+- [ls-lint](https://github.com/loeffel-io/ls-lint)
+- [markdownlint-cli2](https://github.com/DavidAnson/markdownlint-cli2)
+- [prettier](https://prettier.io)
+- [@stoplight/spectral](https://github.com/stoplightio/spectral)
+
 ## Peer dependencies
 
 For working properly, you may need one or all of these dependencies.
@@ -18,13 +32,8 @@ For more information about each dependencies,
 click to dependecy link to learn about configs,
 features and how they work
 
-- [eslint](http://eslint.org)
-- [prettier](https://prettier.io)
-- [stylelint](https://stylelint.io)
-- [markdownlint-cli2](https://github.com/DavidAnson/markdownlint-cli2)
-- [@stoplight/spectral](https://github.com/stoplightio/spectral)
 - [DockerfileLint](https://github.com/replicatedhq/dockerfilelint)
-- [ls-lint](https://github.com/loeffel-io/ls-lint)
+- [stylelint](https://stylelint.io)
 
 ## Usage
 
