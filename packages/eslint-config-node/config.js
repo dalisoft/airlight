@@ -33,6 +33,15 @@ module.exports = {
       rules: {
         '@typescript-eslint/no-var-requires': 'off'
       }
+    },
+    {
+      files: ['*.ts'],
+      rules: {
+        'node/no-unsupported-features/es-syntax': [
+          'error',
+          { ignores: ['modules'] }
+        ]
+      }
     }
   ]),
   settings: {
