@@ -2611,6 +2611,23 @@ eslint-config-airbnb-typescript@^14.0.0:
   dependencies:
     eslint-config-airbnb-base "14.2.1"
 
+eslint-config-airlight-base@^3.x.x:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-airlight-base/-/eslint-config-airlight-base-3.0.0.tgz#3127616edebd756f32e18aaa6c807e9cf48e5a57"
+  integrity sha512-fEACCPb4Hs0NC+SOARaCpkhoUEEg5tKS3D/PpVR0m8v4MiJASgAybPQNRqW0iuh0KWLbyQNXwMBOPLP2nLeDug==
+  dependencies:
+    "@typescript-eslint/eslint-plugin" "^5.0.0"
+    "@typescript-eslint/parser" "^5.0.0"
+    eslint-config-airbnb-base "^14.2.1"
+    eslint-config-airbnb-typescript "^14.0.0"
+    eslint-config-prettier "^8.3.0"
+    eslint-plugin-eslint-comments "^3.2.0"
+    eslint-plugin-filename-rules "^1.2.0"
+    eslint-plugin-import "^2.25.2"
+    eslint-plugin-no-secrets "^0.8.9"
+    eslint-plugin-optimize-regex "^1.2.1"
+    eslint-plugin-promise "^5.1.0"
+
 eslint-config-prettier@^8.3.0:
   version "8.3.0"
   resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-8.3.0.tgz#f7471b20b6fe8a9a9254cc684454202886a2dd7a"
