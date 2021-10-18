@@ -27,9 +27,9 @@
   },
   "homepage": "https://github.com/dalisoft/airlight#readme",
   "dependencies": {
+    "eslint-config-airlight-base": "^3.0.1",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-security-node": "^1.0.12",
-    "eslint-config-airlight-base": "^3.x.x"
+    "eslint-plugin-security-node": "^1.0.12"
   },
   "peerDependencies": {
     "eslint": "^8.0.1",
