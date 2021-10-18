@@ -2611,10 +2611,10 @@ eslint-config-airbnb-typescript@^14.0.0:
   dependencies:
     eslint-config-airbnb-base "14.2.1"
 
-eslint-config-airlight-base@^3.x.x:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-airlight-base/-/eslint-config-airlight-base-3.0.0.tgz#3127616edebd756f32e18aaa6c807e9cf48e5a57"
-  integrity sha512-fEACCPb4Hs0NC+SOARaCpkhoUEEg5tKS3D/PpVR0m8v4MiJASgAybPQNRqW0iuh0KWLbyQNXwMBOPLP2nLeDug==
+eslint-config-airlight-base@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/eslint-config-airlight-base/-/eslint-config-airlight-base-3.0.1.tgz#f955dafd64ab63d7faa4c49da8d9037e18f09192"
+  integrity sha512-MJ5MXGPvj2+Y5uL6nAubrm6hiA0F+XV/G82UBmSEGH48RT1RaYebeHdMNZP+fsgH6w9ewsyacSf0xAY60KMiMw==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^5.0.0"
     "@typescript-eslint/parser" "^5.0.0"
