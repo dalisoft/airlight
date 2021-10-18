@@ -7,7 +7,7 @@
     "config.js"
   ],
   "engines": {
-    "node": ">=8.5"
+    "node": ">=14.18.1"
   },
   "repository": {
     "type": "git",
@@ -32,8 +32,8 @@
     "eslint-config-airlight-base": "^3.x.x"
   },
   "peerDependencies": {
-    "eslint": "^7.23.0",
-    "prettier": "^2.1.x",
-    "typescript": "^4.1.5"
+    "eslint": "^8.0.1",
+    "prettier": "^2.3.0",
+    "typescript": "^4.4.4"
   }
 }
