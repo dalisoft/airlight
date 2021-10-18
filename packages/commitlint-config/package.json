@@ -26,6 +26,6 @@
     "@commitlint/config-conventional": "^13.2.0"
   },
   "peerDependencies": {
-    "@commitlint/cli": "^11.x, ^12.x"
+    "@commitlint/cli": "^12.x, ^13.x"
   }
 }
