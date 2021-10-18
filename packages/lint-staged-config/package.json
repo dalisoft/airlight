@@ -7,7 +7,7 @@
     "config.js"
   ],
   "engines": {
-    "node": ">=12.22.1"
+    "node": ">=14.18.1"
   },
   "repository": {
     "type": "git",
@@ -26,12 +26,13 @@
   },
   "homepage": "https://github.com/dalisoft/airlight#readme",
   "peerDependencies": {
-    "@stoplight/spectral": "^5.6.0",
+    "@stoplight/spectral-cli": "^6.0.1",
+    "@stoplight/spectral-ruleset-migrator": "^1.5.0",
     "dockerfilelint": "^1.8.0",
-    "eslint": "^7.23.0",
-    "lint-staged": "^10.5.2",
+    "eslint": "^8.0.1",
+    "lint-staged": "^11.2.3",
     "markdownlint-cli2": "0.0.13",
-    "prettier": "^2.1.2",
-    "stylelint": "^13.7.2"
+    "prettier": "^2.3.0",
+    "stylelint": "^13.13.1"
   }
 }
