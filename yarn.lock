@@ -2611,6 +2611,13 @@ eslint-config-airbnb-typescript@^14.0.0:
   dependencies:
     eslint-config-airbnb-base "^14.2.1"
 
+eslint-config-airbnb-typescript@^15.0.0:
+  version "15.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-airbnb-typescript/-/eslint-config-airbnb-typescript-15.0.0.tgz#c88007b3cca5dd0f47125420ca5e8f6efac418fd"
+  integrity sha512-DTWGwqytbTnB8kSKtmkrGkRf3xwTs2l15shSH0w/3Img47AQwCCrIA/ON/Uj0XXBxP31LHyEItPXeuH3mqCNLA==
+  dependencies:
+    eslint-config-airbnb-base "^14.2.1"
+
 eslint-config-airlight-base@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/eslint-config-airlight-base/-/eslint-config-airlight-base-3.0.1.tgz#f955dafd64ab63d7faa4c49da8d9037e18f09192"
