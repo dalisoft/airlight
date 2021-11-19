@@ -33,7 +33,7 @@
   "dependencies": {
     "@ls-lint/ls-lint": "^1.10.0",
     "dockerfilelint": "^1.8.0",
-    "eslint": "^8.0.1",
+    "eslint": "^8.2.0",
     "markdownlint-cli2": "0.3.2",
     "prettier": "^2.3.0"
   },
