@@ -2781,9 +2781,9 @@ eslint-plugin-react@^7.27.1:
     string.prototype.matchall "^4.0.6"
 
 eslint-plugin-security-node@^1.0.12:
-  version "1.0.14"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-security-node/-/eslint-plugin-security-node-1.0.14.tgz#14fdba09e8aafb6f6bc53110ff72dcd3c2dc2e91"
-  integrity sha512-PVN8vGDzXHiQJcGLB6Db/yqC2o43ZnTWgckjSiZKRu0jqpyFPCkT4tZPJ1FPqPDQsdgHHD//f18EOb7yw+N/Ig==
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-security-node/-/eslint-plugin-security-node-1.1.0.tgz#f4acac508c809d57bee6e70c8f6d4115eac79162"
+  integrity sha512-/bND23JATYRL+VPxrUSigxfftZ2xFmZ5oLKME5RevfanpuK10VdZ1hE0UQWdp/y8Li1akN1l+hFwyVTLiWyoBw==
 
 eslint-scope@^5.1.1:
   version "5.1.1"
