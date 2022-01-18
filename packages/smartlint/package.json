@@ -34,7 +34,7 @@
     "@ls-lint/ls-lint": "^1.10.0",
     "dockerfilelint": "^1.8.0",
     "eslint": "^8.2.0",
-    "markdownlint-cli2": "0.3.2",
+    "markdownlint-cli2": "0.4.0",
     "prettier": "^2.3.0"
   },
   "peerDependencies": {
