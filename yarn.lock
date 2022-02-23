@@ -928,9 +928,9 @@
     write-file-atomic "^3.0.3"
 
 "@ls-lint/ls-lint@^1.10.0":
-  version "1.10.0"
-  resolved "https://registry.yarnpkg.com/@ls-lint/ls-lint/-/ls-lint-1.10.0.tgz#cad20085edc010a3e938aa01bb66d05e5e12b3f3"
-  integrity sha512-C1vrI8zFp/28CiqCQHtfu/GqUg2iLYZqtlJHCYfqlg6OJopv7lHAPS0rzk06Ev1121yj4Gi/GmXMBlF+j35DcQ==
+  version "1.11.0"
+  resolved "https://registry.yarnpkg.com/@ls-lint/ls-lint/-/ls-lint-1.11.0.tgz#fff074121e72bbbf6f1e5da05b916196039479df"
+  integrity sha512-YwVzEaGDM5LvRN7fn+8hYLTgcXsyksAr3V1x76/V3mWyaqKUAo4llcCd8lYoBCo4bxVgFq2pzPDQpeunZejLQg==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
