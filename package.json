@@ -39,6 +39,7 @@
     "lodash": "^4.17.21",
     "tar": "^6.1.9",
     "@npmcli/arborist": "^2.8.2",
-    "markdown-it": "^12.3.2"
+    "markdown-it": "^12.3.2",
+    "json-schema": "^0.4.0"
   }
 }
