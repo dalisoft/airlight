@@ -33,9 +33,9 @@
   "dependencies": {
     "@ls-lint/ls-lint": "^1.10.0",
     "dockerfilelint": "^1.8.0",
-    "eslint": "^8.2.0",
+    "eslint": "^8.12.0",
     "markdownlint-cli2": "0.4.0",
-    "prettier": "^2.3.0"
+    "prettier": "^2.6.1"
   },
   "peerDependencies": {
     "@stoplight/spectral-cli": "^6.0.1",
