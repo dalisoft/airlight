@@ -33,6 +33,14 @@ module.exports = {
         leadingUnderscore: 'forbid'
       },
       {
+        selector: 'objectLiteralProperty',
+        leadingUnderscore: 'forbid',
+        custom: {
+          regex: '^([a-z][a-z0-9]*)(-[a-z0-9]+)*$',
+          match: true
+        }
+      },
+      {
         selector: 'variable',
         format: ['strictCamelCase'],
         leadingUnderscore: 'forbid'
