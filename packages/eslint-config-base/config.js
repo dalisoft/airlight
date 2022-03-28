@@ -1,3 +1,6 @@
+const tsOverrides = require('./overrides/ts.js');
+const namingConventionRule = require('./rules/naming-convention.js');
+
 module.exports = {
   parserOptions: {
     ecmaVersion: 2019
@@ -20,53 +23,7 @@ module.exports = {
     'filename-rules'
   ],
   rules: {
-    '@typescript-eslint/naming-convention': [
-      'error',
-      {
-        selector: ['function', 'method'],
-        format: ['strictCamelCase'],
-        leadingUnderscore: 'forbid'
-      },
-      {
-        selector: 'property',
-        format: ['snake_case', 'strictCamelCase'],
-        leadingUnderscore: 'forbid'
-      },
-      {
-        selector: 'objectLiteralProperty',
-        leadingUnderscore: 'forbid',
-        custom: {
-          regex: '^([a-z][a-z0-9]*)(-[a-z0-9]+)*$',
-          match: true
-        }
-      },
-      {
-        selector: 'variable',
-        format: ['strictCamelCase'],
-        leadingUnderscore: 'forbid'
-      },
-      {
-        selector: 'variable',
-        types: ['boolean', 'number'],
-        modifiers: ['const'],
-        format: ['UPPER_CASE'],
-        leadingUnderscore: 'forbid'
-      },
-      {
-        selector: 'typeLike',
-        format: ['StrictPascalCase'],
-        leadingUnderscore: 'forbid'
-      },
-      {
-        selector: 'interface',
-        format: ['PascalCase'],
-        leadingUnderscore: 'forbid',
-        custom: {
-          regex: '^I[A-Z]',
-          match: true
-        }
-      }
-    ],
+    ...namingConventionRule,
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-shadow': 'off',
@@ -124,37 +81,7 @@ module.exports = {
   },
   overrides: [
     {
-      // enable the rule specifically for TypeScript files
-      files: ['*.ts'],
-      rules: {
-        '@typescript-eslint/explicit-function-return-type': ['error'],
-        '@typescript-eslint/explicit-module-boundary-types': ['error'],
-        '@typescript-eslint/await-thenable': ['error'],
-        '@typescript-eslint/indent': [
-          'error',
-          2,
-          {
-            // eslint-disable-next-line @typescript-eslint/naming-convention
-            SwitchCase: 1,
-            flatTernaryExpressions: false,
-            offsetTernaryExpressions: true
-          }
-        ],
-        '@typescript-eslint/quotes': [
-          'error',
-          'single',
-          {
-            avoidEscape: true
-          }
-        ],
-        '@typescript-eslint/no-shadow': ['error', { hoist: 'functions' }],
-        '@typescript-eslint/no-empty-function': ['error'],
-        '@typescript-eslint/consistent-indexed-object-style': ['error'],
-        indent: 'off',
-        quotes: 'off',
-        'no-shadow': 'off',
-        'no-empty-function': 'off'
-      }
+      ...tsOverrides
     }
   ],
   settings: {
@@ -169,5 +96,4 @@ module.exports = {
     'import/extensions': ['.ts', '.js', '.d.ts', '.html', '.md', '.json'],
     'import/external-module-folders': ['node_modules', 'node_modules/@types']
   }
-  // eslint-disable-next-line max-lines
 };
