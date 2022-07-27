@@ -2,5 +2,9 @@
   "config": {
     "default": true
   },
-  "ignores": ["packages/**/node_modules/**", "packages/**/examples/**"]
+  "ignores": [
+    "packages/**/node_modules/**",
+    "packages/**/examples/**",
+    ".github"
+  ]
 }

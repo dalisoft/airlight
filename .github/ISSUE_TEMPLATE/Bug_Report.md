@@ -32,7 +32,8 @@ A clear and concise description of what you expected to happen (or code).
 
 ### Additional context/Screenshots
 
-Add any other context about the problem here. If applicable, add screenshots to help explain.
+Add any other context about the problem here.
+If applicable, add screenshots to help explain.
 
 ### Note
 
