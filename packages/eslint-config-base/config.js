@@ -162,6 +162,7 @@ module.exports = {
       tryExtensions: ['.ts', '.js', '.d.ts', '.html', '.md', '.json']
     },
     'import/resolver': {
+      // eslint-disable-next-line max-lines
       node: {
         extensions: ['.ts', '.js', '.d.ts', '.html', '.md', '.json']
       }
@@ -169,5 +170,4 @@ module.exports = {
     'import/extensions': ['.ts', '.js', '.d.ts', '.html', '.md', '.json'],
     'import/external-module-folders': ['node_modules', 'node_modules/@types']
   }
-  // eslint-disable-next-line max-lines
 };
