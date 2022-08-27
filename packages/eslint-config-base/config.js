@@ -34,11 +34,8 @@ module.exports = {
       },
       {
         selector: 'objectLiteralProperty',
-        leadingUnderscore: 'forbid',
-        custom: {
-          regex: '^([a-z][a-z0-9]*)(-[a-z0-9]+)*$',
-          match: true
-        }
+        format: [],
+        leadingUnderscore: 'forbid'
       },
       {
         selector: 'variable',
@@ -162,10 +159,10 @@ module.exports = {
       tryExtensions: ['.ts', '.js', '.d.ts', '.html', '.md', '.json']
     },
     'import/resolver': {
-      // eslint-disable-next-line max-lines
       node: {
         extensions: ['.ts', '.js', '.d.ts', '.html', '.md', '.json']
       }
+      // eslint-disable-next-line max-lines
     },
     'import/extensions': ['.ts', '.js', '.d.ts', '.html', '.md', '.json'],
     'import/external-module-folders': ['node_modules', 'node_modules/@types']
