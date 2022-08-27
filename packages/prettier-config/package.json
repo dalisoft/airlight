@@ -24,6 +24,6 @@
   },
   "homepage": "https://github.com/dalisoft/airlight#readme",
   "peerDependencies": {
-    "prettier": "^2.6.1"
+    "prettier": "^2.7.1"
   }
 }
