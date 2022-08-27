@@ -24,6 +24,6 @@
   },
   "homepage": "https://github.com/dalisoft/airlight#readme",
   "peerDependencies": {
-    "@commitlint/cli": "^12.x, ^13.x"
+    "@commitlint/cli": "^16.x, ^17.x"
   }
 }

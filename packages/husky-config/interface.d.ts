@@ -1,6 +1,9 @@
+const preCommit = 'pre-commit';
+const commitMsg = 'commit-msg';
+
 interface IHook {
-  'pre-commit': 'lint-staged';
-  'commit-msg': 'commitlint -E HUSKY_GIT_PARAMS';
+  [preCommit]: 'lint-staged';
+  [commitMsg]: 'commitlint -E HUSKY_GIT_PARAMS';
 }
 
 declare class HuskyConfig {
