@@ -6,6 +6,9 @@
   "files": [
     "config.js"
   ],
+  "engines": {
+    "node": ">=14.20.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dalisoft/airlight.git"
