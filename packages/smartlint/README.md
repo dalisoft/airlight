@@ -31,7 +31,7 @@ For more information about each dependencies,
 click to dependecy link to learn about configs,
 features and how they work
 
-- [DockerfileLint](https://github.com/replicatedhq/dockerfilelint)
+- [DockerfileLint](https://github.com/replicatedhq/dockerfilelint)\*
 - [@stoplight/spectral](https://github.com/stoplightio/spectral)\*
 - [stylelint](https://stylelint.io)\*
 

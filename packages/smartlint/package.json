@@ -32,12 +32,12 @@
   "homepage": "https://github.com/dalisoft/airlight#readme",
   "dependencies": {
     "@ls-lint/ls-lint": "^1.11.2",
-    "dockerfilelint": "^1.8.0",
     "eslint": "^8.23.0",
     "prettier": "^2.7.1",
     "markdownlint-cli2": "0.5.1"
   },
   "peerDependencies": {
+    "dockerfilelint": "^1.8.0",
     "@stoplight/spectral-cli": "^6.0.1",
     "@stoplight/spectral-ruleset-migrator": "^1.5.0",
     "stylelint": "^13.13.1"
