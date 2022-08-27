@@ -14,7 +14,7 @@ yarn add eslint-config-airlight-base -D
 
 ## Peer dependencies
 
-- <https://github.com/microsoft/TypeScript>
+- <https://github.com/microsoft/TypeScript> (v4.7.4 recommended)
 
 ## Dependencies
 
