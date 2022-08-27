@@ -2,5 +2,8 @@
   "typescript.tsdk": "node_modules/typescript/lib",
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "cSpell.enabled": false,
+  "eslint.lintTask.enable": true,
+  "task.allowAutomaticTasks": "on"
 }
