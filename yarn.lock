@@ -4734,7 +4734,7 @@ linkify-it@^4.0.1:
   dependencies:
     uc.micro "^1.0.1"
 
-lint-staged@^13.0.3:
+lint-staged@^13.1.0:
   version "13.1.0"
   resolved "https://registry.yarnpkg.com/lint-staged/-/lint-staged-13.1.0.tgz#d4c61aec939e789e489fa51987ec5207b50fd37e"
   integrity sha512-pn/sR8IrcF/T0vpWLilih8jmVouMlxqXxKuAojmbiGX5n/gDnz+abdPptlj0vYnbfE0SQNl3CY/HwtM0+yfOVQ==
@@ -5002,7 +5002,7 @@ markdownlint-cli2-formatter-default@0.0.3:
   resolved "https://registry.yarnpkg.com/markdownlint-cli2-formatter-default/-/markdownlint-cli2-formatter-default-0.0.3.tgz#5aecd6e576ad18801b76e58bbbaf0e916c583ab8"
   integrity sha512-QEAJitT5eqX1SNboOD+SO/LNBpu4P4je8JlR02ug2cLQAqmIhh8IJnSK7AcaHBHhNADqdGydnPpQOpsNcEEqCw==
 
-markdownlint-cli2@0.6.0:
+markdownlint-cli2@^0.6.0:
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/markdownlint-cli2/-/markdownlint-cli2-0.6.0.tgz#ffa6aee4098e61f781e5e69528db60f7f39f737c"
   integrity sha512-Bv20r6WGdcHMWi8QvAFZ3CBunf4i4aYmVdTfpAvXODI/1k3f09DZZ0i0LcX9ZMhlVxjoOzbVDz1NWyKc5hwTqg==
@@ -6512,7 +6512,7 @@ semantic-release-plugin-decorators@^3.0.0:
   resolved "https://registry.yarnpkg.com/semantic-release-plugin-decorators/-/semantic-release-plugin-decorators-3.0.1.tgz#961b5fec7e1ab113aa10aed5256ee7c3ee6804d9"
   integrity sha512-f5Qjvv/AJYByvkaj11a+05gQwfPwgQKo5OIhj8YVM2Dhf2rOPEOLD83jGrTdM7Nuf//sZYw77/cGUSVygUG9Kg==
 
-semantic-release@^19.0.3:
+semantic-release@^19.0.5:
   version "19.0.5"
   resolved "https://registry.yarnpkg.com/semantic-release/-/semantic-release-19.0.5.tgz#d7fab4b33fc20f1288eafd6c441e5d0938e5e174"
   integrity sha512-NMPKdfpXTnPn49FDogMBi36SiBfXkSOJqCkk0E4iWOY1tusvvgBwqUmxTX1kmlT6kIYed9YwNKD1sfPpqa5yaA==
