@@ -32,18 +32,14 @@
   "homepage": "https://github.com/dalisoft/airlight#readme",
   "dependencies": {
     "@ls-lint/ls-lint": "^1.11.2",
-    "eslint": "^8.23.0",
+    "eslint": "^8.31.0",
     "prettier": "^2.7.1",
-    "markdownlint-cli2": "0.5.1"
+    "markdownlint-cli2": "^0.6.0"
   },
   "peerDependencies": {
     "dockerfilelint": "^1.8.0",
     "@stoplight/spectral-cli": "^6.0.1",
     "@stoplight/spectral-ruleset-migrator": "^1.5.0",
-    "stylelint": "^13.13.1"
-  },
-  "resolutions": {
-    "lodash": "^4.17.21",
-    "markdown-it": "^12.3.2"
+    "stylelint": "^14.16.1"
   }
 }
