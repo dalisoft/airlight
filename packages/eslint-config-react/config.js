@@ -14,7 +14,7 @@ config.extends.splice(
 );
 
 // Plugins
-config.plugins.splice(3, 0, 'jest', 'react-refresh');
+config.plugins.splice(3, 0, 'react-refresh', 'jest');
 
 // Add env
 config.env = {
