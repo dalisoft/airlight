@@ -14,7 +14,7 @@ config.extends.splice(
 );
 
 // Plugins
-config.plugins.splice(3, 0, 'jest');
+config.plugins.splice(3, 0, 'jest', 'react-refresh');
 
 // Add env
 config.env = {
@@ -54,7 +54,8 @@ config.rules = {
   'react/jsx-pascal-case': ['error'],
   'react/jsx-no-useless-fragment': ['error'],
   'react/no-deprecated': ['error'],
-  'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx'] }]
+  'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx'] }],
+  'react-refresh/only-export-components': 'warn'
 };
 
 // There rules can't be pushed
