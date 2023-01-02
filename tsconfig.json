@@ -2,8 +2,8 @@
   "include": ["packages", "test", "*.js"],
   "exclude": ["node_modules"],
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
+    "target": "es2020",
+    "module": "node16",
     // "lib": [],
     "allowJs": true,
     "incremental": true,
@@ -21,7 +21,7 @@
     // "importHelpers": true,
     // "downlevelIteration": true,
     // "isolatedModules": true,
-
+    "pretty": true,
     "strict": true,
     "alwaysStrict": true,
     "noImplicitAny": true,
@@ -29,6 +29,9 @@
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "allowUmdGlobalAccess": false,
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
     "strictFunctionTypes": true,
@@ -36,7 +39,7 @@
     "noFallthroughCasesInSwitch": true,
     "forceConsistentCasingInFileNames": true,
 
-    "moduleResolution": "node",
+    "moduleResolution": "node16",
     // "baseUrl": "src" ,
     // "paths": {},
     // "rootDirs": [],
@@ -49,7 +52,8 @@
     // "sourceRoot": "./src" ,
     // "mapRoot": "maps" ,
     // "sourceMap": true,
-    "inlineSourceMap": true
+    "inlineSourceMap": true,
+    "listFiles": false
     // "inlineSources": false
 
     // "experimentalDecorators": true,
