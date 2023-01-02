@@ -32,8 +32,8 @@
     "eslint-plugin-security-node": "^1.0.12"
   },
   "peerDependencies": {
-    "eslint": "^8.23.0",
-    "prettier": "^2.7.1",
-    "typescript": "^4.7.4"
+    "eslint": "^8.31.0",
+    "prettier": "^2.8.1",
+    "typescript": "^4.9.4"
   }
 }
