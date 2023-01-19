@@ -7,7 +7,7 @@
     "config.js"
   ],
   "engines": {
-    "node": ">=14.20.0"
+    "node": ">=18.12.1"
   },
   "repository": {
     "type": "git",
@@ -28,12 +28,11 @@
   "homepage": "https://github.com/dalisoft/airlight#readme",
   "dependencies": {
     "eslint-config-airlight-base": "*",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-security-node": "^1.0.12"
+    "eslint-plugin-n": "^15.6.1"
   },
   "peerDependencies": {
-    "eslint": "^8.31.0",
-    "prettier": "^2.8.1",
+    "eslint": "^8.32.0",
+    "prettier": "^2.8.3",
     "typescript": "^4.9.4"
   }
 }
