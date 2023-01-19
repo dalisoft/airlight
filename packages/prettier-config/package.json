@@ -9,7 +9,7 @@
     "interface.d.ts"
   ],
   "engines": {
-    "node": ">=14.20.0"
+    "node": ">=18.12.1"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,6 @@
   },
   "homepage": "https://github.com/dalisoft/airlight#readme",
   "peerDependencies": {
-    "prettier": "^2.8.1"
+    "prettier": "^2.8.3"
   }
 }
