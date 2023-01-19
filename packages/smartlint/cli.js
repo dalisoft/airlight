@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-/* eslint-disable-next-line node/no-unpublished-require */
 const smartlint = require('.');
 const util = require('./util.js');
 
@@ -46,7 +45,8 @@ const argsHandle = (arg) => arg || '';
 for (let i = 0; i < args.length; i += 1) {
   const [key, value] = argsHandle(args[i]).split('=');
   if (key.substr(0, 2) !== '--') {
-    return invalid('invalid-option');
+    invalid('invalid-option');
+    break;
   }
   options[key.substr(2)] = value.split(',');
 }
@@ -61,10 +61,5 @@ if (linterCommands && linterCommands.length > 0) {
       await util.execCommand(cmd);
       util.debug(`Linter ${name} is done!`);
     }
-    // eslint-disable-next-line no-process-exit
-    return process.exit(0);
   })();
-  return true;
 }
-
-return null;
