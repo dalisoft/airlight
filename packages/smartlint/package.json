@@ -32,7 +32,7 @@
   "homepage": "https://github.com/dalisoft/airlight#readme",
   "dependencies": {
     "@ls-lint/ls-lint": "^1.11.2",
-    "eslint": "^8.32.0",
+    "eslint": "^8.35.0",
     "prettier": "^2.7.1",
     "markdownlint-cli2": "^0.6.0"
   },
