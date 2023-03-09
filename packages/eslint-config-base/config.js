@@ -117,7 +117,7 @@ module.exports = {
     'no-shadow': ['error', { hoist: 'functions' }],
     'no-empty-function': ['error'],
     camelcase: 'off',
-    'import/prefer-default-export': ['error']
+    'import/prefer-default-export': 'warn'
   },
   overrides: [
     {
@@ -150,7 +150,8 @@ module.exports = {
         indent: 'off',
         quotes: 'off',
         'no-shadow': 'off',
-        'no-empty-function': 'off'
+        'no-empty-function': 'off',
+        'n/no-missing-import': 'off'
       }
     }
   ],
@@ -161,8 +162,8 @@ module.exports = {
     'import/resolver': {
       node: {
         extensions: ['.ts', '.js', '.d.ts', '.html', '.md', '.json']
+        // eslint-disable-next-line max-lines
       }
-      // eslint-disable-next-line max-lines
     },
     'import/extensions': ['.ts', '.js', '.d.ts', '.html', '.md', '.json'],
     'import/external-module-folders': ['node_modules', 'node_modules/@types']
