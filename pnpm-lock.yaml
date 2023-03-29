@@ -20,7 +20,7 @@ importers:
         specifier: ^13.2.0
         version: 13.2.0
       prettier-config-airlight:
-        specifier: ^2.0.1
+        specifier: latest
         version: 2.0.1(prettier@2.8.4)
       semantic-release:
         specifier: ^21.0.0
@@ -30,7 +30,7 @@ importers:
         version: 7.0.5(semantic-release@21.0.0)
       smartlint:
         specifier: latest
-        version: 6.0.1(@stoplight/spectral-cli@6.0.1)(@stoplight/spectral-ruleset-migrator@1.9.2)(dockerfilelint@1.8.0)(stylelint@14.16.1)
+        version: 6.0.1(@stoplight/spectral-cli@6.6.0)(@stoplight/spectral-ruleset-migrator@1.9.2)(dockerfilelint@1.8.0)(stylelint@14.16.1)
       typescript:
         specifier: ^5.0.2
         version: 5.0.2
@@ -93,7 +93,7 @@ importers:
         version: 8.37.0
       eslint-config-airlight-base:
         specifier: '*'
-        version: 5.0.2(eslint@8.37.0)(prettier@2.8.4)(typescript@5.0.2)
+        version: link:../eslint-config-base
       eslint-plugin-n:
         specifier: ^15.7.0
         version: 15.7.0(eslint@8.37.0)
@@ -111,7 +111,7 @@ importers:
         version: 8.37.0
       eslint-config-airlight-base:
         specifier: '*'
-        version: 5.0.2(eslint@8.37.0)(prettier@2.8.4)(typescript@5.0.2)
+        version: link:../eslint-config-base
       eslint-plugin-jest:
         specifier: ^27.2.0
         version: 27.2.0(@typescript-eslint/eslint-plugin@5.57.0)(eslint@8.37.0)(typescript@5.0.2)
@@ -823,6 +823,22 @@ packages:
       tslib: 2.5.0
       urijs: 1.19.11
 
+  /@stoplight/json-ref-resolver@3.1.5:
+    resolution: {integrity: sha512-uaKLITor7UF+JBtI84zs3aOWM0L79zp7w9TrBTwPtx5SLbaQQ4HadDKgX5yhFOLMApLdhwhiftF4c0GFanOxGg==}
+    engines: {node: '>=8.3.0'}
+    dependencies:
+      '@stoplight/json': 3.20.2
+      '@stoplight/path': 1.3.2
+      '@stoplight/types': 13.9.3
+      '@types/urijs': 1.19.19
+      dependency-graph: 0.11.0
+      fast-memoize: 2.5.2
+      immer: 9.0.21
+      lodash: 4.17.21
+      tslib: 2.5.0
+      urijs: 1.19.11
+    dev: true
+
   /@stoplight/json@3.17.0:
     resolution: {integrity: sha512-WW0z2bb0D4t8FTl+zNTCu46J8lEOsrUhBPgwEYQ3Ri2Y0MiRE4U1/9ZV8Ki+pIJznZgY9i42bbFwOBxyZn5/6w==}
     engines: {node: '>=8.3.0'}
@@ -884,6 +900,39 @@ packages:
     transitivePeerDependencies:
       - encoding
       - supports-color
+    dev: false
+
+  /@stoplight/spectral-cli@6.6.0:
+    resolution: {integrity: sha512-z46fnrvraaWMio8Y9RYYkLO+XdmtxOWpy5qNJF3CsmWua0FZ4iOTryb5Cm3GkB0wEtqxNUCBUHvoo4hS6Noyqg==}
+    engines: {node: ^12.20 || >= 14.13}
+    hasBin: true
+    dependencies:
+      '@stoplight/json': 3.20.2
+      '@stoplight/path': 1.3.2
+      '@stoplight/spectral-core': 1.17.0
+      '@stoplight/spectral-parsers': 1.0.2
+      '@stoplight/spectral-ref-resolver': 1.0.2
+      '@stoplight/spectral-ruleset-bundler': 1.5.1
+      '@stoplight/spectral-ruleset-migrator': 1.9.2
+      '@stoplight/spectral-rulesets': 1.15.0
+      '@stoplight/spectral-runtime': 1.1.2
+      '@stoplight/types': 13.9.3
+      chalk: 4.1.2
+      cliui: 7.0.4
+      eol: 0.9.1
+      fast-glob: 3.2.7
+      lodash: 4.17.21
+      pony-cause: 1.1.1
+      proxy-agent: 5.0.0
+      stacktracey: 2.1.8
+      strip-ansi: 6.0.1
+      text-table: 0.2.0
+      tslib: 2.5.0
+      yargs: 17.3.1
+    transitivePeerDependencies:
+      - encoding
+      - supports-color
+    dev: true
 
   /@stoplight/spectral-core@1.17.0:
     resolution: {integrity: sha512-7D9og+iX2bCJMGPY7cvt2YdevFGDeSI7S2jPo7HWeGGitkef1FDSQ9AEapdwmCYvOJ7ztUlQdCCLTOb6Aani8w==}
@@ -963,6 +1012,19 @@ packages:
     transitivePeerDependencies:
       - encoding
 
+  /@stoplight/spectral-ref-resolver@1.0.2:
+    resolution: {integrity: sha512-ah6NIB/O1EdEaEu89So3LmtbKRXPVnSElgQ7oBRE9S4/VOedSqyXn+qqMd40tGnO2CsKgZaFUYXdSEHOshpHYw==}
+    engines: {node: '>=12'}
+    dependencies:
+      '@stoplight/json-ref-readers': 1.2.2
+      '@stoplight/json-ref-resolver': 3.1.5
+      '@stoplight/spectral-runtime': 1.1.2
+      dependency-graph: 0.11.0
+      tslib: 2.5.0
+    transitivePeerDependencies:
+      - encoding
+    dev: true
+
   /@stoplight/spectral-ruleset-bundler@1.5.1:
     resolution: {integrity: sha512-gvlBXkyxLBNdslN/5HEYvCqMr0dvKQwJbbJCKbOvvRTZhhPVzmLb7yavWXjOnRhYn6IAhGAs7u4yhxn7cX/FtQ==}
     engines: {node: ^12.20 || >= 14.13}
@@ -1033,12 +1095,12 @@ packages:
     dependencies:
       '@asyncapi/specs': 4.2.0
       '@stoplight/better-ajv-errors': 1.0.3(ajv@8.12.0)
-      '@stoplight/json': 3.20.2
+      '@stoplight/json': 3.17.0
       '@stoplight/spectral-core': 1.17.0
       '@stoplight/spectral-formats': 1.5.0
       '@stoplight/spectral-functions': 1.7.2
       '@stoplight/spectral-runtime': 1.1.2
-      '@stoplight/types': 13.6.0
+      '@stoplight/types': 13.9.3
       '@types/json-schema': 7.0.11
       ajv: 8.12.0
       ajv-formats: 2.1.1(ajv@8.12.0)
@@ -1052,7 +1114,7 @@ packages:
     resolution: {integrity: sha512-fr5zRceXI+hrl82yAVoME+4GvJie8v3wmOe9tU+ZLRRNonizthy8qDi0Z/z4olE+vGreSDcuDOZ7JjRxFW5kTw==}
     engines: {node: '>=12'}
     dependencies:
-      '@stoplight/json': 3.20.2
+      '@stoplight/json': 3.17.0
       '@stoplight/path': 1.3.2
       '@stoplight/types': 12.3.0
       abort-controller: 3.0.0
@@ -1630,6 +1692,12 @@ packages:
     resolution: {integrity: sha512-3CYzex9M9FGQjCGMGyi6/31c8GJbgb0qGyrx5HWxPd0aCwh4cB2YjMb2Xf9UuoogrMrlO9cTqnB5rI5GHZTcUA==}
     engines: {node: '>=0.10.0'}
 
+  /as-table@1.0.55:
+    resolution: {integrity: sha512-xvsWESUJn0JN421Xb9MQw6AsMHRCUknCe0Wjlxvjud80mU4E6hQf1A6NzQKcYNmYw62MfzEtXc+badstZP3JpQ==}
+    dependencies:
+      printable-characters: 1.0.42
+    dev: true
+
   /ast-types-flow@0.0.7:
     resolution: {integrity: sha512-eBvWn1lvIApYMhzQMsu9ciLfkBY499mFZlNqG+/9WR7PVlroQw0vG30cOQQbaKz3sCEc44TAOu2ykzqXSNnwag==}
     dev: false
@@ -2018,6 +2086,10 @@ packages:
     resolution: {integrity: sha512-2iy1EkLdlBzQGvbweYRFxmFath8+K7+AKB0TlhHWkNuH+TmovaMH/Wp7V7R4u7f4SnX3OgLsU9t1NI9ioDnUpg==}
     engines: {node: '>=8'}
 
+  /data-uri-to-buffer@2.0.2:
+    resolution: {integrity: sha512-ND9qDTLc6diwj+Xe5cdAgVTbLVdXbtxTJRXRhli8Mowuaan+0EJOtdqJ0QCHNSSPyoXGx9HX2/VMnKeC34AChA==}
+    dev: true
+
   /data-uri-to-buffer@3.0.1:
     resolution: {integrity: sha512-WboRycPNsVw3B3TL559F7kuBUM4d8CgMEvk6xEJlOp7OBPjt6G7z8WMWlD2rOFZLk6OYfFIUGsCOWzcQH9K2og==}
     engines: {node: '>= 6'}
@@ -2308,6 +2380,7 @@ packages:
       eslint: 8.37.0
       eslint-config-airbnb-base: 15.0.0(eslint-plugin-import@2.26.0)(eslint@8.37.0)
       eslint-plugin-import: 2.26.0(@typescript-eslint/parser@5.57.0)(eslint@8.37.0)
+    dev: true
 
   /eslint-config-airlight-base@5.0.2(eslint@8.37.0)(prettier@2.8.4)(typescript@5.0.2):
     resolution: {integrity: sha512-e/rQRMHrokvOGg+C6DPngZvurdTKw5N2ZLupKMq9KeUTlqfcWouUAGonBV7G2FZzu7kBD7PCTAxcg1MzBo6nhA==}
@@ -2335,6 +2408,7 @@ packages:
       - eslint-import-resolver-typescript
       - eslint-import-resolver-webpack
       - supports-color
+    dev: true
 
   /eslint-config-airlight-node@4.0.1(eslint@8.37.0)(prettier@2.8.4)(typescript@5.0.2):
     resolution: {integrity: sha512-FFSLCxk03MLb5K856Lb0HYcXQrYuouWtptDoOKttqMJ+icAOlZaSrrJFRye1hvHq85AoDnqxjHYo9S8XJyndRA==}
@@ -2399,6 +2473,7 @@ packages:
       eslint-import-resolver-node: 0.3.7
     transitivePeerDependencies:
       - supports-color
+    dev: true
 
   /eslint-module-utils@2.7.4(@typescript-eslint/parser@6.0.0-alpha.104)(eslint-import-resolver-node@0.3.7)(eslint@8.37.0):
     resolution: {integrity: sha512-j4GT+rqzCoRKHwURX7pddtIPGySnX9Si/cgMI5ztrcqOPtk5dDEeZ34CQVPphnqkJytlc97Vuk05Um2mJ3gEQA==}
@@ -2481,6 +2556,7 @@ packages:
       - eslint-import-resolver-typescript
       - eslint-import-resolver-webpack
       - supports-color
+    dev: true
 
   /eslint-plugin-import@2.26.0(@typescript-eslint/parser@6.0.0-alpha.104)(eslint@8.37.0):
     resolution: {integrity: sha512-hYfi3FXaM8WPLf4S1cikh/r4IxnO6zrhZbEGz2b660EJRbuxgpDS5gkCuYgGWg2xxh2rBuIr4Pvhve/7c31koA==}
@@ -3019,6 +3095,13 @@ packages:
       function-bind: 1.1.1
       has: 1.0.3
       has-symbols: 1.0.3
+
+  /get-source@2.0.12:
+    resolution: {integrity: sha512-X5+4+iD+HoSeEED+uwrQ07BOQr0kEDFMVqqpBuI+RaZBpBpHCuXxo70bjar6f0b0u/DQJsJ7ssurpP0V60Az+w==}
+    dependencies:
+      data-uri-to-buffer: 2.0.2
+      source-map: 0.6.1
+    dev: true
 
   /get-stream@3.0.0:
     resolution: {integrity: sha512-GlhdIUuVakc8SJ6kK0zAFbiGzRFzNnY4jUuEbV9UROo4Y+0Ny4fjvcZFVTeDA4odpFyOQzaw6hXukJSq/f28sQ==}
@@ -4639,6 +4722,10 @@ packages:
     engines: {node: '>=10.13.0'}
     hasBin: true
 
+  /printable-characters@1.0.42:
+    resolution: {integrity: sha512-dKp+C4iXWK4vVYZmYSd0KBH5F/h1HoZRsbJ82AVKRO3PEo8L4lBS/vLwhVtpwwuYcoIsVY+1JYKR268yn480uQ==}
+    dev: true
+
   /process-nextick-args@2.0.1:
     resolution: {integrity: sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==}
     dev: true
@@ -5116,7 +5203,7 @@ packages:
     resolution: {integrity: sha512-94hK0Hh8rPqQl2xXc3HsaBoOXKV20MToPkcXvwbISWLEs+64sBq5kFgn2kJDHb1Pry9yrP0dxrCI9RRci7RXKg==}
     engines: {node: '>= 6.0.0', npm: '>= 3.0.0'}
 
-  /smartlint@6.0.1(@stoplight/spectral-cli@6.0.1)(@stoplight/spectral-ruleset-migrator@1.9.2)(dockerfilelint@1.8.0)(stylelint@14.16.1):
+  /smartlint@6.0.1(@stoplight/spectral-cli@6.6.0)(@stoplight/spectral-ruleset-migrator@1.9.2)(dockerfilelint@1.8.0)(stylelint@14.16.1):
     resolution: {integrity: sha512-jQYpSQMzpry39hilvlkHj1u6nNH7/8D4L+Hc35pWiPsNmlal6c0AvTKpcv2eO3fu0FHP6Votsu+rzzctoXybhw==}
     engines: {node: '>=18.12.1'}
     hasBin: true
@@ -5127,7 +5214,7 @@ packages:
       stylelint: ^14.16.1
     dependencies:
       '@ls-lint/ls-lint': 1.11.2
-      '@stoplight/spectral-cli': 6.0.1
+      '@stoplight/spectral-cli': 6.6.0
       '@stoplight/spectral-ruleset-migrator': 1.9.2
       dockerfilelint: 1.8.0
       eslint: 8.37.0
@@ -5208,6 +5295,13 @@ packages:
 
   /sprintf-js@1.0.3:
     resolution: {integrity: sha512-D9cPgkvLlV3t3IzL0D0YLvGA9Ahk4PcvVwUbN0dSGr1aP0Nrt4AEnTUbuGvquEC0mA64Gqt1fzirlRs5ibXx8g==}
+
+  /stacktracey@2.1.8:
+    resolution: {integrity: sha512-Kpij9riA+UNg7TnphqjH7/CzctQ/owJGNbFkfEeve4Z4uxT5+JapVLFXcsurIfN34gnTWZNJ/f7NMG0E8JDzTw==}
+    dependencies:
+      as-table: 1.0.55
+      get-source: 2.0.12
+    dev: true
 
   /statuses@2.0.1:
     resolution: {integrity: sha512-RwNA9Z/7PrK06rYLIzFMlaF+l73iwpzsqRIFgbMLbTcLD6cOao82TaWefPXQvB2fOC4AjuYSEndS7N/mTCbkdQ==}
@@ -5897,6 +5991,20 @@ packages:
       string-width: 4.2.3
       y18n: 5.0.8
       yargs-parser: 20.2.9
+    dev: false
+
+  /yargs@17.3.1:
+    resolution: {integrity: sha512-WUANQeVgjLbNsEmGk20f+nlHgOqzRFpiGWVaBrYGYIGANIIu3lWjoyi0fNlFmJkvfhCZ6BXINe7/W2O2bV4iaA==}
+    engines: {node: '>=12'}
+    dependencies:
+      cliui: 7.0.4
+      escalade: 3.1.1
+      get-caller-file: 2.0.5
+      require-directory: 2.1.1
+      string-width: 4.2.3
+      y18n: 5.0.8
+      yargs-parser: 21.1.1
+    dev: true
 
   /yargs@17.7.1:
     resolution: {integrity: sha512-cwiTb08Xuv5fqF4AovYacTFNxk62th7LKJ6BL9IGUpTJrWoU7/7WdQGTP2SjKf1dUNBGzDd28p/Yfs/GI6JrLw==}

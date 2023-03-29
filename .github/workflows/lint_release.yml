@@ -46,7 +46,7 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --shamefully-hoist --frozen-lockfile
 
       - name: Lint code
         run: yarn lint
@@ -84,7 +84,7 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --shamefully-hoist --frozen-lockfile
 
       - name: Release
         env:
