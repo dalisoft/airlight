@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const smartlint = require('../interface');
+const smartlint = require('../config.js');
 const util = require('../util.js');
 
 const [, , ...args] = process.argv;
