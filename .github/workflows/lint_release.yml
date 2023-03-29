@@ -24,21 +24,8 @@ jobs:
         with:
           node-version: 18
 
-      - uses: pnpm/action-setup@v2
-        name: Install pnpm
-        id: pnpm-install
-        with:
-          version: 8
-          run_install: false
-
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-
-      - uses: actions/cache@v3
-        name: Setup pnpm cache
+      - name: Cache
+        uses: actions/cache@v3
         with:
           path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
@@ -46,10 +33,12 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install
-        run: pnpm install --shamefully-hoist --frozen-lockfile
+        run: |
+          npm install -g npm
+          pnpm install --shamefully-hoist --frozen-lockfile
 
       - name: Lint code
-        run: yarn lint
+        run: pnpm run lint
   release:
     needs: lint
     runs-on: ubuntu-22.04
@@ -62,21 +51,8 @@ jobs:
         with:
           node-version: 18
 
-      - uses: pnpm/action-setup@v2
-        name: Install pnpm
-        id: pnpm-install
-        with:
-          version: 8
-          run_install: false
-
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-
-      - uses: actions/cache@v3
-        name: Setup pnpm cache
+      - name: Cache
+        uses: actions/cache@v3
         with:
           path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
@@ -84,10 +60,12 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install
-        run: pnpm install --shamefully-hoist --frozen-lockfile
+        run: |
+          npm install -g npm
+          pnpm install --shamefully-hoist --frozen-lockfile
 
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: yarn run semantic-release
+        run: pnpm run semantic-release
