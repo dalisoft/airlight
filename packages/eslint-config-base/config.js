@@ -1,10 +1,12 @@
+// eslint-disable-next-line eslint-comments/disable-enable-pair
+/* eslint-disable max-lines */
 module.exports = {
   parserOptions: {
     ecmaVersion: 2020
   },
   extends: [
     'eslint:recommended',
-    'airbnb-typescript/base',
+    require.resolve('./airbnb-ts.cjs'),
     'plugin:@typescript-eslint/recommended',
     'plugin:eslint-comments/recommended',
     'plugin:promise/recommended',
@@ -153,6 +155,16 @@ module.exports = {
         'no-empty-function': 'off',
         'n/no-missing-import': 'off'
       }
+    },
+    {
+      files: ['*.js', '*.jsx', '*.mjs', '*.cjs'],
+      extends: ['plugin:@typescript-eslint/disable-type-checked']
+    },
+    {
+      files: ['*.cjs'],
+      rules: {
+        'import/extensions': 'off'
+      }
     }
   ],
   settings: {
@@ -162,7 +174,6 @@ module.exports = {
     'import/resolver': {
       node: {
         extensions: ['.ts', '.js', '.d.ts', '.html', '.md', '.json']
-        // eslint-disable-next-line max-lines
       }
     },
     'import/extensions': ['.ts', '.js', '.d.ts', '.html', '.md', '.json'],
