@@ -34,7 +34,7 @@ jobs:
 
       - name: Install
         run: |
-          npm install -g npm
+          npm install -g pnpm
           pnpm install --shamefully-hoist --frozen-lockfile
 
       - name: Lint code
@@ -61,7 +61,7 @@ jobs:
 
       - name: Install
         run: |
-          npm install -g npm
+          npm install -g pnpm
           pnpm install --shamefully-hoist --frozen-lockfile
 
       - name: Release
