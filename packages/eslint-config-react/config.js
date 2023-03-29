@@ -4,7 +4,7 @@ const baseConfig = require('eslint-config-airlight-base');
 const config = JSON.parse(JSON.stringify(baseConfig));
 
 // Extends
-config.extends.splice(1, 1, 'airbnb-typescript', 'airbnb/hooks');
+config.extends.splice(1, 1, 'airbnb/hooks');
 config.extends.splice(
   config.extends.length - 2,
   1,
