@@ -28,13 +28,13 @@
   "devDependencies": {
     "@commitlint/cli": "^17.5.1",
     "@commitlint/config-lerna-scopes": "^17.4.2",
-    "eslint-config-airlight-node": "latest",
+    "eslint-config-airlight-node": "link:packages/eslint-config-node",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.0",
-    "prettier-config-airlight": "latest",
+    "prettier-config-airlight": "workspace:latest",
     "semantic-release": "^21.0.0",
     "semantic-release-monorepo": "^7.0.5",
-    "smartlint": "latest",
+    "smartlint": "workspace:latest",
     "typescript": "^5.0.2"
   }
 }

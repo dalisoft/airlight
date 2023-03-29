@@ -143,9 +143,6 @@ jspm_packages
 ## SUDO Askpass
 askpass.sh
 
-## NPM Security file
-.npmrc
-
 #################
 ## Build files ##
 #################
