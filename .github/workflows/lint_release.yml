@@ -24,6 +24,12 @@ jobs:
         with:
           node-version: 18
 
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
       - name: Cache
         uses: actions/cache@v3
         with:
@@ -50,6 +56,12 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
 
       - name: Cache
         uses: actions/cache@v3
