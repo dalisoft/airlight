@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "Tool for lint entire codebase with single CLI command",
   "main": "config.js",
-  "bin": "cli.js",
+  "bin": "bin/cli.js",
   "types": "interface.d.ts",
   "files": [
     "config.js",
-    "cli.js",
+    "bin/cli.js",
     "util.js",
     "interface.d.ts"
   ],
@@ -32,14 +32,14 @@
   "homepage": "https://github.com/dalisoft/airlight#readme",
   "dependencies": {
     "@ls-lint/ls-lint": "^1.11.2",
-    "eslint": "^8.35.0",
-    "prettier": "^2.7.1",
-    "markdownlint-cli2": "^0.6.0"
+    "eslint": "^8.37.0",
+    "markdownlint-cli2": "^0.6.0",
+    "prettier": "^2.8.4"
   },
   "peerDependencies": {
-    "dockerfilelint": "^1.8.0",
     "@stoplight/spectral-cli": "^6.0.1",
     "@stoplight/spectral-ruleset-migrator": "^1.5.0",
+    "dockerfilelint": "^1.8.0",
     "stylelint": "^14.16.1"
   }
 }
