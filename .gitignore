@@ -157,7 +157,6 @@ build/Release
 functions-build
 
 ## Make sure subfolders also does not exist
-packages/**/*.cjs
 **/dist
 **/build/Release
 **/functions-build
