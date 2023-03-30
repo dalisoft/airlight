@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "Tool for lint entire codebase with single CLI command",
   "main": "config.js",
-  "bin": "bin/cli.js",
+  "bin": "bin/cli.cjs",
   "types": "interface.d.ts",
   "files": [
     "config.js",
-    "bin/cli.js",
+    "bin/cli.cjs",
     "util.js",
     "interface.d.ts"
   ],
