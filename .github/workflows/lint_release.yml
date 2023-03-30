@@ -27,16 +27,18 @@ jobs:
       - name: Cache
         uses: actions/cache@v3
         with:
-          path: /home/runner/.local/share/pnpm
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install
+        run: yarn --frozen-lockfile
+      - name: Lerna configure
         run: |
-          npm install -g pnpm
-          pnpm install --shamefully-hoist --frozen-lockfile
+          yarn lerna bootstrap
+          yarn lerna link
 
       - name: Lint code
-        run: pnpm run lint
+        run: yarn lint
   release:
     needs: lint
     runs-on: ubuntu-22.04
@@ -52,16 +54,19 @@ jobs:
       - name: Cache
         uses: actions/cache@v3
         with:
-          path: /home/runner/.local/share/pnpm
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
       - name: Install
+        run: yarn --frozen-lockfile
+
+      - name: Lerna configure
         run: |
-          npm install -g pnpm
-          pnpm install --shamefully-hoist --frozen-lockfile
+          yarn lerna bootstrap
+          yarn lerna link
 
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: pnpm run semantic-release
+        run: yarn run semantic-release

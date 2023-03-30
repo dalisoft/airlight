@@ -7,7 +7,7 @@
   ],
   "scripts": {
     "lint": "smartlint",
-    "semantic-release": "pnpm -r exec semantic-release -e semantic-release-monorepo",
+    "semantic-release": "lerna exec --concurrency 1 -- semantic-release -e semantic-release-monorepo",
     "prepare": "husky install"
   },
   "repository": {
@@ -28,13 +28,11 @@
   "devDependencies": {
     "@commitlint/cli": "^17.5.1",
     "@commitlint/config-lerna-scopes": "^17.4.2",
-    "eslint-config-airlight-node": "link:packages/eslint-config-node",
     "husky": "^8.0.3",
+    "lerna": "^6.6.1",
     "lint-staged": "^13.2.0",
-    "prettier-config-airlight": "workspace:latest",
     "semantic-release": "20.0.4",
     "semantic-release-monorepo": "^7.0.5",
-    "smartlint": "workspace:latest",
     "typescript": "^5.0.2"
   }
 }
