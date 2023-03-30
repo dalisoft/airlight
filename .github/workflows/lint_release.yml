@@ -27,7 +27,7 @@ jobs:
       - name: Cache
         uses: actions/cache@v3
         with:
-          path: ~/.pnpm-store
+          path: /home/runner/.local/share/pnpm
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
 
       - name: Install
@@ -52,7 +52,7 @@ jobs:
       - name: Cache
         uses: actions/cache@v3
         with:
-          path: ~/.pnpm-store
+          path: /home/runner/.local/share/pnpm
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
 
       - name: Install
