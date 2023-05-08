@@ -33,12 +33,12 @@
   "dependencies": {
     "@ls-lint/ls-lint": "^1.11.2",
     "eslint": "^8.37.0",
-    "markdownlint-cli2": "^0.6.0",
+    "markdownlint-cli2": "^0.7.1",
     "prettier": "^2.8.4"
   },
   "peerDependencies": {
-    "@stoplight/spectral-cli": "^6.0.1",
-    "@stoplight/spectral-ruleset-migrator": "^1.5.0",
+    "@stoplight/spectral-cli": "^6.x",
+    "@stoplight/spectral-ruleset-migrator": "^1.x",
     "dockerfilelint": "^1.8.0",
     "stylelint": "^14.16.1"
   }
