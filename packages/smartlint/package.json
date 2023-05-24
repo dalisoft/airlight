@@ -31,7 +31,7 @@
   },
   "homepage": "https://github.com/dalisoft/airlight#readme",
   "dependencies": {
-    "@ls-lint/ls-lint": "^1.11.2",
+    "@ls-lint/ls-lint": "^2.0.0",
     "eslint": "^8.37.0",
     "markdownlint-cli2": "^0.7.1",
     "prettier": "^2.8.4"
