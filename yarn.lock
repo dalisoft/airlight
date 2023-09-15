@@ -1221,14 +1221,14 @@
   integrity sha512-lyIc6JUlUA8Ve5ELywPC8I2Sdnh1zc1zmbYgVarhXIp9YeAB0ReeqmGEOWNtlHkbP2DAA1AL65Wfn2ncjK/jtQ==
 
 "@stoplight/spectral-cli@^6.6.0":
-  version "6.10.1"
-  resolved "https://registry.yarnpkg.com/@stoplight/spectral-cli/-/spectral-cli-6.10.1.tgz#950797e55224f420cfc01560136a1f1daa4c1d46"
-  integrity sha512-yjal3WE42buthVnqfwppw2YmjeXZJ8rmMaHjpx9/94xbbfS79RsReExH9sj1QZam6A9XPGWtjLdWSrklqydpYg==
+  version "6.11.0"
+  resolved "https://registry.yarnpkg.com/@stoplight/spectral-cli/-/spectral-cli-6.11.0.tgz#ca833f251bc65dc2b2532599cd024f2d4f97ae4b"
+  integrity sha512-IURDN47BPIf3q4ZyUPujGpBzuHWFE5yT34w9rTJ1GKA4SgdscEdQO9KoTjOPT4G4cvDlEV3bNxwQ3uRm7+wRlA==
   dependencies:
     "@stoplight/json" "~3.21.0"
     "@stoplight/path" "1.3.2"
     "@stoplight/spectral-core" "^1.18.3"
-    "@stoplight/spectral-formatters" "^1.2.0"
+    "@stoplight/spectral-formatters" "^1.3.0"
     "@stoplight/spectral-parsers" "^1.0.3"
     "@stoplight/spectral-ref-resolver" "^1.0.4"
     "@stoplight/spectral-ruleset-bundler" "^1.5.2"
@@ -1282,10 +1282,10 @@
     "@types/json-schema" "^7.0.7"
     tslib "^2.3.1"
 
-"@stoplight/spectral-formatters@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@stoplight/spectral-formatters/-/spectral-formatters-1.2.0.tgz#8f58fd72d67a1c273f974625d7a4489d628b5a16"
-  integrity sha512-1IrQksU1fpuvK7oT8t0jk419vkvzHbwqKYtnyoF9yZa+MV1AcSsieD5I6wBFL0WlgFr6iCg23s1V99VXlrFelw==
+"@stoplight/spectral-formatters@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@stoplight/spectral-formatters/-/spectral-formatters-1.3.0.tgz#01c70872c10f0ba9cf6b36527b22ad973cdf8c34"
+  integrity sha512-ryuMwlzbPUuyn7ybSEbFYsljYmvTaTyD51wyCQs4ROzgfm3Yo5QDD0IsiJUzUpKK/Ml61ZX8ebgiPiRFEJtBpg==
   dependencies:
     "@stoplight/path" "^1.3.2"
     "@stoplight/spectral-core" "^1.15.1"
@@ -1294,6 +1294,7 @@
     chalk "4.1.2"
     cliui "7.0.4"
     lodash "^4.17.21"
+    node-sarif-builder "^2.0.3"
     strip-ansi "6.0"
     text-table "^0.2.0"
     tslib "^2.5.0"
@@ -1556,6 +1557,11 @@
   version "0.12.0"
   resolved "https://registry.npmjs.org/@types/retry/-/retry-0.12.0.tgz"
   integrity sha512-wWKOClTTiizcZhXnPY4wikVAwmdYHp8q6DmC+EJUzAMsycb7HB32Kh9RN4+0gExjmPmZSAQjgURXIGATPegAvA==
+
+"@types/sarif@^2.1.4":
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/@types/sarif/-/sarif-2.1.4.tgz#471c5788199d22f572f255de9a8166a30abf1245"
+  integrity sha512-4xKHMdg3foh3Va1fxTzY1qt8QVqmaJpGWsVvtjQrJBn+/bkig2pWFKJ4FPI2yLI4PAj0SUKiPO4Vd7ggYIMZjQ==
 
 "@types/semver@^7.3.12":
   version "7.3.13"
@@ -3910,6 +3916,15 @@ fs-extra@9.1.0, fs-extra@^9.1.0:
     jsonfile "^6.0.1"
     universalify "^2.0.0"
 
+fs-extra@^10.0.0:
+  version "10.1.0"
+  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-10.1.0.tgz#02873cfbc4084dde127eaa5f9905eef2325d1abf"
+  integrity sha512-oRXApq54ETRj4eMiFzGnHWGy+zo5raudjuxN0b8H7s/RU2oW0Wvsx9O0ACRN/kRq9E8Vu/ReskGB5o3ji+FzHQ==
+  dependencies:
+    graceful-fs "^4.2.0"
+    jsonfile "^6.0.1"
+    universalify "^2.0.0"
+
 fs-extra@^11.0.0, fs-extra@^11.1.0:
   version "11.1.1"
   resolved "https://registry.npmjs.org/fs-extra/-/fs-extra-11.1.1.tgz"
@@ -6092,6 +6107,14 @@ node-gyp@^9.0.0, node-gyp@^9.1.0:
     semver "^7.3.5"
     tar "^6.1.2"
     which "^2.0.2"
+
+node-sarif-builder@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/node-sarif-builder/-/node-sarif-builder-2.0.3.tgz#179ae590ce020f97f9e45037dc1cde85aa4398ec"
+  integrity sha512-Pzr3rol8fvhG/oJjIq2NTVB0vmdNNlz22FENhhPojYRZ4/ee08CfK4YuKmuL54V9MLhI1kpzxfOJ/63LzmZzDg==
+  dependencies:
+    "@types/sarif" "^2.1.4"
+    fs-extra "^10.0.0"
 
 nopt@^6.0.0:
   version "6.0.0"
