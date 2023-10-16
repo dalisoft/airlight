@@ -459,9 +459,9 @@
     npmlog "^6.0.2"
 
 "@ls-lint/ls-lint@^2.0.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@ls-lint/ls-lint/-/ls-lint-2.1.0.tgz#8e9393112680d55afde80acbbe0c5c85e063aa33"
-  integrity sha512-WvyZf2TKUstZYVetDFbQF1kp5Wd2AJX50nqsmewwrHpEcLVCU8RDoqfBBnYHoaBxTRZcWjfNnnuLCBofkH5nEA==
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@ls-lint/ls-lint/-/ls-lint-2.2.1.tgz#1e5322fb650be0a0a406445dea9c69a6d18d38ee"
+  integrity sha512-lDdbPp5qjnYFpuNuoAVHY8eACqvqheJDu+Fo/5kAxuGlCgdu3mObGYlz8Ccqq+eb+0Ct6g4kXWN+TrnaZ0UL9w==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
