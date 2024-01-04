@@ -5,6 +5,7 @@
   "type": "module",
   "main": "resolve.mjs",
   "files": ["resolve.cjs", "resolve.mjs"],
+  "typings": "interface.d.ts",
   "exports": {
     "default": "./resolve.mjs",
     "require": "./resolve.cjs"
