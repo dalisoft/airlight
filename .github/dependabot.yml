@@ -10,4 +10,4 @@ updates:
     schedule:
       interval: daily
     ignore:
-      - dependency-name: 'semantic-release'
+      - dependency-name: "semantic-release"
