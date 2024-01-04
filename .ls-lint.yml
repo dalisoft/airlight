@@ -19,4 +19,5 @@ ignore:
   - packages/husky-config/node_modules
   - packages/lint-staged-config/node_modules
   - packages/prettier-config/node_modules
+  - packages/biome-config/node_modules
   - packages/smartlint/node_modules
