@@ -19,7 +19,6 @@ artifacts
 # husky
 .husky
 
-
 #################
 #####  Logs #####
 #################
@@ -187,3 +186,10 @@ assets/css/bundle*
 
 # TypeScript v1 declaration files
 typings/
+
+#################
+## Editors/IDE ##
+#################
+
+# JetBrains
+.idea
