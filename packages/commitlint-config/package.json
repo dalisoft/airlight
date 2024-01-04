@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/dalisoft/airlight#readme",
   "dependencies": {
-    "@commitlint/config-conventional": "^18.4.3"
+    "@commitlint/config-conventional": "^18.4.4"
   },
   "peerDependencies": {
     "@commitlint/cli": "^17.x, ^18.x"
