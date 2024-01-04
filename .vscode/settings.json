@@ -1,6 +1,12 @@
 {
   "typescript.tsdk": "node_modules/typescript/lib",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript][javascriptreact][typescript][typescriptreact][json][jsonc]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "dprint.dprint"
+  },
   "cSpell.enabled": false,
   "eslint.lintTask.enable": true,
   "task.allowAutomaticTasks": "on",
