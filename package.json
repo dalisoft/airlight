@@ -21,8 +21,8 @@
   "homepage": "https://github.com/dalisoft/airlight#readme",
   "devDependencies": {
     "@biomejs/biome": "1.4.1-nightly.d869a33",
-    "@commitlint/cli": "^18.4.3",
-    "@commitlint/config-lerna-scopes": "^18.4.3",
+    "@commitlint/cli": "^18.4.4",
+    "@commitlint/config-lerna-scopes": "^18.4.4",
     "@stoplight/spectral-cli": "^6.11.0",
     "biome-config-airlight": "workspace:*",
     "dprint": "^0.45.0",
@@ -30,8 +30,8 @@
     "husky": "^8.0.3",
     "lint-staged": "^15.2.0",
     "oxlint": "^0.0.22",
-    "semantic-release": "22.0.12",
-    "semantic-release-monorepo": "^7.0.5",
+    "semantic-release": "^22.0.12",
+    "semantic-release-monorepo-esm": "1.0.12",
     "smartlint": "workspace:^",
     "typescript": "^5.3.3"
   }
