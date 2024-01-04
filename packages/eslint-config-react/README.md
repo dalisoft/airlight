@@ -1,7 +1,6 @@
 # eslint-config-airlight-react
 
-ESLint configure for React.js focused on code quality,
-security and performance on top of [eslint-config-airlight-base](../eslint-config-airlight-base)
+ESLint configure for React.js focused on code quality, security and performance on top of [eslint-config-airlight-base](../eslint-config-airlight-base)
 
 ## Installation
 
