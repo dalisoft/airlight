@@ -1,6 +1,11 @@
 # prettier-config-airlight
 
-Prettier configuration to use with combine of [prettier-config-airlight](../eslint-config-node)
+Prettier configuration to use with combine of [eslint-config-airlight-node](../eslint-config-node)
+
+## Deprecated
+
+This package deprecated and we recommend use of
+[biome-config-airlight](../biome-config)
 
 ## Installation
 
