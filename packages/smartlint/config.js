@@ -1,7 +1,7 @@
 const linterCommandsMap = {
   eslint: 'eslint --color',
   stylelint: 'stylelint --color',
-  markdown: 'dprint check',
+  markdown: 'dprint check --verbose',
   htmllint: 'htmlhint',
   jsonymllint: 'spectral lint --ignore-unknown-format',
   dockerfile: 'dockerfilelint',
