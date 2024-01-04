@@ -1,7 +1,6 @@
 # eslint-config-airlight-base
 
-ESLint configure for base focused on code quality,
-security and performance on top of
+ESLint configure for base focused on code quality, security and performance on top of
 [eslint-config-airbnb-typescript/base](https://github.com/iamturns/eslint-config-airbnb-typescript)
 
 ## Installation
