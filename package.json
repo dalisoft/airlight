@@ -5,7 +5,7 @@
   "workspaces": ["packages/*"],
   "scripts": {
     "lint": "smartlint",
-    "semantic-release": "pnpm -r --workspace-concurrency=1 exec semantic-release -e semantic-release-monorepo",
+    "semantic-release": "pnpm -r --workspace-concurrency=1 exec semantic-release -e semantic-release-monorepo-esm",
     "prepare": "husky install"
   },
   "repository": {
