@@ -1,29 +1,20 @@
 {
   "name": "smartlint",
   "version": "1.0.0",
+  "type": "module",
   "description": "Tool for lint entire codebase with single CLI command",
   "main": "config.js",
-  "bin": "bin/cli.cjs",
+  "bin": "bin/cli.js",
   "types": "interface.d.ts",
-  "files": [
-    "config.js",
-    "bin/cli.cjs",
-    "util.js",
-    "interface.d.ts"
-  ],
+  "files": ["config.js", "bin/cli.js", "util.js", "interface.d.ts"],
   "engines": {
-    "node": ">=18.12.1"
+    "node": ">=18.19.0"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dalisoft/airlight.git"
   },
-  "keywords": [
-    "format",
-    "git",
-    "lint",
-    "config"
-  ],
+  "keywords": ["format", "git", "lint", "config"],
   "author": "dalisoft",
   "license": "MIT",
   "bugs": {
@@ -31,15 +22,16 @@
   },
   "homepage": "https://github.com/dalisoft/airlight#readme",
   "dependencies": {
-    "@ls-lint/ls-lint": "^2.0.0",
-    "eslint": "^8.37.0",
-    "markdownlint-cli2": "^0.7.1",
-    "prettier": "^2.8.4"
+    "@ls-lint/ls-lint": "^2.2.2",
+    "eslint": "^8.55.0",
+    "dprint": "^0.45.0",
+    "@biomejs/biome": "1.4.1"
   },
   "peerDependencies": {
     "@stoplight/spectral-cli": "^6.x",
     "@stoplight/spectral-ruleset-migrator": "^1.x",
     "dockerfilelint": "^1.8.0",
-    "stylelint": "^14.16.1"
+    "stylelint": "^16.0.x",
+    "prettier": "^3.1.1"
   }
 }

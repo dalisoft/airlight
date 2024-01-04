@@ -1,34 +1,34 @@
 // eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable no-console */
-const util = require('util');
-const { exec } = require('child_process');
+import { exec } from 'node:child_process';
+import util from 'node:util';
 
 const fgReset = '\x1b[0m';
 const fgRed = '\x1b[31m';
 const fgYellow = '\x1b[33m';
 const fgBlue = '\x1b[34m';
 
-const error = (...args) => {
+const logError = (...args) => {
   console.log(fgRed, ...args, fgReset);
 };
-const warn = (...args) => {
+const logWarn = (...args) => {
   console.log(fgYellow, ...args, fgReset);
 };
-const debug = (...args) => {
+const logDebug = (...args) => {
   console.log(fgBlue, ...args, fgReset);
 };
 
 const reinspectLog = (log) =>
   log
-    .replace(/\[error\]/g, `${fgRed}[error]${fgReset}`)
-    .replace(/\[warn\]/g, `${fgYellow}[warn]${fgReset}`)
-    .replace(/\[debug\]/g, `${fgBlue}[debug]${fgReset}`);
+    .replaceAll(/\[error\]/g, `${fgRed}[error]${fgReset}`)
+    .replaceAll(/\[warn\]/g, `${fgYellow}[warn]${fgReset}`)
+    .replaceAll(/\[debug\]/g, `${fgBlue}[debug]${fgReset}`);
 
 const execAsync = util.promisify(exec);
 
 const execCommand = (command) =>
   execAsync(command)
-    .catch((std) => std)
+    .catch((error) => error)
     // eslint-disable-next-line complexity
     .then(({ stdout, stderr }) => {
       if (stdout && stdout.length > 0) {
@@ -48,13 +48,13 @@ const execCommand = (command) =>
         // eslint-disable-next-line n/no-process-exit
         return process.exit(1);
       }
-      return null;
+      return undefined;
     });
 
-module.exports = {
-  error,
-  warn,
-  debug,
+export {
+  logError as error,
+  logWarn as warn,
+  logDebug as debug,
   reinspectLog,
   exec,
   execAsync,

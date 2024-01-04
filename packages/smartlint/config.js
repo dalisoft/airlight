@@ -1,17 +1,18 @@
 const linterCommandsMap = {
   eslint: 'eslint --color',
   stylelint: 'stylelint --color',
-  markdownlint: 'markdownlint-cli2',
+  markdown: 'dprint check',
   htmllint: 'htmlhint',
   jsonymllint: 'spectral lint --ignore-unknown-format',
   dockerfile: 'dockerfilelint',
   prettier: 'prettier -c',
+  biome: 'biome check',
   lslint: 'ls-lint'
 };
 
 const defaultArgumentsMap = {
   dockerfile: 'Dockerfile',
-  markdownlint: '{*.md,**/*.md} "#node_modules"',
+  markdown: '',
   stylelint: '{**/*,*}.{css,sass,scss,md,html}'
 };
 
@@ -19,20 +20,20 @@ const defaultLinters = [
   'lslint',
   'eslint',
   // 'stylelint',
-  'markdownlint',
+  'markdown',
   // 'htmllint',
   // 'jsonymllint',
-  'prettier'
+  'biome'
   // 'dockerfile'
 ];
 
-module.exports = (linters = defaultLinters, path = '.') =>
+export default (linters = defaultLinters, path = '.') =>
   linters
     .map(
       (linter) =>
         linterCommandsMap[linter] &&
         `${linterCommandsMap[linter]} ${
-          defaultArgumentsMap[linter] && path === '.'
+          defaultArgumentsMap[linter] !== undefined && path === '.'
             ? defaultArgumentsMap[linter]
             : path
         }`

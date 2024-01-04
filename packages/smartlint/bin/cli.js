@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-const smartlint = require('../config');
-const util = require('../util');
+import smartlint from '../config.js';
+import * as util from '../util.js';
 
 const [, , ...args] = process.argv;
 let path;
@@ -54,12 +54,10 @@ for (let i = 0; i < args.length; i += 1) {
 const linterCommands = smartlint(options.linters, path);
 
 if (linterCommands && linterCommands.length > 0) {
-  (async function run() {
-    // eslint-disable-next-line no-restricted-syntax
-    for await (const { cmd, name } of linterCommands) {
-      util.debug(`Linter ${name} is started linting...`);
-      await util.execCommand(cmd);
-      util.debug(`Linter ${name} is done!`);
-    }
-  })();
+  // eslint-disable-next-line no-restricted-syntax
+  for await (const { cmd, name } of linterCommands) {
+    util.debug(`Linter ${name} is started linting...`);
+    await util.execCommand(cmd);
+    util.debug(`Linter ${name} is done!`);
+  }
 }

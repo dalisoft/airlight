@@ -2,9 +2,10 @@ type Lint =
   | 'lslint'
   | 'eslint'
   | 'stylelint'
-  | 'markdownlint'
+  | 'markdown'
   | 'htmllint'
   | 'jsonymllint'
+  | 'biome'
   | 'prettier'
   | 'dockerfile';
 
