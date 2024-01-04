@@ -2,9 +2,7 @@
   "name": "airlight-config",
   "description": "Shared configurations to use with combine of each other to get cleaner, better, reusable, secure and effecient codebase",
   "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
+  "workspaces": ["packages/*"],
   "scripts": {
     "lint": "smartlint",
     "semantic-release": "pnpm -r --workspace-concurrency=1 exec semantic-release -e semantic-release-monorepo",
@@ -14,11 +12,7 @@
     "type": "git",
     "url": "git+https://github.com/dalisoft/airlight.git"
   },
-  "keywords": [
-    "biome",
-    "eslint",
-    "config"
-  ],
+  "keywords": ["biome", "eslint", "config"],
   "author": "dalisoft",
   "license": "MIT",
   "bugs": {
@@ -26,7 +20,7 @@
   },
   "homepage": "https://github.com/dalisoft/airlight#readme",
   "devDependencies": {
-    "@biomejs/biome": "1.4.1",
+    "@biomejs/biome": "1.4.1-nightly.d869a33",
     "@commitlint/cli": "^18.4.3",
     "@commitlint/config-lerna-scopes": "^18.4.3",
     "@stoplight/spectral-cli": "^6.11.0",
