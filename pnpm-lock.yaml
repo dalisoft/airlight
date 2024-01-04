@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@biomejs/biome':
-        specifier: 1.4.1-nightly.d869a33
-        version: 1.4.1-nightly.d869a33
+        specifier: 1.4.1
+        version: 1.4.1
       '@commitlint/cli':
         specifier: ^18.4.4
         version: 18.4.4(@types/node@20.10.6)(typescript@5.3.3)
@@ -281,7 +281,6 @@ packages:
       '@biomejs/cli-linux-x64': 1.4.1
       '@biomejs/cli-win32-arm64': 1.4.1
       '@biomejs/cli-win32-x64': 1.4.1
-    dev: false
 
   /@biomejs/biome@1.4.1-nightly.d869a33:
     resolution: {integrity: sha512-ufITSYypmCbf/Pl97Tah5RcaHtuh6gK/XdJakAAGEFRZXdnkTa9D1OZa4YX6E0J0mAAcVFqlrkS7xfQ65wHtkQ==}
@@ -297,6 +296,7 @@ packages:
       '@biomejs/cli-linux-x64-musl': 1.4.1-nightly.d869a33
       '@biomejs/cli-win32-arm64': 1.4.1-nightly.d869a33
       '@biomejs/cli-win32-x64': 1.4.1-nightly.d869a33
+    dev: false
 
   /@biomejs/cli-darwin-arm64@1.4.1:
     resolution: {integrity: sha512-PZWy2Idndqux38p6AXSDQM2ldRAWi32bvb7bMbTN0ALzpWYMYnxd71ornatumSSJYoNhKmxzDLq+jct7nZJ79w==}
@@ -304,7 +304,6 @@ packages:
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@biomejs/cli-darwin-arm64@1.4.1-nightly.d869a33:
@@ -313,6 +312,7 @@ packages:
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
+    dev: false
     optional: true
 
   /@biomejs/cli-darwin-x64@1.4.1:
@@ -321,7 +321,6 @@ packages:
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@biomejs/cli-darwin-x64@1.4.1-nightly.d869a33:
@@ -330,6 +329,7 @@ packages:
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
+    dev: false
     optional: true
 
   /@biomejs/cli-linux-arm64-musl@1.4.1-nightly.d869a33:
@@ -338,6 +338,7 @@ packages:
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
+    dev: false
     optional: true
 
   /@biomejs/cli-linux-arm64@1.4.1:
@@ -346,7 +347,6 @@ packages:
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@biomejs/cli-linux-arm64@1.4.1-nightly.d869a33:
@@ -355,6 +355,7 @@ packages:
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
+    dev: false
     optional: true
 
   /@biomejs/cli-linux-x64-musl@1.4.1-nightly.d869a33:
@@ -363,6 +364,7 @@ packages:
     cpu: [x64]
     os: [linux]
     requiresBuild: true
+    dev: false
     optional: true
 
   /@biomejs/cli-linux-x64@1.4.1:
@@ -371,7 +373,6 @@ packages:
     cpu: [x64]
     os: [linux]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@biomejs/cli-linux-x64@1.4.1-nightly.d869a33:
@@ -380,6 +381,7 @@ packages:
     cpu: [x64]
     os: [linux]
     requiresBuild: true
+    dev: false
     optional: true
 
   /@biomejs/cli-win32-arm64@1.4.1:
@@ -388,7 +390,6 @@ packages:
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@biomejs/cli-win32-arm64@1.4.1-nightly.d869a33:
@@ -397,6 +398,7 @@ packages:
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
+    dev: false
     optional: true
 
   /@biomejs/cli-win32-x64@1.4.1:
@@ -405,7 +407,6 @@ packages:
     cpu: [x64]
     os: [win32]
     requiresBuild: true
-    dev: false
     optional: true
 
   /@biomejs/cli-win32-x64@1.4.1-nightly.d869a33:
@@ -414,6 +415,7 @@ packages:
     cpu: [x64]
     os: [win32]
     requiresBuild: true
+    dev: false
     optional: true
 
   /@colors/colors@1.5.0:
