@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@biomejs/biome':
-        specifier: 1.4.1
-        version: 1.4.1
+        specifier: 1.4.1-nightly.d869a33
+        version: 1.4.1-nightly.d869a33
       '@commitlint/cli':
         specifier: ^18.4.3
         version: 18.4.3(typescript@5.3.3)
@@ -51,11 +51,17 @@ importers:
         specifier: ^5.3.3
         version: 5.3.3
 
+  packages/airlight-resolve:
+    dependencies:
+      oxc-resolver:
+        specifier: ^0.0.3
+        version: 0.0.3
+
   packages/biome-config:
     dependencies:
       '@biomejs/biome':
-        specifier: 1.4.1
-        version: 1.4.1
+        specifier: 1.4.1-nightly.d869a33
+        version: 1.4.1-nightly.d869a33
 
   packages/commitlint-config:
     dependencies:
@@ -275,9 +281,34 @@ packages:
       '@biomejs/cli-linux-x64': 1.4.1
       '@biomejs/cli-win32-arm64': 1.4.1
       '@biomejs/cli-win32-x64': 1.4.1
+    dev: false
+
+  /@biomejs/biome@1.4.1-nightly.d869a33:
+    resolution: {integrity: sha512-ufITSYypmCbf/Pl97Tah5RcaHtuh6gK/XdJakAAGEFRZXdnkTa9D1OZa4YX6E0J0mAAcVFqlrkS7xfQ65wHtkQ==}
+    engines: {node: '>=14.*'}
+    hasBin: true
+    requiresBuild: true
+    optionalDependencies:
+      '@biomejs/cli-darwin-arm64': 1.4.1-nightly.d869a33
+      '@biomejs/cli-darwin-x64': 1.4.1-nightly.d869a33
+      '@biomejs/cli-linux-arm64': 1.4.1-nightly.d869a33
+      '@biomejs/cli-linux-arm64-musl': 1.4.1-nightly.d869a33
+      '@biomejs/cli-linux-x64': 1.4.1-nightly.d869a33
+      '@biomejs/cli-linux-x64-musl': 1.4.1-nightly.d869a33
+      '@biomejs/cli-win32-arm64': 1.4.1-nightly.d869a33
+      '@biomejs/cli-win32-x64': 1.4.1-nightly.d869a33
 
   /@biomejs/cli-darwin-arm64@1.4.1:
     resolution: {integrity: sha512-PZWy2Idndqux38p6AXSDQM2ldRAWi32bvb7bMbTN0ALzpWYMYnxd71ornatumSSJYoNhKmxzDLq+jct7nZJ79w==}
+    engines: {node: '>=14.*'}
+    cpu: [arm64]
+    os: [darwin]
+    requiresBuild: true
+    dev: false
+    optional: true
+
+  /@biomejs/cli-darwin-arm64@1.4.1-nightly.d869a33:
+    resolution: {integrity: sha512-HseadoSVWYKNAQyJkWKEnFzY87mAQy5cAvkmLQF//uCKFJl7XNiK01q4NgLpayO9+Ik8mo+pUaVxf6EJVgFDgg==}
     engines: {node: '>=14.*'}
     cpu: [arm64]
     os: [darwin]
@@ -290,6 +321,23 @@ packages:
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
+    dev: false
+    optional: true
+
+  /@biomejs/cli-darwin-x64@1.4.1-nightly.d869a33:
+    resolution: {integrity: sha512-H9PunFzGxqNTduY7xv9i04AGwdHjYwabmsQPdbNLBdrUSimPZrl/46Ju1qj44Z9lENAjeEcDEgwQm0ycBTlceA==}
+    engines: {node: '>=14.*'}
+    cpu: [x64]
+    os: [darwin]
+    requiresBuild: true
+    optional: true
+
+  /@biomejs/cli-linux-arm64-musl@1.4.1-nightly.d869a33:
+    resolution: {integrity: sha512-nO0dx+Io+rq5B9B9Sms3CW8lJ1IdHvBHqhhCL1hHgxNZe8SYy1vrj/Mn3c/2UKpWVP55f6bAkplKe4zxowq5SA==}
+    engines: {node: '>=14.*'}
+    cpu: [arm64]
+    os: [linux]
+    requiresBuild: true
     optional: true
 
   /@biomejs/cli-linux-arm64@1.4.1:
@@ -298,10 +346,36 @@ packages:
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
+    dev: false
+    optional: true
+
+  /@biomejs/cli-linux-arm64@1.4.1-nightly.d869a33:
+    resolution: {integrity: sha512-AhFTITX349D37LIWNEvvr59MsrpgHPG6Vv4F1cSk6DiJQUcIvqnChlrjF87R+nBFRZIThuZROn8lRDzV3qam3g==}
+    engines: {node: '>=14.*'}
+    cpu: [arm64]
+    os: [linux]
+    requiresBuild: true
+    optional: true
+
+  /@biomejs/cli-linux-x64-musl@1.4.1-nightly.d869a33:
+    resolution: {integrity: sha512-iM0mR1SZZNN1Equ7ofznHAgBoqrDkJcW3yyHGu8pt6M/l1sjgtOWo3GBYmR7nv5wnzM3BcJMqQEa9hiDhP3wSw==}
+    engines: {node: '>=14.*'}
+    cpu: [x64]
+    os: [linux]
+    requiresBuild: true
     optional: true
 
   /@biomejs/cli-linux-x64@1.4.1:
     resolution: {integrity: sha512-9YOZw3qBd/KUj63A6Hn2zZgzGb2nbESM0qNmeMXgmqinVKM//uc4OgY5TuKITuGjMSvcVxxd4dX1IzYjV9qvNQ==}
+    engines: {node: '>=14.*'}
+    cpu: [x64]
+    os: [linux]
+    requiresBuild: true
+    dev: false
+    optional: true
+
+  /@biomejs/cli-linux-x64@1.4.1-nightly.d869a33:
+    resolution: {integrity: sha512-CAsJ4XsRO22qzWtNaMxD0SsBiLIcHfHxI3HOv68bHeXbdJH+p6WKg32KDencyJpgXbleVq1oPzmrVg610SdmpA==}
     engines: {node: '>=14.*'}
     cpu: [x64]
     os: [linux]
@@ -314,10 +388,28 @@ packages:
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
+    dev: false
+    optional: true
+
+  /@biomejs/cli-win32-arm64@1.4.1-nightly.d869a33:
+    resolution: {integrity: sha512-ELW7Z9qAn/cXxrpKrzRSlMqMAANoGe7GjY3Ts13JHRY8UD+5SyUMxuajP95ZuWIuUKdUtY/otjk2JAiZRvsFaw==}
+    engines: {node: '>=14.*'}
+    cpu: [arm64]
+    os: [win32]
+    requiresBuild: true
     optional: true
 
   /@biomejs/cli-win32-x64@1.4.1:
     resolution: {integrity: sha512-88fR2CQxQ4YLs2BUDuywWYQpUKgU3A3sTezANFc/4LGKQFFLV2yX+F7QAdZVkMHfA+RD9Xg178HomM/6mnTNPA==}
+    engines: {node: '>=14.*'}
+    cpu: [x64]
+    os: [win32]
+    requiresBuild: true
+    dev: false
+    optional: true
+
+  /@biomejs/cli-win32-x64@1.4.1-nightly.d869a33:
+    resolution: {integrity: sha512-Q+NV1Gl/orJrvO6TgD+rrvCmMaq32y6wpQZnQHtS8H54hKi4gR/dmNtO3tTMQ+XjLxlugCiltKiZ6nP1qwSdJA==}
     engines: {node: '>=14.*'}
     cpu: [x64]
     os: [win32]
@@ -821,6 +913,54 @@ packages:
     dependencies:
       '@octokit/openapi-types': 19.1.0
     dev: true
+
+  /@oxc-resolver/binding-darwin-arm64@0.0.3:
+    resolution: {integrity: sha512-omfA6f6X9tqmGvQtHR77R0Eth5pq0V4suGjfAKO7lClO8o3Y/k8Ny4OUz5B2tPP64KXAiLERtCXN3VJo1SWhHA==}
+    cpu: [arm64]
+    os: [darwin]
+    requiresBuild: true
+    dev: false
+    optional: true
+
+  /@oxc-resolver/binding-darwin-x64@0.0.3:
+    resolution: {integrity: sha512-/K8v3qPLPcHY5PaGZvbCdH2i2TxusL6t5VEoKdUquqrNDTtP0G3aHh1s/wMYpai1Jcd2w5dtJBz7XYiPTRvv2A==}
+    cpu: [x64]
+    os: [darwin]
+    requiresBuild: true
+    dev: false
+    optional: true
+
+  /@oxc-resolver/binding-linux-arm64-gnu@0.0.3:
+    resolution: {integrity: sha512-1pOciDJkdoMnDsC9vGYk/IkbZUlzd5HcVgyrEfm7UXBmVt3M1MJd6JDXbQZH3KZhmKfyIQFzRtPcBk6UL+56jw==}
+    cpu: [arm64]
+    os: [linux]
+    requiresBuild: true
+    dev: false
+    optional: true
+
+  /@oxc-resolver/binding-linux-x64-gnu@0.0.3:
+    resolution: {integrity: sha512-bLbEH0iI2F0M8Taw6lNPwclDSCeSf4mRwAhm6HaUKl78qQUPwkFxa+xQIjFU98XTtLo+WgquCXDMJZ4ZC/HI6g==}
+    cpu: [x64]
+    os: [linux]
+    requiresBuild: true
+    dev: false
+    optional: true
+
+  /@oxc-resolver/binding-win32-arm64-msvc@0.0.3:
+    resolution: {integrity: sha512-EQB3AodP8W69QSlHMPSMQVF5JN+6muYrX/Oqqxa2NhfePz9Knj7J5kkawqI6mK9MKARrpLYXS4OSwBEnCN9agw==}
+    cpu: [arm64]
+    os: [win32]
+    requiresBuild: true
+    dev: false
+    optional: true
+
+  /@oxc-resolver/binding-win32-x64-msvc@0.0.3:
+    resolution: {integrity: sha512-OamJombqMWbS4KMkKbinXU0jWLXedNdcyZsfIMiqZybMX7LQLJ9r2+VMwMHtWaGKWGzgDfh4IjPqE4ggbyAbLg==}
+    cpu: [x64]
+    os: [win32]
+    requiresBuild: true
+    dev: false
+    optional: true
 
   /@oxlint/darwin-arm64@0.0.22:
     resolution: {integrity: sha512-n8ZsnApsKKxho00fYR+EzOEt6dVcuMfwdOwoAwpWwdIwrJRUyjWDzZhauX1VGEmgf4Hzm2y53aJMSZAWnIbr7g==}
@@ -4707,6 +4847,17 @@ packages:
       levn: 0.4.1
       prelude-ls: 1.2.1
       type-check: 0.4.0
+    dev: false
+
+  /oxc-resolver@0.0.3:
+    resolution: {integrity: sha512-xdgIswmz9gUYtOHA+1CIshtqOOwU9l233mDUXTAhHFtH+Ip1NcLXr+QBrAWD/nCMKDUAit/rwOAdMwLUEEpIdA==}
+    optionalDependencies:
+      '@oxc-resolver/binding-darwin-arm64': 0.0.3
+      '@oxc-resolver/binding-darwin-x64': 0.0.3
+      '@oxc-resolver/binding-linux-arm64-gnu': 0.0.3
+      '@oxc-resolver/binding-linux-x64-gnu': 0.0.3
+      '@oxc-resolver/binding-win32-arm64-msvc': 0.0.3
+      '@oxc-resolver/binding-win32-x64-msvc': 0.0.3
     dev: false
 
   /oxlint@0.0.22:
