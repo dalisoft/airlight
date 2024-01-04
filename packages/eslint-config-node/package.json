@@ -3,23 +3,15 @@
   "version": "1.0.0",
   "description": "ESLint configure for Node.js focused on code quality, security and performance on top of eslint-config-airlight-base",
   "main": "config.js",
-  "files": [
-    "config.js"
-  ],
+  "files": ["config.js"],
   "engines": {
-    "node": ">=18.12.1"
+    "node": ">=18.19.0"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dalisoft/airlight.git"
   },
-  "keywords": [
-    "eslint",
-    "lint",
-    "config",
-    "airbnb",
-    "node"
-  ],
+  "keywords": ["eslint", "lint", "config", "airbnb", "node"],
   "author": "dalisoft",
   "license": "MIT",
   "bugs": {
@@ -28,11 +20,11 @@
   "homepage": "https://github.com/dalisoft/airlight#readme",
   "dependencies": {
     "eslint-config-airlight-base": "*",
-    "eslint-plugin-n": "^16.0.0"
+    "eslint-plugin-n": "^16.4.0"
   },
   "peerDependencies": {
-    "eslint": "^8.36.0",
-    "prettier": "^2.8.4",
-    "typescript": "^5.0.2"
+    "eslint": "^8.55.0",
+    "prettier": "^3.1.1",
+    "typescript": "^5.3.3"
   }
 }
