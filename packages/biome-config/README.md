@@ -1,7 +1,6 @@
 # biome-config-airlight
 
-Biome configuration to use with combine of
-[eslint-config-airlight-node](../eslint-config-node)
+Biome configuration to use with combine of [eslint-config-airlight-node](../eslint-config-node)
 
 ## Installation
 
