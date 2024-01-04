@@ -46,9 +46,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Run dprint
-        run: pnpm exec dprint check # temporarily test
-
       - name: Lint code
         run: pnpm run lint
   release:

@@ -6,7 +6,7 @@ const linterCommandsMap = {
   jsonymllint: 'spectral lint --ignore-unknown-format',
   dockerfile: 'dockerfilelint',
   prettier: 'prettier -c',
-  biome: 'biome check',
+  biome: 'biome check --diagnostic-level=warn',
   lslint: 'ls-lint'
 };
 
