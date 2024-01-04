@@ -14,8 +14,7 @@ yarn add lintstaged-config-airlight -D
 
 For working properly, you may need one or all of these dependencies.
 
-For more information about each dependencies, click to dependecy link
-to learn about configs, features and how they work
+For more information about each dependencies, click to dependecy link to learn about configs, features and how they work
 
 - [eslint](http://eslint.org)
 - [prettier](https://prettier.io)
