@@ -1,0 +1,29 @@
+{
+  "name": "airlight-resolve",
+  "version": "0.0.0",
+  "description": "[WIP] `require.resolve` faster implementation based on oxc-resolver",
+  "type": "module",
+  "main": "resolve.mjs",
+  "files": ["resolve.cjs", "resolve.mjs"],
+  "exports": {
+    "default": "./resolve.mjs",
+    "require": "./resolve.cjs"
+  },
+  "engines": {
+    "node": ">=18.19.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dalisoft/airlight.git"
+  },
+  "keywords": ["resolve", "require"],
+  "author": "dalisoft",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dalisoft/airlight/issues"
+  },
+  "homepage": "https://github.com/dalisoft/airlight#readme",
+  "dependencies": {
+    "oxc-resolver": "^0.0.3"
+  }
+}
