@@ -29,7 +29,7 @@
     "@biomejs/biome": "1.4.1",
     "@commitlint/cli": "^18.4.3",
     "@commitlint/config-lerna-scopes": "^18.4.3",
-    "@stoplight/spectral-cli": "^6.6.0",
+    "@stoplight/spectral-cli": "^6.11.0",
     "biome-config-airlight": "workspace:*",
     "dprint": "^0.45.0",
     "eslint-config-airlight-node": "workspace:^",
