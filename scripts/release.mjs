@@ -192,7 +192,7 @@ if (!dryRun && isCanPublish) {
     )
     .catch(() => {});
 
-  /* await writeFile(
+  await writeFile(
     pkgFile,
     JSON.stringify(
       {
@@ -205,5 +205,5 @@ if (!dryRun && isCanPublish) {
   );
   await new NPM().publish();
 
-  await writeFile(pkgFile, JSON.stringify(packageJSON, null, 2)); */
+  await writeFile(pkgFile, JSON.stringify(packageJSON, null, 2));
 }
