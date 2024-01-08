@@ -1,7 +1,8 @@
 // eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable indent */
 // import path from 'node:path';
-import { Git, CurlRequest } from './class.mjs';
+import { Git, CurlRequest, NPM } from './class.mjs';
+import { writeFile } from 'node:fs/promises';
 
 const COMMIT_TYPES = [
   {
@@ -50,9 +51,10 @@ const COMMIT_TYPES = [
 
 // const execDir = path.dirname(import.meta.url);
 const pkgDir = process.cwd();
+const pkgFile = `${pkgDir}/package.json`;
 const git = new Git();
 
-const { default: packageJSON } = await import(`${pkgDir}/package.json`, {
+const { default: packageJSON } = await import(pkgFile, {
   assert: { type: 'json' }
 });
 const { name: packageName } = packageJSON;
@@ -142,11 +144,35 @@ const lastCommitHash = gitCommitsSinceLastTag[0]
 if (isInitialTagExists && !isNewTagExists) {
   await git.createTag(releaseTitle, lastCommitHash);
   await git.pushTag(releaseTitle);
+
+  console.log(`Created new tag (${releaseTitle}) for ${packageName}`);
 } else if (!isInitialTagExists && !isNewTagExists) {
   await git.createTag(oldReleaseTitle, lastCommitHash);
   await git.pushTag(oldReleaseTitle);
+
+  console.log(`Created initial tag (${oldReleaseTitle}) for ${packageName}`);
+
+  if (packageVersion !== version) {
+    await git.createTag(releaseTitle, lastCommitHash);
+    await git.pushTag(releaseTitle);
+
+    console.log(`[RE] Created new tag (${releaseTitle}) for ${packageName}`);
+  }
 }
 
+await writeFile(
+  pkgFile,
+  JSON.stringify(
+    {
+      ...packageJSON,
+      version
+    },
+    null,
+    2
+  )
+);
+
+/*
 console.log({
   packageName,
   isInitialTagExists,
@@ -155,7 +181,7 @@ console.log({
   isNewTagExists,
   lastCommitHash,
   lastTag: await git.getLastTag(packageName)
-});
+}); */
 
 await new CurlRequest()
   .post(
@@ -176,3 +202,5 @@ await new CurlRequest()
     }
   )
   .catch(() => {});
+
+await new NPM().publish();
