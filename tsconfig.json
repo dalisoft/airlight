@@ -1,5 +1,5 @@
 {
-  "include": ["packages", "test", "*.js"],
+  "include": ["packages", "test", "*.js", "scripts"],
   "exclude": ["node_modules"],
   "compilerOptions": {
     "target": "es2020",
