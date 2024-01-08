@@ -134,7 +134,7 @@ ${changes
 changeLogs += '\n';
 
 const isNewTagExists = await git.isTagExists(packageName, version);
-const lastCommitHash = gitCommitsSinceLastTag[gitCommitsSinceLastTag.length - 1]
+const lastCommitHash = gitCommitsSinceLastTag[0]
   .slice(-42)
   .slice(0, -1)
   .slice(1);
@@ -156,7 +156,7 @@ console.log({
   lastCommitHash,
   lastTag: await git.getLastTag(packageName)
 });
-/*
+
 await new CurlRequest()
   .post(
     `${apiRepoUrl}/releases`,
@@ -175,4 +175,4 @@ await new CurlRequest()
       generate_release_notes: false
     }
   )
-  .catch(() => {});*/
+  .catch(() => {});

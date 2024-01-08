@@ -11,7 +11,7 @@ class Command {
         this.prefix ? `${this.prefix} ${command}` : command,
         // eslint-disable-next-line complexity
         (err, stdout, stderr) => {
-          if (err || stderr) {
+          if (err) {
             return reject(err || new Error(stderr));
           }
 
