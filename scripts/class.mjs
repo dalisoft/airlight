@@ -71,6 +71,14 @@ export class Git extends Command {
   }
 }
 
+export class NPM extends Command {
+  prefix = 'npm';
+
+  async publish() {
+    return this.execute('publish');
+  }
+}
+
 export class CurlRequest extends Command {
   prefix = 'curl';
 
