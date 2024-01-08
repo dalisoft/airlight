@@ -54,15 +54,15 @@ const pkgDir = process.cwd();
 const pkgFile = `${pkgDir}/package.json`;
 const git = new Git();
 
+const dryRun = false;
+
 const { default: packageJSON } = await import(pkgFile, {
   assert: { type: 'json' }
 });
 const { name: packageName } = packageJSON;
+const workspaceLastTag = await git.getLastTag(packageName);
 const packageVersion =
-  (await git
-    .getLastTag(packageName)
-    .then((version) => version?.slice(packageName.length + 2))) ??
-  packageJSON.version;
+  workspaceLastTag?.slice(packageName.length + 2) ?? packageJSON.version;
 const projectLastTag = await git.getLastAnyTag();
 const [, gitRepoUrl] = /git\+(.*).git/gm.exec(packageJSON.repository.url);
 const apiRepoUrl = gitRepoUrl.replace('github.com', 'api.github.com/repos');
@@ -71,7 +71,7 @@ let version = packageVersion?.split('.').map(parseFloat);
 const initialVersion = version?.slice(0);
 
 const gitCommitsSinceLastTag = await git.getCommitsSinceLastTag(
-  projectLastTag,
+  workspaceLastTag ?? projectLastTag,
   packageName
 );
 const isInitialTagExists = await git.isTagExists(packageName, packageVersion);
@@ -140,19 +140,20 @@ const lastCommitHash = gitCommitsSinceLastTag[0]
   .slice(-42)
   .slice(0, -1)
   .slice(1);
+const isCanPublish = packageVersion !== version;
 
-if (isInitialTagExists && !isNewTagExists) {
+if (!dryRun && isInitialTagExists && !isNewTagExists) {
   await git.createTag(releaseTitle, lastCommitHash);
   await git.pushTag(releaseTitle);
 
   console.log(`Created new tag (${releaseTitle}) for ${packageName}`);
-} else if (!isInitialTagExists && !isNewTagExists) {
+} else if (!dryRun && !isInitialTagExists && !isNewTagExists) {
   await git.createTag(oldReleaseTitle, lastCommitHash);
   await git.pushTag(oldReleaseTitle);
 
   console.log(`Created initial tag (${oldReleaseTitle}) for ${packageName}`);
 
-  if (packageVersion !== version) {
+  if (isCanPublish) {
     await git.createTag(releaseTitle, lastCommitHash);
     await git.pushTag(releaseTitle);
 
@@ -160,19 +161,6 @@ if (isInitialTagExists && !isNewTagExists) {
   }
 }
 
-await writeFile(
-  pkgFile,
-  JSON.stringify(
-    {
-      ...packageJSON,
-      version
-    },
-    null,
-    2
-  )
-);
-
-/*
 console.log({
   packageName,
   isInitialTagExists,
@@ -181,26 +169,41 @@ console.log({
   isNewTagExists,
   lastCommitHash,
   lastTag: await git.getLastTag(packageName)
-}); */
+});
 
-await new CurlRequest()
-  .post(
-    `${apiRepoUrl}/releases`,
-    {
-      Accept: 'application/vnd.github+json',
-      Authorization: 'Bearer $GH_TOKEN',
-      'X-GitHub-Api-Version': '2022-11-28'
-    },
-    {
-      tag_name: releaseTitle,
-      target_commitish: lastCommitHash,
-      name: releaseTitle,
-      body: changeLogs,
-      draft: false,
-      prerelease: false,
-      generate_release_notes: false
-    }
-  )
-  .catch(() => {});
+if (!dryRun && isCanPublish) {
+  await new CurlRequest()
+    .post(
+      `${apiRepoUrl}/releases`,
+      {
+        Accept: 'application/vnd.github+json',
+        Authorization: 'Bearer $GH_TOKEN',
+        'X-GitHub-Api-Version': '2022-11-28'
+      },
+      {
+        tag_name: releaseTitle,
+        target_commitish: lastCommitHash,
+        name: releaseTitle,
+        body: changeLogs,
+        draft: false,
+        prerelease: false,
+        generate_release_notes: false
+      }
+    )
+    .catch(() => {});
 
-await new NPM().publish();
+  /* await writeFile(
+    pkgFile,
+    JSON.stringify(
+      {
+        ...packageJSON,
+        version
+      },
+      null,
+      2
+    )
+  );
+  await new NPM().publish();
+
+  await writeFile(pkgFile, JSON.stringify(packageJSON, null, 2)); */
+}
