@@ -58,6 +58,10 @@ export class Git extends Command {
     return this.execute(`tag ${tagName} ${commitHash}`);
   }
 
+  async pushTag(tagName) {
+    return this.execute(`push origin ${tagName}`);
+  }
+
   async getCommitsSinceLastTag(projectLastTag, packageName) {
     return (
       await this.execute(
