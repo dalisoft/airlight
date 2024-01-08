@@ -141,8 +141,10 @@ const lastCommitHash = gitCommitsSinceLastTag[gitCommitsSinceLastTag.length - 1]
 
 if (isInitialTagExists && !isNewTagExists) {
   await git.createTag(releaseTitle, lastCommitHash);
+  await git.pushTag(releaseTitle);
 } else if (!isInitialTagExists && !isNewTagExists) {
   await git.createTag(oldReleaseTitle, lastCommitHash);
+  await git.pushTag(oldReleaseTitle);
 }
 
 console.log({
