@@ -54,7 +54,7 @@ const pkgDir = process.cwd();
 const pkgFile = `${pkgDir}/package.json`;
 const git = new Git();
 
-const dryRun = false;
+const dryRun = true;
 
 const { default: packageJSON } = await import(pkgFile, {
   assert: { type: 'json' }
@@ -136,6 +136,9 @@ ${changes
 changeLogs += '\n';
 
 const isNewTagExists = await git.isTagExists(packageName, version);
+
+console.log({ gitCommitsSinceLastTag, workspaceLastTag, projectLastTag });
+
 const lastCommitHash = gitCommitsSinceLastTag[0]
   .slice(-42)
   .slice(0, -1)
