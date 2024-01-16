@@ -1,20 +1,34 @@
 import { ResolverFactory } from 'oxc-resolver';
 
-const cwd = process.cwd();
-const factory = new ResolverFactory({
+const defaultOptions = {
   preferAbsolute: true,
   fullySpecified: false,
   mainFields: ['main', 'module', 'browser'],
   extensions: ['.ts', '.js', '.d.ts', '.html', '.md', '.json']
-});
-const cache = {};
+};
 
-export default function customResolve(...args) {
-  const key = args.length < 2 ? args[0] : args.join('/');
+export const create = (opts = {}) => {
+  const options = Object.assign(
+    {
+      syncRoot: process.cwd(),
+      cache: false
+    },
+    defaultOptions,
+    opts
+  );
+  const factory = new ResolverFactory(options);
+  const cache = new Map();
 
-  if (!cache[key]) {
-    cache[key] = factory.sync(cwd, key).path;
-  }
+  // eslint-disable-next-line complexity
+  return (...args) => {
+    const key = args.length < 2 ? args[0] : args.join('/');
 
-  return cache[key];
-}
+    if (options.cache === false || !cache.has(key)) {
+      cache.set(key, factory.sync(options.syncRoot || args[0], key).path);
+    }
+
+    return cache.get(key);
+  };
+};
+
+export default create();
