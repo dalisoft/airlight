@@ -27,7 +27,7 @@
     "biome-config-airlight": "workspace:*",
     "dprint": "^0.45.0",
     "eslint-config-airlight-node": "workspace:^",
-    "husky": "^8.0.3",
+    "husky": "^9.0.5",
     "lint-staged": "^15.2.0",
     "oxlint": "^0.2.5",
     "semantic-release": "^22.0.12",
