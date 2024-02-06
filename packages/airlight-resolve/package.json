@@ -25,6 +25,6 @@
   },
   "homepage": "https://github.com/dalisoft/airlight#readme",
   "dependencies": {
-    "oxc-resolver": "^0.1.1"
+    "oxc-resolver": "^0.2.0"
   }
 }
