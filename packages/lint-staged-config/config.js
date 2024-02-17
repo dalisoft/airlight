@@ -3,11 +3,12 @@
 const linterCommandsMap = {
   eslint: 'eslint --color',
   stylelint: 'stylelint --color',
-  markdownlint: 'markdownlint-cli2',
+  markdown: 'dprint check --log-level=warn',
   htmllint: 'htmlhint',
   jsonymllint: 'spectral lint --ignore-unknown-format',
   dockerfile: 'dockerfilelint',
-  prettier: 'prettier -c'
+  prettier: 'prettier -c',
+  biome: 'biome check --diagnostic-level=warn'
 };
 
 const applyLinterCommands = (lint_names = []) =>
@@ -44,13 +45,16 @@ module.exports = (languages = languagesSupport) => {
       case 'jsx':
       case 'tsx':
         regex += language;
-        commands = applyLinterCommands(['eslint', 'prettier']);
+        commands = applyLinterCommands(['eslint', 'biome']);
         break;
       case 'json':
+        regex += language;
+        commands = applyLinterCommands(['prettier']);
+        break;
       case 'yaml':
       case 'yml':
         regex += language;
-        commands = applyLinterCommands(['jsonymllint', 'prettier']);
+        commands = applyLinterCommands(['jsonymllint']);
         break;
       case 'html':
         throw new Error('Due of security issues, we currently disabled it');
