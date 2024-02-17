@@ -26,12 +26,11 @@
     "@stoplight/spectral-cli": "^6.11.0",
     "biome-config-airlight": "workspace:*",
     "dprint": "^0.45.0",
+    "eslint": "^8.56.0",
     "eslint-config-airlight-node": "workspace:^",
     "husky": "^8.0.3",
     "lint-staged": "^15.2.2",
     "oxlint": "^0.2.8",
-    "semantic-release": "^22.0.12",
-    "@lomray/semantic-release-monorepo": "1.0.1",
     "smartlint": "workspace:^",
     "typescript": "^5.3.3"
   }
