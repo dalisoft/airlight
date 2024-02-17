@@ -174,6 +174,11 @@ module.exports = {
     'import/resolver': {
       node: {
         extensions: ['.ts', '.js', '.d.ts', '.html', '.md', '.json']
+      },
+      typescript: {
+        alwaysTryTypes: true,
+        // use an array of glob patterns
+        project: 'packages/*/tsconfig.json'
       }
     },
     'import/extensions': ['.ts', '.js', '.d.ts', '.html', '.md', '.json'],
