@@ -1,0 +1,30 @@
+{
+  "name": "smartlint-unix",
+  "version": "0.0.1",
+  "type": "module",
+  "description": "Tool for lint entire codebase with single CLI command",
+  "main": "config.js",
+  "bin": "smartlint.sh",
+  "files": [
+    "smartlint.sh"
+  ],
+  "engines": {
+    "node": ">=18.19.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dalisoft/airlight.git"
+  },
+  "keywords": [
+    "format",
+    "git",
+    "lint",
+    "config"
+  ],
+  "author": "dalisoft",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dalisoft/airlight/issues"
+  },
+  "homepage": "https://github.com/dalisoft/airlight#readme"
+}
