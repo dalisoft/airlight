@@ -86,4 +86,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: pnpm run semantic-release
+        run: |
+          git clone https://github.com/dalisoft/release-me.git --depth 1 .release-me
+          pnpm run release-me
