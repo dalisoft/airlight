@@ -88,4 +88,4 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           git clone https://github.com/dalisoft/release-me.git --depth 1 .release-me
-          pnpm run release-me
+          pnpm run release
