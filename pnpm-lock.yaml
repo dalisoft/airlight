@@ -17,6 +17,9 @@ importers:
       '@commitlint/config-lerna-scopes':
         specifier: ^18.6.1
         version: 18.6.1
+      '@ls-lint/ls-lint':
+        specifier: ^2.2.2
+        version: 2.2.2
       '@stoplight/spectral-cli':
         specifier: ^6.11.0
         version: 6.11.0
@@ -33,14 +36,17 @@ importers:
         specifier: workspace:^
         version: link:packages/eslint-config-node
       husky:
-        specifier: ^8.0.3
-        version: 8.0.3
+        specifier: ^9.0.11
+        version: 9.0.11
       lint-staged:
         specifier: ^15.2.2
         version: 15.2.2
       oxlint:
         specifier: ^0.2.8
         version: 0.2.8
+      prettier-config-airlight:
+        specifier: workspace:^
+        version: link:packages/prettier-config
       smartlint:
         specifier: workspace:^
         version: link:packages/smartlint
@@ -909,7 +915,6 @@ packages:
     cpu: [x64, arm64, s390x]
     os: [darwin, linux, win32]
     hasBin: true
-    dev: false
 
   /@napi-rs/wasm-runtime@0.1.1:
     resolution: {integrity: sha512-ATj9ua659JgrkICjJscaeZdmPr44cb/KFjNWuD0N6pux0SpzaM7+iOuuK11mAnQM2N9q0DT4REu6NkL8ZEhopw==}
@@ -3411,9 +3416,9 @@ packages:
     resolution: {integrity: sha512-AXcZb6vzzrFAUE61HnN4mpLqd/cSIwNQjtNWR0euPm6y0iqx3G4gOXaIDdtdDwZmhwe82LA6+zinmW4UBWVePQ==}
     engines: {node: '>=16.17.0'}
 
-  /husky@8.0.3:
-    resolution: {integrity: sha512-+dQSyqPh4x1hlO1swXBiNb2HzTDN1I2IGLQx1GrBuiqFJfoMrnZWwVmatvSiO+Iz8fBUnf+lekwNo4c2LlXItg==}
-    engines: {node: '>=14'}
+  /husky@9.0.11:
+    resolution: {integrity: sha512-AB6lFlbwwyIqMdHYhwPe+kjOC3Oc5P3nThEoW/AaO2BX3vJDjWPFxYLxokUZOo6RNX20He3AaT8sESs9NJcmEw==}
+    engines: {node: '>=18'}
     hasBin: true
     dev: true
 
