@@ -4,7 +4,9 @@
   "type": "module",
   "description": "Tool for lint entire codebase with single CLI command",
   "main": "config.js",
-  "bin": "bin/cli.js",
+  "bin": {
+    "smartlint": "bin/cli.js"
+  },
   "types": "interface.d.ts",
   "files": ["config.js", "bin/cli.js", "util.js", "interface.d.ts"],
   "engines": {
