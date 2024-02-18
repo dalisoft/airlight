@@ -11,7 +11,7 @@
     "require": "./resolve.cjs"
   },
   "engines": {
-    "node": ">=18.19.0"
+    "node": ">=18.19.1"
   },
   "repository": {
     "type": "git",
