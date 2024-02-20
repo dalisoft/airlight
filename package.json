@@ -2,17 +2,23 @@
   "name": "airlight-config",
   "description": "Shared configurations to use with combine of each other to get cleaner, better, reusable, secure and effecient codebase",
   "private": true,
-  "workspaces": ["packages/*"],
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "lint": "smartlint",
     "release": "pnpm -r --workspace-concurrency=1 exec ../../.release-me/release.sh -w --plugins=npm_package,git,github-release,npm --preset=workspace",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dalisoft/airlight.git"
   },
-  "keywords": ["biome", "eslint", "config"],
+  "keywords": [
+    "biome",
+    "eslint",
+    "config"
+  ],
   "author": "dalisoft",
   "license": "MIT",
   "bugs": {
