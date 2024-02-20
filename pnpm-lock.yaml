@@ -41,6 +41,9 @@ importers:
       lint-staged:
         specifier: ^15.2.2
         version: 15.2.2
+      lint-staged-config-airlight:
+        specifier: workspace:^
+        version: link:packages/lint-staged-config
       oxlint:
         specifier: ^0.2.9
         version: 0.2.9
