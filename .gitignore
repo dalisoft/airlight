@@ -190,3 +190,6 @@ typings/
 
 # JetBrains
 .idea
+
+# release-me
+.release-me
