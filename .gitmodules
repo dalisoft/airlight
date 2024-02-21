@@ -1,0 +1,4 @@
+[submodule "release-me"]
+	path = .release-me
+	url = https://github.com/dalisoft/release-me.git
+	branch = master
