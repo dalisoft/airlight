@@ -27,7 +27,7 @@
   "homepage": "https://github.com/dalisoft/airlight#readme",
   "devDependencies": {
     "@biomejs/biome": "1.5.3",
-    "@commitlint/cli": "^18.6.1",
+    "@commitlint/cli": "^19.2.2",
     "@commitlint/config-lerna-scopes": "^18.6.1",
     "@ls-lint/ls-lint": "^2.2.2",
     "@stoplight/spectral-cli": "^6.11.0",
