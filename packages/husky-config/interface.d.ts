@@ -1,5 +1,5 @@
-const preCommit = 'pre-commit';
-const commitMsg = 'commit-msg';
+declare const preCommit = 'pre-commit';
+declare const commitMsg = 'commit-msg';
 
 interface IHook {
   [preCommit]: 'lint-staged';

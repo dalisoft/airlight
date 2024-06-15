@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "description": "Husky config for use of combining all linters and formatters",
   "main": "config.js",
+  "type": "module",
   "types": "interface.d.ts",
-  "files": ["config.js", "interface.d.ts"],
+  "files": [
+    "config.js",
+    "interface.d.ts"
+  ],
   "engines": {
     "node": ">=18.19.0"
   },
@@ -12,7 +16,11 @@
     "type": "git",
     "url": "git+https://github.com/dalisoft/airlight.git"
   },
-  "keywords": ["husky", "lint", "config"],
+  "keywords": [
+    "husky",
+    "lint",
+    "config"
+  ],
   "author": "dalisoft",
   "license": "MIT",
   "bugs": {
