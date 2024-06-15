@@ -1,4 +1,4 @@
-import resolve from '../resolve.mjs';
+import resolve from '../resolve.js';
 
 // eslint-disable-next-line no-console
 console.log(
