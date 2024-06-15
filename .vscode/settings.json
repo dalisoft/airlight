@@ -9,14 +9,25 @@
   },
   "cSpell.enabled": false,
   "eslint.lintTask.enable": true,
+  "eslint.experimental.useFlatConfig": true,
+  "oxc_language_server.enable": true,
+  "oxc_language_server.configPath": ".eslintrc",
+  "biome.enabled": true,
+  "prettier.enable": false,
   "task.allowAutomaticTasks": "on",
+  "typescript.validate.enable": true,
+  "javascript.validate.enable": true,
   "[properties]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
   "terminal.integrated.env.osx": {
-    "PATH": "${workspaceFolder}/node_modules/.bin"
+    // "PATH": "${workspaceFolder}/node_modules/.bin"
   },
   "terminal.integrated.env.linux": {
-    "PATH": "${workspaceFolder}/node_modules/.bin"
+    // "PATH": "${workspaceFolder}/node_modules/.bin"
+  },
+  "files.readonlyInclude": {},
+  "files.readonlyExclude": {
+    "**/node_modules/**": true
   }
 }
