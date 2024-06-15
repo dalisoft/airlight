@@ -2,6 +2,7 @@
   "name": "airlight-config",
   "description": "Shared configurations to use with combine of each other to get cleaner, better, reusable, secure and effecient codebase",
   "private": true,
+  "type": "module",
   "workspaces": [
     "packages/*"
   ],
@@ -9,6 +10,9 @@
     "lint": "smartlint",
     "release": "pnpm -r --workspace-concurrency=1 exec ../../.release-me/release.sh -w --plugins=git,github-release,npm --preset=workspace",
     "prepare": "husky"
+  },
+  "engines": {
+    "node": ">=18.19.0"
   },
   "repository": {
     "type": "git",
@@ -26,21 +30,21 @@
   },
   "homepage": "https://github.com/dalisoft/airlight#readme",
   "devDependencies": {
-    "@biomejs/biome": "1.5.3",
-    "@commitlint/cli": "^18.6.1",
-    "@commitlint/config-lerna-scopes": "^18.6.1",
-    "@ls-lint/ls-lint": "^2.2.2",
-    "@stoplight/spectral-cli": "^6.11.0",
+    "@biomejs/biome": "1.8.1",
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-lerna-scopes": "^19.0.0",
+    "@ls-lint/ls-lint": "^2.2.3",
+    "@stoplight/spectral-cli": "^6.11.1",
     "biome-config-airlight": "workspace:*",
-    "dprint": "^0.45.0",
-    "eslint": "^8.56.0",
+    "dprint": "^0.46.2",
+    "eslint": "^9.5.0",
     "eslint-config-airlight-node": "workspace:^",
     "husky": "^9.0.11",
-    "lint-staged": "^15.2.2",
+    "lint-staged": "^15.2.7",
     "lint-staged-config-airlight": "workspace:^",
-    "oxlint": "^0.2.9",
+    "oxlint": "^0.4.4",
     "prettier-config-airlight": "workspace:^",
     "smartlint": "workspace:^",
-    "typescript": "^5.3.3"
+    "typescript": "^5.4.5"
   }
 }
