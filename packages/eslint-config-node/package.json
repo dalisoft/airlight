@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-airlight-node",
-  "version": "1.0.0",
+  "version": "4.0.6",
   "description": "ESLint configure for Node.js focused on code quality, security and performance on top of eslint-config-airlight-base",
   "main": "eslint.config.js",
   "type": "module",
