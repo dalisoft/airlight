@@ -7,7 +7,7 @@
   "files": [
     "plugins",
     "overrides",
-    "airbnb-rules.config.js",
+    "airbnb-rules.js",
     "eslint.config.js",
     "settings.js"
   ],

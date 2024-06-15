@@ -5,7 +5,7 @@ import comments from '@eslint-community/eslint-plugin-eslint-comments/configs';
 import eslintJs from '@eslint/js';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import tseslint from 'typescript-eslint';
-import airbnbRulesConfig from './airbnb-rules.config.js';
+import airbnbRulesConfig from './airbnb-rules.js';
 import cjsFiles from './overrides/cjs-files.js';
 import noTsChecks from './overrides/no-ts-checks.js';
 import tsFiles from './overrides/ts-files.js';
