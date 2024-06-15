@@ -1,4 +1,4 @@
-// eslint-disable-next-line eslint-comments/disable-enable-pair
+// eslint-disable-next-line @eslint-community/eslint-comments/disable-enable-pair
 /* eslint-disable no-console */
 import { exec } from 'node:child_process';
 import util from 'node:util';
@@ -59,8 +59,6 @@ export {
   exec,
   execAsync,
   execCommand,
-  // eslint-disable-next-line @typescript-eslint/naming-convention
   fgReset,
-  // eslint-disable-next-line @typescript-eslint/naming-convention
   fgRed
 };
