@@ -8,6 +8,7 @@ ls:
     .html: kebab-case
     .scss: kebab-case
     .spec.ts: kebab-case | pointcase
+    .config.js: pointcase
 
 ignore:
   - .git
