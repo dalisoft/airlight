@@ -1,6 +1,6 @@
 {
   "name": "husky-config-airlight",
-  "version": "3.0.2",
+  "version": "4.0.0",
   "description": "Husky config for use of combining all linters and formatters",
   "main": "config.js",
   "type": "module",
