@@ -3,15 +3,23 @@
   "version": "1.0.0",
   "description": "Commitlint config to make product commits beatiful",
   "main": "config.js",
-  "files": ["config.js"],
+  "type": "module",
+  "files": [
+    "config.js"
+  ],
   "engines": {
-    "node": ">=18.19.0"
+    "node": ">=18.19.1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dalisoft/airlight.git"
   },
-  "keywords": ["commit", "git", "lint", "config"],
+  "keywords": [
+    "commit",
+    "git",
+    "lint",
+    "config"
+  ],
   "author": "dalisoft",
   "license": "MIT",
   "bugs": {
@@ -19,7 +27,7 @@
   },
   "homepage": "https://github.com/dalisoft/airlight#readme",
   "dependencies": {
-    "@commitlint/config-conventional": "^18.6.2"
+    "@commitlint/config-conventional": "^19.2.2"
   },
   "peerDependencies": {
     "@commitlint/cli": "^17.x, ^18.x"
