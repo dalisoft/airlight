@@ -1,7 +1,6 @@
 // eslint-disable-next-line @eslint-community/eslint-comments/disable-enable-pair
 /* eslint-disable no-console */
-
-const resolve = require('../resolve.cjs');
+import resolve from '../resolve.js';
 
 const ITERATEE = 1_000_000;
 const CWD = process.cwd();
