@@ -4,7 +4,10 @@
   "description": "Biome config for use of combining to airlight-config-eslint(-node)",
   "type": "module",
   "main": "biome.json",
-  "files": ["biome.json", "dprint-extends.json"],
+  "files": [
+    "biome.json",
+    "dprint-extends.json"
+  ],
   "engines": {
     "node": ">=18.19.0"
   },
@@ -12,7 +15,11 @@
     "type": "git",
     "url": "git+https://github.com/dalisoft/airlight.git"
   },
-  "keywords": ["biome", "lint", "config"],
+  "keywords": [
+    "biome",
+    "lint",
+    "config"
+  ],
   "author": "dalisoft",
   "license": "MIT",
   "bugs": {
