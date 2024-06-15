@@ -16,6 +16,7 @@ For working properly, you may need one or all of these dependencies.
 
 For more information about each dependencies, click to dependecy link to learn about configs, features and how they work
 
+- [biomejs](https://github.com/biomejs/biome)
 - [eslint](http://eslint.org)
 - [prettier](https://prettier.io)
 - [lint-staged](https://github.com/okonet/lint-staged)

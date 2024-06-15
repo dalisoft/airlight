@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/dalisoft/airlight#readme",
   "peerDependencies": {
+    "@biomejs/biome": "^1.8.1",
     "@stoplight/spectral-cli": "^6.0.1",
     "@stoplight/spectral-ruleset-migrator": "^1.5.0",
     "dockerfilelint": "^1.8.0",

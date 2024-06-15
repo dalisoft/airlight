@@ -16,6 +16,8 @@ const linterCommandsMap = {
  */
 const applyLinterCommands = (lint_names = []) =>
   lint_names
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
     .map((lint) => linterCommandsMap[lint])
     .filter((command) => command);
 
@@ -52,7 +54,7 @@ module.exports = (languages = languagesSupport) => {
         break;
       case 'json':
         regex += language;
-        commands = applyLinterCommands(['prettier']);
+        commands = applyLinterCommands(['biome']);
         break;
       case 'yaml':
       case 'yml':
@@ -73,7 +75,7 @@ module.exports = (languages = languagesSupport) => {
         break;
       case 'md':
         regex += language;
-        commands = applyLinterCommands(['markdownlint', 'prettier']);
+        commands = applyLinterCommands(['markdown']);
         break;
       case 'dockerfile':
         regex = 'Dockerfile';
@@ -83,6 +85,8 @@ module.exports = (languages = languagesSupport) => {
         return;
     }
 
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
     config[regex] = commands;
   });
 
