@@ -1,6 +1,6 @@
 {
   "name": "biome-config-airlight",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Biome config for use of combining to airlight-config-eslint(-node)",
   "type": "module",
   "main": "biome.json",
