@@ -12,7 +12,6 @@ if (args.length === 1) {
   }
 } else {
   for (let i = 0; i < args.length; i += 2) {
-     
     if (args[i].substr(0, 2) !== '--') {
       path = args[i];
       args.splice(i, 1);
@@ -54,7 +53,6 @@ for (let i = 0; i < args.length; i += 1) {
 const linterCommands = smartlint(options.linters, path);
 
 if (linterCommands && linterCommands.length > 0) {
-   
   for await (const { cmd, name } of linterCommands) {
     util.debug(`Linter ${name} is started linting...`);
     await util.execCommand(cmd);

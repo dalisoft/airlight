@@ -1,19 +1,19 @@
-// @ts-check
-import eslintJs from '@eslint/js';
-import airbnbRulesConfig from './airbnb-rules.config.js';
-import tseslint from 'typescript-eslint';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error
 import comments from '@eslint-community/eslint-plugin-eslint-comments/configs';
+// @ts-check
+import eslintJs from '@eslint/js';
 import eslintConfigPrettier from 'eslint-config-prettier';
+import tseslint from 'typescript-eslint';
+import airbnbRulesConfig from './airbnb-rules.config.js';
+import cjsFiles from './overrides/cjs-files.js';
+import noTsChecks from './overrides/no-ts-checks.js';
+import tsFiles from './overrides/ts-files.js';
 import importX from './plugins/import-x.js';
 import noSecrets from './plugins/no-secrets.js';
 import optimizeRegex from './plugins/optimize-regex.js';
 import promise from './plugins/promise.js';
 import settings from './settings.js';
-import tsFiles from './overrides/ts-files.js';
-import noTsChecks from './overrides/no-ts-checks.js';
-import cjsFiles from './overrides/cjs-files.js';
 
 export default tseslint.config(
   eslintJs.configs.recommended,

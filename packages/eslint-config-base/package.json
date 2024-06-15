@@ -18,13 +18,7 @@
     "type": "git",
     "url": "git+https://github.com/dalisoft/airlight.git"
   },
-  "keywords": [
-    "eslint",
-    "lint",
-    "config",
-    "airbnb",
-    "node"
-  ],
+  "keywords": ["eslint", "lint", "config", "airbnb", "node"],
   "author": "dalisoft",
   "license": "MIT",
   "bugs": {

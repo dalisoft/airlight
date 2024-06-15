@@ -14,7 +14,7 @@ export default [
       complexity: ['error', { max: 4 }],
       'max-lines-per-function': [
         'error',
-         
+
         { max: 24, skipBlankLines: true, skipComments: true, IIFEs: true }
       ]
     },

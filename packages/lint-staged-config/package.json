@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "Almost zero-config `lint-staged` configuration",
   "main": "config.js",
-  "files": [
-    "config.js"
-  ],
+  "files": ["config.js"],
   "engines": {
     "node": ">=18.19.0"
   },
@@ -13,12 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/dalisoft/airlight.git"
   },
-  "keywords": [
-    "lint-staged",
-    "git",
-    "lint",
-    "config"
-  ],
+  "keywords": ["lint-staged", "git", "lint", "config"],
   "author": "dalisoft",
   "license": "MIT",
   "bugs": {

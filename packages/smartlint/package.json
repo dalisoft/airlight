@@ -8,12 +8,7 @@
     "smartlint": "bin/cli.js"
   },
   "types": "interface.d.ts",
-  "files": [
-    "config.js",
-    "bin/cli.js",
-    "util.js",
-    "interface.d.ts"
-  ],
+  "files": ["config.js", "bin/cli.js", "util.js", "interface.d.ts"],
   "engines": {
     "node": ">=18.19.0"
   },
@@ -21,12 +16,7 @@
     "type": "git",
     "url": "git+https://github.com/dalisoft/airlight.git"
   },
-  "keywords": [
-    "format",
-    "git",
-    "lint",
-    "config"
-  ],
+  "keywords": ["format", "git", "lint", "config"],
   "author": "dalisoft",
   "license": "MIT",
   "bugs": {

@@ -13,7 +13,6 @@ export default tseslint.config({
       'error',
       2,
       {
-         
         SwitchCase: 1,
         flatTernaryExpressions: false,
         offsetTernaryExpressions: true
