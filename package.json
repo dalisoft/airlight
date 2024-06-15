@@ -6,7 +6,7 @@
   "workspaces": ["packages/*"],
   "scripts": {
     "lint": "smartlint",
-    "release": "pnpm -r --workspace-concurrency=1 exec ../../.release-me/release.sh -w --plugins=npm,npm-post,git,github-release --preset=workspace",
+    "release": "pnpm -r --workspace-concurrency=1 exec ../../.release-me/release.sh -w --use-version --plugins=npm,npm-post,git,github-release --preset=workspace",
     "prepare": "husky"
   },
   "engines": {
