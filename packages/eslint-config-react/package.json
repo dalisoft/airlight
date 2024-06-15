@@ -2,8 +2,11 @@
   "name": "eslint-config-airlight-react",
   "version": "1.0.0",
   "description": "ESLint configure for React.js focused on code quality, security and performance on top of eslint-config-airlight-base",
-  "main": "config.js",
-  "files": ["config.js"],
+  "main": "eslint.config.js",
+  "type": "module",
+  "files": [
+    "eslint.config.js"
+  ],
   "engines": {
     "node": ">=18.19.0"
   },
@@ -11,7 +14,13 @@
     "type": "git",
     "url": "git+https://github.com/dalisoft/airlight.git"
   },
-  "keywords": ["eslint", "lint", "config", "airbnb", "node"],
+  "keywords": [
+    "eslint",
+    "lint",
+    "config",
+    "airbnb",
+    "node"
+  ],
   "author": "dalisoft",
   "license": "MIT",
   "bugs": {
@@ -19,16 +28,17 @@
   },
   "homepage": "https://github.com/dalisoft/airlight#readme",
   "dependencies": {
-    "eslint-config-airlight-base": "*",
-    "eslint-plugin-jest": "^27.9.0",
+    "eslint-config-airlight-base": "workspace:*",
+    "eslint-plugin-jest": "^28.6.0",
     "eslint-plugin-jsx-a11y": "^6.8.0",
-    "eslint-plugin-react": "^7.33.2",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.5"
+    "eslint-plugin-react": "^7.34.2",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-refresh": "^0.4.7",
+    "globals": "^15.4.0"
   },
   "peerDependencies": {
-    "eslint": "^8.55.0",
-    "prettier": "next",
+    "eslint": "^9.5.0",
+    "prettier": "^3.3.2",
     "typescript": "^5.3.3"
   }
 }
