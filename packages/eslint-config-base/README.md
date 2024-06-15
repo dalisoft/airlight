@@ -22,7 +22,7 @@ yarn add eslint-config-airlight-base -D
 - <https://github.com/prettier/eslint-config-prettier>
 - <https://github.com/benmosher/eslint-plugin-import>
 - <https://github.com/nickdeis/eslint-plugin-no-secrets>
-- <https://github.com/dolsem/eslint-plugin-filename-rules>
+- <https://github.com/dolsem/eslint-plugin-filename-rules> \[`REMOVED`\]
 
 ## Dependencies reason
 
@@ -31,7 +31,6 @@ yarn add eslint-config-airlight-base -D
 - eslint-config-prettier - Prettier config
 - eslint-plugin-import - ESLint plugin with rules that help validate proper imports
 - eslint-plugin-no-secrets - secrets/credentials finder/matched plug-in for ESLint
-- eslint-plugin-filename-rules - Rule for directory and file names
 
 ## Usage
 
@@ -47,7 +46,7 @@ yarn add eslint-config-airlight-base -D
 
 We customized following rules.
 
-Change these [configs](./config.js) by your needs
+Change these [configs](./eslint.config.js) by your needs
 
 ## License
 
