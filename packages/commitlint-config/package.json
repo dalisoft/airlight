@@ -1,7 +1,7 @@
 {
   "name": "commitlint-config-airlight",
-  "version": "1.0.0",
-  "description": "Commitlint config to make product commits beatiful",
+  "version": "6.0.2",
+  "description": "Commitlint config to make product commits beautiful",
   "main": "config.js",
   "type": "module",
   "files": ["config.js"],
