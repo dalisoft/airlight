@@ -1,6 +1,6 @@
 # eslint-config-airlight-node
 
-ESLint configure for Node.js focused on code quality, security and performance on top of [eslint-config-airlight-base](../eslint-config-airlight-base)
+ESLint configure for Node.js focused on code quality, security and performance on top of [eslint-config-airlight-base](../eslint-config-base)
 
 ## Installation
 
@@ -39,7 +39,7 @@ yarn add eslint-config-airlight-node -D
 
 We customized following rules.
 
-Change these [configs](./config.js) by your needs
+Change these [configs](./eslint.config.js) by your needs
 
 ## License
 
