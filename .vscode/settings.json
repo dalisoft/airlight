@@ -13,7 +13,7 @@
   "oxc_language_server.enable": true,
   "oxc_language_server.configPath": ".eslintrc",
   "biome.enabled": true,
-  "prettier.enable": false,
+  "prettier.enable": true,
   "task.allowAutomaticTasks": "on",
   "typescript.validate.enable": true,
   "javascript.validate.enable": true,

@@ -18,6 +18,6 @@ export default [
         { max: 24, skipBlankLines: true, skipComments: true, IIFEs: true }
       ]
     },
-    ignores: ['.history', 'scripts']
+    ignores: ['.history', '.release-me', 'scripts']
   }
 ];
