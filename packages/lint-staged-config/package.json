@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Almost zero-config `lint-staged` configuration",
   "main": "config.js",
-  "files": ["config.js"],
+  "files": [
+    "config.js"
+  ],
   "engines": {
     "node": ">=18.19.0"
   },
@@ -11,7 +13,12 @@
     "type": "git",
     "url": "git+https://github.com/dalisoft/airlight.git"
   },
-  "keywords": ["lint-staged", "git", "lint", "config"],
+  "keywords": [
+    "lint-staged",
+    "git",
+    "lint",
+    "config"
+  ],
   "author": "dalisoft",
   "license": "MIT",
   "bugs": {
@@ -22,10 +29,10 @@
     "@stoplight/spectral-cli": "^6.0.1",
     "@stoplight/spectral-ruleset-migrator": "^1.5.0",
     "dockerfilelint": "^1.8.0",
-    "eslint": "^8.35.0",
+    "eslint": "^9.5.0",
     "lint-staged": "^15.2.0",
     "markdownlint-cli2": "^0.11.0",
-    "prettier": "next",
+    "prettier": "^3.3.2",
     "stylelint": "^16.0.x"
   }
 }

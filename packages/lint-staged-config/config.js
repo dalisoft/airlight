@@ -1,4 +1,4 @@
-// eslint-disable-next-line eslint-comments/disable-enable-pair
+// eslint-disable-next-line @eslint-community/eslint-comments/disable-enable-pair
 /* eslint-disable max-lines-per-function */
 const linterCommandsMap = {
   eslint: 'eslint --color',
@@ -11,6 +11,9 @@ const linterCommandsMap = {
   biome: 'biome check --diagnostic-level=warn'
 };
 
+/**
+ * @param {string[]} lint_names
+ */
 const applyLinterCommands = (lint_names = []) =>
   lint_names
     .map((lint) => linterCommandsMap[lint])
