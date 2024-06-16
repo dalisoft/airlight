@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/dalisoft/airlight#readme",
   "dependencies": {
-    "eslint-config-airlight-base": "*",
+    "eslint-config-airlight-base": "latest",
     "eslint-plugin-n": "^17.9.0",
     "globals": "^15.4.0"
   },
