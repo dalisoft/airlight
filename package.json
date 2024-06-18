@@ -30,7 +30,7 @@
     "@ls-lint/ls-lint": "^2.2.3",
     "@stoplight/spectral-cli": "^6.11.1",
     "biome-config-airlight": "workspace:*",
-    "dprint": "^0.46.2",
+    "dprint": "^0.46.3",
     "eslint": "^9.5.0",
     "eslint-config-airlight-node": "workspace:*",
     "husky": "^9.0.11",
