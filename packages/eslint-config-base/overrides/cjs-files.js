@@ -3,7 +3,7 @@ import tseslint from 'typescript-eslint';
 
 export default tseslint.config({
   name: 'eslint-override-cjs-files',
-  files: ['*.cjs'],
+  files: ['**/*.cjs'],
   rules: {
     'import-x/extensions': 'off'
   }

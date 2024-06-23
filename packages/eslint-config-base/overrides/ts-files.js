@@ -4,7 +4,8 @@ import tseslint from 'typescript-eslint';
 export default tseslint.config({
   name: 'eslint-override-ts-files',
   // enable the rule specifically for TypeScript files
-  files: ['*.ts'],
+  files: ['**/*.ts'],
+  extends: [...tseslint.configs.strictTypeChecked],
   rules: {
     '@typescript-eslint/explicit-function-return-type': ['error'],
     '@typescript-eslint/explicit-module-boundary-types': ['error'],

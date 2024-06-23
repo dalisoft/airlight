@@ -4,10 +4,10 @@ import comments from '@eslint-community/eslint-plugin-eslint-comments/configs';
 // @ts-check
 import eslintJs from '@eslint/js';
 import eslintConfigPrettier from 'eslint-config-prettier';
+import globals from 'globals';
 import tseslint from 'typescript-eslint';
 import airbnbRulesConfig from './airbnb-rules.js';
 import cjsFiles from './overrides/cjs-files.js';
-import noTsChecks from './overrides/no-ts-checks.js';
 import tsFiles from './overrides/ts-files.js';
 import importX from './plugins/import-x.js';
 import noSecrets from './plugins/no-secrets.js';
@@ -30,7 +30,11 @@ export default tseslint.config(
     languageOptions: {
       ecmaVersion: 2020,
       sourceType: 'module',
-      parser: tseslint.parser
+      parser: tseslint.parser,
+      globals: {
+        ...globals.es2015,
+        ...globals.es2020
+      }
     },
     rules: {
       '@eslint-community/eslint-comments/no-unused-disable': 'error',
@@ -124,11 +128,17 @@ export default tseslint.config(
       'no-shadow': ['error', { hoist: 'functions' }],
       'no-empty-function': ['error'],
       camelcase: 'off',
-      'import-x/prefer-default-export': 'warn'
+      'import-x/prefer-default-export': 'warn',
+      'import-x/extensions': [
+        'error',
+        'always',
+        {
+          ignorePackages: true
+        }
+      ]
     },
     settings
   },
   ...tsFiles,
-  ...noTsChecks,
   ...cjsFiles
 );
