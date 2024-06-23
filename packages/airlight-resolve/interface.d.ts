@@ -1,3 +1,3 @@
-declare function resolve(...args: string[]): string | void;
+declare function resolve(...args: string[]): string | undefined;
 
-export = resolve;
+export default resolve;
