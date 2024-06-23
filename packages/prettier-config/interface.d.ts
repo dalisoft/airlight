@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-extraneous-class
 declare class PrettierConfig {
   static singleQuote: true;
 
@@ -20,4 +21,4 @@ declare class PrettierConfig {
   static endOfLine: 'lf';
 }
 
-export = PrettierConfig;
+export default PrettierConfig;
