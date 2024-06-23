@@ -1,5 +1,6 @@
 import { ResolverFactory } from 'oxc-resolver';
 
+/** @type {Partial<import('./interface.js').ResolveOptions>} */
 const defaultOptions = {
   preferAbsolute: true,
   fullySpecified: false,
@@ -7,7 +8,9 @@ const defaultOptions = {
   extensions: ['.ts', '.js', '.d.ts', '.html', '.md', '.json']
 };
 
-export const create = (opts = {}) => {
+export const create = (
+  /** @type {Partial<import('./interface.js').ResolveOptions>} */ opts = {}
+) => {
   const options = Object.assign(
     {
       syncRoot: process.cwd(),
@@ -17,10 +20,11 @@ export const create = (opts = {}) => {
     opts
   );
   const factory = new ResolverFactory(options);
+  /** @type {Map<string, string | undefined>} */
   const cache = new Map();
 
   // eslint-disable-next-line complexity
-  return (...args) => {
+  return (/** @type {string[]} */ ...args) => {
     const key = args.length < 2 ? args[0] : args.join('/');
 
     if (options.cache === false || !cache.has(key)) {

@@ -1,3 +1,11 @@
-declare function resolve(...args: string[]): string | undefined;
+import type { NapiResolveOptions, ResolverFactory } from 'oxc-resolver';
 
-export default resolve;
+declare function resolve(...args: string[]): string | undefined;
+declare function create(opts: Partial<NapiResolveOptions>): typeof resolve;
+
+export {
+  type NapiResolveOptions as ResolveOptions,
+  type ResolverFactory,
+  create,
+  resolve as default
+};
