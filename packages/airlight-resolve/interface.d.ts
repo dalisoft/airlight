@@ -1,11 +1,17 @@
-import type { NapiResolveOptions, ResolverFactory } from 'oxc-resolver';
+import type {
+  NapiResolveOptions,
+  ResolverFactory as ResolverFactoryBase
+} from 'oxc-resolver';
 
-declare function resolve(...args: string[]): string | undefined;
-declare function create(opts: Partial<NapiResolveOptions>): typeof resolve;
+export type ResolveOptions = NapiResolveOptions;
+export type Resolver = ResolverFactory;
 
-export {
-  type NapiResolveOptions as ResolveOptions,
-  type ResolverFactory,
-  create,
-  resolve as default
-};
+export class ResolverFactory extends ResolverFactoryBase {
+  static createResolver(opts: NapiResolveOptions): Resolver;
+
+  constructor(props: Partial<NapiResolveOptions>);
+
+  resolveSync(_: unknown, path: string, request: string): string | null;
+}
+
+export default Resolver;

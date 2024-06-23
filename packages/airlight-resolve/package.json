@@ -1,10 +1,10 @@
 {
   "name": "airlight-resolve",
   "version": "0.4.3",
-  "description": "[WIP] `require.resolve` faster implementation based on oxc-resolver",
+  "description": "[WIP] `enhanced-resolve` faster implementation based on oxc-resolver",
   "type": "module",
   "main": "resolve.js",
-  "files": ["resolve.js", "interface.d.ts"],
+  "files": ["resolve.js", "factory.js", "interface.d.ts"],
   "typings": "interface.d.ts",
   "engines": {
     "node": ">=18.19.1"

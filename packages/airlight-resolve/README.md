@@ -1,6 +1,6 @@
 # airlight-resolve \[WIP\]
 
-\[WIP\] `require.resolve` faster implementation based on [oxc-resolver](https://github.com/oxc-project/oxc_resolver)
+\[WIP\] `enhanced-resolve` faster implementation based on [oxc-resolver](https://github.com/oxc-project/oxc_resolver)
 
 ## Installation
 
