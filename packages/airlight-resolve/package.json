@@ -4,7 +4,7 @@
   "description": "[WIP] `require.resolve` faster implementation based on oxc-resolver",
   "type": "module",
   "main": "resolve.js",
-  "files": ["resolve.js"],
+  "files": ["resolve.js", "interface.d.ts"],
   "typings": "interface.d.ts",
   "engines": {
     "node": ">=18.19.1"
