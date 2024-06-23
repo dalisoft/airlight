@@ -6,8 +6,9 @@ interface IHook {
   [commitMsg]: 'commitlint -E HUSKY_GIT_PARAMS';
 }
 
+// eslint-disable-next-line @typescript-eslint/no-extraneous-class
 declare class HuskyConfig {
   static hooks: IHook;
 }
 
-export = HuskyConfig;
+export default HuskyConfig;
