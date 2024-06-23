@@ -14,6 +14,7 @@ export default [
       sourceType: 'module',
       globals: {
         ...globals.es2015,
+        ...globals.es2020,
         ...globals.node,
         ...globals.jest
       }
@@ -25,14 +26,9 @@ export default [
       ],
       'import-x/extensions': [
         'error',
-        'never',
+        'always',
         {
-          ignorePackages: true,
-          pattern: {
-            js: 'always',
-            cjs: 'always',
-            mjs: 'always'
-          }
+          ignorePackages: true
         }
       ]
     },
@@ -58,23 +54,20 @@ export default [
     }
   },
   {
-    files: ['*.js'],
+    files: ['*.cjs'],
     rules: {
+      '@typescript-eslint/no-var-requires': 'off',
       'import-x/extensions': [
         'error',
         'never',
         {
-          js: 'always',
-          json: 'always',
-          wasm: 'always'
+          ignorePackages: true,
+          pattern: {
+            js: 'always',
+            mjs: 'always'
+          }
         }
       ]
-    }
-  },
-  {
-    files: ['*.cjs'],
-    rules: {
-      '@typescript-eslint/no-var-requires': 'off'
     }
   }
 ];
