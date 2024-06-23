@@ -100,7 +100,10 @@ export default [
       'import-x/extensions': [
         ...baseConfigSettings['import-x/extensions'],
         '.jsx',
-        '.tsx'
+        '.tsx',
+        '.css',
+        '.scss',
+        '.svg'
       ],
       'import-x/external-module-folders': [
         'node_modules',
@@ -113,10 +116,12 @@ export default [
     rules: {
       'import-x/extensions': [
         'error',
-        'never',
+        'always',
         {
-          json: 'always',
-          wasm: 'always'
+          ignorePackages: true,
+          ts: 'never',
+          tsx: 'never',
+          jsx: 'never'
         }
       ]
     }
