@@ -75,9 +75,9 @@ jobs:
         env:
           GIT_USERNAME: ${{ vars.GIT_USERNAME }}
           GIT_EMAIL: ${{ vars.GIT_EMAIL }}
-          GPG_KEY_ID: ${{ vars.GPG_KEY_ID }}
-          GPG_KEY: ${{ secrets.GPG_KEY }}
-          GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
+          SSH_PUBLIC_KEY: ${{ secrets.SSH_PUBLIC_KEY }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_KEY_PASSPHRASE: ${{ secrets.SSH_KEY_PASSPHRASE }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         shell: bash
