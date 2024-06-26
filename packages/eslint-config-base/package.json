@@ -46,14 +46,14 @@
     "eslint-plugin-promise": "^6.2.0",
     "typescript-eslint": "^7.14.1",
     "globals": "^15.6.0",
-    "eslint-define-config": "^2.1.0",
     "@typescript-eslint/parser": "^7.14.1",
     "@typescript-eslint/eslint-plugin": "^7.14.1"
   },
   "devDependencies": {
     "@types/eslint-config-prettier": "^6.11.3",
     "@types/eslint__eslintrc": "^2.1.1",
-    "@types/eslint__js": "^8.42.3"
+    "@types/eslint__js": "^8.42.3",
+    "eslint-define-config": "^2.1.0"
   },
   "peerDependencies": {
     "eslint": "^8.57.0 || ^9.5.0",

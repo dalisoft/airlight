@@ -1,11 +1,12 @@
 // @ts-check
-const { defineConfig } = require('eslint-define-config');
 const rules = require('./airbnb-rules.cjs');
 const tsFilesRules = require('./overrides/ts-files.cjs');
 const cjsFilesRules = require('./overrides/cjs-files.cjs');
 const settings = require('./settings.cjs');
 
-module.exports = defineConfig({
+// @ts-expect-error What it needs idk
+/** @type {import('eslint-define-config').ESLintConfig} */
+module.exports = {
   parserOptions: {
     ecmaVersion: 2020,
     sourceType: 'module'
@@ -147,4 +148,4 @@ module.exports = defineConfig({
     }
   ],
   settings
-});
+};
