@@ -26,20 +26,6 @@ module.exports = {
   // @ts-expect-error It should work but does not
   overrides: baseConfig.overrides.concat([
     {
-      files: ['*.js'],
-      rules: {
-        'import/extensions': [
-          'error',
-          'never',
-          {
-            js: 'always',
-            json: 'always',
-            wasm: 'always'
-          }
-        ]
-      }
-    },
-    {
       files: ['*.cjs'],
       rules: {
         '@typescript-eslint/no-var-requires': 'error'

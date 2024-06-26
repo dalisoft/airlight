@@ -21,17 +21,7 @@ module.exports = [
       }
     },
     rules: {
-      'n/no-unsupported-features/es-syntax': [
-        'error',
-        { ignores: ['modules'] }
-      ],
-      'import-x/extensions': [
-        'error',
-        'always',
-        {
-          ignorePackages: true
-        }
-      ]
+      'n/no-unsupported-features/es-syntax': ['error', { ignores: ['modules'] }]
     },
     settings: baseConfigSettings
   },
