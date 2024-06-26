@@ -9,7 +9,7 @@
   },
   "files": ["smartlint.sh"],
   "engines": {
-    "node": ">=18.19.0"
+    "node": ">=18.20.3"
   },
   "repository": {
     "type": "git",

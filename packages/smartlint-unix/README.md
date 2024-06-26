@@ -10,6 +10,12 @@ npm install smartlint-unix --save-dev
 yarn add smartlint-unix -D
 ```
 
+## Environment variables
+
+| Name            | Value        |
+| --------------- | ------------ |
+| `USE_QUICKLINT` | Set or unset |
+
 ## Prepare
 
 ### Markdown
