@@ -1,14 +1,15 @@
-import baseConfig from 'eslint-config-airlight-base';
-import tsFiles from 'eslint-config-airlight-base/overrides/ts-files.js';
-import baseConfigSettings from 'eslint-config-airlight-base/settings.js';
-import globals from 'globals';
+// @ts-check
+const baseConfig = require('eslint-config-airlight-base');
+const baseConfigSettings = require('eslint-config-airlight-base/settings.cjs');
+const tsFiles = require('eslint-config-airlight-base/overrides/ts-files.cjs');
+const globals = require('globals');
 
 // Modify it for performance and code clean reason
 if (tsFiles?.[0]?.files) {
   tsFiles[0].files.push('*.tsx');
 }
 
-export default [
+module.exports = [
   baseConfig,
   {
     extends: ['prettier/react'],
@@ -17,6 +18,7 @@ export default [
       ecmaVersion: 2020,
       globals: {
         ...globals.es2015,
+        ...globals.es2020,
         ...globals.browser,
         ...globals.jest
       }

@@ -31,19 +31,30 @@ yarn add eslint-config-airlight-react -D
 
 ## Usage
 
-`.eslintrc`
+### `.eslintrc`
 
 ```json
 {
-  "extends": "airlight-react"
+  "extends": "airlight-react/legacy"
 }
+```
+
+### `eslint.config.js`
+
+```js
+import airlightReact from 'eslint-config-airlight-react';
+
+export default [
+  ...airlightReact,
+  // your rules
+]
 ```
 
 ## Rules
 
 We customized following rules.
 
-Change these [configs](./config.js) by your needs
+Change these [flat config](../eslint-config-base/flat.cjs) or [legacy config](../eslint-config-base/legacy.cjs) by your needs
 
 ## License
 
