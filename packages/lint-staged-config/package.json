@@ -3,9 +3,10 @@
   "version": "4.1.0",
   "description": "Almost zero-config `lint-staged` configuration",
   "main": "config.js",
+  "type": "commonjs",
   "files": ["config.js"],
   "engines": {
-    "node": ">=18.19.0"
+    "node": ">=18.20.3"
   },
   "repository": {
     "type": "git",
