@@ -3,11 +3,11 @@
   "version": "6.0.1",
   "description": "Prettier config for use of combining to airlight-config-eslint(-node)",
   "main": "config.js",
-  "type": "module",
+  "type": "commonjs",
   "types": "interface.d.ts",
   "files": ["config.js", "interface.d.ts"],
   "engines": {
-    "node": ">=18.19.0"
+    "node": ">=18.20.3"
   },
   "repository": {
     "type": "git",

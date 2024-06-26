@@ -21,4 +21,4 @@ declare class PrettierConfig {
   static endOfLine: 'lf';
 }
 
-export default PrettierConfig;
+export = PrettierConfig;
