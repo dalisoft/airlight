@@ -1,4 +1,4 @@
-type Lint =
+export type Lint =
   | 'lslint'
   | 'eslint'
   | 'stylelint'
@@ -9,10 +9,10 @@ type Lint =
   | 'prettier'
   | 'dockerfile';
 
-interface ISmartLintReturn {
+export interface ISmartLintReturn {
   cmd: string;
   name: Lint;
 }
 declare function smartlint(linters?: Lint, path?: string): ISmartLintReturn[];
 
-export = smartlint;
+export default smartlint;

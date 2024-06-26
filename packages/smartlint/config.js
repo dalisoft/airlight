@@ -1,3 +1,4 @@
+/** @type {Record<import("./interface.js").Lint, string>} */
 const linterCommandsMap = {
   eslint: 'eslint --color',
   stylelint: 'stylelint --color',
@@ -10,12 +11,14 @@ const linterCommandsMap = {
   lslint: 'ls-lint'
 };
 
+/** @type {Partial<Record<import("./interface.js").Lint, string>>} */
 const defaultArgumentsMap = {
   dockerfile: 'Dockerfile',
   markdown: '',
   stylelint: '{**/*,*}.{css,sass,scss,md,html}'
 };
 
+/** @type {import("./interface.js").Lint[]} */
 const defaultLinters = [
   'lslint',
   'eslint',

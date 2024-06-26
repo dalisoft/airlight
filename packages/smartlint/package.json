@@ -10,7 +10,7 @@
   "types": "interface.d.ts",
   "files": ["config.js", "bin/cli.js", "util.js", "interface.d.ts"],
   "engines": {
-    "node": ">=18.19.0"
+    "node": ">=18.20.3"
   },
   "repository": {
     "type": "git",

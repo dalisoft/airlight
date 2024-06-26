@@ -8,17 +8,17 @@ const fgRed = '\x1b[31m';
 const fgYellow = '\x1b[33m';
 const fgBlue = '\x1b[34m';
 
-const logError = (...args) => {
+const logError = (/** @type {string[]} */ ...args) => {
   console.log(fgRed, ...args, fgReset);
 };
-const logWarn = (...args) => {
+const logWarn = (/** @type {string[]} */ ...args) => {
   console.log(fgYellow, ...args, fgReset);
 };
-const logDebug = (...args) => {
+const logDebug = (/** @type {string[]} */ ...args) => {
   console.log(fgBlue, ...args, fgReset);
 };
 
-const reinspectLog = (log) =>
+const reinspectLog = (/** @type {string} */ log) =>
   log
     .replaceAll(/\[error\]/g, `${fgRed}[error]${fgReset}`)
     .replaceAll(/\[warn\]/g, `${fgYellow}[warn]${fgReset}`)
@@ -26,7 +26,7 @@ const reinspectLog = (log) =>
 
 const execAsync = util.promisify(exec);
 
-const execCommand = (command) =>
+const execCommand = (/** @type {string} */ command) =>
   execAsync(command)
     .catch((error) => error)
     // eslint-disable-next-line complexity

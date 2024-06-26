@@ -2,6 +2,10 @@
 
 Tool for lint entire codebase with single CLI command
 
+## Deprecated
+
+This package deprecated and recommend use of **smartlint-unix** package
+
 ## Installation
 
 ```bash
