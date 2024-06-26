@@ -2,11 +2,16 @@
   "name": "eslint-config-airlight-node",
   "version": "5.0.4",
   "description": "ESLint configure for Node.js focused on code quality, security and performance on top of eslint-config-airlight-base",
-  "main": "eslint.config.js",
-  "type": "module",
-  "files": ["eslint.config.js"],
+  "main": "flat.cjs",
+  "exports": {
+    ".": "./flat.cjs",
+    "./flat": "./flat.cjs",
+    "./legacy": "./legacy.cjs",
+    "./settings": "./settings.cjs"
+  },
+  "files": ["flat.cjs", "legacy.cjs"],
   "engines": {
-    "node": ">=18.19.0"
+    "node": ">=18.20.3"
   },
   "repository": {
     "type": "git",
@@ -22,10 +27,11 @@
   "dependencies": {
     "eslint-config-airlight-base": "latest",
     "eslint-plugin-n": "^17.9.0",
-    "globals": "^15.6.0"
+    "globals": "^15.6.0",
+    "eslint-define-config": "^2.1.0"
   },
   "peerDependencies": {
-    "eslint": "^9.5.0",
+    "eslint": "^8.57.0 || ^9.5.0",
     "prettier": "^3.3.2",
     "typescript": "^5.3.3"
   }

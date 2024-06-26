@@ -27,19 +27,30 @@ yarn add eslint-config-airlight-node -D
 
 ## Usage
 
-`.eslintrc`
+### `.eslintrc`
 
 ```json
 {
-  "extends": "airlight-node"
+  "extends": "airlight-node/legacy"
 }
+```
+
+### `eslint.config.js`
+
+```js
+import airlightNode from 'eslint-config-airlight-node';
+
+export default [
+  ...airlightNode,
+  // your rules
+]
 ```
 
 ## Rules
 
 We customized following rules.
 
-Change these [configs](./eslint.config.js) by your needs
+Change these [flat config](../eslint-config-base/flat.cjs) or [legacy config](../eslint-config-base/legacy.cjs) by your needs
 
 ## License
 
