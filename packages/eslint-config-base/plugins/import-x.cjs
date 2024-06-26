@@ -1,8 +1,8 @@
 // @ts-check
-import eslintImportX from 'eslint-plugin-import-x';
-import tseslint from 'typescript-eslint';
+const eslintImportX = require('eslint-plugin-import-x');
+const tseslint = require('typescript-eslint');
 
-export default tseslint.config({
+module.exports = tseslint.config({
   name: 'eslint-plugin-import-x',
   plugins: {
     'import-x': eslintImportX

@@ -1,32 +1,34 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error
-import comments from '@eslint-community/eslint-plugin-eslint-comments/configs';
+const comments = require('@eslint-community/eslint-plugin-eslint-comments/configs');
 // @ts-check
-import eslintJs from '@eslint/js';
-import eslintConfigPrettier from 'eslint-config-prettier';
-import globals from 'globals';
-import tseslint from 'typescript-eslint';
-import airbnbRulesConfig from './airbnb-rules.js';
-import cjsFiles from './overrides/cjs-files.js';
-import tsFiles from './overrides/ts-files.js';
-import importX from './plugins/import-x.js';
-import noSecrets from './plugins/no-secrets.js';
-import optimizeRegex from './plugins/optimize-regex.js';
-import promise from './plugins/promise.js';
-import settings from './settings.js';
+const eslintJs = require('@eslint/js');
+const eslintConfigPrettier = require('eslint-config-prettier');
+const globals = require('globals');
+const tseslint = require('typescript-eslint');
+const airbnbRules = require('./airbnb-rules.cjs');
+const cjsFiles = require('./overrides/cjs-files.cjs');
+const tsFiles = require('./overrides/ts-files.cjs');
+const importX = require('./plugins/import-x.cjs');
+const noSecrets = require('./plugins/no-secrets.cjs');
+const optimizeRegEx = require('./plugins/optimize-regex.cjs');
+const promise = require('./plugins/promise.cjs');
+const settings = require('./settings.cjs');
 
-export default tseslint.config(
+module.exports = tseslint.config(
   eslintJs.configs.recommended,
   ...tseslint.configs.recommended,
-  ...airbnbRulesConfig,
   comments.recommended,
   ...promise,
   eslintConfigPrettier,
   ...importX,
   ...noSecrets,
-  ...optimizeRegex,
+  ...optimizeRegEx,
   {
     name: 'eslint-config-airlight-base',
+    plugins: {
+      '@typescript-eslint': tseslint.plugin
+    },
     languageOptions: {
       ecmaVersion: 2020,
       sourceType: 'module',
@@ -37,6 +39,7 @@ export default tseslint.config(
       }
     },
     rules: {
+      ...airbnbRules,
       '@eslint-community/eslint-comments/no-unused-disable': 'error',
       '@typescript-eslint/naming-convention': [
         'error',

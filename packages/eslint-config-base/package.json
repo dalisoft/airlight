@@ -2,17 +2,24 @@
   "name": "eslint-config-airlight-base",
   "version": "7.0.1",
   "description": "ESLint configure base focused on code quality, security and performance on top of eslint-config-airbnb-typescript/base",
-  "main": "eslint.config.js",
-  "type": "module",
+  "type": "commonjs",
+  "main": "flat.cjs",
+  "exports": {
+    ".": "./flat.cjs",
+    "./flat": "./flat.cjs",
+    "./legacy": "./legacy.cjs",
+    "./settings.cjs": "./settings.cjs",
+    "./overrides/*": "./overrides/*"
+  },
   "files": [
     "plugins",
     "overrides",
-    "airbnb-rules.js",
-    "eslint.config.js",
-    "settings.js"
+    "airbnb-rules.cjs",
+    "flat.cjs",
+    "settings.cjs"
   ],
   "engines": {
-    "node": ">=18.19.0"
+    "node": ">=18.20.3"
   },
   "repository": {
     "type": "git",
@@ -38,7 +45,10 @@
     "eslint-plugin-optimize-regex": "^1.2.1",
     "eslint-plugin-promise": "^6.2.0",
     "typescript-eslint": "^7.14.1",
-    "globals": "^15.6.0"
+    "globals": "^15.6.0",
+    "eslint-define-config": "^2.1.0",
+    "@typescript-eslint/parser": "^7.14.1",
+    "@typescript-eslint/eslint-plugin": "^7.14.1"
   },
   "devDependencies": {
     "@types/eslint-config-prettier": "^6.11.3",
@@ -46,7 +56,7 @@
     "@types/eslint__js": "^8.42.3"
   },
   "peerDependencies": {
-    "eslint": "^9.5.0",
+    "eslint": "^8.57.0 || ^9.5.0",
     "prettier": "^3.3.2",
     "typescript": "^5.3.3"
   }

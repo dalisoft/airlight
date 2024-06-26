@@ -34,19 +34,30 @@ yarn add eslint-config-airlight-base -D
 
 ## Usage
 
-`.eslintrc`
+### `.eslintrc`
 
 ```json
 {
-  "extends": "airlight-base"
+  "extends": "airlight-base/legacy"
 }
+```
+
+### `eslint.config.js`
+
+```js
+import airlightBase from 'eslint-config-airlight-base';
+
+export default [
+  ...airlightBase,
+  // your rules
+]
 ```
 
 ## Rules
 
 We customized following rules.
 
-Change these [configs](./eslint.config.js) by your needs
+Change these [flat config](./flat.cjs) or [legacy config](./legacy.cjs) by your needs
 
 ## License
 

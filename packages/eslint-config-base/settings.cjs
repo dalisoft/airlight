@@ -1,6 +1,6 @@
 // @ts-check
 
-export default {
+module.exports = {
   node: {
     tryExtensions: [
       '.ts',
@@ -17,6 +17,7 @@ export default {
     node: {
       extensions: [
         '.ts',
+        '.mjs',
         '.js',
         '.d.ts',
         '.html',
@@ -34,6 +35,7 @@ export default {
   },
   'import-x/extensions': [
     '.ts',
+    '.mjs',
     '.js',
     '.d.ts',
     '.html',
@@ -42,5 +44,9 @@ export default {
     '.wasm',
     '.node'
   ],
-  'import-x/external-module-folders': ['node_modules', 'node_modules/@types']
+  'import-x/external-module-folders': ['node_modules', 'node_modules/@types'],
+  // Apply special parsing for TypeScript files
+  'import-x/parsers': {
+    '@typescript-eslint/parser': ['.ts', '.tsx', '.d.ts']
+  }
 };
