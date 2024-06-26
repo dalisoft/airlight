@@ -156,9 +156,6 @@ importers:
       eslint-config-airlight-base:
         specifier: latest
         version: link:../eslint-config-base
-      eslint-define-config:
-        specifier: ^2.1.0
-        version: 2.1.0
       eslint-plugin-n:
         specifier: ^17.9.0
         version: 17.9.0(eslint@9.5.0)
@@ -171,6 +168,10 @@ importers:
       typescript:
         specifier: ^5.3.3
         version: 5.5.2
+    devDependencies:
+      eslint-define-config:
+        specifier: ^2.1.0
+        version: 2.1.0
 
   packages/eslint-config-react:
     dependencies:
@@ -180,9 +181,6 @@ importers:
       eslint-config-airlight-base:
         specifier: latest
         version: link:../eslint-config-base
-      eslint-define-config:
-        specifier: ^2.1.0
-        version: 2.1.0
       eslint-plugin-jest:
         specifier: ^28.6.0
         version: 28.6.0(@typescript-eslint/eslint-plugin@7.14.1(eslint@9.5.0)(typescript@5.5.2))(eslint@9.5.0)(typescript@5.5.2)
@@ -207,6 +205,10 @@ importers:
       typescript:
         specifier: ^5.3.3
         version: 5.5.2
+    devDependencies:
+      eslint-define-config:
+        specifier: ^2.1.0
+        version: 2.1.0
 
   packages/husky-config:
     dependencies:
