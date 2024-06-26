@@ -123,14 +123,7 @@ module.exports = {
     'no-shadow': ['error', { hoist: 'functions' }],
     'no-empty-function': ['error'],
     camelcase: 'off',
-    'import-x/prefer-default-export': 'warn',
-    'import-x/extensions': [
-      'error',
-      'always',
-      {
-        ignorePackages: true
-      }
-    ]
+    'import-x/prefer-default-export': 'warn'
   },
   overrides: [
     {

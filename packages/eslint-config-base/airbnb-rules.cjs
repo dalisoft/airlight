@@ -321,12 +321,15 @@ module.exports = {
     'error',
     'ignorePackages',
     {
-      js: 'never',
-      cjs: 'always',
+      js: 'always',
+      cjs: 'never',
       mjs: 'always',
       jsx: 'never',
       ts: 'never',
-      tsx: 'never'
+      tsx: 'never',
+      json: 'always',
+      node: 'always',
+      wasm: 'always'
     }
   ],
 
