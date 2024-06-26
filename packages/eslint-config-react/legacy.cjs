@@ -1,17 +1,18 @@
 // @ts-check
-const { defineConfig } = require('eslint-define-config');
-
-// @ts-expect-error It is javascript config
 const baseConfig = require('eslint-config-airlight-base/legacy');
 const baseConfigSettings = require('eslint-config-airlight-base/settings.cjs');
 
-module.exports = defineConfig({
+// @ts-expect-error What it needs idk
+/** @type {import('eslint-define-config').ESLintConfig} */
+module.exports = {
   ...baseConfig,
   parserOptions: {
     ecmaVersion: 2020,
     sourceType: 'module'
   },
+  // @ts-expect-error It should work but does not
   extends: baseConfig.extends.concat(['prettier/react']),
+  // @ts-expect-error It should work but does not
   plugins: baseConfig.plugins.concat(['react-hooks', 'react-refresh', 'jest']),
   env: {
     es2015: true,
@@ -98,4 +99,4 @@ module.exports = defineConfig({
     ],
     'import-x/external-module-folders': ['node_modules', 'node_modules/@types']
   }
-});
+};
