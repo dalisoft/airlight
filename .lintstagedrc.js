@@ -1,4 +1,1 @@
-// @ts-ignore
-import lintstagedConfig from 'lint-staged-config-airlight';
-
-export default lintstagedConfig();
+module.exports = require('lint-staged-config-airlight')();

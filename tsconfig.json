@@ -1,9 +1,9 @@
 {
-  "include": ["packages", "test", "*.js", "scripts"],
+  "include": ["packages", "test", "*.js", "scripts", "eslint.config.mjs"],
   "exclude": ["node_modules"],
   "compilerOptions": {
     "target": "es2020",
-    "module": "node16",
+    "module": "Node16",
     // "lib": [],
     "allowJs": true,
     "incremental": true,
@@ -39,7 +39,7 @@
     "noFallthroughCasesInSwitch": true,
     "forceConsistentCasingInFileNames": true,
 
-    "moduleResolution": "node16",
+    "moduleResolution": "Node16",
     // "baseUrl": "src" ,
     // "paths": {},
     // "rootDirs": [],

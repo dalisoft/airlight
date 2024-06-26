@@ -9,7 +9,7 @@
   },
   "cSpell.enabled": false,
   "eslint.lintTask.enable": true,
-  "eslint.experimental.useFlatConfig": true,
+  "eslint.useFlatConfig": true,
   "oxc_language_server.enable": true,
   "oxc_language_server.configPath": ".eslintrc",
   "biome.enabled": true,

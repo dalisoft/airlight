@@ -2,7 +2,7 @@
   "name": "airlight-config",
   "description": "Shared configurations to use with combine of each other to get cleaner, better, reusable, secure and effecient codebase",
   "private": true,
-  "type": "module",
+  "type": "commonjs",
   "workspaces": ["packages/*"],
   "scripts": {
     "lint": "smartlint",
@@ -10,7 +10,7 @@
     "prepare": "husky"
   },
   "engines": {
-    "node": ">=18.19.0"
+    "node": ">=18.20.3"
   },
   "repository": {
     "type": "git",
@@ -38,7 +38,7 @@
     "lint-staged-config-airlight": "workspace:*",
     "oxlint": "^0.4.4",
     "prettier-config-airlight": "workspace:*",
-    "smartlint": "workspace:*",
+    "smartlint-unix": "workspace:*",
     "typescript": "^5.5.2"
   }
 }
