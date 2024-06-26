@@ -51,6 +51,9 @@ jobs:
       - name: Lint code
         run: pnpm run lint
   release:
+    permissions:
+      id-token: write
+      contents: write
     needs: lint
     runs-on: ubuntu-22.04
 
