@@ -71,6 +71,30 @@ module.exports = {
     'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx'] }],
     'react-refresh/only-export-components': 'warn'
   },
+  // @ts-expect-error It should work but does not
+  overrides: baseConfig.overrides.concat([
+    {
+      files: ['*.jsx', '*.tsx'],
+      rules: {
+        'import-x/extensions': [
+          'error',
+          'never',
+          {
+            ignorePackages: true,
+            json: 'always',
+            svg: 'always',
+            css: 'always'
+          }
+        ]
+      }
+    },
+    {
+      files: ['*.tsx'],
+      rules: {
+        'react/prop-types': 'off'
+      }
+    }
+  ]),
   settings: {
     node: {
       tryExtensions: [...baseConfigSettings.node.tryExtensions, '.jsx', '.tsx']

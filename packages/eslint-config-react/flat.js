@@ -118,12 +118,12 @@ module.exports = [
     rules: {
       'import-x/extensions': [
         'error',
-        'always',
+        'never',
         {
           ignorePackages: true,
-          ts: 'never',
-          tsx: 'never',
-          jsx: 'never'
+          json: 'always',
+          svg: 'always',
+          css: 'always'
         }
       ]
     }
