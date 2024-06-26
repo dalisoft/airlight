@@ -11,4 +11,4 @@ declare class HuskyConfig {
   static hooks: IHook;
 }
 
-export default HuskyConfig;
+export = HuskyConfig;
