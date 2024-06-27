@@ -27,7 +27,7 @@
     "@ls-lint/ls-lint": "^2.2.3",
     "eslint": "^9.5.0",
     "dprint": "^0.46.3",
-    "@biomejs/biome": "^1.8.2"
+    "@biomejs/biome": "^1.8.3"
   },
   "peerDependencies": {
     "@stoplight/spectral-cli": "^6.x",
