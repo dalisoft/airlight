@@ -129,6 +129,7 @@ module.exports = {
     {
       // enable the rule specifically for TypeScript files
       files: ['*.ts'],
+      extends: ['plugin:@typescript-eslint/strict-type-checked'],
       rules: tsFilesRules[0].rules
     },
     {
