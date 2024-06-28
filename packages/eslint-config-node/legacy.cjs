@@ -30,7 +30,8 @@ module.exports = {
       rules: {
         '@typescript-eslint/no-var-requires': 'error'
       }
-    }
+    },
+    { files: ['*.ts'], rules: { 'n/no-missing-import': 'off' } }
   ]),
   settings: baseConfigSettings
 };

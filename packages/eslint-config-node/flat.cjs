@@ -26,6 +26,12 @@ module.exports = [
     settings: baseConfigSettings
   },
   {
+    files: ['**/*.ts'],
+    rules: {
+      'n/no-missing-import': 'off'
+    }
+  },
+  {
     files: ['**/*.cjs'],
     rules: {
       '@typescript-eslint/no-var-requires': 'error'
