@@ -57,7 +57,6 @@ module.exports = tseslint.config({
     indent: 'off',
     quotes: 'off',
     'no-shadow': 'off',
-    'no-empty-function': 'off',
-    'n/no-missing-import': 'off'
+    'no-empty-function': 'off'
   }
 });
