@@ -39,6 +39,6 @@
     "oxlint": "^0.5.0",
     "prettier-config-airlight": "workspace:*",
     "smartlint-unix": "workspace:*",
-    "typescript": "^5.5.2"
+    "typescript": "^5.5.3"
   }
 }
