@@ -2,6 +2,8 @@
 
 ESLint configure for Node.js focused on code quality, security and performance on top of [eslint-config-airlight-base](../eslint-config-base)
 
+Now compatible with `oxlint` configuration
+
 ## Installation
 
 ```bash
