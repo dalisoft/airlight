@@ -1,4 +1,6 @@
-// eslint-disable-next-line @typescript-eslint/no-extraneous-class
+// eslint-disable-next-line @eslint-community/eslint-comments/disable-enable-pair
+/* eslint-disable @typescript-eslint/no-extraneous-class */
+// biome-ignore lint/complexity/noStaticOnlyClass: <explanation>
 declare class PrettierConfig {
   static singleQuote: true;
 
