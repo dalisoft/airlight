@@ -12,10 +12,10 @@ const linterCommandsMap = {
 };
 
 /**
- * @param {string[]} lint_names
+ * @param {string[]} lintNames
  */
-const applyLinterCommands = (lint_names = []) =>
-  lint_names
+const applyLinterCommands = (lintNames = []) =>
+  lintNames
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-expect-error
     .map((lint) => linterCommandsMap[lint])
@@ -36,11 +36,11 @@ const languagesSupport = [
   'dockerfile'
 ];
 
+// eslint-disable-next-line complexity
 module.exports = (languages = languagesSupport) => {
   const config = {};
 
-  // eslint-disable-next-line complexity
-  languages.forEach((language) => {
+  for (const language of languages) {
     let regex = '*.';
     let commands;
 
@@ -88,7 +88,7 @@ module.exports = (languages = languagesSupport) => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-expect-error
     config[regex] = commands;
-  });
+  }
 
   return config;
 };
