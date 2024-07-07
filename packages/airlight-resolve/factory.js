@@ -23,8 +23,6 @@ export default class ResolverFactory extends ResolverFactoryBase {
       ...defaultOptions,
       ...props
     });
-
-    return this;
   }
 
   resolveSync(
