@@ -55,6 +55,14 @@ export default [
 ]
 ```
 
+### oxlint
+
+> If you are using **eslint + oxlint** combo, see [here and follow guide](https://github.com/oxc-project/eslint-plugin-oxlint)
+
+```bash
+oxlint -c ./node_modules/eslint-config-airlight-base/oxlintrc.json
+```
+
 ## Rules
 
 We customized following rules.

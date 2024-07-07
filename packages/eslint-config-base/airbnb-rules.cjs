@@ -362,7 +362,9 @@ module.exports = {
         '**/protractor.conf.*.js', // protractor config
         '**/karma.conf.js', // karma config
         '**/.eslintrc.js', // eslint config
-        '**/eslint.config.js' // eslint flat config
+        '**/eslint.config.js', // eslint flat config
+        '**/eslint.config.cjs', // eslint flat config
+        '**/eslint.config.mjs' // eslint flat config
       ].reduce(
         /** @param {string[]} result
          *  @param {string} devDep
