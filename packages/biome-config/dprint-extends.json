@@ -5,7 +5,7 @@
     "indentStyle": "space",
     "lineWidth": 80,
     "quoteStyle": "single",
-    "trailingComma": "none",
+    "trailingCommas": "none",
     "arrowParentheses": "always",
     "bracketSpacing": true,
     "bracketSameLine": true
