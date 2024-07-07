@@ -1,6 +1,7 @@
 // @ts-check
 const baseConfig = require('eslint-config-airlight-base/legacy');
 const baseConfigSettings = require('eslint-config-airlight-base/settings.cjs');
+const rules = require('./rules.cjs');
 
 // @ts-expect-error What it needs idk
 /** @type {import('eslint-define-config').ESLintConfig} */
@@ -19,10 +20,7 @@ module.exports = {
     browser: false,
     jest: true
   },
-  rules: {
-    ...baseConfig.rules,
-    'n/no-unsupported-features/es-syntax': ['error', { ignores: ['modules'] }]
-  },
+  rules,
   // @ts-expect-error It should work but does not
   overrides: baseConfig.overrides.concat([
     {

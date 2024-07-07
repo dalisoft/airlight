@@ -3,6 +3,7 @@ const baseConfig = require('eslint-config-airlight-base');
 const baseConfigSettings = require('eslint-config-airlight-base/settings.cjs');
 const nodePlugin = require('eslint-plugin-n');
 const globals = require('globals');
+const rules = require('./rules.cjs');
 
 module.exports = [
   ...baseConfig,
@@ -20,9 +21,7 @@ module.exports = [
         ...globals.jest
       }
     },
-    rules: {
-      'n/no-unsupported-features/es-syntax': ['error', { ignores: ['modules'] }]
-    },
+    rules,
     settings: baseConfigSettings
   },
   {
