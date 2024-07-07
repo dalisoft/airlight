@@ -376,7 +376,7 @@ module.exports = {
           if (devDepWithTs !== devDep) {
             toAppend.push(devDepWithTs);
           }
-          return [...result, ...toAppend];
+          return result.concat(toAppend);
         },
         []
       )
