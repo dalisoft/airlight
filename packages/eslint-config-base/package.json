@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-airlight-base",
-  "version": "7.2.0",
+  "version": "7.3.0",
   "description": "ESLint configure base focused on code quality, security and performance on top of eslint-config-airbnb-typescript/base",
   "type": "commonjs",
   "main": "flat.cjs",
