@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-airlight-node",
-  "version": "5.3.0",
+  "version": "5.4.0",
   "description": "ESLint configure for Node.js focused on code quality, security and performance on top of eslint-config-airlight-base",
   "main": "flat.cjs",
   "exports": {
