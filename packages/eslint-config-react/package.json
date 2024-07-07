@@ -7,9 +7,13 @@
     ".": "./flat.cjs",
     "./flat": "./flat.cjs",
     "./legacy": "./legacy.cjs",
+    "./oxlintrc.json": "./oxlintrc.json",
     "./settings": "./settings.cjs"
   },
-  "files": ["flat.cjs", "legacy.cjs"],
+  "files": ["rules.cjs", "flat.cjs", "legacy.cjs", "oxlintrc.json"],
+  "scripts": {
+    "prepublishOnly": "node scripts/*.cjs"
+  },
   "engines": {
     "node": ">=18.20.3"
   },
