@@ -1,3 +1,5 @@
+// eslint-disable-next-line @eslint-community/eslint-comments/disable-enable-pair
+/* eslint-disable @typescript-eslint/no-extraneous-class */
 declare const preCommit = 'pre-commit';
 declare const commitMsg = 'commit-msg';
 
@@ -6,7 +8,7 @@ interface IHook {
   [commitMsg]: 'commitlint -E HUSKY_GIT_PARAMS';
 }
 
-// eslint-disable-next-line @typescript-eslint/no-extraneous-class
+// biome-ignore lint/complexity/noStaticOnlyClass: <explanation>
 declare class HuskyConfig {
   static hooks: IHook;
 }
