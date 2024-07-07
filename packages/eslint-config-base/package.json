@@ -8,16 +8,24 @@
     ".": "./flat.cjs",
     "./flat": "./flat.cjs",
     "./legacy": "./legacy.cjs",
+    "./oxlintrc.json": "./oxlintrc.json",
     "./settings.cjs": "./settings.cjs",
     "./overrides/*": "./overrides/*"
   },
   "files": [
+    "scripts",
     "plugins",
     "overrides",
     "airbnb-rules.cjs",
+    "rules.cjs",
     "flat.cjs",
-    "settings.cjs"
+    "legacy.cjs",
+    "settings.cjs",
+    "oxlintrc.json"
   ],
+  "scripts": {
+    "prepublishOnly": "node scripts/*.cjs"
+  },
   "engines": {
     "node": ">=18.20.3"
   },
