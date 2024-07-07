@@ -8,9 +8,6 @@ importers:
 
   .:
     devDependencies:
-      '@biomejs/biome':
-        specifier: ^1.8.3
-        version: 1.8.3
       '@commitlint/cli':
         specifier: ^19.3.0
         version: 19.3.0(@types/node@20.14.9)(typescript@5.5.3)
@@ -26,6 +23,9 @@ importers:
       biome-config-airlight:
         specifier: workspace:*
         version: link:packages/biome-config
+      biome-rs-npm:
+        specifier: dalisoft/biome-rs-npm#v1.8.3
+        version: https://codeload.github.com/dalisoft/biome-rs-npm/tar.gz/2ef885bb3766587e4797ee41749bbe879bb296f6
       dprint:
         specifier: ^0.47.0
         version: 0.47.0
@@ -1212,6 +1212,17 @@ packages:
 
   balanced-match@2.0.0:
     resolution: {integrity: sha512-1ugUSr8BHXRnK23KfuYS+gVMC3LB8QGH9W1iGtDPsNWoQbgtXSExkBu2aDR4epiGWZOjZsj6lDl/N/AqqTC3UA==}
+
+  binary2npm@https://codeload.github.com/dalisoft/binary2npm/tar.gz/16f90442c39dc5a1fb4b1387976f98b40983a408:
+    resolution: {tarball: https://codeload.github.com/dalisoft/binary2npm/tar.gz/16f90442c39dc5a1fb4b1387976f98b40983a408}
+    version: 0.3.7
+    engines: {node: '>=18.19.1'}
+
+  biome-rs-npm@https://codeload.github.com/dalisoft/biome-rs-npm/tar.gz/2ef885bb3766587e4797ee41749bbe879bb296f6:
+    resolution: {tarball: https://codeload.github.com/dalisoft/biome-rs-npm/tar.gz/2ef885bb3766587e4797ee41749bbe879bb296f6}
+    version: 1.8.3
+    engines: {node: '>=18.19.1'}
+    hasBin: true
 
   brace-expansion@1.1.11:
     resolution: {integrity: sha512-iCuPHDFgrHX7H2vEI/5xpz07zSHB00TpugqhmYtVmMO6518mCuRMoOYFldEBl0g187ufozdaHgWKcYFb61qGiA==}
@@ -4388,6 +4399,12 @@ snapshots:
   balanced-match@1.0.2: {}
 
   balanced-match@2.0.0: {}
+
+  binary2npm@https://codeload.github.com/dalisoft/binary2npm/tar.gz/16f90442c39dc5a1fb4b1387976f98b40983a408: {}
+
+  biome-rs-npm@https://codeload.github.com/dalisoft/biome-rs-npm/tar.gz/2ef885bb3766587e4797ee41749bbe879bb296f6:
+    dependencies:
+      binary2npm: https://codeload.github.com/dalisoft/binary2npm/tar.gz/16f90442c39dc5a1fb4b1387976f98b40983a408
 
   brace-expansion@1.1.11:
     dependencies:
