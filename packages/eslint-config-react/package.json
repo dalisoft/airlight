@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-airlight-react",
-  "version": "5.2.0",
+  "version": "5.3.0",
   "description": "ESLint configure for React.js focused on code quality, security and performance on top of eslint-config-airlight-base",
   "main": "flat.cjs",
   "exports": {
