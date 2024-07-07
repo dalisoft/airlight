@@ -1,7 +1,17 @@
 {
   "$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
-  "extends": ["./packages/biome-config/biome.json"],
+  "extends": [
+    "./packages/biome-config/biome.json",
+    "./packages/eslint-config-node/biome.json"
+  ],
   "files": {
     "ignore": ["scripts", ".release-me"]
+  },
+  "linter": {
+    "rules": {
+      "style": {
+        "useNamingConvention": "off"
+      }
+    }
   }
 }

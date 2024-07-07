@@ -24,12 +24,12 @@
   },
   "homepage": "https://github.com/dalisoft/airlight#readme",
   "devDependencies": {
-    "@biomejs/biome": "^1.8.3",
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-lerna-scopes": "^19.0.0",
     "@ls-lint/ls-lint": "^2.2.3",
     "@stoplight/spectral-cli": "^6.11.1",
     "biome-config-airlight": "workspace:*",
+    "biome-rs-npm": "dalisoft/biome-rs-npm#v1.8.3",
     "dprint": "^0.47.0",
     "eslint": "^9.6.0",
     "eslint-config-airlight-node": "workspace:*",
@@ -41,5 +41,5 @@
     "smartlint-unix": "workspace:*",
     "typescript": "^5.5.3"
   },
-  "trustedDependencies": ["@biomejs/biome"]
+  "trustedDependencies": ["@biomejs/biome", "biome-rs-npm"]
 }
