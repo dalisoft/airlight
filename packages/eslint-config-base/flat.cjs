@@ -39,7 +39,6 @@ module.exports = tseslint.config(
         ...globals.es2020
       }
     },
-    // @ts-expect-error It should be shared for consistenty
     rules: {
       ...airbnbRules,
       ...rules

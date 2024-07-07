@@ -3,7 +3,7 @@
 ESLint configure for base focused on code quality, security and performance on top of
 [eslint-config-airbnb-typescript/base](https://github.com/iamturns/eslint-config-airbnb-typescript).
 
-Now compatible with `oxlint` configuration
+Now compatible with `oxlint` and `biome` configuration
 
 ## Installation
 
@@ -61,6 +61,21 @@ export default [
 
 ```bash
 oxlint -c ./node_modules/eslint-config-airlight-base/oxlintrc.json
+```
+
+### biome
+
+> If you are using **eslint + biome** combo, see [here and follow guide](https://github.com/SrBrahma/eslint-config-biome)
+
+```json title="biome.json"
+{
+  "$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
+  "extends": ["eslint-config-airlight-base/biome.json"]
+}
+```
+
+```bash
+biome check . --write
 ```
 
 ## Rules

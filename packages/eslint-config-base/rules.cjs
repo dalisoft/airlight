@@ -1,3 +1,5 @@
+// @ts-expect-error Cannot find namespace 'SharedConfig'
+/** @type {Partial<Record<string, SharedConfig.RuleEntry>>} */
 module.exports = {
   '@eslint-community/eslint-comments/no-unused-disable': 'error',
   '@typescript-eslint/naming-convention': [
@@ -68,7 +70,7 @@ module.exports = {
       offsetTernaryExpressions: true
     }
   ],
-  complexity: ['error', { max: 5 }],
+  complexity: ['error', { max: 7 }],
   'max-depth': ['error', { max: 3 }],
   'max-nested-callbacks': ['error', { max: 3 }],
   'max-lines-per-function': [

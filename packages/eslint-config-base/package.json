@@ -9,6 +9,7 @@
     "./flat": "./flat.cjs",
     "./legacy": "./legacy.cjs",
     "./oxlintrc.json": "./oxlintrc.json",
+    "./biome.json": "./biome.json",
     "./settings.cjs": "./settings.cjs",
     "./overrides/*": "./overrides/*"
   },
@@ -21,10 +22,11 @@
     "flat.cjs",
     "legacy.cjs",
     "settings.cjs",
-    "oxlintrc.json"
+    "oxlintrc.json",
+    "biome.json"
   ],
   "scripts": {
-    "prepublishOnly": "node scripts/*.cjs"
+    "prepublishOnly": "node scripts/*.cjs && biome migrate eslint --write --include-inspired --include-nursery"
   },
   "engines": {
     "node": ">=18.20.3"

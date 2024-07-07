@@ -11,7 +11,7 @@ export default [
     },
     rules: {
       '@typescript-eslint/no-var-requires': 'off',
-      complexity: ['error', { max: 4 }],
+      complexity: ['error', { max: 7 }],
       'max-lines-per-function': [
         'error',
 
