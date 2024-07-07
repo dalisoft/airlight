@@ -8,11 +8,18 @@
     "./flat": "./flat.cjs",
     "./legacy": "./legacy.cjs",
     "./oxlintrc.json": "./oxlintrc.json",
+    "./biome.json": "./biome.json",
     "./settings": "./settings.cjs"
   },
-  "files": ["rules.cjs", "flat.cjs", "legacy.cjs", "oxlintrc.json"],
+  "files": [
+    "rules.cjs",
+    "flat.cjs",
+    "legacy.cjs",
+    "oxlintrc.json",
+    "biome.json"
+  ],
   "scripts": {
-    "prepublishOnly": "node scripts/*.cjs"
+    "prepublishOnly": "node scripts/*.cjs && biome migrate eslint --write --include-inspired --include-nursery"
   },
   "engines": {
     "node": ">=18.20.3"

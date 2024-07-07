@@ -2,7 +2,7 @@
 
 ESLint configure for Node.js focused on code quality, security and performance on top of [eslint-config-airlight-base](../eslint-config-base)
 
-Now compatible with `oxlint` configuration
+Now compatible with `oxlint` and `biome` configuration
 
 ## Installation
 
@@ -54,6 +54,21 @@ export default [
 
 ```bash
 oxlint -c ./node_modules/eslint-config-airlight-node/oxlintrc.json
+```
+
+### biome
+
+> If you are using **eslint + biome** combo, see [here and follow guide](https://github.com/SrBrahma/eslint-config-biome)
+
+```json title="biome.json"
+{
+  "$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
+  "extends": ["eslint-config-airlight-node/biome.json"]
+}
+```
+
+```bash
+biome check . --write
 ```
 
 ## Rules
