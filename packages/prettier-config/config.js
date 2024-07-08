@@ -1,3 +1,7 @@
+// @ts-check
+/**
+ * @type {import('./interface')}
+ */
 module.exports = {
   singleQuote: true,
   printWidth: 80,

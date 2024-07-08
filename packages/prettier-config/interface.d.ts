@@ -1,26 +1,23 @@
-// eslint-disable-next-line @eslint-community/eslint-comments/disable-enable-pair
-/* eslint-disable @typescript-eslint/no-extraneous-class */
-// biome-ignore lint/complexity/noStaticOnlyClass: <explanation>
-declare class PrettierConfig {
-  static singleQuote: true;
+declare interface IPrettierConfig {
+  singleQuote: true;
 
-  static printWidth: 80;
+  printWidth: 80;
 
-  static trailingComma: 'none';
+  trailingComma: 'none';
 
-  static arrowParens: 'always';
+  arrowParens: 'always';
 
-  static bracketSpacing: true;
+  bracketSpacing: true;
 
-  static bracketSameLine: true;
+  bracketSameLine: true;
 
-  static useTabs: false;
+  useTabs: false;
 
-  static embeddedLanguageFormatting: 'auto';
+  embeddedLanguageFormatting: 'auto';
 
-  static singleAttributePerLine: true;
+  singleAttributePerLine: true;
 
-  static endOfLine: 'lf';
+  endOfLine: 'lf';
 }
 
-export = PrettierConfig;
+export = IPrettierConfig;
