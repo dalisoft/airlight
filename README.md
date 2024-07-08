@@ -12,10 +12,11 @@ Shared configurations to use with combine of each other to get cleaner, better, 
 - stylelint-config-airlight\*
 - [prettier-config-airlight](./packages/prettier-config) **Use `biome`**
 - [biome-config-airlight](./packages/biome-config)
-- [lint-staged-config-airlight](./packages/lint-staged-config) **Use `lefthook`**
+- [lint-staged-config-airlight](./packages/lint-staged-config) **\[DEPRECATED\] Use `lefthook`**
 - [commitlint-config-airlight](./packages/commitlint-config)
-- [husky-config-airlight](./packages/husky-config) \[DEPRECATED\] **Use `lefthook`**
-- [smartlint](./packages/smartlint)
+- [husky-config-airlight](./packages/husky-config) **\[DEPRECATED\] Use `lefthook`**
+- [smartlint](./packages/smartlint) **\[DEPRECATED\] Use `lefthook`**
+- [smartlint-unix](./packages/smartlint-unix) **Use `lefthook`**
 - [airlight-resolve](./packages/airlight-resolve) **\[WIP\]**
 - [typescript-config](./tsconfig.json) (this project config)
 - [typos-config](./_typos.toml) (this project typos config)
