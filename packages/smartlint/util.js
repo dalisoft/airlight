@@ -1,4 +1,4 @@
-// eslint-disable-next-line @eslint-community/eslint-comments/disable-enable-pair
+/* eslint-disable @eslint-community/eslint-comments/disable-enable-pair */
 /* eslint-disable no-console */
 import { exec } from 'node:child_process';
 import util from 'node:util';
@@ -39,8 +39,7 @@ const execCommand = (/** @type {string} */ command) =>
       }
       if (stderr && stderr.length > 0) {
         process.stderr.write(reinspectLog(stderr));
-        // eslint-disable-next-line n/no-process-exit
-        return process.exit(1);
+        throw new Error('Error has exited');
       }
       if (
         stdout.includes('error') &&
@@ -48,8 +47,7 @@ const execCommand = (/** @type {string} */ command) =>
         !stdout.includes('no error') &&
         !stdout.includes('No results')
       ) {
-        // eslint-disable-next-line n/no-process-exit
-        return process.exit(1);
+        throw new Error('Error has exited');
       }
       return undefined;
     });
