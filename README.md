@@ -10,11 +10,11 @@ Shared configurations to use with combine of each other to get cleaner, better, 
 - eslint-config-airlight-react-web\*
 - eslint-config-airlight-react-native\*
 - stylelint-config-airlight\*
-- [prettier-config-airlight](./packages/prettier-config) **Use Biome**
+- [prettier-config-airlight](./packages/prettier-config) **Use `biome`**
 - [biome-config-airlight](./packages/biome-config)
-- [lint-staged-config-airlight](./packages/lint-staged-config)
+- [lint-staged-config-airlight](./packages/lint-staged-config) **Use `lefthook`**
 - [commitlint-config-airlight](./packages/commitlint-config)
-- [husky-config-airlight](./packages/husky-config) \[DEPRECATED\]
+- [husky-config-airlight](./packages/husky-config) \[DEPRECATED\] **Use `lefthook`**
 - [smartlint](./packages/smartlint)
 - [airlight-resolve](./packages/airlight-resolve) **\[WIP\]**
 - [typescript-config](./tsconfig.json) (this project config)
