@@ -1,0 +1,48 @@
+prepare-commit-msg:
+  commands:
+    commitlint:
+      env:
+        PATH: $PATH:./node_modules/.bin
+      run: commitlint --edit
+
+pre-commit:
+  parallel: true
+  commands:
+    biome:
+      env:
+        PATH: $PATH:./node_modules/.bin
+      glob: "*.{js,ts,json}"
+      run: biome check {staged_files} --write
+    markdown:
+      env:
+        PATH: $PATH:./node_modules/.bin
+      glob: "*.md"
+      run: dprint fmt {staged_files}
+    typos:
+      env:
+        PATH: $PATH:./node_modules/.bin
+      exclude: "bun.lockb|package-lock.json|yarn.lock|pnpm-lock.yaml"
+      run: typos {staged_files}
+
+pre-push:
+  parallel: true
+  commands:
+    biome:
+      env:
+        PATH: $PATH:./node_modules/.bin
+      glob: "*.{js,ts,json}"
+      run: biome check {push_files}
+    markdown:
+      env:
+        PATH: $PATH:./node_modules/.bin
+      glob: "*.md"
+      run: dprint check {push_files}
+    typos:
+      env:
+        PATH: $PATH:./node_modules/.bin
+      exclude: "bun.lockb|package-lock.json|yarn.lock|pnpm-lock.yaml"
+      run: typos {push_files}
+    ls-lint:
+      env:
+        PATH: $PATH:./node_modules/.bin
+      run: ls-lint

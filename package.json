@@ -1,13 +1,13 @@
 {
   "name": "airlight-config",
-  "description": "Shared configurations to use with combine of each other to get cleaner, better, reusable, secure and effecient codebase",
+  "description": "Shared configurations to use with combine of each other to get cleaner, better, reusable, secure and efficient codebase",
   "private": true,
   "type": "commonjs",
   "workspaces": ["packages/*"],
   "scripts": {
     "lint": "smartlint",
     "release": "pnpm -r --workspace-concurrency=1 exec ../../.release-me/release.sh -w --use-version --plugins=npm,npm-post,git,github-release --preset=workspace",
-    "prepare": "husky"
+    "prepare": "lefthook install"
   },
   "engines": {
     "node": ">=18.20.3"
@@ -30,16 +30,16 @@
     "@stoplight/spectral-cli": "^6.11.1",
     "biome-config-airlight": "workspace:*",
     "biome-rs-npm": "dalisoft/biome-rs-npm#v1.8.3",
-    "dprint": "^0.47.0",
+    "dprint-rs-npm": "github:dalisoft/dprint-rs-npm#0.47.1",
     "eslint": "^9.6.0",
     "eslint-config-airlight-node": "workspace:*",
-    "husky": "^9.0.11",
-    "lint-staged": "^15.2.7",
+    "lefthook-go-npm": "github:dalisoft/lefthook-go-npm#v1.6.18",
     "lint-staged-config-airlight": "workspace:*",
-    "oxlint": "^0.5.2",
+    "oxlint-rs-npm": "github:dalisoft/oxlint-rs-npm#v0.5.3",
     "prettier-config-airlight": "workspace:*",
     "smartlint-unix": "workspace:*",
-    "typescript": "^5.5.3"
+    "typescript": "^5.5.3",
+    "typos-rs-npm": "github:dalisoft/typos-rs-npm#v1.23.1"
   },
   "trustedDependencies": ["@biomejs/biome", "biome-rs-npm"]
 }

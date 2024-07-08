@@ -1,6 +1,6 @@
 # airlight
 
-Shared configurations to use with combine of each other to get cleaner, better, reusable, secure and effecient codebase
+Shared configurations to use with combine of each other to get cleaner, better, reusable, secure and efficient codebase
 
 ## Packages
 

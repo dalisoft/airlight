@@ -26,27 +26,24 @@ importers:
       biome-rs-npm:
         specifier: dalisoft/biome-rs-npm#v1.8.3
         version: https://codeload.github.com/dalisoft/biome-rs-npm/tar.gz/2ef885bb3766587e4797ee41749bbe879bb296f6
-      dprint:
-        specifier: ^0.47.0
-        version: 0.47.0
+      dprint-rs-npm:
+        specifier: github:dalisoft/dprint-rs-npm#0.47.1
+        version: https://codeload.github.com/dalisoft/dprint-rs-npm/tar.gz/6c6088614ca370017c114f79836ef5540e3a518f
       eslint:
         specifier: ^9.6.0
         version: 9.6.0
       eslint-config-airlight-node:
         specifier: workspace:*
         version: link:packages/eslint-config-node
-      husky:
-        specifier: ^9.0.11
-        version: 9.0.11
-      lint-staged:
-        specifier: ^15.2.7
-        version: 15.2.7
+      lefthook-go-npm:
+        specifier: github:dalisoft/lefthook-go-npm#v1.6.18
+        version: https://codeload.github.com/dalisoft/lefthook-go-npm/tar.gz/c755d21ef5e6d9a92d91cb69f65243137b73e0d1
       lint-staged-config-airlight:
         specifier: workspace:*
         version: link:packages/lint-staged-config
-      oxlint:
-        specifier: ^0.5.2
-        version: 0.5.2
+      oxlint-rs-npm:
+        specifier: github:dalisoft/oxlint-rs-npm#v0.5.3
+        version: https://codeload.github.com/dalisoft/oxlint-rs-npm/tar.gz/9a8208c4a88f39fc55a2650f338a0d8cca08ccee
       prettier-config-airlight:
         specifier: workspace:*
         version: link:packages/prettier-config
@@ -56,6 +53,9 @@ importers:
       typescript:
         specifier: ^5.5.3
         version: 5.5.3
+      typos-rs-npm:
+        specifier: github:dalisoft/typos-rs-npm#v1.23.1
+        version: https://codeload.github.com/dalisoft/typos-rs-npm/tar.gz/372121dba1193a225dfe829256bb79a05879576a
 
   packages/airlight-resolve:
     dependencies:
@@ -508,19 +508,9 @@ packages:
     peerDependencies:
       postcss-selector-parser: ^6.0.13
 
-  '@dprint/darwin-arm64@0.47.0':
-    resolution: {integrity: sha512-UoQA2kBSSooLx+DPUeml8xr75D7wwpNmH1xmDeX9c0JzFA5j7ZtykT/gNqGSRk9TRHH12nV3/e8VSamUbnbRfA==}
-    cpu: [arm64]
-    os: [darwin]
-
   '@dprint/darwin-arm64@0.47.1':
     resolution: {integrity: sha512-Ur2atF1NVhNfzRxDVwLMaCWfU0eQ9JSm9ewdFvPWK5BZ/G5ywum9Cph6XTwyZhG9UB0nxNtf6DP/37aezCBa7g==}
     cpu: [arm64]
-    os: [darwin]
-
-  '@dprint/darwin-x64@0.47.0':
-    resolution: {integrity: sha512-gL2qYooB1mSatS0CQ6/UrplyUewnWD3cg1U7S+CZAVpgSkJgOX3haWinoD66kaBdWAPJo4NjeMnlIS7WVXmbXg==}
-    cpu: [x64]
     os: [darwin]
 
   '@dprint/darwin-x64@0.47.1':
@@ -528,18 +518,8 @@ packages:
     cpu: [x64]
     os: [darwin]
 
-  '@dprint/linux-arm64-glibc@0.47.0':
-    resolution: {integrity: sha512-VrY41zk75f07tfD9bIiYpRom7j4jc/5a8ifWhebnA7jwitTIInkPBUAwJwygGQA/bY7uKYuoykEnipjOzXE48A==}
-    cpu: [arm64]
-    os: [linux]
-
   '@dprint/linux-arm64-glibc@0.47.1':
     resolution: {integrity: sha512-hD3sbFhSKqadUWcDanvJu0w/kxs7lbOk/VXNTkt+9VVCzT5ewDtqEy/CgUdm6YuLeZjoY3ApP8TBY1fxbAnaOQ==}
-    cpu: [arm64]
-    os: [linux]
-
-  '@dprint/linux-arm64-musl@0.47.0':
-    resolution: {integrity: sha512-UlrOe1cD/bZmoGVdxo7wpIn6DI70SdPeeQe5LFex8csKERM1H0GmrwDTpHlvN2OzZ4W8d6j7dVQEw5K3defxSg==}
     cpu: [arm64]
     os: [linux]
 
@@ -548,18 +528,8 @@ packages:
     cpu: [arm64]
     os: [linux]
 
-  '@dprint/linux-x64-glibc@0.47.0':
-    resolution: {integrity: sha512-06j1qJtipRIds7I9f+gYAK5hNEjX3BoIT08axb9eo1VTUOUQjnJ4NwOBsT8rw8mqtTuePtWIWzZMsELom8UXZA==}
-    cpu: [x64]
-    os: [linux]
-
   '@dprint/linux-x64-glibc@0.47.1':
     resolution: {integrity: sha512-rI/q0narrWDL/XeoLkxNase0c/ITOQEU31WklidP6MvwYtGFooy9ZBIQqGYLh+eDjPEKDIPmkEUpLsaL1RkuCw==}
-    cpu: [x64]
-    os: [linux]
-
-  '@dprint/linux-x64-musl@0.47.0':
-    resolution: {integrity: sha512-yjT5Tua7E0aIaUvuyslfYf2h2NB6lipRFOMKySX5MHSjKHjJKdXiIddaTx9EHg6NHzyrYYH6/jD2ZqllgKjY/g==}
     cpu: [x64]
     os: [linux]
 
@@ -567,11 +537,6 @@ packages:
     resolution: {integrity: sha512-P/PMHo37/SSLWbQeq6KQKuklsPNVwmrNf1c+wzqbydJ9ET0zqKl/w99JhfrRTyyl6mimNN/40AROGNBUVTFCQQ==}
     cpu: [x64]
     os: [linux]
-
-  '@dprint/win32-x64@0.47.0':
-    resolution: {integrity: sha512-gfqV74GdQF7DWH5ClpottRS5qrEb14KncMR/bkL5ek40JqZZAeRFfYpWnuppE2rm5j9iQ+vs3Yx/YsW2u13q6Q==}
-    cpu: [x64]
-    os: [win32]
 
   '@dprint/win32-x64@0.47.1':
     resolution: {integrity: sha512-LFnhMbHjB200K6SOq1hyYTe1ukz13AjI9LudSQ44j5pdL410rVwhkIwTah7iG221d2cJo3jhK3AFiHqSnqKTrw==}
@@ -740,46 +705,6 @@ packages:
 
   '@oxc-resolver/binding-win32-x64-msvc@1.9.3':
     resolution: {integrity: sha512-Q4ZeT7jBH+FjXe9/jnto8B0hle09KCfGBYIA7wKmSY0/cRqMWsZNjZIJbGTl8p2WD/GXOvtCsAEWKE3pq4pKNQ==}
-    cpu: [x64]
-    os: [win32]
-
-  '@oxlint/darwin-arm64@0.5.2':
-    resolution: {integrity: sha512-NVUH1ZQYP1opS7LPd8xzmha9HrEDu+TpGSxM+dq9SS34FrsaYUEE4gue2OKo8Pgplu/oTKT7mUdTR4YDDBu5xA==}
-    cpu: [arm64]
-    os: [darwin]
-
-  '@oxlint/darwin-x64@0.5.2':
-    resolution: {integrity: sha512-jtaKcGhFC4frGzKVN2ieGQ0h960C1E1jQrTjMjNAvGfjRUpO9nDpNMD9BpsAbC0/GULEirtIg+5pW7G8gDQPTQ==}
-    cpu: [x64]
-    os: [darwin]
-
-  '@oxlint/linux-arm64-gnu@0.5.2':
-    resolution: {integrity: sha512-B1HPicpi37lXBdSJOenSjI2sf4C/75iP+AcRHI8GPlrimm/RFvcMdV5F5k5KIVf+v7fKFiWXA/LY3SkjLkbmxw==}
-    cpu: [arm64]
-    os: [linux]
-
-  '@oxlint/linux-arm64-musl@0.5.2':
-    resolution: {integrity: sha512-8JAWyrIJd5iSnikuCrHrvLpsJoFSeqhWGz3OIb2Xp0eLOT48G5oek/yASCd0IHTOL/fGUexarTqNG8tcX/qesg==}
-    cpu: [arm64]
-    os: [linux]
-
-  '@oxlint/linux-x64-gnu@0.5.2':
-    resolution: {integrity: sha512-qBcEN1evZxF9SQi7DegeIcnHhv88v73y2nkm9dqZ3wIflusvV5nxFkLAfh3df5K38mKo1/FxSnOvxN7E6aFjdg==}
-    cpu: [x64]
-    os: [linux]
-
-  '@oxlint/linux-x64-musl@0.5.2':
-    resolution: {integrity: sha512-6DOkaRkKx6ix9hliWG51cZvXSjwlDWhOPDibJJOg0nIpxpUbtAnEEVBwK3CoGrgRsuWH7wgu/kf1gkSyyePSVQ==}
-    cpu: [x64]
-    os: [linux]
-
-  '@oxlint/win32-arm64@0.5.2':
-    resolution: {integrity: sha512-XBl1QQ+db0fVb/KnGLmjM6r2S3xkI770Z/u5jIvQxxj8M6FFdHdJozf55FnCRGap3H3kMpB56SVEAexB7Z29wA==}
-    cpu: [arm64]
-    os: [win32]
-
-  '@oxlint/win32-x64@0.5.2':
-    resolution: {integrity: sha512-qP7JL8d7y7W91BpgyA8J3BmIGBl7E2rfZH4e7PX9hJ2o+W3pHBRpPxoFFqLx+zBMMkSHdv2h2FLVfvObbI58kQ==}
     cpu: [x64]
     os: [win32]
 
@@ -1218,6 +1143,11 @@ packages:
     version: 0.3.7
     engines: {node: '>=18.19.1'}
 
+  binary2npm@https://codeload.github.com/dalisoft/binary2npm/tar.gz/3806b82d09f24f0120f36059b72c07d53ee435cd:
+    resolution: {tarball: https://codeload.github.com/dalisoft/binary2npm/tar.gz/3806b82d09f24f0120f36059b72c07d53ee435cd}
+    version: 0.3.7
+    engines: {node: '>=18.19.1'}
+
   biome-rs-npm@https://codeload.github.com/dalisoft/biome-rs-npm/tar.gz/2ef885bb3766587e4797ee41749bbe879bb296f6:
     resolution: {tarball: https://codeload.github.com/dalisoft/biome-rs-npm/tar.gz/2ef885bb3766587e4797ee41749bbe879bb296f6}
     version: 1.8.3
@@ -1480,8 +1410,10 @@ packages:
     resolution: {integrity: sha512-tE7ztYzXHIeyvc7N+hR3oi7FIbf/NIjVP9hmAt3yMXzrQ072/fpjGLx2GxNxGxUl5V73MEqYzioOMoVhGMJ5cA==}
     engines: {node: '>=10'}
 
-  dprint@0.47.0:
-    resolution: {integrity: sha512-rcfbkLkxVusprh4DNvv8fzpnwZmAk3ttHzu6gOeZyeq8AtH86Py4sPcJ1XZKs/iD29QOUAbObR2VQm49NFAAxw==}
+  dprint-rs-npm@https://codeload.github.com/dalisoft/dprint-rs-npm/tar.gz/6c6088614ca370017c114f79836ef5540e3a518f:
+    resolution: {tarball: https://codeload.github.com/dalisoft/dprint-rs-npm/tar.gz/6c6088614ca370017c114f79836ef5540e3a518f}
+    version: 0.47.1
+    engines: {node: '>=18.19.1'}
     hasBin: true
 
   dprint@0.47.1:
@@ -2000,11 +1932,6 @@ packages:
     resolution: {integrity: sha512-AXcZb6vzzrFAUE61HnN4mpLqd/cSIwNQjtNWR0euPm6y0iqx3G4gOXaIDdtdDwZmhwe82LA6+zinmW4UBWVePQ==}
     engines: {node: '>=16.17.0'}
 
-  husky@9.0.11:
-    resolution: {integrity: sha512-AB6lFlbwwyIqMdHYhwPe+kjOC3Oc5P3nThEoW/AaO2BX3vJDjWPFxYLxokUZOo6RNX20He3AaT8sESs9NJcmEw==}
-    engines: {node: '>=18'}
-    hasBin: true
-
   ignore@5.3.1:
     resolution: {integrity: sha512-5Fytz/IraMjqpwfd34ke28PTVMjZjJG2MPn5t7OE4eUCUNf8BAa7b5WUS9/Qvr6mwOQS7Mk6vdsMno5he+T8Xw==}
     engines: {node: '>= 4'}
@@ -2301,6 +2228,12 @@ packages:
     resolution: {integrity: sha512-MbjN408fEndfiQXbFQ1vnd+1NoLDsnQW41410oQBXiyXDMYH5z505juWa4KUE1LqxRC7DgOgZDbKLxHIwm27hA==}
     engines: {node: '>=0.10'}
 
+  lefthook-go-npm@https://codeload.github.com/dalisoft/lefthook-go-npm/tar.gz/c755d21ef5e6d9a92d91cb69f65243137b73e0d1:
+    resolution: {tarball: https://codeload.github.com/dalisoft/lefthook-go-npm/tar.gz/c755d21ef5e6d9a92d91cb69f65243137b73e0d1}
+    version: 1.6.18
+    engines: {node: '>=18.19.1'}
+    hasBin: true
+
   leven@3.1.0:
     resolution: {integrity: sha512-qsda+H8jTaUaN/x5vzW2rzc+8Rw4TAQ/4KjB46IwK5VH+IlVeeeje/EoZRpiXvIqjFgK84QffqPztGI3VBLG1A==}
     engines: {node: '>=6'}
@@ -2593,9 +2526,10 @@ packages:
   oxc-resolver@1.9.3:
     resolution: {integrity: sha512-ROO5IGjFp5e150IDCzFvE3xtTrbO6jytAugfEHegF0ym2Ww+lRxP0cAwFGCR1021aWUhrC8VjZXOdTocg+Qthw==}
 
-  oxlint@0.5.2:
-    resolution: {integrity: sha512-nEoadC0Pk3tgv41fIRwA1HiJJ45QIMj3NHkEGW89PSr5aqr7EzT0wcdhRTY1m+BFSVIoukJ26OqQABaAEG3jOQ==}
-    engines: {node: '>=14.*'}
+  oxlint-rs-npm@https://codeload.github.com/dalisoft/oxlint-rs-npm/tar.gz/9a8208c4a88f39fc55a2650f338a0d8cca08ccee:
+    resolution: {tarball: https://codeload.github.com/dalisoft/oxlint-rs-npm/tar.gz/9a8208c4a88f39fc55a2650f338a0d8cca08ccee}
+    version: 0.5.3
+    engines: {node: '>=18.19.1'}
     hasBin: true
 
   p-limit@2.3.0:
@@ -3140,6 +3074,12 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
+  typos-rs-npm@https://codeload.github.com/dalisoft/typos-rs-npm/tar.gz/372121dba1193a225dfe829256bb79a05879576a:
+    resolution: {tarball: https://codeload.github.com/dalisoft/typos-rs-npm/tar.gz/372121dba1193a225dfe829256bb79a05879576a}
+    version: 1.23.1
+    engines: {node: '>=18.19.1'}
+    hasBin: true
+
   uc.micro@1.0.6:
     resolution: {integrity: sha512-8Y75pvTYkLJW2hWQHXxoqRgV7qb9B+9vFEtidML+7koHUFapnVJAZ6cKs+Qjz5Aw3aZWHMC6u0wJE3At+nSGwA==}
 
@@ -3526,43 +3466,22 @@ snapshots:
     dependencies:
       postcss-selector-parser: 6.1.0
 
-  '@dprint/darwin-arm64@0.47.0':
-    optional: true
-
   '@dprint/darwin-arm64@0.47.1':
-    optional: true
-
-  '@dprint/darwin-x64@0.47.0':
     optional: true
 
   '@dprint/darwin-x64@0.47.1':
     optional: true
 
-  '@dprint/linux-arm64-glibc@0.47.0':
-    optional: true
-
   '@dprint/linux-arm64-glibc@0.47.1':
-    optional: true
-
-  '@dprint/linux-arm64-musl@0.47.0':
     optional: true
 
   '@dprint/linux-arm64-musl@0.47.1':
     optional: true
 
-  '@dprint/linux-x64-glibc@0.47.0':
-    optional: true
-
   '@dprint/linux-x64-glibc@0.47.1':
     optional: true
 
-  '@dprint/linux-x64-musl@0.47.0':
-    optional: true
-
   '@dprint/linux-x64-musl@0.47.1':
-    optional: true
-
-  '@dprint/win32-x64@0.47.0':
     optional: true
 
   '@dprint/win32-x64@0.47.1':
@@ -3740,30 +3659,6 @@ snapshots:
     optional: true
 
   '@oxc-resolver/binding-win32-x64-msvc@1.9.3':
-    optional: true
-
-  '@oxlint/darwin-arm64@0.5.2':
-    optional: true
-
-  '@oxlint/darwin-x64@0.5.2':
-    optional: true
-
-  '@oxlint/linux-arm64-gnu@0.5.2':
-    optional: true
-
-  '@oxlint/linux-arm64-musl@0.5.2':
-    optional: true
-
-  '@oxlint/linux-x64-gnu@0.5.2':
-    optional: true
-
-  '@oxlint/linux-x64-musl@0.5.2':
-    optional: true
-
-  '@oxlint/win32-arm64@0.5.2':
-    optional: true
-
-  '@oxlint/win32-x64@0.5.2':
     optional: true
 
   '@pkgjs/parseargs@0.11.0':
@@ -4402,6 +4297,8 @@ snapshots:
 
   binary2npm@https://codeload.github.com/dalisoft/binary2npm/tar.gz/16f90442c39dc5a1fb4b1387976f98b40983a408: {}
 
+  binary2npm@https://codeload.github.com/dalisoft/binary2npm/tar.gz/3806b82d09f24f0120f36059b72c07d53ee435cd: {}
+
   biome-rs-npm@https://codeload.github.com/dalisoft/biome-rs-npm/tar.gz/2ef885bb3766587e4797ee41749bbe879bb296f6:
     dependencies:
       binary2npm: https://codeload.github.com/dalisoft/binary2npm/tar.gz/16f90442c39dc5a1fb4b1387976f98b40983a408
@@ -4675,15 +4572,9 @@ snapshots:
     dependencies:
       is-obj: 2.0.0
 
-  dprint@0.47.0:
-    optionalDependencies:
-      '@dprint/darwin-arm64': 0.47.0
-      '@dprint/darwin-x64': 0.47.0
-      '@dprint/linux-arm64-glibc': 0.47.0
-      '@dprint/linux-arm64-musl': 0.47.0
-      '@dprint/linux-x64-glibc': 0.47.0
-      '@dprint/linux-x64-musl': 0.47.0
-      '@dprint/win32-x64': 0.47.0
+  dprint-rs-npm@https://codeload.github.com/dalisoft/dprint-rs-npm/tar.gz/6c6088614ca370017c114f79836ef5540e3a518f:
+    dependencies:
+      binary2npm: https://codeload.github.com/dalisoft/binary2npm/tar.gz/3806b82d09f24f0120f36059b72c07d53ee435cd
 
   dprint@0.47.1:
     optionalDependencies:
@@ -5407,8 +5298,6 @@ snapshots:
 
   human-signals@5.0.0: {}
 
-  husky@9.0.11: {}
-
   ignore@5.3.1: {}
 
   immer@9.0.21: {}
@@ -5660,6 +5549,10 @@ snapshots:
   language-tags@1.0.9:
     dependencies:
       language-subtag-registry: 0.3.23
+
+  lefthook-go-npm@https://codeload.github.com/dalisoft/lefthook-go-npm/tar.gz/c755d21ef5e6d9a92d91cb69f65243137b73e0d1:
+    dependencies:
+      binary2npm: https://codeload.github.com/dalisoft/binary2npm/tar.gz/3806b82d09f24f0120f36059b72c07d53ee435cd
 
   leven@3.1.0: {}
 
@@ -5974,16 +5867,9 @@ snapshots:
       '@oxc-resolver/binding-win32-arm64-msvc': 1.9.3
       '@oxc-resolver/binding-win32-x64-msvc': 1.9.3
 
-  oxlint@0.5.2:
-    optionalDependencies:
-      '@oxlint/darwin-arm64': 0.5.2
-      '@oxlint/darwin-x64': 0.5.2
-      '@oxlint/linux-arm64-gnu': 0.5.2
-      '@oxlint/linux-arm64-musl': 0.5.2
-      '@oxlint/linux-x64-gnu': 0.5.2
-      '@oxlint/linux-x64-musl': 0.5.2
-      '@oxlint/win32-arm64': 0.5.2
-      '@oxlint/win32-x64': 0.5.2
+  oxlint-rs-npm@https://codeload.github.com/dalisoft/oxlint-rs-npm/tar.gz/9a8208c4a88f39fc55a2650f338a0d8cca08ccee:
+    dependencies:
+      binary2npm: https://codeload.github.com/dalisoft/binary2npm/tar.gz/3806b82d09f24f0120f36059b72c07d53ee435cd
 
   p-limit@2.3.0:
     dependencies:
@@ -6546,6 +6432,10 @@ snapshots:
   typescript@5.5.2: {}
 
   typescript@5.5.3: {}
+
+  typos-rs-npm@https://codeload.github.com/dalisoft/typos-rs-npm/tar.gz/372121dba1193a225dfe829256bb79a05879576a:
+    dependencies:
+      binary2npm: https://codeload.github.com/dalisoft/binary2npm/tar.gz/3806b82d09f24f0120f36059b72c07d53ee435cd
 
   uc.micro@1.0.6: {}
 
