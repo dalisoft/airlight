@@ -28,7 +28,7 @@ importers:
         version: https://codeload.github.com/dalisoft/biome-rs-npm/tar.gz/2ef885bb3766587e4797ee41749bbe879bb296f6
       dprint-rs-npm:
         specifier: github:dalisoft/dprint-rs-npm#0.47.1
-        version: https://codeload.github.com/dalisoft/dprint-rs-npm/tar.gz/6c6088614ca370017c114f79836ef5540e3a518f
+        version: https://codeload.github.com/dalisoft/dprint-rs-npm/tar.gz/ff7bc5bc64c792bd1303a4aefc333b2f3a540c46
       eslint:
         specifier: ^9.6.0
         version: 9.6.0
@@ -43,7 +43,7 @@ importers:
         version: link:packages/lint-staged-config
       oxlint-rs-npm:
         specifier: github:dalisoft/oxlint-rs-npm#v0.5.3
-        version: https://codeload.github.com/dalisoft/oxlint-rs-npm/tar.gz/9a8208c4a88f39fc55a2650f338a0d8cca08ccee
+        version: https://codeload.github.com/dalisoft/oxlint-rs-npm/tar.gz/e2e087076cb0a0e5ab10b481ac6fdc7507624e8a
       prettier-config-airlight:
         specifier: workspace:*
         version: link:packages/prettier-config
@@ -1061,6 +1061,11 @@ packages:
     version: 0.3.7
     engines: {node: '>=18.19.1'}
 
+  binary2npm@https://codeload.github.com/dalisoft/binary2npm/tar.gz/d22f51876fde598bff4959c3c8d1e6b30f71caba:
+    resolution: {tarball: https://codeload.github.com/dalisoft/binary2npm/tar.gz/d22f51876fde598bff4959c3c8d1e6b30f71caba}
+    version: 0.4.2
+    engines: {node: '>=18.19.1'}
+
   biome-rs-npm@https://codeload.github.com/dalisoft/biome-rs-npm/tar.gz/2ef885bb3766587e4797ee41749bbe879bb296f6:
     resolution: {tarball: https://codeload.github.com/dalisoft/biome-rs-npm/tar.gz/2ef885bb3766587e4797ee41749bbe879bb296f6}
     version: 1.8.3
@@ -1299,6 +1304,10 @@ packages:
     resolution: {integrity: sha512-reYkTUJAZb9gUuZ2RvVCNhVHdg62RHnJ7WJl8ftMi4diZ6NWlciOzQN88pUhSELEwflJht4oQDv0F0BMlwaYtA==}
     engines: {node: '>=8'}
 
+  detect-libc@2.0.3:
+    resolution: {integrity: sha512-bwy0MGW55bG41VqxxypOsdSdGqLwXPI/focwgTYCFMbdUiBAxLg9CFzG08sz2aqzknwiX7Hkl0bQENjg8iLByw==}
+    engines: {node: '>=8'}
+
   dir-glob@3.0.1:
     resolution: {integrity: sha512-WkrWp9GR4KXfKGYzOLmTuGVi1UWFfws377n9cc55/tb6DuqyF6pcQ5AbiHEshaDpY9v6oaSr2XCDidGmMwdzIA==}
     engines: {node: '>=8'}
@@ -1323,8 +1332,8 @@ packages:
     resolution: {integrity: sha512-tE7ztYzXHIeyvc7N+hR3oi7FIbf/NIjVP9hmAt3yMXzrQ072/fpjGLx2GxNxGxUl5V73MEqYzioOMoVhGMJ5cA==}
     engines: {node: '>=10'}
 
-  dprint-rs-npm@https://codeload.github.com/dalisoft/dprint-rs-npm/tar.gz/6c6088614ca370017c114f79836ef5540e3a518f:
-    resolution: {tarball: https://codeload.github.com/dalisoft/dprint-rs-npm/tar.gz/6c6088614ca370017c114f79836ef5540e3a518f}
+  dprint-rs-npm@https://codeload.github.com/dalisoft/dprint-rs-npm/tar.gz/ff7bc5bc64c792bd1303a4aefc333b2f3a540c46:
+    resolution: {tarball: https://codeload.github.com/dalisoft/dprint-rs-npm/tar.gz/ff7bc5bc64c792bd1303a4aefc333b2f3a540c46}
     version: 0.47.1
     engines: {node: '>=18.19.1'}
     hasBin: true
@@ -2434,8 +2443,8 @@ packages:
   oxc-resolver@1.9.3:
     resolution: {integrity: sha512-ROO5IGjFp5e150IDCzFvE3xtTrbO6jytAugfEHegF0ym2Ww+lRxP0cAwFGCR1021aWUhrC8VjZXOdTocg+Qthw==}
 
-  oxlint-rs-npm@https://codeload.github.com/dalisoft/oxlint-rs-npm/tar.gz/9a8208c4a88f39fc55a2650f338a0d8cca08ccee:
-    resolution: {tarball: https://codeload.github.com/dalisoft/oxlint-rs-npm/tar.gz/9a8208c4a88f39fc55a2650f338a0d8cca08ccee}
+  oxlint-rs-npm@https://codeload.github.com/dalisoft/oxlint-rs-npm/tar.gz/e2e087076cb0a0e5ab10b481ac6fdc7507624e8a:
+    resolution: {tarball: https://codeload.github.com/dalisoft/oxlint-rs-npm/tar.gz/e2e087076cb0a0e5ab10b481ac6fdc7507624e8a}
     version: 0.5.3
     engines: {node: '>=18.19.1'}
     hasBin: true
@@ -4114,6 +4123,10 @@ snapshots:
 
   binary2npm@https://codeload.github.com/dalisoft/binary2npm/tar.gz/3806b82d09f24f0120f36059b72c07d53ee435cd: {}
 
+  binary2npm@https://codeload.github.com/dalisoft/binary2npm/tar.gz/d22f51876fde598bff4959c3c8d1e6b30f71caba:
+    dependencies:
+      detect-libc: 2.0.3
+
   biome-rs-npm@https://codeload.github.com/dalisoft/biome-rs-npm/tar.gz/2ef885bb3766587e4797ee41749bbe879bb296f6:
     dependencies:
       binary2npm: https://codeload.github.com/dalisoft/binary2npm/tar.gz/16f90442c39dc5a1fb4b1387976f98b40983a408
@@ -4359,6 +4372,8 @@ snapshots:
 
   detect-indent@6.1.0: {}
 
+  detect-libc@2.0.3: {}
+
   dir-glob@3.0.1:
     dependencies:
       path-type: 4.0.0
@@ -4387,9 +4402,9 @@ snapshots:
     dependencies:
       is-obj: 2.0.0
 
-  dprint-rs-npm@https://codeload.github.com/dalisoft/dprint-rs-npm/tar.gz/6c6088614ca370017c114f79836ef5540e3a518f:
+  dprint-rs-npm@https://codeload.github.com/dalisoft/dprint-rs-npm/tar.gz/ff7bc5bc64c792bd1303a4aefc333b2f3a540c46:
     dependencies:
-      binary2npm: https://codeload.github.com/dalisoft/binary2npm/tar.gz/3806b82d09f24f0120f36059b72c07d53ee435cd
+      binary2npm: https://codeload.github.com/dalisoft/binary2npm/tar.gz/d22f51876fde598bff4959c3c8d1e6b30f71caba
 
   dprint@0.47.1:
     optionalDependencies:
@@ -5643,9 +5658,9 @@ snapshots:
       '@oxc-resolver/binding-win32-arm64-msvc': 1.9.3
       '@oxc-resolver/binding-win32-x64-msvc': 1.9.3
 
-  oxlint-rs-npm@https://codeload.github.com/dalisoft/oxlint-rs-npm/tar.gz/9a8208c4a88f39fc55a2650f338a0d8cca08ccee:
+  oxlint-rs-npm@https://codeload.github.com/dalisoft/oxlint-rs-npm/tar.gz/e2e087076cb0a0e5ab10b481ac6fdc7507624e8a:
     dependencies:
-      binary2npm: https://codeload.github.com/dalisoft/binary2npm/tar.gz/3806b82d09f24f0120f36059b72c07d53ee435cd
+      binary2npm: https://codeload.github.com/dalisoft/binary2npm/tar.gz/d22f51876fde598bff4959c3c8d1e6b30f71caba
 
   p-limit@2.3.0:
     dependencies:

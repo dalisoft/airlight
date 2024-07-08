@@ -49,6 +49,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Biome rules test build
+        run: pnpm exec biome migrate eslint --write --include-inspired --include-nursery
+
       - name: Lint code
         run: pnpm run lint
   release:
