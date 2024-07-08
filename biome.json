@@ -5,7 +5,7 @@
     "./packages/eslint-config-node/biome.json"
   ],
   "files": {
-    "ignore": ["scripts", ".release-me"]
+    "ignore": ["scripts", ".release-me", "oxlintrc.json"]
   },
   "linter": {
     "rules": {
