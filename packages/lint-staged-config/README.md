@@ -2,6 +2,10 @@
 
 Almost zero-config [lint-staged](https://github.com/okonet/lint-staged) configuration
 
+## Deprecated
+
+This package deprecated due of `lefthook` performance and flexibility
+
 ## Installation
 
 ```bash
