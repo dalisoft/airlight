@@ -37,8 +37,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Biome rules test build
-        run: cd ./packages/eslint-config-node && pnpm exec biome migrate eslint --write --include-inspired --include-nursery
+      - name: Biome rules build & format
+        run: cd ./packages/eslint-config-node && pnpm exec biome migrate eslint --write --include-inspired --include-nursery && pnpm exec biome check biome.json --write --config-path=../biome-config/biome.json
 
       - name: Lint code
         run: pnpm run lint
