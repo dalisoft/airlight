@@ -7,7 +7,7 @@
   "scripts": {
     "lint": "smartlint",
     "release": "pnpm -r --workspace-concurrency=1 exec ../../.release-me/release.sh -w --use-version --plugins=npm,npm-post,git,github-release --preset=workspace",
-    "prepare": "lefthook install"
+    "prepare": "lefthook install -f"
   },
   "engines": {
     "node": ">=18.20.3"
