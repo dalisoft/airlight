@@ -1,7 +1,6 @@
 const { fixupPluginRules } = require('@eslint/compat');
 // @ts-check
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-expect-error
+// @ts-expect-error It does not have typings declarations
 const optimizeRegEx = require('eslint-plugin-optimize-regex');
 const tseslint = require('typescript-eslint');
 

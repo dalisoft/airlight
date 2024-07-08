@@ -1,5 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-expect-error
+// @ts-expect-error It says will work only with ESM
 const { FlatCompat } = require('@eslint/eslintrc');
 const { fixupConfigRules } = require('@eslint/compat');
 

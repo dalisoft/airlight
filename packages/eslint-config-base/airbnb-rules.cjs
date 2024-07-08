@@ -1,5 +1,3 @@
-// eslint-disable-next-line @eslint-community/eslint-comments/disable-enable-pair
-/* eslint-disable max-lines */
 // @ts-check
 
 // @ts-expect-error Cannot find namespace 'SharedConfig'

@@ -1,6 +1,5 @@
 // @ts-check
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-expect-error
+// @ts-expect-error It does not have types declarations
 const noSecrets = require('eslint-plugin-no-secrets');
 const tseslint = require('typescript-eslint');
 

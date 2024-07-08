@@ -76,11 +76,11 @@ module.exports = {
   'max-lines-per-function': [
     'error',
 
-    { max: 40, skipBlankLines: true, skipComments: true, IIFEs: true }
+    { max: 60, skipBlankLines: true, skipComments: true, IIFEs: true }
   ],
   'max-lines': [
     'error',
-    { max: 160, skipBlankLines: true, skipComments: true }
+    { max: 280, skipBlankLines: true, skipComments: true }
   ],
   'no-useless-concat': 'error',
   'no-console': process.env.CI ? 'error' : 'warn',

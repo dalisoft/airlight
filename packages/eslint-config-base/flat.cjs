@@ -1,5 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-expect-error
+// @ts-expect-error It does not have typings
 const comments = require('@eslint-community/eslint-plugin-eslint-comments/configs');
 // @ts-check
 const eslintJs = require('@eslint/js');
