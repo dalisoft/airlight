@@ -1,5 +1,4 @@
-// eslint-disable-next-line @eslint-community/eslint-comments/disable-enable-pair
-/* eslint-disable max-lines-per-function */
+// @ts-check
 const linterCommandsMap = {
   eslint: 'eslint --color',
   stylelint: 'stylelint --color',
@@ -12,13 +11,14 @@ const linterCommandsMap = {
 };
 
 /**
- * @param {string[]} lintNames
+ * @param {Array<keyof typeof linterCommandsMap>} lintNames
  */
 const applyLinterCommands = (lintNames = []) =>
   lintNames
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
-    .map((lint) => linterCommandsMap[lint])
+    .map(
+      (/** @type {keyof typeof linterCommandsMap} */ lint) =>
+        linterCommandsMap[lint]
+    )
     .filter((command) => command);
 
 const languagesSupport = [
@@ -85,8 +85,7 @@ module.exports = (languages = languagesSupport) => {
         return;
     }
 
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
+    // @ts-expect-error It has a dynamic entry
     config[regex] = commands;
   }
 
