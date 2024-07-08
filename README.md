@@ -18,6 +18,8 @@ Shared configurations to use with combine of each other to get cleaner, better, 
 - [smartlint](./packages/smartlint)
 - [airlight-resolve](./packages/airlight-resolve) **\[WIP\]**
 - [typescript-config](./tsconfig.json) (this project config)
+- [typos-config](./_typos.toml) (this project typos config)
+- [lefthook-config](./lefthook.yml) (this project config)
 
 `* - These configurations may be created in future`
 
