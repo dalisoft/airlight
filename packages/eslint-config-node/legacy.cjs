@@ -24,12 +24,12 @@ module.exports = {
   // @ts-expect-error It should work but does not
   overrides: baseConfig.overrides.concat([
     {
-      files: ['*.ts'],
+      files: ['*.cjs'],
       rules: {
-        '@typescript-eslint/no-var-requires': 'error',
-        'n/no-missing-import': 'off'
+        '@typescript-eslint/no-var-requires': 'off'
       }
-    }
+    },
+    { files: ['*.ts'], rules: { 'n/no-missing-import': 'off' } }
   ]),
   settings: baseConfigSettings
 };
