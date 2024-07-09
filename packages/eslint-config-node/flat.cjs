@@ -27,13 +27,8 @@ module.exports = [
   {
     files: ['**/*.ts'],
     rules: {
+      '@typescript-eslint/no-var-requires': 'error',
       'n/no-missing-import': 'off'
-    }
-  },
-  {
-    files: ['**/*.cjs'],
-    rules: {
-      '@typescript-eslint/no-var-requires': 'error'
     }
   }
 ];
