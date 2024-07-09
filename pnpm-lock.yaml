@@ -24,8 +24,8 @@ importers:
         specifier: workspace:*
         version: link:packages/biome-config
       biome-rs-npm:
-        specifier: dalisoft/biome-rs-npm#v1.8.3
-        version: git+https://git@github.com:dalisoft/biome-rs-npm.git#2ef885bb3766587e4797ee41749bbe879bb296f6
+        specifier: github:dalisoft/biome-rs-npm#v1.8.3
+        version: https://codeload.github.com/dalisoft/biome-rs-npm/tar.gz/2ef885bb3766587e4797ee41749bbe879bb296f6
       dprint-rs-npm:
         specifier: github:dalisoft/dprint-rs-npm#0.47.1
         version: git+https://git@github.com:dalisoft/dprint-rs-npm.git#ff7bc5bc64c792bd1303a4aefc333b2f3a540c46
@@ -579,7 +579,6 @@ packages:
 
   '@ls-lint/ls-lint@2.2.3':
     resolution: {integrity: sha512-ekM12jNm/7O2I/hsRv9HvYkRdfrHpiV1epVuI2NP+eTIcEgdIdKkKCs9KgQydu/8R5YXTov9aHdOgplmCHLupw==}
-    cpu: [x64, arm64, s390x]
     os: [darwin, linux, win32]
     hasBin: true
 
@@ -1082,23 +1081,23 @@ packages:
   balanced-match@2.0.0:
     resolution: {integrity: sha512-1ugUSr8BHXRnK23KfuYS+gVMC3LB8QGH9W1iGtDPsNWoQbgtXSExkBu2aDR4epiGWZOjZsj6lDl/N/AqqTC3UA==}
 
-  binary2npm@git+https://git@github.com:dalisoft/binary2npm.git#16f90442c39dc5a1fb4b1387976f98b40983a408:
-    resolution: {commit: 16f90442c39dc5a1fb4b1387976f98b40983a408, repo: git@github.com:dalisoft/binary2npm.git, type: git}
+  binary2npm@https://codeload.github.com/dalisoft/binary2npm/tar.gz/16f90442c39dc5a1fb4b1387976f98b40983a408:
+    resolution: {tarball: https://codeload.github.com/dalisoft/binary2npm/tar.gz/16f90442c39dc5a1fb4b1387976f98b40983a408}
     version: 0.3.7
     engines: {node: '>=18.19.1'}
 
-  binary2npm@git+https://git@github.com:dalisoft/binary2npm.git#3806b82d09f24f0120f36059b72c07d53ee435cd:
-    resolution: {commit: 3806b82d09f24f0120f36059b72c07d53ee435cd, repo: git@github.com:dalisoft/binary2npm.git, type: git}
+  binary2npm@https://codeload.github.com/dalisoft/binary2npm/tar.gz/3806b82d09f24f0120f36059b72c07d53ee435cd:
+    resolution: {tarball: https://codeload.github.com/dalisoft/binary2npm/tar.gz/3806b82d09f24f0120f36059b72c07d53ee435cd}
     version: 0.3.7
     engines: {node: '>=18.19.1'}
 
-  binary2npm@git+https://git@github.com:dalisoft/binary2npm.git#d22f51876fde598bff4959c3c8d1e6b30f71caba:
-    resolution: {commit: d22f51876fde598bff4959c3c8d1e6b30f71caba, repo: git@github.com:dalisoft/binary2npm.git, type: git}
+  binary2npm@https://codeload.github.com/dalisoft/binary2npm/tar.gz/d22f51876fde598bff4959c3c8d1e6b30f71caba:
+    resolution: {tarball: https://codeload.github.com/dalisoft/binary2npm/tar.gz/d22f51876fde598bff4959c3c8d1e6b30f71caba}
     version: 0.4.2
     engines: {node: '>=18.19.1'}
 
-  biome-rs-npm@git+https://git@github.com:dalisoft/biome-rs-npm.git#2ef885bb3766587e4797ee41749bbe879bb296f6:
-    resolution: {commit: 2ef885bb3766587e4797ee41749bbe879bb296f6, repo: git@github.com:dalisoft/biome-rs-npm.git, type: git}
+  biome-rs-npm@https://codeload.github.com/dalisoft/biome-rs-npm/tar.gz/2ef885bb3766587e4797ee41749bbe879bb296f6:
+    resolution: {tarball: https://codeload.github.com/dalisoft/biome-rs-npm/tar.gz/2ef885bb3766587e4797ee41749bbe879bb296f6}
     version: 1.8.3
     engines: {node: '>=18.19.1'}
     hasBin: true
@@ -4208,17 +4207,17 @@ snapshots:
 
   balanced-match@2.0.0: {}
 
-  binary2npm@git+https://git@github.com:dalisoft/binary2npm.git#16f90442c39dc5a1fb4b1387976f98b40983a408: {}
+  binary2npm@https://codeload.github.com/dalisoft/binary2npm/tar.gz/16f90442c39dc5a1fb4b1387976f98b40983a408: {}
 
-  binary2npm@git+https://git@github.com:dalisoft/binary2npm.git#3806b82d09f24f0120f36059b72c07d53ee435cd: {}
+  binary2npm@https://codeload.github.com/dalisoft/binary2npm/tar.gz/3806b82d09f24f0120f36059b72c07d53ee435cd: {}
 
-  binary2npm@git+https://git@github.com:dalisoft/binary2npm.git#d22f51876fde598bff4959c3c8d1e6b30f71caba:
+  binary2npm@https://codeload.github.com/dalisoft/binary2npm/tar.gz/d22f51876fde598bff4959c3c8d1e6b30f71caba:
     dependencies:
       detect-libc: 2.0.3
 
-  biome-rs-npm@git+https://git@github.com:dalisoft/biome-rs-npm.git#2ef885bb3766587e4797ee41749bbe879bb296f6:
+  biome-rs-npm@https://codeload.github.com/dalisoft/biome-rs-npm/tar.gz/2ef885bb3766587e4797ee41749bbe879bb296f6:
     dependencies:
-      binary2npm: git+https://git@github.com:dalisoft/binary2npm.git#16f90442c39dc5a1fb4b1387976f98b40983a408
+      binary2npm: https://codeload.github.com/dalisoft/binary2npm/tar.gz/16f90442c39dc5a1fb4b1387976f98b40983a408
 
   brace-expansion@1.1.11:
     dependencies:
@@ -4493,7 +4492,7 @@ snapshots:
 
   dprint-rs-npm@git+https://git@github.com:dalisoft/dprint-rs-npm.git#ff7bc5bc64c792bd1303a4aefc333b2f3a540c46:
     dependencies:
-      binary2npm: git+https://git@github.com:dalisoft/binary2npm.git#d22f51876fde598bff4959c3c8d1e6b30f71caba
+      binary2npm: https://codeload.github.com/dalisoft/binary2npm/tar.gz/d22f51876fde598bff4959c3c8d1e6b30f71caba
 
   dprint@0.47.1:
     optionalDependencies:
@@ -5432,7 +5431,7 @@ snapshots:
 
   lefthook-go-npm@git+https://git@github.com:dalisoft/lefthook-go-npm.git#c755d21ef5e6d9a92d91cb69f65243137b73e0d1:
     dependencies:
-      binary2npm: git+https://git@github.com:dalisoft/binary2npm.git#3806b82d09f24f0120f36059b72c07d53ee435cd
+      binary2npm: https://codeload.github.com/dalisoft/binary2npm/tar.gz/3806b82d09f24f0120f36059b72c07d53ee435cd
 
   leven@3.1.0: {}
 
@@ -5749,7 +5748,7 @@ snapshots:
 
   oxlint-rs-npm@git+https://git@github.com:dalisoft/oxlint-rs-npm.git#e2e087076cb0a0e5ab10b481ac6fdc7507624e8a:
     dependencies:
-      binary2npm: git+https://git@github.com:dalisoft/binary2npm.git#d22f51876fde598bff4959c3c8d1e6b30f71caba
+      binary2npm: https://codeload.github.com/dalisoft/binary2npm/tar.gz/d22f51876fde598bff4959c3c8d1e6b30f71caba
 
   p-limit@2.3.0:
     dependencies:
@@ -6313,7 +6312,7 @@ snapshots:
 
   typos-rs-npm@git+https://git@github.com:dalisoft/typos-rs-npm.git#372121dba1193a225dfe829256bb79a05879576a:
     dependencies:
-      binary2npm: git+https://git@github.com:dalisoft/binary2npm.git#3806b82d09f24f0120f36059b72c07d53ee435cd
+      binary2npm: https://codeload.github.com/dalisoft/binary2npm/tar.gz/3806b82d09f24f0120f36059b72c07d53ee435cd
 
   uc.micro@1.0.6: {}
 

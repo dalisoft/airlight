@@ -29,7 +29,7 @@
     "@ls-lint/ls-lint": "^2.2.3",
     "@stoplight/spectral-cli": "^6.11.1",
     "biome-config-airlight": "workspace:*",
-    "biome-rs-npm": "dalisoft/biome-rs-npm#v1.8.3",
+    "biome-rs-npm": "github:dalisoft/biome-rs-npm#v1.8.3",
     "dprint-rs-npm": "github:dalisoft/dprint-rs-npm#0.47.1",
     "eslint": "^9.6.0",
     "eslint-config-airlight-node": "workspace:*",
