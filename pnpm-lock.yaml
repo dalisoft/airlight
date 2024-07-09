@@ -8,6 +8,9 @@ importers:
 
   .:
     devDependencies:
+      '@biomejs/biome':
+        specifier: ^1.8.3
+        version: 1.8.3
       '@commitlint/cli':
         specifier: ^19.3.0
         version: 19.3.0(@types/node@20.14.10)(typescript@5.5.3)
@@ -23,12 +26,9 @@ importers:
       biome-config-airlight:
         specifier: workspace:*
         version: link:packages/biome-config
-      biome-rs-npm:
-        specifier: github:dalisoft/biome-rs-npm#v1.8.3
-        version: git+https://git@github.com:dalisoft/biome-rs-npm.git#2ef885bb3766587e4797ee41749bbe879bb296f6
-      dprint-rs-npm:
-        specifier: github:dalisoft/dprint-rs-npm#0.47.1
-        version: git+https://git@github.com:dalisoft/dprint-rs-npm.git#ff7bc5bc64c792bd1303a4aefc333b2f3a540c46
+      dprint:
+        specifier: ^0.47.1
+        version: 0.47.1
       eslint:
         specifier: ^9.6.0
         version: 9.6.0
@@ -36,14 +36,14 @@ importers:
         specifier: workspace:*
         version: link:packages/eslint-config-node
       lefthook-go-npm:
-        specifier: github:dalisoft/lefthook-go-npm#v1.6.18
-        version: git+https://git@github.com:dalisoft/lefthook-go-npm.git#c755d21ef5e6d9a92d91cb69f65243137b73e0d1
+        specifier: github:dalisoft/lefthook-go-npm#v1.7.1
+        version: https://codeload.github.com/dalisoft/lefthook-go-npm/tar.gz/20f398fff846194bd5b058c71fb299363152a6c2
       lint-staged-config-airlight:
         specifier: workspace:*
         version: link:packages/lint-staged-config
-      oxlint-rs-npm:
-        specifier: github:dalisoft/oxlint-rs-npm#v0.5.3
-        version: git+https://git@github.com:dalisoft/oxlint-rs-npm.git#e2e087076cb0a0e5ab10b481ac6fdc7507624e8a
+      oxlint:
+        specifier: ^0.5.3
+        version: 0.5.3
       prettier-config-airlight:
         specifier: workspace:*
         version: link:packages/prettier-config
@@ -55,7 +55,7 @@ importers:
         version: 5.5.3
       typos-rs-npm:
         specifier: github:dalisoft/typos-rs-npm#v1.23.1
-        version: git+https://git@github.com:dalisoft/typos-rs-npm.git#372121dba1193a225dfe829256bb79a05879576a
+        version: https://codeload.github.com/dalisoft/typos-rs-npm/tar.gz/372121dba1193a225dfe829256bb79a05879576a
 
   packages/airlight-resolve:
     dependencies:
@@ -579,7 +579,6 @@ packages:
 
   '@ls-lint/ls-lint@2.2.3':
     resolution: {integrity: sha512-ekM12jNm/7O2I/hsRv9HvYkRdfrHpiV1epVuI2NP+eTIcEgdIdKkKCs9KgQydu/8R5YXTov9aHdOgplmCHLupw==}
-    cpu: [x64, arm64, s390x]
     os: [darwin, linux, win32]
     hasBin: true
 
@@ -645,6 +644,46 @@ packages:
 
   '@oxc-resolver/binding-win32-x64-msvc@1.9.3':
     resolution: {integrity: sha512-Q4ZeT7jBH+FjXe9/jnto8B0hle09KCfGBYIA7wKmSY0/cRqMWsZNjZIJbGTl8p2WD/GXOvtCsAEWKE3pq4pKNQ==}
+    cpu: [x64]
+    os: [win32]
+
+  '@oxlint/darwin-arm64@0.5.3':
+    resolution: {integrity: sha512-iMoO+AYbHcxHvIP1eJuGXlD+jaOh5RPdxVVbkQpqCnckBpheUBrQWDVpJSV7nF691vjyVinDnzGyz499dQS9Xg==}
+    cpu: [arm64]
+    os: [darwin]
+
+  '@oxlint/darwin-x64@0.5.3':
+    resolution: {integrity: sha512-tmP+Y0cnMrK9j1H8IgSZMveX/7r6vNNPr3H330xptKomjY5ikuslBOwGRmQ+0JMnfDApOKg78H7l7LlzanmVkg==}
+    cpu: [x64]
+    os: [darwin]
+
+  '@oxlint/linux-arm64-gnu@0.5.3':
+    resolution: {integrity: sha512-oYG7b9CI4uam4+P+M8X7iUaBOMU3AM70C44m9i5ESDOJqyLMzH9A8B08dq2sbiEMi1uvQApDce8aQReAPdyaGQ==}
+    cpu: [arm64]
+    os: [linux]
+
+  '@oxlint/linux-arm64-musl@0.5.3':
+    resolution: {integrity: sha512-b5I/5Mj0eh6PByukdpeXY2B+uQBDr+oHxNrJ4eVtpCJ+8snZlnVk7kOR5HBnriWIp1C4uyvSsYUthGOAePdNcQ==}
+    cpu: [arm64]
+    os: [linux]
+
+  '@oxlint/linux-x64-gnu@0.5.3':
+    resolution: {integrity: sha512-UXbzrCU8KFIhEcLEw8ZY4GJ4DCkc0Hh0UodcmyrDnMCPDSFt4NWeTmqw+f7eQlYn2R/NNoZgpZReepYxtS0DQA==}
+    cpu: [x64]
+    os: [linux]
+
+  '@oxlint/linux-x64-musl@0.5.3':
+    resolution: {integrity: sha512-MCbWmHz6DVbSqv53QBlbpA/I1sirEnnvpWAebho/jf3f6lYy9Nzy29/PoxWcWcYO4xArRJw8TmU6sOwIqZ07OQ==}
+    cpu: [x64]
+    os: [linux]
+
+  '@oxlint/win32-arm64@0.5.3':
+    resolution: {integrity: sha512-XKt+juEXFS3sByy+LMSvSOxdPWZPFCkDSrdBf5gd8eLXvIbBcbMTsx1PE7rP90u5iEDVrq9Z4d/41eREl3Qtew==}
+    cpu: [arm64]
+    os: [win32]
+
+  '@oxlint/win32-x64@0.5.3':
+    resolution: {integrity: sha512-1NnYzW/J86Uljus2oYxFcQsONZIGlUAG5AUe0q7zKcVoI1acNrBI26QICcS1O846Yd0P3T4MM/e6xbAJ87Di9Q==}
     cpu: [x64]
     os: [win32]
 
@@ -1078,26 +1117,15 @@ packages:
   balanced-match@2.0.0:
     resolution: {integrity: sha512-1ugUSr8BHXRnK23KfuYS+gVMC3LB8QGH9W1iGtDPsNWoQbgtXSExkBu2aDR4epiGWZOjZsj6lDl/N/AqqTC3UA==}
 
-  binary2npm@git+https://git@github.com:dalisoft/binary2npm.git#16f90442c39dc5a1fb4b1387976f98b40983a408:
-    resolution: {commit: 16f90442c39dc5a1fb4b1387976f98b40983a408, repo: git@github.com:dalisoft/binary2npm.git, type: git}
+  binary2npm@https://codeload.github.com/dalisoft/binary2npm/tar.gz/3806b82d09f24f0120f36059b72c07d53ee435cd:
+    resolution: {tarball: https://codeload.github.com/dalisoft/binary2npm/tar.gz/3806b82d09f24f0120f36059b72c07d53ee435cd}
     version: 0.3.7
     engines: {node: '>=18.19.1'}
 
-  binary2npm@git+https://git@github.com:dalisoft/binary2npm.git#3806b82d09f24f0120f36059b72c07d53ee435cd:
-    resolution: {commit: 3806b82d09f24f0120f36059b72c07d53ee435cd, repo: git@github.com:dalisoft/binary2npm.git, type: git}
-    version: 0.3.7
-    engines: {node: '>=18.19.1'}
-
-  binary2npm@git+https://git@github.com:dalisoft/binary2npm.git#d22f51876fde598bff4959c3c8d1e6b30f71caba:
-    resolution: {commit: d22f51876fde598bff4959c3c8d1e6b30f71caba, repo: git@github.com:dalisoft/binary2npm.git, type: git}
+  binary2npm@https://codeload.github.com/dalisoft/binary2npm/tar.gz/d22f51876fde598bff4959c3c8d1e6b30f71caba:
+    resolution: {tarball: https://codeload.github.com/dalisoft/binary2npm/tar.gz/d22f51876fde598bff4959c3c8d1e6b30f71caba}
     version: 0.4.2
     engines: {node: '>=18.19.1'}
-
-  biome-rs-npm@git+https://git@github.com:dalisoft/biome-rs-npm.git#2ef885bb3766587e4797ee41749bbe879bb296f6:
-    resolution: {commit: 2ef885bb3766587e4797ee41749bbe879bb296f6, repo: git@github.com:dalisoft/biome-rs-npm.git, type: git}
-    version: 1.8.3
-    engines: {node: '>=18.19.1'}
-    hasBin: true
 
   brace-expansion@1.1.11:
     resolution: {integrity: sha512-iCuPHDFgrHX7H2vEI/5xpz07zSHB00TpugqhmYtVmMO6518mCuRMoOYFldEBl0g187ufozdaHgWKcYFb61qGiA==}
@@ -1358,12 +1386,6 @@ packages:
   dot-prop@6.0.1:
     resolution: {integrity: sha512-tE7ztYzXHIeyvc7N+hR3oi7FIbf/NIjVP9hmAt3yMXzrQ072/fpjGLx2GxNxGxUl5V73MEqYzioOMoVhGMJ5cA==}
     engines: {node: '>=10'}
-
-  dprint-rs-npm@git+https://git@github.com:dalisoft/dprint-rs-npm.git#ff7bc5bc64c792bd1303a4aefc333b2f3a540c46:
-    resolution: {commit: ff7bc5bc64c792bd1303a4aefc333b2f3a540c46, repo: git@github.com:dalisoft/dprint-rs-npm.git, type: git}
-    version: 0.47.1
-    engines: {node: '>=18.19.1'}
-    hasBin: true
 
   dprint@0.47.1:
     resolution: {integrity: sha512-gZUxs5LmrwCsYoQ5h+QdGB36qrDc2cLAF4q3UgYOFvWnuYyF5rH/xvdpgLgAcltRspDc4bQy0wP650FaFbaVGg==}
@@ -2172,9 +2194,9 @@ packages:
     resolution: {integrity: sha512-MbjN408fEndfiQXbFQ1vnd+1NoLDsnQW41410oQBXiyXDMYH5z505juWa4KUE1LqxRC7DgOgZDbKLxHIwm27hA==}
     engines: {node: '>=0.10'}
 
-  lefthook-go-npm@git+https://git@github.com:dalisoft/lefthook-go-npm.git#c755d21ef5e6d9a92d91cb69f65243137b73e0d1:
-    resolution: {commit: c755d21ef5e6d9a92d91cb69f65243137b73e0d1, repo: git@github.com:dalisoft/lefthook-go-npm.git, type: git}
-    version: 1.6.18
+  lefthook-go-npm@https://codeload.github.com/dalisoft/lefthook-go-npm/tar.gz/20f398fff846194bd5b058c71fb299363152a6c2:
+    resolution: {tarball: https://codeload.github.com/dalisoft/lefthook-go-npm/tar.gz/20f398fff846194bd5b058c71fb299363152a6c2}
+    version: 1.7.1
     engines: {node: '>=18.19.1'}
     hasBin: true
 
@@ -2470,10 +2492,9 @@ packages:
   oxc-resolver@1.9.3:
     resolution: {integrity: sha512-ROO5IGjFp5e150IDCzFvE3xtTrbO6jytAugfEHegF0ym2Ww+lRxP0cAwFGCR1021aWUhrC8VjZXOdTocg+Qthw==}
 
-  oxlint-rs-npm@git+https://git@github.com:dalisoft/oxlint-rs-npm.git#e2e087076cb0a0e5ab10b481ac6fdc7507624e8a:
-    resolution: {commit: e2e087076cb0a0e5ab10b481ac6fdc7507624e8a, repo: git@github.com:dalisoft/oxlint-rs-npm.git, type: git}
-    version: 0.5.3
-    engines: {node: '>=18.19.1'}
+  oxlint@0.5.3:
+    resolution: {integrity: sha512-U8esusepnWcBw1Mwj876kn9tdfDpahofeQm1+XTI3KhjbiBZJmULxvvwXK3zzLAC4fyyjlTR+XJwW0qPXvbJvw==}
+    engines: {node: '>=14.*'}
     hasBin: true
 
   p-limit@2.3.0:
@@ -3013,8 +3034,8 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  typos-rs-npm@git+https://git@github.com:dalisoft/typos-rs-npm.git#372121dba1193a225dfe829256bb79a05879576a:
-    resolution: {commit: 372121dba1193a225dfe829256bb79a05879576a, repo: git@github.com:dalisoft/typos-rs-npm.git, type: git}
+  typos-rs-npm@https://codeload.github.com/dalisoft/typos-rs-npm/tar.gz/372121dba1193a225dfe829256bb79a05879576a:
+    resolution: {tarball: https://codeload.github.com/dalisoft/typos-rs-npm/tar.gz/372121dba1193a225dfe829256bb79a05879576a}
     version: 1.23.1
     engines: {node: '>=18.19.1'}
     hasBin: true
@@ -3548,6 +3569,30 @@ snapshots:
     optional: true
 
   '@oxc-resolver/binding-win32-x64-msvc@1.9.3':
+    optional: true
+
+  '@oxlint/darwin-arm64@0.5.3':
+    optional: true
+
+  '@oxlint/darwin-x64@0.5.3':
+    optional: true
+
+  '@oxlint/linux-arm64-gnu@0.5.3':
+    optional: true
+
+  '@oxlint/linux-arm64-musl@0.5.3':
+    optional: true
+
+  '@oxlint/linux-x64-gnu@0.5.3':
+    optional: true
+
+  '@oxlint/linux-x64-musl@0.5.3':
+    optional: true
+
+  '@oxlint/win32-arm64@0.5.3':
+    optional: true
+
+  '@oxlint/win32-x64@0.5.3':
     optional: true
 
   '@pkgjs/parseargs@0.11.0':
@@ -4184,17 +4229,11 @@ snapshots:
 
   balanced-match@2.0.0: {}
 
-  binary2npm@git+https://git@github.com:dalisoft/binary2npm.git#16f90442c39dc5a1fb4b1387976f98b40983a408: {}
+  binary2npm@https://codeload.github.com/dalisoft/binary2npm/tar.gz/3806b82d09f24f0120f36059b72c07d53ee435cd: {}
 
-  binary2npm@git+https://git@github.com:dalisoft/binary2npm.git#3806b82d09f24f0120f36059b72c07d53ee435cd: {}
-
-  binary2npm@git+https://git@github.com:dalisoft/binary2npm.git#d22f51876fde598bff4959c3c8d1e6b30f71caba:
+  binary2npm@https://codeload.github.com/dalisoft/binary2npm/tar.gz/d22f51876fde598bff4959c3c8d1e6b30f71caba:
     dependencies:
       detect-libc: 2.0.3
-
-  biome-rs-npm@git+https://git@github.com:dalisoft/biome-rs-npm.git#2ef885bb3766587e4797ee41749bbe879bb296f6:
-    dependencies:
-      binary2npm: git+https://git@github.com:dalisoft/binary2npm.git#16f90442c39dc5a1fb4b1387976f98b40983a408
 
   brace-expansion@1.1.11:
     dependencies:
@@ -4466,10 +4505,6 @@ snapshots:
   dot-prop@6.0.1:
     dependencies:
       is-obj: 2.0.0
-
-  dprint-rs-npm@git+https://git@github.com:dalisoft/dprint-rs-npm.git#ff7bc5bc64c792bd1303a4aefc333b2f3a540c46:
-    dependencies:
-      binary2npm: git+https://git@github.com:dalisoft/binary2npm.git#d22f51876fde598bff4959c3c8d1e6b30f71caba
 
   dprint@0.47.1:
     optionalDependencies:
@@ -5406,9 +5441,9 @@ snapshots:
     dependencies:
       language-subtag-registry: 0.3.23
 
-  lefthook-go-npm@git+https://git@github.com:dalisoft/lefthook-go-npm.git#c755d21ef5e6d9a92d91cb69f65243137b73e0d1:
+  lefthook-go-npm@https://codeload.github.com/dalisoft/lefthook-go-npm/tar.gz/20f398fff846194bd5b058c71fb299363152a6c2:
     dependencies:
-      binary2npm: git+https://git@github.com:dalisoft/binary2npm.git#3806b82d09f24f0120f36059b72c07d53ee435cd
+      binary2npm: https://codeload.github.com/dalisoft/binary2npm/tar.gz/d22f51876fde598bff4959c3c8d1e6b30f71caba
 
   leven@3.1.0: {}
 
@@ -5723,9 +5758,16 @@ snapshots:
       '@oxc-resolver/binding-win32-arm64-msvc': 1.9.3
       '@oxc-resolver/binding-win32-x64-msvc': 1.9.3
 
-  oxlint-rs-npm@git+https://git@github.com:dalisoft/oxlint-rs-npm.git#e2e087076cb0a0e5ab10b481ac6fdc7507624e8a:
-    dependencies:
-      binary2npm: git+https://git@github.com:dalisoft/binary2npm.git#d22f51876fde598bff4959c3c8d1e6b30f71caba
+  oxlint@0.5.3:
+    optionalDependencies:
+      '@oxlint/darwin-arm64': 0.5.3
+      '@oxlint/darwin-x64': 0.5.3
+      '@oxlint/linux-arm64-gnu': 0.5.3
+      '@oxlint/linux-arm64-musl': 0.5.3
+      '@oxlint/linux-x64-gnu': 0.5.3
+      '@oxlint/linux-x64-musl': 0.5.3
+      '@oxlint/win32-arm64': 0.5.3
+      '@oxlint/win32-x64': 0.5.3
 
   p-limit@2.3.0:
     dependencies:
@@ -6287,9 +6329,9 @@ snapshots:
 
   typescript@5.5.3: {}
 
-  typos-rs-npm@git+https://git@github.com:dalisoft/typos-rs-npm.git#372121dba1193a225dfe829256bb79a05879576a:
+  typos-rs-npm@https://codeload.github.com/dalisoft/typos-rs-npm/tar.gz/372121dba1193a225dfe829256bb79a05879576a:
     dependencies:
-      binary2npm: git+https://git@github.com:dalisoft/binary2npm.git#3806b82d09f24f0120f36059b72c07d53ee435cd
+      binary2npm: https://codeload.github.com/dalisoft/binary2npm/tar.gz/3806b82d09f24f0120f36059b72c07d53ee435cd
 
   uc.micro@1.0.6: {}
 
