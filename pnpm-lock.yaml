@@ -37,7 +37,7 @@ importers:
         version: link:packages/eslint-config-node
       lefthook-go-npm:
         specifier: github:dalisoft/lefthook-go-npm#v1.7.1
-        version: https://codeload.github.com/dalisoft/lefthook-go-npm/tar.gz/20f398fff846194bd5b058c71fb299363152a6c2
+        version: git+https://git@github.com:dalisoft/lefthook-go-npm.git#20f398fff846194bd5b058c71fb299363152a6c2
       lint-staged-config-airlight:
         specifier: workspace:*
         version: link:packages/lint-staged-config
@@ -55,7 +55,7 @@ importers:
         version: 5.5.3
       typos-rs-npm:
         specifier: github:dalisoft/typos-rs-npm#v1.23.1
-        version: https://codeload.github.com/dalisoft/typos-rs-npm/tar.gz/372121dba1193a225dfe829256bb79a05879576a
+        version: git+https://git@github.com:dalisoft/typos-rs-npm.git#372121dba1193a225dfe829256bb79a05879576a
 
   packages/airlight-resolve:
     dependencies:
@@ -194,8 +194,8 @@ importers:
         specifier: ^4.6.2
         version: 4.6.2(eslint@9.6.0)
       eslint-plugin-react-refresh:
-        specifier: ^0.4.7
-        version: 0.4.7(eslint@9.6.0)
+        specifier: ^0.4.8
+        version: 0.4.8(eslint@9.6.0)
       globals:
         specifier: ^15.8.0
         version: 15.8.0
@@ -579,6 +579,7 @@ packages:
 
   '@ls-lint/ls-lint@2.2.3':
     resolution: {integrity: sha512-ekM12jNm/7O2I/hsRv9HvYkRdfrHpiV1epVuI2NP+eTIcEgdIdKkKCs9KgQydu/8R5YXTov9aHdOgplmCHLupw==}
+    cpu: [x64, arm64, s390x]
     os: [darwin, linux, win32]
     hasBin: true
 
@@ -1117,13 +1118,13 @@ packages:
   balanced-match@2.0.0:
     resolution: {integrity: sha512-1ugUSr8BHXRnK23KfuYS+gVMC3LB8QGH9W1iGtDPsNWoQbgtXSExkBu2aDR4epiGWZOjZsj6lDl/N/AqqTC3UA==}
 
-  binary2npm@https://codeload.github.com/dalisoft/binary2npm/tar.gz/3806b82d09f24f0120f36059b72c07d53ee435cd:
-    resolution: {tarball: https://codeload.github.com/dalisoft/binary2npm/tar.gz/3806b82d09f24f0120f36059b72c07d53ee435cd}
+  binary2npm@git+https://git@github.com:dalisoft/binary2npm.git#3806b82d09f24f0120f36059b72c07d53ee435cd:
+    resolution: {commit: 3806b82d09f24f0120f36059b72c07d53ee435cd, repo: git@github.com:dalisoft/binary2npm.git, type: git}
     version: 0.3.7
     engines: {node: '>=18.19.1'}
 
-  binary2npm@https://codeload.github.com/dalisoft/binary2npm/tar.gz/d22f51876fde598bff4959c3c8d1e6b30f71caba:
-    resolution: {tarball: https://codeload.github.com/dalisoft/binary2npm/tar.gz/d22f51876fde598bff4959c3c8d1e6b30f71caba}
+  binary2npm@git+https://git@github.com:dalisoft/binary2npm.git#d22f51876fde598bff4959c3c8d1e6b30f71caba:
+    resolution: {commit: d22f51876fde598bff4959c3c8d1e6b30f71caba, repo: git@github.com:dalisoft/binary2npm.git, type: git}
     version: 0.4.2
     engines: {node: '>=18.19.1'}
 
@@ -1591,8 +1592,8 @@ packages:
     peerDependencies:
       eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0
 
-  eslint-plugin-react-refresh@0.4.7:
-    resolution: {integrity: sha512-yrj+KInFmwuQS2UQcg1SF83ha1tuHC1jMQbRNyuWtlEzzKRDgAl7L4Yp4NlDUZTZNlWvHEzOtJhMi40R7JxcSw==}
+  eslint-plugin-react-refresh@0.4.8:
+    resolution: {integrity: sha512-MIKAclwaDFIiYtVBLzDdm16E+Ty4GwhB6wZlCAG1R3Ur+F9Qbo6PRxpA5DK7XtDgm+WlCoAY2WxAwqhmIDHg6Q==}
     peerDependencies:
       eslint: '>=7'
 
@@ -2194,8 +2195,8 @@ packages:
     resolution: {integrity: sha512-MbjN408fEndfiQXbFQ1vnd+1NoLDsnQW41410oQBXiyXDMYH5z505juWa4KUE1LqxRC7DgOgZDbKLxHIwm27hA==}
     engines: {node: '>=0.10'}
 
-  lefthook-go-npm@https://codeload.github.com/dalisoft/lefthook-go-npm/tar.gz/20f398fff846194bd5b058c71fb299363152a6c2:
-    resolution: {tarball: https://codeload.github.com/dalisoft/lefthook-go-npm/tar.gz/20f398fff846194bd5b058c71fb299363152a6c2}
+  lefthook-go-npm@git+https://git@github.com:dalisoft/lefthook-go-npm.git#20f398fff846194bd5b058c71fb299363152a6c2:
+    resolution: {commit: 20f398fff846194bd5b058c71fb299363152a6c2, repo: git@github.com:dalisoft/lefthook-go-npm.git, type: git}
     version: 1.7.1
     engines: {node: '>=18.19.1'}
     hasBin: true
@@ -3034,8 +3035,8 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  typos-rs-npm@https://codeload.github.com/dalisoft/typos-rs-npm/tar.gz/372121dba1193a225dfe829256bb79a05879576a:
-    resolution: {tarball: https://codeload.github.com/dalisoft/typos-rs-npm/tar.gz/372121dba1193a225dfe829256bb79a05879576a}
+  typos-rs-npm@git+https://git@github.com:dalisoft/typos-rs-npm.git#372121dba1193a225dfe829256bb79a05879576a:
+    resolution: {commit: 372121dba1193a225dfe829256bb79a05879576a, repo: git@github.com:dalisoft/typos-rs-npm.git, type: git}
     version: 1.23.1
     engines: {node: '>=18.19.1'}
     hasBin: true
@@ -4229,9 +4230,9 @@ snapshots:
 
   balanced-match@2.0.0: {}
 
-  binary2npm@https://codeload.github.com/dalisoft/binary2npm/tar.gz/3806b82d09f24f0120f36059b72c07d53ee435cd: {}
+  binary2npm@git+https://git@github.com:dalisoft/binary2npm.git#3806b82d09f24f0120f36059b72c07d53ee435cd: {}
 
-  binary2npm@https://codeload.github.com/dalisoft/binary2npm/tar.gz/d22f51876fde598bff4959c3c8d1e6b30f71caba:
+  binary2npm@git+https://git@github.com:dalisoft/binary2npm.git#d22f51876fde598bff4959c3c8d1e6b30f71caba:
     dependencies:
       detect-libc: 2.0.3
 
@@ -4818,7 +4819,7 @@ snapshots:
     dependencies:
       eslint: 9.6.0
 
-  eslint-plugin-react-refresh@0.4.7(eslint@9.6.0):
+  eslint-plugin-react-refresh@0.4.8(eslint@9.6.0):
     dependencies:
       eslint: 9.6.0
 
@@ -5441,9 +5442,9 @@ snapshots:
     dependencies:
       language-subtag-registry: 0.3.23
 
-  lefthook-go-npm@https://codeload.github.com/dalisoft/lefthook-go-npm/tar.gz/20f398fff846194bd5b058c71fb299363152a6c2:
+  lefthook-go-npm@git+https://git@github.com:dalisoft/lefthook-go-npm.git#20f398fff846194bd5b058c71fb299363152a6c2:
     dependencies:
-      binary2npm: https://codeload.github.com/dalisoft/binary2npm/tar.gz/d22f51876fde598bff4959c3c8d1e6b30f71caba
+      binary2npm: git+https://git@github.com:dalisoft/binary2npm.git#d22f51876fde598bff4959c3c8d1e6b30f71caba
 
   leven@3.1.0: {}
 
@@ -6329,9 +6330,9 @@ snapshots:
 
   typescript@5.5.3: {}
 
-  typos-rs-npm@https://codeload.github.com/dalisoft/typos-rs-npm/tar.gz/372121dba1193a225dfe829256bb79a05879576a:
+  typos-rs-npm@git+https://git@github.com:dalisoft/typos-rs-npm.git#372121dba1193a225dfe829256bb79a05879576a:
     dependencies:
-      binary2npm: https://codeload.github.com/dalisoft/binary2npm/tar.gz/3806b82d09f24f0120f36059b72c07d53ee435cd
+      binary2npm: git+https://git@github.com:dalisoft/binary2npm.git#3806b82d09f24f0120f36059b72c07d53ee435cd
 
   uc.micro@1.0.6: {}
 
