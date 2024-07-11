@@ -35,7 +35,7 @@
     "eslint-config-airlight-node": "workspace:*",
     "lefthook-go-npm": "github:dalisoft/lefthook-go-npm#v1.7.1",
     "lint-staged-config-airlight": "workspace:*",
-    "oxlint": "^0.5.3",
+    "oxlint": "^0.6.0",
     "prettier-config-airlight": "workspace:*",
     "smartlint-unix": "workspace:*",
     "typescript": "^5.5.3",
