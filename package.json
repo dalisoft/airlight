@@ -30,7 +30,7 @@
     "@ls-lint/ls-lint": "^2.2.3",
     "@stoplight/spectral-cli": "^6.11.1",
     "biome-config-airlight": "workspace:*",
-    "dprint": "^0.47.1",
+    "dprint": "^0.47.2",
     "eslint": "^9.6.0",
     "eslint-config-airlight-node": "workspace:*",
     "lefthook-go-npm": "github:dalisoft/lefthook-go-npm#v1.7.1",
