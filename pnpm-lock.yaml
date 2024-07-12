@@ -53,9 +53,6 @@ importers:
       typescript:
         specifier: ^5.5.3
         version: 5.5.3
-      typos-rs-npm:
-        specifier: github:dalisoft/typos-rs-npm#v1.23.2
-        version: https://codeload.github.com/dalisoft/typos-rs-npm/tar.gz/6836123d83e66544cb11d467b80916944f48473a
 
   packages/airlight-resolve:
     dependencies:
@@ -1127,11 +1124,6 @@ packages:
   balanced-match@2.0.0:
     resolution: {integrity: sha512-1ugUSr8BHXRnK23KfuYS+gVMC3LB8QGH9W1iGtDPsNWoQbgtXSExkBu2aDR4epiGWZOjZsj6lDl/N/AqqTC3UA==}
 
-  binary2npm@https://codeload.github.com/dalisoft/binary2npm/tar.gz/d22f51876fde598bff4959c3c8d1e6b30f71caba:
-    resolution: {tarball: https://codeload.github.com/dalisoft/binary2npm/tar.gz/d22f51876fde598bff4959c3c8d1e6b30f71caba}
-    version: 0.4.2
-    engines: {node: '>=18.19.1'}
-
   brace-expansion@1.1.11:
     resolution: {integrity: sha512-iCuPHDFgrHX7H2vEI/5xpz07zSHB00TpugqhmYtVmMO6518mCuRMoOYFldEBl0g187ufozdaHgWKcYFb61qGiA==}
 
@@ -1362,10 +1354,6 @@ packages:
 
   detect-indent@6.1.0:
     resolution: {integrity: sha512-reYkTUJAZb9gUuZ2RvVCNhVHdg62RHnJ7WJl8ftMi4diZ6NWlciOzQN88pUhSELEwflJht4oQDv0F0BMlwaYtA==}
-    engines: {node: '>=8'}
-
-  detect-libc@2.0.3:
-    resolution: {integrity: sha512-bwy0MGW55bG41VqxxypOsdSdGqLwXPI/focwgTYCFMbdUiBAxLg9CFzG08sz2aqzknwiX7Hkl0bQENjg8iLByw==}
     engines: {node: '>=8'}
 
   dir-glob@3.0.1:
@@ -3033,12 +3021,6 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  typos-rs-npm@https://codeload.github.com/dalisoft/typos-rs-npm/tar.gz/6836123d83e66544cb11d467b80916944f48473a:
-    resolution: {tarball: https://codeload.github.com/dalisoft/typos-rs-npm/tar.gz/6836123d83e66544cb11d467b80916944f48473a}
-    version: 1.23.2
-    engines: {node: '>=18.19.1'}
-    hasBin: true
-
   uc.micro@1.0.6:
     resolution: {integrity: sha512-8Y75pvTYkLJW2hWQHXxoqRgV7qb9B+9vFEtidML+7koHUFapnVJAZ6cKs+Qjz5Aw3aZWHMC6u0wJE3At+nSGwA==}
 
@@ -4233,10 +4215,6 @@ snapshots:
 
   balanced-match@2.0.0: {}
 
-  binary2npm@https://codeload.github.com/dalisoft/binary2npm/tar.gz/d22f51876fde598bff4959c3c8d1e6b30f71caba:
-    dependencies:
-      detect-libc: 2.0.3
-
   brace-expansion@1.1.11:
     dependencies:
       balanced-match: 1.0.2
@@ -4477,8 +4455,6 @@ snapshots:
   detect-indent@5.0.0: {}
 
   detect-indent@6.1.0: {}
-
-  detect-libc@2.0.3: {}
 
   dir-glob@3.0.1:
     dependencies:
@@ -6327,10 +6303,6 @@ snapshots:
       - supports-color
 
   typescript@5.5.3: {}
-
-  typos-rs-npm@https://codeload.github.com/dalisoft/typos-rs-npm/tar.gz/6836123d83e66544cb11d467b80916944f48473a:
-    dependencies:
-      binary2npm: https://codeload.github.com/dalisoft/binary2npm/tar.gz/d22f51876fde598bff4959c3c8d1e6b30f71caba
 
   uc.micro@1.0.6: {}
 

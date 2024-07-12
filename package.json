@@ -38,8 +38,6 @@
     "oxlint": "^0.6.0",
     "prettier-config-airlight": "workspace:*",
     "smartlint-unix": "workspace:*",
-    "typescript": "^5.5.3",
-    "typos-rs-npm": "github:dalisoft/typos-rs-npm#v1.23.2"
-  },
-  "trustedDependencies": ["@biomejs/biome", "biome-rs-npm"]
+    "typescript": "^5.5.3"
+  }
 }
