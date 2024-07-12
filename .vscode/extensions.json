@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "tekumara.typos-vscode",
+    "biomejs.biome",
+    "dprint.dprint",
+    "oxc.oxc-vscode",
+    "dbaeumer.vscode-eslint"
+  ]
+}
