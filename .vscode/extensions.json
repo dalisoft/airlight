@@ -4,6 +4,7 @@
     "biomejs.biome",
     "dprint.dprint",
     "oxc.oxc-vscode",
-    "dbaeumer.vscode-eslint"
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode"
   ]
 }
