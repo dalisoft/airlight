@@ -17,6 +17,9 @@ importers:
       '@commitlint/config-lerna-scopes':
         specifier: ^19.0.0
         version: 19.0.0
+      '@evilmartians/lefthook':
+        specifier: ^1.7.2
+        version: 1.7.2
       '@ls-lint/ls-lint':
         specifier: ^2.2.3
         version: 2.2.3
@@ -35,9 +38,6 @@ importers:
       eslint-config-airlight-node:
         specifier: workspace:*
         version: link:packages/eslint-config-node
-      lefthook-go-npm:
-        specifier: github:dalisoft/lefthook-go-npm#v1.7.1
-        version: git+https://git@github.com:dalisoft/lefthook-go-npm.git#20f398fff846194bd5b058c71fb299363152a6c2
       lint-staged-config-airlight:
         specifier: workspace:*
         version: link:packages/lint-staged-config
@@ -55,7 +55,7 @@ importers:
         version: 5.5.3
       typos-rs-npm:
         specifier: github:dalisoft/typos-rs-npm#v1.23.1
-        version: git+https://git@github.com:dalisoft/typos-rs-npm.git#372121dba1193a225dfe829256bb79a05879576a
+        version: https://codeload.github.com/dalisoft/typos-rs-npm/tar.gz/372121dba1193a225dfe829256bb79a05879576a
 
   packages/airlight-resolve:
     dependencies:
@@ -543,6 +543,11 @@ packages:
     resolution: {integrity: sha512-BsWiH1yFGjXXS2yvrf5LyuoSIIbPrGUWob917o+BTKuZ7qJdxX8aJLRxs1fS9n6r7vESrq1OUqb68dANcFXuQQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
+  '@evilmartians/lefthook@1.7.2':
+    resolution: {integrity: sha512-h3oY73g8kwJ/W3mZdmwXW15htAyKFlUnfMDhS8JAUYzAW3MKqkw3LXCHP3BV06On8/PYUgN1NOJQjYeaEuRUeA==}
+    os: [darwin, linux, win32]
+    hasBin: true
+
   '@humanwhocodes/module-importer@1.0.1':
     resolution: {integrity: sha512-bxveV4V8v5Yb4ncFTT3rPSgZBOpCkjfK0y4oVVVJwIuDVBRMDXrPyXRL988i5ap9m9bnyEEjWfm5WkBmtffLfA==}
     engines: {node: '>=12.22'}
@@ -584,7 +589,6 @@ packages:
 
   '@ls-lint/ls-lint@2.2.3':
     resolution: {integrity: sha512-ekM12jNm/7O2I/hsRv9HvYkRdfrHpiV1epVuI2NP+eTIcEgdIdKkKCs9KgQydu/8R5YXTov9aHdOgplmCHLupw==}
-    cpu: [x64, arm64, s390x]
     os: [darwin, linux, win32]
     hasBin: true
 
@@ -1123,14 +1127,9 @@ packages:
   balanced-match@2.0.0:
     resolution: {integrity: sha512-1ugUSr8BHXRnK23KfuYS+gVMC3LB8QGH9W1iGtDPsNWoQbgtXSExkBu2aDR4epiGWZOjZsj6lDl/N/AqqTC3UA==}
 
-  binary2npm@git+https://git@github.com:dalisoft/binary2npm.git#3806b82d09f24f0120f36059b72c07d53ee435cd:
-    resolution: {commit: 3806b82d09f24f0120f36059b72c07d53ee435cd, repo: git@github.com:dalisoft/binary2npm.git, type: git}
+  binary2npm@https://codeload.github.com/dalisoft/binary2npm/tar.gz/3806b82d09f24f0120f36059b72c07d53ee435cd:
+    resolution: {tarball: https://codeload.github.com/dalisoft/binary2npm/tar.gz/3806b82d09f24f0120f36059b72c07d53ee435cd}
     version: 0.3.7
-    engines: {node: '>=18.19.1'}
-
-  binary2npm@git+https://git@github.com:dalisoft/binary2npm.git#d22f51876fde598bff4959c3c8d1e6b30f71caba:
-    resolution: {commit: d22f51876fde598bff4959c3c8d1e6b30f71caba, repo: git@github.com:dalisoft/binary2npm.git, type: git}
-    version: 0.4.2
     engines: {node: '>=18.19.1'}
 
   brace-expansion@1.1.11:
@@ -1363,10 +1362,6 @@ packages:
 
   detect-indent@6.1.0:
     resolution: {integrity: sha512-reYkTUJAZb9gUuZ2RvVCNhVHdg62RHnJ7WJl8ftMi4diZ6NWlciOzQN88pUhSELEwflJht4oQDv0F0BMlwaYtA==}
-    engines: {node: '>=8'}
-
-  detect-libc@2.0.3:
-    resolution: {integrity: sha512-bwy0MGW55bG41VqxxypOsdSdGqLwXPI/focwgTYCFMbdUiBAxLg9CFzG08sz2aqzknwiX7Hkl0bQENjg8iLByw==}
     engines: {node: '>=8'}
 
   dir-glob@3.0.1:
@@ -2199,12 +2194,6 @@ packages:
   language-tags@1.0.9:
     resolution: {integrity: sha512-MbjN408fEndfiQXbFQ1vnd+1NoLDsnQW41410oQBXiyXDMYH5z505juWa4KUE1LqxRC7DgOgZDbKLxHIwm27hA==}
     engines: {node: '>=0.10'}
-
-  lefthook-go-npm@git+https://git@github.com:dalisoft/lefthook-go-npm.git#20f398fff846194bd5b058c71fb299363152a6c2:
-    resolution: {commit: 20f398fff846194bd5b058c71fb299363152a6c2, repo: git@github.com:dalisoft/lefthook-go-npm.git, type: git}
-    version: 1.7.1
-    engines: {node: '>=18.19.1'}
-    hasBin: true
 
   leven@3.1.0:
     resolution: {integrity: sha512-qsda+H8jTaUaN/x5vzW2rzc+8Rw4TAQ/4KjB46IwK5VH+IlVeeeje/EoZRpiXvIqjFgK84QffqPztGI3VBLG1A==}
@@ -3040,8 +3029,8 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  typos-rs-npm@git+https://git@github.com:dalisoft/typos-rs-npm.git#372121dba1193a225dfe829256bb79a05879576a:
-    resolution: {commit: 372121dba1193a225dfe829256bb79a05879576a, repo: git@github.com:dalisoft/typos-rs-npm.git, type: git}
+  typos-rs-npm@https://codeload.github.com/dalisoft/typos-rs-npm/tar.gz/372121dba1193a225dfe829256bb79a05879576a:
+    resolution: {tarball: https://codeload.github.com/dalisoft/typos-rs-npm/tar.gz/372121dba1193a225dfe829256bb79a05879576a}
     version: 1.23.1
     engines: {node: '>=18.19.1'}
     hasBin: true
@@ -3479,6 +3468,8 @@ snapshots:
   '@eslint/js@9.6.0': {}
 
   '@eslint/object-schema@2.1.4': {}
+
+  '@evilmartians/lefthook@1.7.2': {}
 
   '@humanwhocodes/module-importer@1.0.1': {}
 
@@ -4238,11 +4229,7 @@ snapshots:
 
   balanced-match@2.0.0: {}
 
-  binary2npm@git+https://git@github.com:dalisoft/binary2npm.git#3806b82d09f24f0120f36059b72c07d53ee435cd: {}
-
-  binary2npm@git+https://git@github.com:dalisoft/binary2npm.git#d22f51876fde598bff4959c3c8d1e6b30f71caba:
-    dependencies:
-      detect-libc: 2.0.3
+  binary2npm@https://codeload.github.com/dalisoft/binary2npm/tar.gz/3806b82d09f24f0120f36059b72c07d53ee435cd: {}
 
   brace-expansion@1.1.11:
     dependencies:
@@ -4484,8 +4471,6 @@ snapshots:
   detect-indent@5.0.0: {}
 
   detect-indent@6.1.0: {}
-
-  detect-libc@2.0.3: {}
 
   dir-glob@3.0.1:
     dependencies:
@@ -5451,10 +5436,6 @@ snapshots:
     dependencies:
       language-subtag-registry: 0.3.23
 
-  lefthook-go-npm@git+https://git@github.com:dalisoft/lefthook-go-npm.git#20f398fff846194bd5b058c71fb299363152a6c2:
-    dependencies:
-      binary2npm: git+https://git@github.com:dalisoft/binary2npm.git#d22f51876fde598bff4959c3c8d1e6b30f71caba
-
   leven@3.1.0: {}
 
   levn@0.4.1:
@@ -6339,9 +6320,9 @@ snapshots:
 
   typescript@5.5.3: {}
 
-  typos-rs-npm@git+https://git@github.com:dalisoft/typos-rs-npm.git#372121dba1193a225dfe829256bb79a05879576a:
+  typos-rs-npm@https://codeload.github.com/dalisoft/typos-rs-npm/tar.gz/372121dba1193a225dfe829256bb79a05879576a:
     dependencies:
-      binary2npm: git+https://git@github.com:dalisoft/binary2npm.git#3806b82d09f24f0120f36059b72c07d53ee435cd
+      binary2npm: https://codeload.github.com/dalisoft/binary2npm/tar.gz/3806b82d09f24f0120f36059b72c07d53ee435cd
 
   uc.micro@1.0.6: {}
 
