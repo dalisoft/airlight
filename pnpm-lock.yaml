@@ -55,7 +55,7 @@ importers:
         version: 5.5.3
       typos-rs-npm:
         specifier: github:dalisoft/typos-rs-npm#v1.23.2
-        version: https://codeload.github.com/dalisoft/typos-rs-npm/tar.gz/6836123d83e66544cb11d467b80916944f48473a
+        version: git+https://git@github.com:dalisoft/typos-rs-npm.git#6836123d83e66544cb11d467b80916944f48473a
 
   packages/airlight-resolve:
     dependencies:
@@ -111,8 +111,8 @@ importers:
         specifier: ^1.3.1
         version: 1.3.1
       eslint-plugin-import-x:
-        specifier: ^0.5.3
-        version: 0.5.3(eslint@9.6.0)(typescript@5.5.3)
+        specifier: ^3.0.0
+        version: 3.0.0(eslint@9.6.0)(typescript@5.5.3)
       eslint-plugin-no-secrets:
         specifier: ^1.0.2
         version: 1.0.2(eslint@9.6.0)
@@ -545,6 +545,7 @@ packages:
 
   '@evilmartians/lefthook@1.7.2':
     resolution: {integrity: sha512-h3oY73g8kwJ/W3mZdmwXW15htAyKFlUnfMDhS8JAUYzAW3MKqkw3LXCHP3BV06On8/PYUgN1NOJQjYeaEuRUeA==}
+    cpu: [x64, arm64, ia32]
     os: [darwin, linux, win32]
     hasBin: true
 
@@ -589,6 +590,7 @@ packages:
 
   '@ls-lint/ls-lint@2.2.3':
     resolution: {integrity: sha512-ekM12jNm/7O2I/hsRv9HvYkRdfrHpiV1epVuI2NP+eTIcEgdIdKkKCs9KgQydu/8R5YXTov9aHdOgplmCHLupw==}
+    cpu: [x64, arm64, s390x]
     os: [darwin, linux, win32]
     hasBin: true
 
@@ -1127,8 +1129,8 @@ packages:
   balanced-match@2.0.0:
     resolution: {integrity: sha512-1ugUSr8BHXRnK23KfuYS+gVMC3LB8QGH9W1iGtDPsNWoQbgtXSExkBu2aDR4epiGWZOjZsj6lDl/N/AqqTC3UA==}
 
-  binary2npm@https://codeload.github.com/dalisoft/binary2npm/tar.gz/d22f51876fde598bff4959c3c8d1e6b30f71caba:
-    resolution: {tarball: https://codeload.github.com/dalisoft/binary2npm/tar.gz/d22f51876fde598bff4959c3c8d1e6b30f71caba}
+  binary2npm@git+https://git@github.com:dalisoft/binary2npm.git#d22f51876fde598bff4959c3c8d1e6b30f71caba:
+    resolution: {commit: d22f51876fde598bff4959c3c8d1e6b30f71caba, repo: git@github.com:dalisoft/binary2npm.git, type: git}
     version: 0.4.2
     engines: {node: '>=18.19.1'}
 
@@ -1533,8 +1535,8 @@ packages:
     resolution: {integrity: sha512-kBMxGFvK3QrRBHMurhFSNa+PFdszezVtBV6egg39TDzlj6D4jL3Xx6oyNjm5xE4C+TdQUBzWwymHJHBPyxOreA==}
     engines: {node: '>=6.0.0'}
 
-  eslint-plugin-import-x@0.5.3:
-    resolution: {integrity: sha512-hJ/wkMcsLQXAZL3+txXIDpbW5cqwdm1rLTqV4VRY03aIbzE3zWE7rPZKW6Gzf7xyl1u3V1iYC6tOG77d9NF4GQ==}
+  eslint-plugin-import-x@3.0.0:
+    resolution: {integrity: sha512-zk3QklFELk7mrSlhP9C27NpKx86G5YtIEvDV1dIJRS3VOIm5tCHQCln2JkwbO5lpYOvyYSoro35PCAAVG9lY8w==}
     engines: {node: '>=16'}
     peerDependencies:
       eslint: ^8.56.0 || ^9.0.0-0
@@ -3033,8 +3035,8 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  typos-rs-npm@https://codeload.github.com/dalisoft/typos-rs-npm/tar.gz/6836123d83e66544cb11d467b80916944f48473a:
-    resolution: {tarball: https://codeload.github.com/dalisoft/typos-rs-npm/tar.gz/6836123d83e66544cb11d467b80916944f48473a}
+  typos-rs-npm@git+https://git@github.com:dalisoft/typos-rs-npm.git#6836123d83e66544cb11d467b80916944f48473a:
+    resolution: {commit: 6836123d83e66544cb11d467b80916944f48473a, repo: git@github.com:dalisoft/typos-rs-npm.git, type: git}
     version: 1.23.2
     engines: {node: '>=18.19.1'}
     hasBin: true
@@ -4233,7 +4235,7 @@ snapshots:
 
   balanced-match@2.0.0: {}
 
-  binary2npm@https://codeload.github.com/dalisoft/binary2npm/tar.gz/d22f51876fde598bff4959c3c8d1e6b30f71caba:
+  binary2npm@git+https://git@github.com:dalisoft/binary2npm.git#d22f51876fde598bff4959c3c8d1e6b30f71caba:
     dependencies:
       detect-libc: 2.0.3
 
@@ -4719,9 +4721,9 @@ snapshots:
 
   eslint-plugin-filename-rules@1.3.1: {}
 
-  eslint-plugin-import-x@0.5.3(eslint@9.6.0)(typescript@5.5.3):
+  eslint-plugin-import-x@3.0.0(eslint@9.6.0)(typescript@5.5.3):
     dependencies:
-      '@typescript-eslint/utils': 7.15.0(eslint@9.6.0)(typescript@5.5.3)
+      '@typescript-eslint/utils': 7.16.0(eslint@9.6.0)(typescript@5.5.3)
       debug: 4.3.5
       doctrine: 3.0.0
       eslint: 9.6.0
@@ -6328,9 +6330,9 @@ snapshots:
 
   typescript@5.5.3: {}
 
-  typos-rs-npm@https://codeload.github.com/dalisoft/typos-rs-npm/tar.gz/6836123d83e66544cb11d467b80916944f48473a:
+  typos-rs-npm@git+https://git@github.com:dalisoft/typos-rs-npm.git#6836123d83e66544cb11d467b80916944f48473a:
     dependencies:
-      binary2npm: https://codeload.github.com/dalisoft/binary2npm/tar.gz/d22f51876fde598bff4959c3c8d1e6b30f71caba
+      binary2npm: git+https://git@github.com:dalisoft/binary2npm.git#d22f51876fde598bff4959c3c8d1e6b30f71caba
 
   uc.micro@1.0.6: {}
 
