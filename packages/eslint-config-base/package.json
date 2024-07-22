@@ -56,7 +56,7 @@
     "eslint-plugin-promise": "^6.5.0",
     "typescript-eslint": "^7.16.1",
     "globals": "^15.8.0",
-    "@typescript-eslint/parser": "^7.16.1",
+    "@typescript-eslint/parser": "^7.17.0",
     "@typescript-eslint/eslint-plugin": "^7.16.1"
   },
   "devDependencies": {
