@@ -89,5 +89,6 @@ module.exports = {
   'no-shadow': ['error', { hoist: 'functions' }],
   'no-empty-function': ['error'],
   camelcase: 'off',
-  'import-x/prefer-default-export': 'warn'
+  'import-x/prefer-default-export': 'warn',
+  'import-x/no-mutable-exports': 'error'
 };
