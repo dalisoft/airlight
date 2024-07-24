@@ -2,6 +2,7 @@
 /** @type {Partial<Record<string, SharedConfig.RuleEntry>>} */
 module.exports = {
   '@eslint-community/eslint-comments/no-unused-disable': 'error',
+  '@eslint-community/eslint-comments/disable-enable-pair': 'warn',
   '@typescript-eslint/naming-convention': [
     'error',
     {
