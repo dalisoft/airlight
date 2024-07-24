@@ -24,13 +24,7 @@ module.exports = {
     'prettier',
     'plugin:import-x/recommended'
   ],
-  plugins: [
-    '@typescript-eslint',
-    'eslint-comments',
-    'promise',
-    'optimize-regex',
-    'no-secrets'
-  ],
+  plugins: ['@typescript-eslint', 'promise', 'optimize-regex', 'no-secrets'],
   rules: {
     ...airbnbRules,
     ...rules
