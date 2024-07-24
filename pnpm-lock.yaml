@@ -18,8 +18,8 @@ importers:
         specifier: ^19.0.0
         version: 19.0.0
       '@evilmartians/lefthook':
-        specifier: ^1.7.5
-        version: 1.7.5
+        specifier: ^1.7.7
+        version: 1.7.7
       '@ls-lint/ls-lint':
         specifier: ^2.2.3
         version: 2.2.3
@@ -117,8 +117,8 @@ importers:
         specifier: ^1.2.1
         version: 1.2.1
       eslint-plugin-promise:
-        specifier: ^6.6.0
-        version: 6.6.0(eslint@9.6.0)
+        specifier: ^7.0.0
+        version: 7.0.0(eslint@9.6.0)
       globals:
         specifier: ^15.8.0
         version: 15.8.0
@@ -544,8 +544,8 @@ packages:
     resolution: {integrity: sha512-BsWiH1yFGjXXS2yvrf5LyuoSIIbPrGUWob917o+BTKuZ7qJdxX8aJLRxs1fS9n6r7vESrq1OUqb68dANcFXuQQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@evilmartians/lefthook@1.7.5':
-    resolution: {integrity: sha512-eFUrIGUOdVsgMVADhrR/H3I0WpOfGEh+If69Es91ygg3fKbq2BhfzzGGqfVfbvcvFp1w2Q/tNm3HD/s1AMkY2w==}
+  '@evilmartians/lefthook@1.7.7':
+    resolution: {integrity: sha512-7kuuIQoRdP6j9EwxKSslPsdepmNwuGqDw3evh4Cy7lpqAj3ehEjcpaZJv/HD6J5JtoqMa9x45MO8D8TZmuWOHw==}
     os: [darwin, linux, win32]
     hasBin: true
 
@@ -1578,9 +1578,9 @@ packages:
     resolution: {integrity: sha512-fUaU7Tj1G/KSTDTABJw4Wp427Rl7RPl9ViYTu1Jrv36fJw4DFhd4elPdXiuYtdPsNsvzn9GcVlKEssGIVjw0UQ==}
     engines: {node: '>=10'}
 
-  eslint-plugin-promise@6.6.0:
-    resolution: {integrity: sha512-57Zzfw8G6+Gq7axm2Pdo3gW/Rx3h9Yywgn61uE/3elTCOePEHVrn2i5CdfBwA1BLK0Q0WqctICIUSqXZW/VprQ==}
-    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+  eslint-plugin-promise@7.0.0:
+    resolution: {integrity: sha512-wb1ECT+b90ndBdAujhIdAU8oQ3Vt5gKqP/t78KOmg0ifynrvc2jGR9f6ndbOVNFpKf6jLUBlBBDF3H3Wk0JICg==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       eslint: ^7.0.0 || ^8.0.0 || ^9.0.0
 
@@ -3476,7 +3476,7 @@ snapshots:
 
   '@eslint/object-schema@2.1.4': {}
 
-  '@evilmartians/lefthook@1.7.5': {}
+  '@evilmartians/lefthook@1.7.7': {}
 
   '@humanwhocodes/module-importer@1.0.1': {}
 
@@ -4806,7 +4806,7 @@ snapshots:
     dependencies:
       regexp-tree: 0.1.27
 
-  eslint-plugin-promise@6.6.0(eslint@9.6.0):
+  eslint-plugin-promise@7.0.0(eslint@9.6.0):
     dependencies:
       eslint: 9.6.0
 
