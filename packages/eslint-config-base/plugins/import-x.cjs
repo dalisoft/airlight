@@ -7,6 +7,7 @@ module.exports = tseslint.config({
   plugins: {
     'import-x': eslintImportX
   },
+  extends: [eslintImportX.configs.typescript],
   settings: {
     'import-x/parsers': {
       '@typescript-eslint/parser': ['.ts', '.tsx']
@@ -18,6 +19,7 @@ module.exports = tseslint.config({
     }
   },
   rules: {
+    ...eslintImportX.configs.recommended.rules,
     // Error on imports that don't match the underlying file system
     // https://github.com/un-ts/eslint-plugin-import-x/blob/master/docs/rules/no-unresolved.md
     'import-x/no-unresolved': 'error'

@@ -22,7 +22,8 @@ module.exports = {
     'plugin:@eslint-community/eslint-comments/recommended',
     'plugin:promise/recommended',
     'prettier',
-    'plugin:import-x/recommended'
+    'plugin:import-x/recommended',
+    'plugin:import-x/typescript'
   ],
   plugins: ['@typescript-eslint', 'promise', 'optimize-regex', 'no-secrets'],
   rules: {
