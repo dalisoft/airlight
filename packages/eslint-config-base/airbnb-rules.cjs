@@ -249,11 +249,20 @@ module.exports = {
   ],
 
   // Replace Airbnb 'no-unused-vars' rule with '@typescript-eslint' version
-  // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unused-vars.md
+  // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/eslint-plugin/docs/rules/no-unused-vars.mdx
   'no-unused-vars': 'off',
   '@typescript-eslint/no-unused-vars': [
     'error',
-    { vars: 'all', args: 'after-used', ignoreRestSiblings: true }
+    {
+      vars: 'all',
+      args: 'all',
+      argsIgnorePattern: '^_',
+      caughtErrors: 'all',
+      caughtErrorsIgnorePattern: '^_',
+      destructuredArrayIgnorePattern: '^_',
+      varsIgnorePattern: '^_',
+      ignoreRestSiblings: false
+    }
   ],
 
   // Replace Airbnb 'no-use-before-define' rule with '@typescript-eslint' version

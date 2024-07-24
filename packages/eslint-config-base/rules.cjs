@@ -50,7 +50,6 @@ module.exports = {
   '@typescript-eslint/class-literal-property-style': ['error'],
   '@typescript-eslint/comma-dangle': ['error', 'never'],
   '@typescript-eslint/comma-spacing': ['error', { before: false, after: true }],
-  '@typescript-eslint/no-unused-vars': ['error'],
   '@typescript-eslint/no-non-null-asserted-optional-chain': ['error'],
   '@typescript-eslint/restrict-plus-operands': ['error'],
   'operator-linebreak': ['off', 'after'],
