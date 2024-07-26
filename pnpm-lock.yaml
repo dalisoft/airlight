@@ -18,8 +18,8 @@ importers:
         specifier: ^19.0.0
         version: 19.0.0
       '@evilmartians/lefthook':
-        specifier: ^1.7.7
-        version: 1.7.7
+        specifier: ^1.7.9
+        version: 1.7.9
       '@ls-lint/ls-lint':
         specifier: ^2.2.3
         version: 2.2.3
@@ -552,8 +552,8 @@ packages:
     resolution: {integrity: sha512-BsWiH1yFGjXXS2yvrf5LyuoSIIbPrGUWob917o+BTKuZ7qJdxX8aJLRxs1fS9n6r7vESrq1OUqb68dANcFXuQQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@evilmartians/lefthook@1.7.7':
-    resolution: {integrity: sha512-7kuuIQoRdP6j9EwxKSslPsdepmNwuGqDw3evh4Cy7lpqAj3ehEjcpaZJv/HD6J5JtoqMa9x45MO8D8TZmuWOHw==}
+  '@evilmartians/lefthook@1.7.9':
+    resolution: {integrity: sha512-cld53WYCpP7fN8nCc9GBzmLvO5riyTEJt5uaXBfpogwe/sinQtqZArUEJiBTrcU5fStmoZ8kTobf7qo0rwN+0A==}
     cpu: [x64, arm64, ia32]
     os: [darwin, linux, win32]
     hasBin: true
@@ -3496,7 +3496,7 @@ snapshots:
 
   '@eslint/object-schema@2.1.4': {}
 
-  '@evilmartians/lefthook@1.7.7': {}
+  '@evilmartians/lefthook@1.7.9': {}
 
   '@humanwhocodes/module-importer@1.0.1': {}
 
