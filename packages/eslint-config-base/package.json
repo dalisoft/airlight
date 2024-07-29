@@ -57,7 +57,7 @@
     "typescript-eslint": "^7.17.0",
     "globals": "^15.8.0",
     "@typescript-eslint/parser": "^7.17.0",
-    "@typescript-eslint/eslint-plugin": "^7.17.0"
+    "@typescript-eslint/eslint-plugin": "^7.18.0"
   },
   "devDependencies": {
     "@types/eslint-config-prettier": "^6.11.3",
