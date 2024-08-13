@@ -6,7 +6,8 @@ export default [
     name: 'eslint-config-airlight-root',
     languageOptions: {
       parserOptions: {
-        project: './tsconfig.json'
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname
       }
     },
     rules: {
