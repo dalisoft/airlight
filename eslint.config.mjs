@@ -6,6 +6,8 @@ export default [
     name: 'eslint-config-airlight-root',
     languageOptions: {
       parserOptions: {
+        ecmaVersion: 2020,
+        sourceType: 'module',
         projectService: true,
         tsconfigRootDir: import.meta.dirname
       }
