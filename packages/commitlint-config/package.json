@@ -4,7 +4,7 @@
   "description": "Commitlint config to make product commits beautiful",
   "main": "config.js",
   "type": "commonjs",
-  "files": ["config.js"],
+  "files": ["config.cjs"],
   "engines": {
     "node": ">=18.20.3"
   },
