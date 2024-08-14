@@ -5,6 +5,7 @@ module.exports = tseslint.config({
   name: 'eslint-override-cjs-files',
   files: ['**/*.cjs'],
   rules: {
-    'import-x/extensions': 'off'
+    'import-x/extensions': 'off',
+    '@typescript-eslint/no-require-imports': 'off'
   }
 });

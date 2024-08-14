@@ -3,55 +3,15 @@
 module.exports = {
   '@eslint-community/eslint-comments/no-unused-disable': 'error',
   '@eslint-community/eslint-comments/disable-enable-pair': 'warn',
-  '@typescript-eslint/naming-convention': [
-    'error',
-    {
-      selector: ['function', 'method'],
-      format: ['strictCamelCase'],
-      leadingUnderscore: 'forbid'
-    },
-    {
-      selector: 'property',
-      format: ['snake_case', 'strictCamelCase'],
-      leadingUnderscore: 'forbid'
-    },
-    {
-      selector: 'objectLiteralProperty',
-      format: [],
-      leadingUnderscore: 'forbid'
-    },
-    {
-      selector: 'variable',
-      modifiers: ['const'],
-      types: ['boolean', 'number'],
-      format: ['UPPER_CASE'],
-      leadingUnderscore: 'forbid'
-    },
-    {
-      selector: 'typeLike',
-      format: ['StrictPascalCase'],
-      leadingUnderscore: 'forbid'
-    },
-    {
-      selector: 'interface',
-      format: ['PascalCase'],
-      leadingUnderscore: 'forbid',
-      custom: {
-        regex: '^I[A-Z]',
-        match: true
-      }
-    }
-  ],
   '@typescript-eslint/explicit-function-return-type': 'off',
   '@typescript-eslint/explicit-module-boundary-types': 'off',
   '@typescript-eslint/no-shadow': 'off',
   '@typescript-eslint/no-empty-function': 'off',
   '@typescript-eslint/indent': ['off'],
   '@typescript-eslint/class-literal-property-style': ['error'],
-  '@typescript-eslint/comma-dangle': ['error', 'never'],
-  '@typescript-eslint/comma-spacing': ['error', { before: false, after: true }],
+  '@stylistic/comma-dangle': ['error', 'never'],
+  '@stylistic/comma-spacing': ['error', { before: false, after: true }],
   '@typescript-eslint/no-non-null-asserted-optional-chain': ['error'],
-  '@typescript-eslint/restrict-plus-operands': ['error'],
   'operator-linebreak': ['off', 'after'],
   'prefer-template': 'error',
   quotes: [
@@ -80,7 +40,7 @@ module.exports = {
   ],
   'max-lines': [
     'error',
-    { max: 280, skipBlankLines: true, skipComments: true }
+    { max: 100, skipBlankLines: true, skipComments: true }
   ],
   'no-useless-concat': 'error',
   'no-console': process.env.CI ? 'error' : 'warn',

@@ -19,6 +19,7 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
+    '@stylistic',
     'plugin:@eslint-community/eslint-comments/recommended',
     'plugin:promise/recommended',
     'prettier',
