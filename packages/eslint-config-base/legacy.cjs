@@ -19,14 +19,19 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
-    '@stylistic',
     'plugin:@eslint-community/eslint-comments/recommended',
     'plugin:promise/recommended',
     'prettier',
     'plugin:import-x/recommended',
     'plugin:import-x/typescript'
   ],
-  plugins: ['@typescript-eslint', 'promise', 'optimize-regex', 'no-secrets'],
+  plugins: [
+    '@typescript-eslint',
+    '@stylistic',
+    'promise',
+    'optimize-regex',
+    'no-secrets'
+  ],
   rules: {
     ...airbnbRules,
     ...rules
