@@ -13,7 +13,7 @@ importers:
         version: 1.9.3
       '@commitlint/cli':
         specifier: ^19.5.0
-        version: 19.5.0(@types/node@22.3.0)(typescript@5.6.2)
+        version: 19.5.0(@types/node@22.3.0)(typescript@5.6.3)
       '@commitlint/config-lerna-scopes':
         specifier: ^19.5.0
         version: 19.5.0
@@ -51,8 +51,8 @@ importers:
         specifier: workspace:*
         version: link:packages/smartlint-unix
       typescript:
-        specifier: ^5.6.2
-        version: 5.6.2
+        specifier: ^5.6.3
+        version: 5.6.3
 
   packages/airlight-resolve:
     dependencies:
@@ -70,7 +70,7 @@ importers:
     dependencies:
       '@commitlint/cli':
         specifier: ^19.x
-        version: 19.4.0(@types/node@22.3.0)(typescript@5.6.2)
+        version: 19.4.0(@types/node@22.3.0)(typescript@5.6.3)
       '@commitlint/config-conventional':
         specifier: ^19.5.0
         version: 19.5.0
@@ -217,7 +217,7 @@ importers:
     dependencies:
       '@commitlint/cli':
         specifier: ^19.x
-        version: 19.4.0(@types/node@22.3.0)(typescript@5.6.2)
+        version: 19.4.0(@types/node@22.3.0)(typescript@5.6.3)
 
   packages/lint-staged-config:
     dependencies:
@@ -247,7 +247,7 @@ importers:
         version: 3.3.3
       stylelint:
         specifier: ^16.0.x
-        version: 16.8.1(typescript@5.6.2)
+        version: 16.8.1(typescript@5.6.3)
 
   packages/prettier-config:
     dependencies:
@@ -283,7 +283,7 @@ importers:
         version: 3.3.3
       stylelint:
         specifier: ^16.0.x
-        version: 16.8.1(typescript@5.6.2)
+        version: 16.8.1(typescript@5.6.3)
 
   packages/smartlint-unix: {}
 
@@ -3331,8 +3331,8 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  typescript@5.6.2:
-    resolution: {integrity: sha512-NW8ByodCSNCwZeghjN3o+JX5OFH0Ojg6sadjEKY4huZ52TqbJTJnDo5+Tw98lSy63NZvi4n+ez5m2u5d4PkZyw==}
+  typescript@5.6.3:
+    resolution: {integrity: sha512-hjcS1mhfuyi4WW8IWtjP7brDrG2cuDZukyrYrSauoXGNgx0S7zceP07adYkJycEr56BOUTNPzbInooiN3fn1qw==}
     engines: {node: '>=14.17'}
     hasBin: true
 
@@ -3589,11 +3589,11 @@ snapshots:
   '@biomejs/cli-win32-x64@1.9.3':
     optional: true
 
-  '@commitlint/cli@19.4.0(@types/node@22.3.0)(typescript@5.6.2)':
+  '@commitlint/cli@19.4.0(@types/node@22.3.0)(typescript@5.6.3)':
     dependencies:
       '@commitlint/format': 19.3.0
       '@commitlint/lint': 19.2.2
-      '@commitlint/load': 19.4.0(@types/node@22.3.0)(typescript@5.6.2)
+      '@commitlint/load': 19.4.0(@types/node@22.3.0)(typescript@5.6.3)
       '@commitlint/read': 19.4.0
       '@commitlint/types': 19.0.3
       execa: 8.0.1
@@ -3602,11 +3602,11 @@ snapshots:
       - '@types/node'
       - typescript
 
-  '@commitlint/cli@19.5.0(@types/node@22.3.0)(typescript@5.6.2)':
+  '@commitlint/cli@19.5.0(@types/node@22.3.0)(typescript@5.6.3)':
     dependencies:
       '@commitlint/format': 19.5.0
       '@commitlint/lint': 19.5.0
-      '@commitlint/load': 19.5.0(@types/node@22.3.0)(typescript@5.6.2)
+      '@commitlint/load': 19.5.0(@types/node@22.3.0)(typescript@5.6.3)
       '@commitlint/read': 19.5.0
       '@commitlint/types': 19.5.0
       tinyexec: 0.3.0
@@ -3693,15 +3693,15 @@ snapshots:
       '@commitlint/rules': 19.5.0
       '@commitlint/types': 19.5.0
 
-  '@commitlint/load@19.4.0(@types/node@22.3.0)(typescript@5.6.2)':
+  '@commitlint/load@19.4.0(@types/node@22.3.0)(typescript@5.6.3)':
     dependencies:
       '@commitlint/config-validator': 19.0.3
       '@commitlint/execute-rule': 19.0.0
       '@commitlint/resolve-extends': 19.1.0
       '@commitlint/types': 19.5.0
       chalk: 5.3.0
-      cosmiconfig: 9.0.0(typescript@5.6.2)
-      cosmiconfig-typescript-loader: 5.0.0(@types/node@22.3.0)(cosmiconfig@9.0.0(typescript@5.6.2))(typescript@5.6.2)
+      cosmiconfig: 9.0.0(typescript@5.6.3)
+      cosmiconfig-typescript-loader: 5.0.0(@types/node@22.3.0)(cosmiconfig@9.0.0(typescript@5.6.3))(typescript@5.6.3)
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
@@ -3709,15 +3709,15 @@ snapshots:
       - '@types/node'
       - typescript
 
-  '@commitlint/load@19.5.0(@types/node@22.3.0)(typescript@5.6.2)':
+  '@commitlint/load@19.5.0(@types/node@22.3.0)(typescript@5.6.3)':
     dependencies:
       '@commitlint/config-validator': 19.5.0
       '@commitlint/execute-rule': 19.5.0
       '@commitlint/resolve-extends': 19.5.0
       '@commitlint/types': 19.5.0
       chalk: 5.3.0
-      cosmiconfig: 9.0.0(typescript@5.6.2)
-      cosmiconfig-typescript-loader: 5.0.0(@types/node@22.3.0)(cosmiconfig@9.0.0(typescript@5.6.2))(typescript@5.6.2)
+      cosmiconfig: 9.0.0(typescript@5.6.3)
+      cosmiconfig-typescript-loader: 5.0.0(@types/node@22.3.0)(cosmiconfig@9.0.0(typescript@5.6.3))(typescript@5.6.3)
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
@@ -5018,12 +5018,12 @@ snapshots:
       meow: 12.1.1
       split2: 4.2.0
 
-  cosmiconfig-typescript-loader@5.0.0(@types/node@22.3.0)(cosmiconfig@9.0.0(typescript@5.6.2))(typescript@5.6.2):
+  cosmiconfig-typescript-loader@5.0.0(@types/node@22.3.0)(cosmiconfig@9.0.0(typescript@5.6.3))(typescript@5.6.3):
     dependencies:
       '@types/node': 22.3.0
-      cosmiconfig: 9.0.0(typescript@5.6.2)
+      cosmiconfig: 9.0.0(typescript@5.6.3)
       jiti: 1.21.6
-      typescript: 5.6.2
+      typescript: 5.6.3
 
   cosmiconfig@7.1.0:
     dependencies:
@@ -5033,14 +5033,14 @@ snapshots:
       path-type: 4.0.0
       yaml: 1.10.2
 
-  cosmiconfig@9.0.0(typescript@5.6.2):
+  cosmiconfig@9.0.0(typescript@5.6.3):
     dependencies:
       env-paths: 2.2.1
       import-fresh: 3.3.0
       js-yaml: 4.1.0
       parse-json: 5.2.0
     optionalDependencies:
-      typescript: 5.6.2
+      typescript: 5.6.3
 
   cross-spawn@7.0.3:
     dependencies:
@@ -6902,7 +6902,7 @@ snapshots:
 
   strip-json-comments@5.0.1: {}
 
-  stylelint@16.8.1(typescript@5.6.2):
+  stylelint@16.8.1(typescript@5.6.3):
     dependencies:
       '@csstools/css-parser-algorithms': 2.7.1(@csstools/css-tokenizer@2.4.1)
       '@csstools/css-tokenizer': 2.4.1
@@ -6911,7 +6911,7 @@ snapshots:
       '@dual-bundle/import-meta-resolve': 4.1.0
       balanced-match: 2.0.0
       colord: 2.9.3
-      cosmiconfig: 9.0.0(typescript@5.6.2)
+      cosmiconfig: 9.0.0(typescript@5.6.3)
       css-functions-list: 3.2.2
       css-tree: 2.3.1
       debug: 4.3.6
@@ -7061,7 +7061,7 @@ snapshots:
 
   typescript@5.5.4: {}
 
-  typescript@5.6.2: {}
+  typescript@5.6.3: {}
 
   uc.micro@1.0.6: {}
 
