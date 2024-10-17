@@ -18,8 +18,8 @@ importers:
         specifier: ^19.5.0
         version: 19.5.0
       '@evilmartians/lefthook':
-        specifier: ^1.7.18
-        version: 1.7.18
+        specifier: ^1.7.21
+        version: 1.7.21
       '@ls-lint/ls-lint':
         specifier: ^2.2.3
         version: 2.2.3
@@ -685,8 +685,8 @@ packages:
     resolution: {integrity: sha512-vH9PiIMMwvhCx31Af3HiGzsVNULDbyVkHXwlemn/B0TFj/00ho3y55efXrUZTfQipxoHC5u4xq6zblww1zm1Ig==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@evilmartians/lefthook@1.7.18':
-    resolution: {integrity: sha512-BIJBQtC7xKOedxESlB0wVG6M32ftjK+5vnID9I5CjRDE/6KcCpcK366AyG0eHGdPK1TVty81QalxZqSTxWRXPw==}
+  '@evilmartians/lefthook@1.7.21':
+    resolution: {integrity: sha512-lTntfpVHvK6RwYcCOMVtwocmlfRquvp4MKaRN5+yUMT+TTkjSjWRK6/jDW3XGSstNnbF7t4hWEqtFSI+KHPZUg==}
     cpu: [x64, arm64, ia32]
     os: [darwin, linux, win32]
     hasBin: true
@@ -3913,7 +3913,7 @@ snapshots:
     dependencies:
       levn: 0.4.1
 
-  '@evilmartians/lefthook@1.7.18': {}
+  '@evilmartians/lefthook@1.7.21': {}
 
   '@humanfs/core@0.19.0': {}
 
