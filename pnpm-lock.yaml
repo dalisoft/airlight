@@ -78,8 +78,8 @@ importers:
   packages/eslint-config-base:
     dependencies:
       '@eslint-community/eslint-plugin-eslint-comments':
-        specifier: ^4.4.0
-        version: 4.4.0(eslint@9.9.0(jiti@1.21.6))
+        specifier: ^4.4.1
+        version: 4.4.1(eslint@9.9.0(jiti@1.21.6))
       '@eslint/compat':
         specifier: ^1.2.1
         version: 1.2.1(eslint@9.9.0(jiti@1.21.6))
@@ -628,8 +628,8 @@ packages:
   '@emnapi/wasi-threads@1.0.1':
     resolution: {integrity: sha512-iIBu7mwkq4UQGeMEM8bLwNK962nXdhodeScX4slfQnRhEMMzvYivHhutCIk8uojvmASXXPC2WNEjwxFWk72Oqw==}
 
-  '@eslint-community/eslint-plugin-eslint-comments@4.4.0':
-    resolution: {integrity: sha512-yljsWl5Qv3IkIRmJ38h3NrHXFCm4EUl55M8doGTF6hvzvFF8kRpextgSrg2dwHev9lzBZyafCr9RelGIyQm6fw==}
+  '@eslint-community/eslint-plugin-eslint-comments@4.4.1':
+    resolution: {integrity: sha512-lb/Z/MzbTf7CaVYM9WCFNQZ4L1yi3ev2fsFPF99h31ljhSEyUoyEsKsNWiU+qD1glbYTDJdqgyaLKtyTkkqtuQ==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
       eslint: ^6.0.0 || ^7.0.0 || ^8.0.0 || ^9.0.0
@@ -3833,7 +3833,7 @@ snapshots:
       tslib: 2.6.3
     optional: true
 
-  '@eslint-community/eslint-plugin-eslint-comments@4.4.0(eslint@9.9.0(jiti@1.21.6))':
+  '@eslint-community/eslint-plugin-eslint-comments@4.4.1(eslint@9.9.0(jiti@1.21.6))':
     dependencies:
       escape-string-regexp: 4.0.0
       eslint: 9.9.0(jiti@1.21.6)
