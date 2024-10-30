@@ -160,8 +160,8 @@ importers:
         specifier: latest
         version: link:../eslint-config-base
       eslint-plugin-n:
-        specifier: ^17.11.1
-        version: 17.11.1(eslint@9.9.0(jiti@1.21.6))
+        specifier: ^17.12.0
+        version: 17.12.0(eslint@9.9.0(jiti@1.21.6))
       globals:
         specifier: ^15.11.0
         version: 15.11.0
@@ -1805,8 +1805,8 @@ packages:
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8 || ^9
 
-  eslint-plugin-n@17.11.1:
-    resolution: {integrity: sha512-93IUD82N6tIEgjztVI/l3ElHtC2wTa9boJHrD8iN+NyDxjxz/daZUZKfkedjBZNdg6EqDk4irybUsiPwDqXAEA==}
+  eslint-plugin-n@17.12.0:
+    resolution: {integrity: sha512-zNAtz/erDn0v78bIY3MASSQlyaarV4IOTvP5ldHsqblRFrXriikB6ghkDTkHjUad+nMRrIbOy9euod2azjRfBg==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       eslint: '>=8.23.0'
@@ -2054,6 +2054,9 @@ packages:
 
   get-tsconfig@4.7.6:
     resolution: {integrity: sha512-ZAqrLlu18NbDdRaHq+AKXzAmqIUPswPWKUchfytdAjiRFnCe5ojG2bstg6mRiZabkKfCoL/e98pbBELIV/YCeA==}
+
+  get-tsconfig@4.8.1:
+    resolution: {integrity: sha512-k9PN+cFBmaLWtVz29SkUoqU5O0slLuHJXt/2P+tMVFT+phsSGXGkp9t3rQIqdz0e+06EHNGs3oM6ZX1s2zHxRg==}
 
   git-raw-commits@4.0.0:
     resolution: {integrity: sha512-ICsMM1Wk8xSGMowkOmPrzo2Fgmfo4bMHLNX6ytHjajRJUqvHOw/TFapQ+QG75c3X/tTDDhOSRPGC52dDbNM8FQ==}
@@ -5353,13 +5356,13 @@ snapshots:
       safe-regex-test: 1.0.3
       string.prototype.includes: 2.0.1
 
-  eslint-plugin-n@17.11.1(eslint@9.9.0(jiti@1.21.6)):
+  eslint-plugin-n@17.12.0(eslint@9.9.0(jiti@1.21.6)):
     dependencies:
       '@eslint-community/eslint-utils': 4.4.0(eslint@9.9.0(jiti@1.21.6))
       enhanced-resolve: 5.17.1
       eslint: 9.9.0(jiti@1.21.6)
       eslint-plugin-es-x: 7.8.0(eslint@9.9.0(jiti@1.21.6))
-      get-tsconfig: 4.7.6
+      get-tsconfig: 4.8.1
       globals: 15.11.0
       ignore: 5.3.2
       minimatch: 9.0.5
@@ -5691,6 +5694,10 @@ snapshots:
       get-intrinsic: 1.2.4
 
   get-tsconfig@4.7.6:
+    dependencies:
+      resolve-pkg-maps: 1.0.0
+
+  get-tsconfig@4.8.1:
     dependencies:
       resolve-pkg-maps: 1.0.0
 
