@@ -24,8 +24,8 @@ importers:
         specifier: ^2.2.3
         version: 2.2.3
       '@stoplight/spectral-cli':
-        specifier: ^6.14.0
-        version: 6.14.0
+        specifier: ^6.14.1
+        version: 6.14.1
       biome-config-airlight:
         specifier: workspace:*
         version: link:packages/biome-config
@@ -933,8 +933,8 @@ packages:
     engines: {node: ^12.20 || >= 14.13}
     hasBin: true
 
-  '@stoplight/spectral-cli@6.14.0':
-    resolution: {integrity: sha512-pq1qWENLtI97afz9Ygx0TtBXj9s97oQnjMOUp4USzXdnxhKhlYwlhJIA9U3VYzktA+QpHdTXVd4GSgyxdHSBSg==}
+  '@stoplight/spectral-cli@6.14.1':
+    resolution: {integrity: sha512-bseZnTPDYEfpKLxIiW8qOuTcK1gOey6UUAClEBwpxcfc79IQ1MaVKDHsYlJBZMYI4GIW7AFxulIAG06o2Ey8MA==}
     engines: {node: ^16.20 || ^18.18 || >= 20.17}
     hasBin: true
 
@@ -981,10 +981,6 @@ packages:
   '@stoplight/spectral-ruleset-bundler@1.6.0':
     resolution: {integrity: sha512-8CU7e4aEGdfU9ncVDtlnJSawg/6epzAHrQTjuNu1QfKAOoiwyG7oUk2XUTHWcvq6Q67iUctb0vjOokR+MPVg0Q==}
     engines: {node: ^12.20 || >= 14.13}
-
-  '@stoplight/spectral-ruleset-migrator@1.10.0':
-    resolution: {integrity: sha512-nDfkVfYeWWv0UvILC4TWZSnRqQ4rHgeOJO1/lHQ7XHeG5iONanQ639B1aK6ZS6vuUc8gwuyQsrPF67b4sHIyYw==}
-    engines: {node: '>=12'}
 
   '@stoplight/spectral-ruleset-migrator@1.11.0':
     resolution: {integrity: sha512-FHxc/C/RhEYXW8zcp9mO50/jt+0Of6p6ZFVoV84l9y7agQchc9RGFjN6src4kO7bg6eUWQK6+5rUIV6yFKhBgg==}
@@ -3286,6 +3282,9 @@ packages:
   tslib@2.6.3:
     resolution: {integrity: sha512-xNvxJEOUiWPGhUuUdQgAJPKOOJfGnIyKySOc09XkKsgdUV/3E2zvwZYdejjmRgPCgcym1juLH3226yA7sEFJKQ==}
 
+  tslib@2.8.1:
+    resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
+
   type-check@0.4.0:
     resolution: {integrity: sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew==}
     engines: {node: '>= 0.8.0'}
@@ -4132,7 +4131,7 @@ snapshots:
       fast-memoize: 2.5.2
       immer: 9.0.21
       lodash: 4.17.21
-      tslib: 2.6.3
+      tslib: 2.8.1
       urijs: 1.19.11
 
   '@stoplight/json@3.21.6':
@@ -4172,7 +4171,7 @@ snapshots:
     transitivePeerDependencies:
       - encoding
 
-  '@stoplight/spectral-cli@6.14.0':
+  '@stoplight/spectral-cli@6.14.1':
     dependencies:
       '@stoplight/json': 3.21.6
       '@stoplight/path': 1.3.2
@@ -4191,7 +4190,7 @@ snapshots:
       lodash: 4.17.21
       pony-cause: 1.1.1
       stacktracey: 2.1.8
-      tslib: 2.6.3
+      tslib: 2.8.1
       yargs: 17.7.2
     transitivePeerDependencies:
       - encoding
@@ -4244,14 +4243,14 @@ snapshots:
       nimma: 0.2.3
       pony-cause: 1.1.1
       simple-eval: 1.0.1
-      tslib: 2.6.3
+      tslib: 2.8.1
     transitivePeerDependencies:
       - encoding
 
   '@stoplight/spectral-formats@1.6.0':
     dependencies:
       '@stoplight/json': 3.21.6
-      '@stoplight/spectral-core': 1.18.3
+      '@stoplight/spectral-core': 1.19.2
       '@types/json-schema': 7.0.15
       tslib: 2.6.3
     transitivePeerDependencies:
@@ -4262,14 +4261,14 @@ snapshots:
       '@stoplight/json': 3.21.6
       '@stoplight/spectral-core': 1.19.2
       '@types/json-schema': 7.0.15
-      tslib: 2.6.3
+      tslib: 2.8.1
     transitivePeerDependencies:
       - encoding
 
   '@stoplight/spectral-formatters@1.3.0':
     dependencies:
       '@stoplight/path': 1.3.2
-      '@stoplight/spectral-core': 1.18.3
+      '@stoplight/spectral-core': 1.19.2
       '@stoplight/spectral-runtime': 1.1.2
       '@stoplight/types': 13.20.0
       chalk: 4.1.2
@@ -4296,7 +4295,7 @@ snapshots:
       node-sarif-builder: 2.0.3
       strip-ansi: 6.0.1
       text-table: 0.2.0
-      tslib: 2.6.3
+      tslib: 2.8.1
     transitivePeerDependencies:
       - encoding
 
@@ -4304,7 +4303,7 @@ snapshots:
     dependencies:
       '@stoplight/better-ajv-errors': 1.0.3(ajv@8.17.1)
       '@stoplight/json': 3.21.6
-      '@stoplight/spectral-core': 1.18.3
+      '@stoplight/spectral-core': 1.19.2
       '@stoplight/spectral-formats': 1.6.0
       '@stoplight/spectral-runtime': 1.1.2
       ajv: 8.17.1
@@ -4321,7 +4320,7 @@ snapshots:
       '@stoplight/json': 3.21.6
       '@stoplight/types': 14.1.1
       '@stoplight/yaml': 4.3.0
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   '@stoplight/spectral-ref-resolver@1.0.4':
     dependencies:
@@ -4329,7 +4328,7 @@ snapshots:
       '@stoplight/json-ref-resolver': 3.1.6
       '@stoplight/spectral-runtime': 1.1.2
       dependency-graph: 0.11.0
-      tslib: 2.6.3
+      tslib: 2.8.1
     transitivePeerDependencies:
       - encoding
 
@@ -4337,12 +4336,12 @@ snapshots:
     dependencies:
       '@rollup/plugin-commonjs': 22.0.2(rollup@2.79.1)
       '@stoplight/path': 1.3.2
-      '@stoplight/spectral-core': 1.18.3
+      '@stoplight/spectral-core': 1.19.2
       '@stoplight/spectral-formats': 1.6.0
       '@stoplight/spectral-functions': 1.8.0
       '@stoplight/spectral-parsers': 1.0.4
       '@stoplight/spectral-ref-resolver': 1.0.4
-      '@stoplight/spectral-ruleset-migrator': 1.10.0
+      '@stoplight/spectral-ruleset-migrator': 1.11.0
       '@stoplight/spectral-rulesets': 1.19.1
       '@stoplight/spectral-runtime': 1.1.2
       '@stoplight/types': 13.20.0
@@ -4370,26 +4369,7 @@ snapshots:
       '@types/node': 22.3.0
       pony-cause: 1.1.1
       rollup: 2.79.1
-      tslib: 2.6.3
-      validate-npm-package-name: 3.0.0
-    transitivePeerDependencies:
-      - encoding
-
-  '@stoplight/spectral-ruleset-migrator@1.10.0':
-    dependencies:
-      '@stoplight/json': 3.21.6
-      '@stoplight/ordered-object-literal': 1.0.5
-      '@stoplight/path': 1.3.2
-      '@stoplight/spectral-functions': 1.8.0
-      '@stoplight/spectral-runtime': 1.1.2
-      '@stoplight/types': 13.20.0
-      '@stoplight/yaml': 4.2.3
-      '@types/node': 22.3.0
-      ajv: 8.17.1
-      ast-types: 0.14.2
-      astring: 1.8.6
-      reserved: 0.1.2
-      tslib: 2.6.3
+      tslib: 2.8.1
       validate-npm-package-name: 3.0.0
     transitivePeerDependencies:
       - encoding
@@ -4408,7 +4388,7 @@ snapshots:
       ast-types: 0.14.2
       astring: 1.9.0
       reserved: 0.1.2
-      tslib: 2.6.3
+      tslib: 2.8.1
       validate-npm-package-name: 3.0.0
     transitivePeerDependencies:
       - encoding
@@ -4448,7 +4428,7 @@ snapshots:
       json-schema-traverse: 1.0.0
       leven: 3.1.0
       lodash: 4.17.21
-      tslib: 2.6.3
+      tslib: 2.8.1
     transitivePeerDependencies:
       - encoding
 
@@ -4460,7 +4440,7 @@ snapshots:
       abort-controller: 3.0.0
       lodash: 4.17.21
       node-fetch: 2.7.0
-      tslib: 2.6.3
+      tslib: 2.8.1
     transitivePeerDependencies:
       - encoding
 
@@ -4500,7 +4480,7 @@ snapshots:
       '@stoplight/ordered-object-literal': 1.0.5
       '@stoplight/types': 14.1.1
       '@stoplight/yaml-ast-parser': 0.0.50
-      tslib: 2.6.3
+      tslib: 2.8.1
 
   '@stylistic/eslint-plugin@2.10.1(eslint@9.9.0(jiti@1.21.6))(typescript@5.5.4)':
     dependencies:
@@ -6353,7 +6333,7 @@ snapshots:
     dependencies:
       '@jsep-plugin/regex': 1.0.3(jsep@1.3.9)
       '@jsep-plugin/ternary': 1.1.3(jsep@1.3.9)
-      astring: 1.8.6
+      astring: 1.9.0
       jsep: 1.3.9
     optionalDependencies:
       jsonpath-plus: 6.0.1
@@ -6363,7 +6343,7 @@ snapshots:
     dependencies:
       '@jsep-plugin/regex': 1.0.3(jsep@1.3.9)
       '@jsep-plugin/ternary': 1.1.3(jsep@1.3.9)
-      astring: 1.8.6
+      astring: 1.9.0
       jsep: 1.3.9
     optionalDependencies:
       jsonpath-plus: 10.1.0
@@ -6998,6 +6978,8 @@ snapshots:
   tslib@1.14.1: {}
 
   tslib@2.6.3: {}
+
+  tslib@2.8.1: {}
 
   type-check@0.4.0:
     dependencies:
