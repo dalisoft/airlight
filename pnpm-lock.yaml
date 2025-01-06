@@ -15,8 +15,8 @@ importers:
         specifier: ^19.6.1
         version: 19.6.1(@types/node@22.3.0)(typescript@5.7.2)
       '@commitlint/config-lerna-scopes':
-        specifier: ^19.5.0
-        version: 19.5.0
+        specifier: ^19.7.0
+        version: 19.7.0
       '@evilmartians/lefthook':
         specifier: ^1.10.1
         version: 1.10.1
@@ -424,11 +424,11 @@ packages:
     resolution: {integrity: sha512-DJT40iMnTYtBtUfw9ApbsLZFke1zKh6llITVJ+x9mtpHD08gsNXaIRqHTmwTZL3dNX5+WoyK7pCN/5zswvkBCQ==}
     engines: {node: '>=v18'}
 
-  '@commitlint/config-lerna-scopes@19.5.0':
-    resolution: {integrity: sha512-h89BuwLVinacPOu2hzBKJ4t/L/HOA7rUuzbS10k26Lzq2/OKpi/KEhNfphJJLizfeqOzjqh1/V3ILbePtaBUtg==}
+  '@commitlint/config-lerna-scopes@19.7.0':
+    resolution: {integrity: sha512-KsmMvb/DncTHid27lj5/45HObuoM3OKWGBs9sPw8dIMORqs70MWBk5iq+SoUjKqQAgZ8Gv4kO9Sol/laqva+hw==}
     engines: {node: '>=v18'}
     peerDependencies:
-      lerna: ^5.0.0 || ^6
+      lerna: '>=5 <9'
     peerDependenciesMeta:
       lerna:
         optional: true
@@ -3884,7 +3884,7 @@ snapshots:
       '@commitlint/types': 19.5.0
       conventional-changelog-conventionalcommits: 7.0.2
 
-  '@commitlint/config-lerna-scopes@19.5.0':
+  '@commitlint/config-lerna-scopes@19.7.0':
     dependencies:
       '@lerna/project': 6.4.1
       glob: 10.4.5
