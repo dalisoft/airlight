@@ -25,7 +25,7 @@
   "homepage": "https://github.com/dalisoft/airlight#readme",
   "dependencies": {
     "@ls-lint/ls-lint": "^2.2.3",
-    "eslint": "^9.18.0",
+    "eslint": "^9.19.0",
     "dprint": "^0.48.0",
     "@biomejs/biome": "^1.9.4"
   },
