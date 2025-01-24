@@ -102,8 +102,8 @@ importers:
         specifier: ^8.57.0 || ^9.5.0
         version: 9.19.0(jiti@2.4.1)
       eslint-config-prettier:
-        specifier: ^9.1.0
-        version: 9.1.0(eslint@9.19.0(jiti@2.4.1))
+        specifier: ^10.0.1
+        version: 10.0.1(eslint@9.19.0(jiti@2.4.1))
       eslint-import-resolver-typescript:
         specifier: ^3.7.0
         version: 3.7.0(eslint-plugin-import-x@3.1.0(eslint@9.19.0(jiti@2.4.1))(typescript@5.7.3))(eslint-plugin-import@2.29.1)(eslint@9.19.0(jiti@2.4.1))
@@ -682,10 +682,6 @@ packages:
 
   '@eslint/eslintrc@3.2.0':
     resolution: {integrity: sha512-grOjVNN8P3hjJn/eIETF1wwd12DdnwFDoyceUJLYYdkpbwq3nLi+4fqrTAONx7XDALqlL220wC/RHSC/QTI/0w==}
-    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
-
-  '@eslint/js@9.18.0':
-    resolution: {integrity: sha512-fK6L7rxcq6/z+AaQMtiFTkvbHkBLNlwyRxHpKawP0x3u9+NC6MQTnFW+AdpwC6gfHTW0051cokQgtTN2FqlxQA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
   '@eslint/js@9.19.0':
@@ -1864,8 +1860,8 @@ packages:
     peerDependencies:
       eslint: '>=6.0.0'
 
-  eslint-config-prettier@9.1.0:
-    resolution: {integrity: sha512-NSWl5BFQWEPi1j4TjVNItzYV7dZXZ+wP6I6ZhrBGpChQhZRUaElihE9uRRkcbRnNb76UMKDF3r+WTmNcGPKsqw==}
+  eslint-config-prettier@10.0.1:
+    resolution: {integrity: sha512-lZBts941cyJyeaooiKxAtzoPHTN+GbQTJFAIdQbRhA4/8whaAraEh47Whw/ZFfrjNSnlAxqfm9i0XVAEkULjCw==}
     hasBin: true
     peerDependencies:
       eslint: '>=7.0.0'
@@ -4237,8 +4233,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@eslint/js@9.18.0': {}
-
   '@eslint/js@9.19.0': {}
 
   '@eslint/js@9.9.0': {}
@@ -5891,7 +5885,7 @@ snapshots:
       eslint: 9.19.0(jiti@2.4.1)
       semver: 7.6.3
 
-  eslint-config-prettier@9.1.0(eslint@9.19.0(jiti@2.4.1)):
+  eslint-config-prettier@10.0.1(eslint@9.19.0(jiti@2.4.1)):
     dependencies:
       eslint: 9.19.0(jiti@2.4.1)
 
