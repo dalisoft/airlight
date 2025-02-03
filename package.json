@@ -35,7 +35,7 @@
     "eslint": "^9.19.0",
     "eslint-config-airlight-node": "workspace:*",
     "lint-staged-config-airlight": "workspace:*",
-    "oxlint": "^0.15.8",
+    "oxlint": "^0.15.9",
     "prettier-config-airlight": "workspace:*",
     "smartlint-unix": "workspace:*",
     "typescript": "^5.7.3"
