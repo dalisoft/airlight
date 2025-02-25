@@ -15,7 +15,9 @@ module.exports = {
       leadingUnderscore: 'forbid'
     },
     {
+      // biome-ignore lint/nursery/noSecrets: It's no secret
       selector: 'objectLiteralProperty',
+      // biome-ignore lint/nursery/noSecrets: It's no secret
       format: ['StrictPascalCase'],
       leadingUnderscore: 'forbid'
     },
@@ -33,6 +35,7 @@ module.exports = {
     },
     {
       selector: 'typeLike',
+      // biome-ignore lint/nursery/noSecrets: It's no secret
       format: ['StrictPascalCase'],
       leadingUnderscore: 'forbid'
     },

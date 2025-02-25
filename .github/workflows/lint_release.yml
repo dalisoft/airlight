@@ -40,7 +40,13 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Biome rules build & format
-        run: cd ./packages/eslint-config-node && pnpm exec biome migrate eslint --write --include-inspired --include-nursery && pnpm exec biome check biome.json --write --config-path=../biome-config/biome.json
+        run: |
+          cd ./packages/eslint-config-node
+          pnpm exec biome migrate eslint --write --include-inspired --include-nursery
+          pnpm exec biome format biome.json --write
+          pnpm exec biome check biome.json --write --config-path=../biome-config/biome.json
+          cd ../biome-config
+          pnpm exec biome format biome.json --write
 
       - name: Lint code
         run: pnpm run lint

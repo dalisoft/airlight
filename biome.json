@@ -5,7 +5,7 @@
     "./packages/eslint-config-node/biome.json"
   ],
   "files": {
-    "ignore": ["scripts", ".release-me", "oxlintrc.json"]
+    "ignore": ["scripts", ".release-me", "oxlintrc.json", "bench", "examples"]
   },
   "vcs": {
     "enabled": true,
@@ -16,6 +16,10 @@
     "rules": {
       "style": {
         "useNamingConvention": "off"
+      },
+      "nursery": {
+        "noCommonJs": "off",
+        "noSecrets": "off"
       }
     }
   }

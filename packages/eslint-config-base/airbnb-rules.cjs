@@ -77,16 +77,25 @@ module.exports = {
         'JSXElement > *',
         'JSXAttribute',
         'JSXIdentifier',
+        // biome-ignore lint/nursery/noSecrets: It's no secret
         'JSXNamespacedName',
+        // biome-ignore lint/nursery/noSecrets: It's no secret
         'JSXMemberExpression',
+        // biome-ignore lint/nursery/noSecrets: It's no secret
         'JSXSpreadAttribute',
+        // biome-ignore lint/nursery/noSecrets: It's no secret
         'JSXExpressionContainer',
+        // biome-ignore lint/nursery/noSecrets: It's no secret
         'JSXOpeningElement',
+        // biome-ignore lint/nursery/noSecrets: It's no secret
         'JSXClosingElement',
         'JSXFragment',
+        // biome-ignore lint/nursery/noSecrets: It's no secret
         'JSXOpeningFragment',
+        // biome-ignore lint/nursery/noSecrets: It's no secret
         'JSXClosingFragment',
         'JSXText',
+        // biome-ignore lint/nursery/noSecrets: It's no secret
         'JSXEmptyExpression',
         'JSXSpreadChild'
       ],

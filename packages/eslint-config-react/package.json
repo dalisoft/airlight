@@ -19,7 +19,7 @@
     "biome.json"
   ],
   "scripts": {
-    "prepublishOnly": "node scripts/*.cjs && biome migrate eslint --write --include-inspired --include-nursery"
+    "prepublishOnly": "node scripts/*.cjs && biome migrate eslint --write --include-inspired --include-nursery && biome format biome.json --write"
   },
   "engines": {
     "node": ">=18.20.3"
