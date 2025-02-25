@@ -21,13 +21,13 @@
   "homepage": "https://github.com/dalisoft/airlight#readme",
   "peerDependencies": {
     "@biomejs/biome": "^1.9.4",
-    "@stoplight/spectral-cli": "^6.0.1",
-    "@stoplight/spectral-ruleset-migrator": "^1.5.0",
+    "@stoplight/spectral-cli": "^6.14.2",
+    "@stoplight/spectral-ruleset-migrator": "^1.11.1",
     "dockerfilelint": "^1.8.0",
-    "eslint": "^9.5.0",
-    "lint-staged": "^15.2.0",
-    "markdownlint-cli2": "^0.11.0",
-    "prettier": "^3.3.2",
-    "stylelint": "^16.0.x"
+    "eslint": "^9.21.0",
+    "lint-staged": "^15.4.3",
+    "markdownlint-cli2": "^0.17.2",
+    "prettier": "^3.5.2",
+    "stylelint": "^16.14.x"
   }
 }
