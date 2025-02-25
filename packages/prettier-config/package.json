@@ -1,6 +1,6 @@
 {
   "name": "prettier-config-airlight",
-  "version": "6.0.4",
+  "version": "6.0.5",
   "description": "Prettier config for use of combining to airlight-config-eslint(-node)",
   "main": "config.js",
   "type": "commonjs",
