@@ -1,6 +1,6 @@
 {
   "name": "airlight-resolve",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "description": "[WIP] `enhanced-resolve` faster implementation based on oxc-resolver",
   "type": "module",
   "main": "resolve.js",
