@@ -34,9 +34,10 @@ jobs:
         with:
           node-version: 22
           cache: 'pnpm'
+          cache-dependency-path: 'pnpm-lock.yaml'
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
       - name: Biome rules build & format
         run: cd ./packages/eslint-config-node && pnpm exec biome migrate eslint --write --include-inspired --include-nursery && pnpm exec biome check biome.json --write --config-path=../biome-config/biome.json
@@ -67,9 +68,10 @@ jobs:
         with:
           node-version: 22
           cache: 'pnpm'
+          cache-dependency-path: 'pnpm-lock.yaml'
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
       - name: Release
         env:
