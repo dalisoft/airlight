@@ -33,7 +33,7 @@
     "@stoplight/spectral-cli": "^6.x",
     "@stoplight/spectral-ruleset-migrator": "^1.x",
     "dockerfilelint": "^1.8.0",
-    "stylelint": "^16.0.x",
-    "prettier": "^3.3.2"
+    "stylelint": "^16.14.x",
+    "prettier": "^3.5.2"
   }
 }
