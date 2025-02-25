@@ -4,6 +4,9 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  '@stoplight/spectral-core': v1.19.4
+
 importers:
 
   .:
@@ -664,12 +667,6 @@ packages:
     peerDependencies:
       jsep: ^0.4.0||^1.0.0
 
-  '@jsep-plugin/regex@1.0.3':
-    resolution: {integrity: sha512-XfZgry4DwEZvSFtS/6Y+R48D7qJYJK6R9/yJFyUFHCIUMEEHuJ4X95TDgJp5QkmzfLYvapMPzskV5HpIDrREug==}
-    engines: {node: '>= 10.16.0'}
-    peerDependencies:
-      jsep: ^0.4.0||^1.0.0
-
   '@jsep-plugin/regex@1.0.4':
     resolution: {integrity: sha512-q7qL4Mgjs1vByCaTnDFcBnV9HS7GVPJX5vyVoCgZHNSC9rjwIlmbXG5sUuorR5ndfHAIlJ8pVStxvjXHbNvtUg==}
     engines: {node: '>= 10.16.0'}
@@ -874,14 +871,6 @@ packages:
     resolution: {integrity: sha512-yn49Tkin/Zzjwt39CbQvj3NZVolvXrjO3OLNn+Yd+LhQE5C96QNsULuE4q98e7+WRcLu4gK+Z0l5CxYNtsoPtw==}
     engines: {node: ^16.20 || ^18.18 || >= 20.17}
     hasBin: true
-
-  '@stoplight/spectral-core@1.18.3':
-    resolution: {integrity: sha512-YY8x7X2SWJIhGTLPol+eFiQpWPz0D0mJdkK2i4A0QJG68KkNhypP6+JBC7/Kz3XWjqr0L/RqAd+N5cQLPOKZGQ==}
-    engines: {node: ^12.20 || >= 14.13}
-
-  '@stoplight/spectral-core@1.19.2':
-    resolution: {integrity: sha512-Yx1j7d0VGEbsOCimPgl+L8w7ZuuOaxqGvXSUXgm9weoGR5idLQjPaTuHLdfdziR1gjqQdVTCEk/dN0cFfUKhow==}
-    engines: {node: ^16.20 || ^18.18 || >= 20.17}
 
   '@stoplight/spectral-core@1.19.4':
     resolution: {integrity: sha512-8hnZXfssTlV99SKo8J8BwMt5LsiBFHkCh0V3P7j8IPcCNl//bpG92U4TpYy7AwmUms/zCLX7sxNQC6AZ+bkfzg==}
@@ -2574,10 +2563,6 @@ packages:
     resolution: {integrity: sha512-wpxZs9NoxZaJESJGIZTyDEaYpl0FKSA+FB9aJiyemKhMwkxQg63h4T1KJgUGHpTqPDNRcmmYLugrRjJlBtWvRA==}
     hasBin: true
 
-  jsep@1.3.9:
-    resolution: {integrity: sha512-i1rBX5N7VPl0eYb6+mHNp52sEuaS2Wi8CDYx1X5sn9naevL78+265XJqy1qENEk7mRKwS06NHpUqiBwR7qeodw==}
-    engines: {node: '>= 10.16.0'}
-
   jsep@1.4.0:
     resolution: {integrity: sha512-B7qPcEVE3NVkmSJbaYxvv4cHkVW7DQsZz13pUMrfS8z8Q/BuShN+gcTXrUlPiGqM2/t/EEaI030bpxMqY8gMlw==}
     engines: {node: '>= 10.16.0'}
@@ -2614,23 +2599,10 @@ packages:
     resolution: {integrity: sha512-POQXvpdL69+CluYsillJ7SUhKvytYjW9vG/GKpnf+xP8UWgYEM/RaMzHHofbALDiKbbP1W8UEYmgGl39WkPZsg==}
     engines: {'0': node >= 0.2.0}
 
-  jsonpath-plus@10.1.0:
-    resolution: {integrity: sha512-gHfV1IYqH8uJHYVTs8BJX1XKy2/rR93+f8QQi0xhx95aCiXn1ettYAd5T+7FU6wfqyDoX/wy0pm/fL3jOKJ9Lg==}
-    engines: {node: '>=18.0.0'}
-    hasBin: true
-
   jsonpath-plus@10.2.0:
     resolution: {integrity: sha512-T9V+8iNYKFL2n2rF+w02LBOT2JjDnTjioaNFrxRy0Bv1y/hNsqR/EBK7Ojy2ythRHwmz2cRIls+9JitQGZC/sw==}
     engines: {node: '>=18.0.0'}
     hasBin: true
-
-  jsonpath-plus@6.0.1:
-    resolution: {integrity: sha512-EvGovdvau6FyLexFH2OeXfIITlgIbgZoAZe3usiySeaIDm5QS+A10DKNpaPBBqqRSZr2HN6HVNXxtwUAr2apEw==}
-    engines: {node: '>=10.0.0'}
-
-  jsonpath-plus@7.1.0:
-    resolution: {integrity: sha512-gTaNRsPWO/K2KY6MrqaUFClF9kmuM6MFH5Dhg1VYDODgFbByw1yb7xu3hrViE/sz+dGOeMWgCzwUwQtAnCTE9g==}
-    engines: {node: '>=12.0.0'}
 
   jsonpointer@5.0.1:
     resolution: {integrity: sha512-p/nXbhSEcu3pZRdkW1OfJhpsVtW1gd4Wa1fnQc9YLiTfAjn0312eMKimbdIQzuZl9aa9xUGaRlP9T/CJE/ditQ==}
@@ -2929,10 +2901,6 @@ packages:
 
   natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
-
-  nimma@0.2.2:
-    resolution: {integrity: sha512-V52MLl7BU+tH2Np9tDrIXK8bql3MVUadnMIl/0/oZSGC9keuro0O9UUv9QKp0aMvtN8HRew4G7byY7H4eWsxaQ==}
-    engines: {node: ^12.20 || >=14.13}
 
   nimma@0.2.3:
     resolution: {integrity: sha512-1ZOI8J+1PKKGceo/5CT5GfQOG6H8I2BencSK06YarZ2wXwH37BSSUWldqJmMJYA5JfqDqffxDXynt6f11AyKcA==}
@@ -3362,10 +3330,6 @@ packages:
   signal-exit@4.1.0:
     resolution: {integrity: sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==}
     engines: {node: '>=14'}
-
-  simple-eval@1.0.0:
-    resolution: {integrity: sha512-kpKJR+bqTscgC0xuAl2xHN6bB12lHjC2DCUfqjAx19bQyO3R2EVLOurm3H9AUltv/uFVcSCVNc6faegR+8NYLw==}
-    engines: {node: '>=12'}
 
   simple-eval@1.0.1:
     resolution: {integrity: sha512-LH7FpTAkeD+y5xQC4fzS+tFtaNlvt3Ib1zKzvhjv/Y+cioV4zIuw4IZr2yhRLu67CWL7FR9/6KXKnjRoZTvGGQ==}
@@ -4246,25 +4210,17 @@ snapshots:
       wrap-ansi: 8.1.0
       wrap-ansi-cjs: wrap-ansi@7.0.0
 
-  '@jsep-plugin/assignment@1.3.0(jsep@1.3.9)':
-    dependencies:
-      jsep: 1.3.9
-
   '@jsep-plugin/assignment@1.3.0(jsep@1.4.0)':
     dependencies:
       jsep: 1.4.0
-
-  '@jsep-plugin/regex@1.0.3(jsep@1.3.9)':
-    dependencies:
-      jsep: 1.3.9
 
   '@jsep-plugin/regex@1.0.4(jsep@1.4.0)':
     dependencies:
       jsep: 1.4.0
 
-  '@jsep-plugin/ternary@1.1.3(jsep@1.3.9)':
+  '@jsep-plugin/ternary@1.1.3(jsep@1.4.0)':
     dependencies:
-      jsep: 1.3.9
+      jsep: 1.4.0
 
   '@keyv/serialize@1.0.3':
     dependencies:
@@ -4444,7 +4400,7 @@ snapshots:
     dependencies:
       '@stoplight/json': 3.21.6
       '@stoplight/path': 1.3.2
-      '@stoplight/spectral-core': 1.18.3
+      '@stoplight/spectral-core': 1.19.4
       '@stoplight/spectral-formatters': 1.3.0
       '@stoplight/spectral-parsers': 1.0.4
       '@stoplight/spectral-ref-resolver': 1.0.4
@@ -4488,58 +4444,6 @@ snapshots:
     transitivePeerDependencies:
       - encoding
 
-  '@stoplight/spectral-core@1.18.3':
-    dependencies:
-      '@stoplight/better-ajv-errors': 1.0.3(ajv@8.17.1)
-      '@stoplight/json': 3.21.6
-      '@stoplight/path': 1.3.2
-      '@stoplight/spectral-parsers': 1.0.4
-      '@stoplight/spectral-ref-resolver': 1.0.4
-      '@stoplight/spectral-runtime': 1.1.2
-      '@stoplight/types': 13.6.0
-      '@types/es-aggregate-error': 1.0.6
-      '@types/json-schema': 7.0.15
-      ajv: 8.17.1
-      ajv-errors: 3.0.0(ajv@8.17.1)
-      ajv-formats: 2.1.1(ajv@8.17.1)
-      es-aggregate-error: 1.0.13
-      jsonpath-plus: 7.1.0
-      lodash: 4.17.21
-      lodash.topath: 4.5.2
-      minimatch: 3.1.2
-      nimma: 0.2.2
-      pony-cause: 1.1.1
-      simple-eval: 1.0.0
-      tslib: 2.8.1
-    transitivePeerDependencies:
-      - encoding
-
-  '@stoplight/spectral-core@1.19.2':
-    dependencies:
-      '@stoplight/better-ajv-errors': 1.0.3(ajv@8.17.1)
-      '@stoplight/json': 3.21.6
-      '@stoplight/path': 1.3.2
-      '@stoplight/spectral-parsers': 1.0.4
-      '@stoplight/spectral-ref-resolver': 1.0.4
-      '@stoplight/spectral-runtime': 1.1.2
-      '@stoplight/types': 13.6.0
-      '@types/es-aggregate-error': 1.0.6
-      '@types/json-schema': 7.0.15
-      ajv: 8.17.1
-      ajv-errors: 3.0.0(ajv@8.17.1)
-      ajv-formats: 2.1.1(ajv@8.17.1)
-      es-aggregate-error: 1.0.13
-      jsonpath-plus: 10.1.0
-      lodash: 4.17.21
-      lodash.topath: 4.5.2
-      minimatch: 3.1.2
-      nimma: 0.2.3
-      pony-cause: 1.1.1
-      simple-eval: 1.0.1
-      tslib: 2.8.1
-    transitivePeerDependencies:
-      - encoding
-
   '@stoplight/spectral-core@1.19.4':
     dependencies:
       '@stoplight/better-ajv-errors': 1.0.3(ajv@8.17.1)
@@ -4569,7 +4473,7 @@ snapshots:
   '@stoplight/spectral-formats@1.6.0':
     dependencies:
       '@stoplight/json': 3.21.6
-      '@stoplight/spectral-core': 1.19.2
+      '@stoplight/spectral-core': 1.19.4
       '@types/json-schema': 7.0.15
       tslib: 2.8.1
     transitivePeerDependencies:
@@ -4596,7 +4500,7 @@ snapshots:
   '@stoplight/spectral-formatters@1.3.0':
     dependencies:
       '@stoplight/path': 1.3.2
-      '@stoplight/spectral-core': 1.19.2
+      '@stoplight/spectral-core': 1.19.4
       '@stoplight/spectral-runtime': 1.1.2
       '@stoplight/types': 13.20.0
       chalk: 4.1.2
@@ -4631,7 +4535,7 @@ snapshots:
     dependencies:
       '@stoplight/better-ajv-errors': 1.0.3(ajv@8.17.1)
       '@stoplight/json': 3.21.6
-      '@stoplight/spectral-core': 1.19.2
+      '@stoplight/spectral-core': 1.19.4
       '@stoplight/spectral-formats': 1.6.0
       '@stoplight/spectral-runtime': 1.1.2
       ajv: 8.17.1
@@ -4680,7 +4584,7 @@ snapshots:
     dependencies:
       '@rollup/plugin-commonjs': 22.0.2(rollup@2.79.1)
       '@stoplight/path': 1.3.2
-      '@stoplight/spectral-core': 1.19.2
+      '@stoplight/spectral-core': 1.19.4
       '@stoplight/spectral-formats': 1.6.0
       '@stoplight/spectral-functions': 1.8.0
       '@stoplight/spectral-parsers': 1.0.4
@@ -4878,7 +4782,7 @@ snapshots:
 
   '@types/es-aggregate-error@1.0.6':
     dependencies:
-      '@types/node': 22.3.0
+      '@types/node': 22.13.0
 
   '@types/eslint-config-prettier@6.11.3': {}
 
@@ -5328,7 +5232,6 @@ snapshots:
     dependencies:
       es-errors: 1.3.0
       function-bind: 1.1.2
-    optional: true
 
   call-bind@1.0.7:
     dependencies:
@@ -5820,13 +5723,12 @@ snapshots:
       typed-array-length: 1.0.7
       unbox-primitive: 1.1.0
       which-typed-array: 1.1.18
-    optional: true
 
   es-aggregate-error@1.0.13:
     dependencies:
       define-data-property: 1.1.4
       define-properties: 1.2.1
-      es-abstract: 1.23.7
+      es-abstract: 1.23.9
       es-errors: 1.3.0
       function-bind: 1.1.2
       globalthis: 1.0.4
@@ -5867,7 +5769,6 @@ snapshots:
   es-object-atoms@1.1.1:
     dependencies:
       es-errors: 1.3.0
-    optional: true
 
   es-set-tostringtag@2.0.3:
     dependencies:
@@ -5881,7 +5782,6 @@ snapshots:
       get-intrinsic: 1.2.7
       has-tostringtag: 1.0.2
       hasown: 2.0.2
-    optional: true
 
   es-shim-unscopables@1.0.2:
     dependencies:
@@ -6344,13 +6244,11 @@ snapshots:
       has-symbols: 1.1.0
       hasown: 2.0.2
       math-intrinsics: 1.1.0
-    optional: true
 
   get-proto@1.0.1:
     dependencies:
       dunder-proto: 1.0.1
       es-object-atoms: 1.1.1
-    optional: true
 
   get-source@2.0.12:
     dependencies:
@@ -6738,7 +6636,6 @@ snapshots:
   is-weakref@1.1.1:
     dependencies:
       call-bound: 1.0.3
-    optional: true
 
   is-weakset@2.0.3:
     dependencies:
@@ -6779,8 +6676,6 @@ snapshots:
     dependencies:
       argparse: 2.0.1
 
-  jsep@1.3.9: {}
-
   jsep@1.4.0: {}
 
   json-buffer@3.0.1: {}
@@ -6810,22 +6705,11 @@ snapshots:
 
   jsonparse@1.3.1: {}
 
-  jsonpath-plus@10.1.0:
-    dependencies:
-      '@jsep-plugin/assignment': 1.3.0(jsep@1.3.9)
-      '@jsep-plugin/regex': 1.0.3(jsep@1.3.9)
-      jsep: 1.3.9
-
   jsonpath-plus@10.2.0:
     dependencies:
       '@jsep-plugin/assignment': 1.3.0(jsep@1.4.0)
       '@jsep-plugin/regex': 1.0.4(jsep@1.4.0)
       jsep: 1.4.0
-
-  jsonpath-plus@6.0.1:
-    optional: true
-
-  jsonpath-plus@7.1.0: {}
 
   jsonpointer@5.0.1: {}
 
@@ -7227,22 +7111,12 @@ snapshots:
 
   natural-compare@1.4.0: {}
 
-  nimma@0.2.2:
-    dependencies:
-      '@jsep-plugin/regex': 1.0.3(jsep@1.3.9)
-      '@jsep-plugin/ternary': 1.1.3(jsep@1.3.9)
-      astring: 1.9.0
-      jsep: 1.3.9
-    optionalDependencies:
-      jsonpath-plus: 6.0.1
-      lodash.topath: 4.5.2
-
   nimma@0.2.3:
     dependencies:
-      '@jsep-plugin/regex': 1.0.3(jsep@1.3.9)
-      '@jsep-plugin/ternary': 1.1.3(jsep@1.3.9)
+      '@jsep-plugin/regex': 1.0.4(jsep@1.4.0)
+      '@jsep-plugin/ternary': 1.1.3(jsep@1.4.0)
       astring: 1.9.0
-      jsep: 1.3.9
+      jsep: 1.4.0
     optionalDependencies:
       jsonpath-plus: 10.2.0
       lodash.topath: 4.5.2
@@ -7283,8 +7157,7 @@ snapshots:
 
   object-inspect@1.13.3: {}
 
-  object-inspect@1.13.4:
-    optional: true
+  object-inspect@1.13.4: {}
 
   object-keys@1.1.1: {}
 
@@ -7350,7 +7223,6 @@ snapshots:
       get-intrinsic: 1.2.7
       object-keys: 1.1.1
       safe-push-apply: 1.0.0
-    optional: true
 
   oxc-resolver@4.2.0:
     optionalDependencies:
@@ -7542,7 +7414,6 @@ snapshots:
       get-proto: 1.0.1
       gopd: 1.2.0
       set-function-name: 2.0.2
-    optional: true
 
   require-directory@2.1.1: {}
 
@@ -7601,7 +7472,6 @@ snapshots:
     dependencies:
       es-errors: 1.3.0
       isarray: 2.0.5
-    optional: true
 
   safe-regex-test@1.0.3:
     dependencies:
@@ -7648,7 +7518,6 @@ snapshots:
       dunder-proto: 1.0.1
       es-errors: 1.3.0
       es-object-atoms: 1.1.1
-    optional: true
 
   shebang-command@2.0.0:
     dependencies:
@@ -7688,13 +7557,9 @@ snapshots:
 
   signal-exit@4.1.0: {}
 
-  simple-eval@1.0.0:
-    dependencies:
-      jsep: 1.3.9
-
   simple-eval@1.0.1:
     dependencies:
-      jsep: 1.3.9
+      jsep: 1.4.0
 
   slash@3.0.0: {}
 

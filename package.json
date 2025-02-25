@@ -40,6 +40,12 @@
     "smartlint-unix": "workspace:*",
     "typescript": "^5.7.3"
   },
+  "overrides": {
+    "@stoplight/spectral-core": "v1.19.4"
+  },
+  "resolutions": {
+    "@stoplight/spectral-core": "v1.19.4"
+  },
   "pnpm": {
     "onlyBuiltDependencies": [
       "@biomejs/biome",
