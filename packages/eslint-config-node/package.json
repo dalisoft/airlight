@@ -44,8 +44,8 @@
     "eslint-define-config": "^2.1.0"
   },
   "peerDependencies": {
-    "eslint": "^8.57.0 || ^9.5.0",
-    "prettier": "^3.3.2",
-    "typescript": "^5.5.4"
+    "eslint": "^8.57.1 || ^9.21.0",
+    "prettier": "^3.5.2",
+    "typescript": "^5.7.3"
   }
 }
