@@ -21,8 +21,8 @@ importers:
         specifier: ^19.7.0
         version: 19.7.0
       '@evilmartians/lefthook':
-        specifier: ^1.11.0
-        version: 1.11.0
+        specifier: ^1.11.1
+        version: 1.11.1
       '@ls-lint/ls-lint':
         specifier: ^2.2.3
         version: 2.2.3
@@ -632,8 +632,9 @@ packages:
     resolution: {integrity: sha512-JubJ5B2pJ4k4yGxaNLdbjrnk9d/iDz6/q8wOilpIowd6PJPgaxCuHBnBszq7Ce2TyMrywm5r4PnKm6V3iiZF+g==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@evilmartians/lefthook@1.11.0':
-    resolution: {integrity: sha512-co2BCOPWncxTh9hDlNnSyfNMDxaoqxAUkuc5m0trR1f0iqGttcF8omZvdz9RF42y39WhhFkiU0+2hnYtCyqGnA==}
+  '@evilmartians/lefthook@1.11.1':
+    resolution: {integrity: sha512-8rR2DU1R5yWWx17UCBBTjjP9Qdc1uTW3T1uc1EgROSWhOBnJIKAogpeTKWFSiwz+8pr2+47xNziiErYyLNMOkg==}
+    cpu: [x64, arm64, ia32]
     os: [darwin, linux, win32]
     hasBin: true
 
@@ -699,6 +700,7 @@ packages:
 
   '@ls-lint/ls-lint@2.2.3':
     resolution: {integrity: sha512-ekM12jNm/7O2I/hsRv9HvYkRdfrHpiV1epVuI2NP+eTIcEgdIdKkKCs9KgQydu/8R5YXTov9aHdOgplmCHLupw==}
+    cpu: [x64, arm64, s390x]
     os: [darwin, linux, win32]
     hasBin: true
 
@@ -4186,7 +4188,7 @@ snapshots:
       '@eslint/core': 0.12.0
       levn: 0.4.1
 
-  '@evilmartians/lefthook@1.11.0': {}
+  '@evilmartians/lefthook@1.11.1': {}
 
   '@humanfs/core@0.19.1': {}
 
