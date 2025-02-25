@@ -9,15 +9,15 @@ const fgYellow = '\x1b[33m';
 const fgBlue = '\x1b[34m';
 
 const logError = (/** @type {string[]} */ ...args) => {
-  // biome-ignore lint/suspicious/noConsole: <explanation>
+  // biome-ignore lint/suspicious/noConsole: We use colored logs
   console.log(fgRed, ...args, fgReset);
 };
 const logWarn = (/** @type {string[]} */ ...args) => {
-  // biome-ignore lint/suspicious/noConsole: <explanation>
+  // biome-ignore lint/suspicious/noConsole: We use colored logs
   console.log(fgYellow, ...args, fgReset);
 };
 const logDebug = (/** @type {string[]} */ ...args) => {
-  // biome-ignore lint/suspicious/noConsole: <explanation>
+  // biome-ignore lint/suspicious/noConsole: We use colored logs
   console.log(fgBlue, ...args, fgReset);
 };
 
