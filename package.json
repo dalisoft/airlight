@@ -29,7 +29,7 @@
     "@commitlint/config-lerna-scopes": "^19.7.0",
     "@evilmartians/lefthook": "^1.11.2",
     "@ls-lint/ls-lint": "^2.2.3",
-    "@stoplight/spectral-cli": "^6.14.2",
+    "@stoplight/spectral-cli": "^6.14.3",
     "biome-config-airlight": "workspace:*",
     "dprint": "^0.49.0",
     "eslint": "^9.21.0",
