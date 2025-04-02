@@ -47,7 +47,7 @@
     "@eslint/compat": "^1.2.8",
     "@eslint/eslintrc": "^3.3.1",
     "@eslint/js": "^9.23.0",
-    "@stylistic/eslint-plugin": "^3.x",
+    "@stylistic/eslint-plugin": "^4.x",
     "@typescript-eslint/eslint-plugin": "^8.29.0",
     "@typescript-eslint/parser": "^8.29.0",
     "eslint-config-prettier": "^10.1.1",
