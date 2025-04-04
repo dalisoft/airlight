@@ -46,7 +46,7 @@
     "@eslint-community/eslint-plugin-eslint-comments": "^4.4.1",
     "@eslint/compat": "^1.2.8",
     "@eslint/eslintrc": "^3.3.1",
-    "@eslint/js": "^9.23.0",
+    "@eslint/js": "^9.24.0",
     "@stylistic/eslint-plugin": "^3.x",
     "@typescript-eslint/eslint-plugin": "^8.29.0",
     "@typescript-eslint/parser": "^8.29.0",
