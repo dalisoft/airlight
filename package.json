@@ -27,7 +27,7 @@
     "@biomejs/biome": "^1.9.4",
     "@commitlint/cli": "^19.8.0",
     "@commitlint/config-lerna-scopes": "^19.7.0",
-    "@evilmartians/lefthook": "^1.11.8",
+    "@evilmartians/lefthook": "^1.11.9",
     "@ls-lint/ls-lint": "^2.3.0",
     "@stoplight/spectral-cli": "^6.14.3",
     "biome-config-airlight": "workspace:*",
