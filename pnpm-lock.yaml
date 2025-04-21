@@ -21,8 +21,8 @@ importers:
         specifier: ^19.7.0
         version: 19.7.0
       '@evilmartians/lefthook':
-        specifier: ^1.11.10
-        version: 1.11.10
+        specifier: ^1.11.11
+        version: 1.11.11
       '@ls-lint/ls-lint':
         specifier: ^2.3.0
         version: 2.3.0
@@ -674,10 +674,6 @@ packages:
     resolution: {integrity: sha512-BqStZ3HX8Yz6LvsF5ByXYrtigrV5AXADWLAGc7PH/1SxOb7/FIYYMszZZWiUou/GB9P2lXWk2SV4d+Z8h0nknw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@eslint/js@9.24.0':
-    resolution: {integrity: sha512-uIY/y3z0uvOGX8cp1C2fiC4+ZmBhp6yZWkojtHL1YEMnRt1Y63HB9TM17proGEmeG7HeUY+UP36F0aknKYTpYA==}
-    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
-
   '@eslint/js@9.25.0':
     resolution: {integrity: sha512-iWhsUS8Wgxz9AXNfvfOPFSW4VfMXdVhp1hjkZVhXCrpgh/aLcc45rX6MPu+tIVUWDw0HfNwth7O28M1xDxNf9w==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
@@ -694,8 +690,8 @@ packages:
     resolution: {integrity: sha512-ZAoA40rNMPwSm+AeHpCq8STiNAwzWLJuP8Xv4CHIc9wv/PSuExjMrmjfYNj682vW0OOiZ1HKxzvjQr9XZIisQA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@evilmartians/lefthook@1.11.10':
-    resolution: {integrity: sha512-Y1Cy5nYY69JYNf74/QgFYoNCzQoJ6llALygjf7L1Ovc+pqVKF7u861PREFiOugVajzgkNUyjR3YtDK+tTMP5/g==}
+  '@evilmartians/lefthook@1.11.11':
+    resolution: {integrity: sha512-3XRY+3WWUQKEtRBUlaVFIGPD8lLOcJ/6zy6quCM9prH61ueKh4YxyPV2+Dy3sCogSlk2vGmmJUmmtJTJlpKuJw==}
     cpu: [x64, arm64, ia32]
     os: [darwin, linux, win32]
     hasBin: true
@@ -4463,8 +4459,6 @@ snapshots:
 
   '@eslint/js@9.21.0': {}
 
-  '@eslint/js@9.24.0': {}
-
   '@eslint/js@9.25.0': {}
 
   '@eslint/object-schema@2.1.6': {}
@@ -4479,7 +4473,7 @@ snapshots:
       '@eslint/core': 0.13.0
       levn: 0.4.1
 
-  '@evilmartians/lefthook@1.11.10': {}
+  '@evilmartians/lefthook@1.11.11': {}
 
   '@humanfs/core@0.19.1': {}
 
