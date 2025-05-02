@@ -90,8 +90,8 @@ importers:
         specifier: ^3.3.1
         version: 3.3.1
       '@eslint/js':
-        specifier: ^9.25.1
-        version: 9.25.1
+        specifier: ^9.26.0
+        version: 9.26.0
       '@stylistic/eslint-plugin':
         specifier: ^3.x
         version: 3.1.0(eslint@9.25.1(jiti@2.4.2))(typescript@5.8.3)
@@ -670,6 +670,10 @@ packages:
 
   '@eslint/js@9.25.1':
     resolution: {integrity: sha512-dEIwmjntEx8u3Uvv+kr3PDeeArL8Hw07H9kyYxCjnM9pBjfEhk6uLXSchxxzgiwtRhhzVzqmUSDFBOi1TuZ7qg==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
+  '@eslint/js@9.26.0':
+    resolution: {integrity: sha512-I9XlJawFdSMvWjDt6wksMCrgns5ggLNfFwFvnShsleWruvXM514Qxk8V246efTw+eo9JABvVz+u3q2RiAowKxQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
   '@eslint/object-schema@2.1.6':
@@ -4484,6 +4488,8 @@ snapshots:
 
   '@eslint/js@9.25.1': {}
 
+  '@eslint/js@9.26.0': {}
+
   '@eslint/object-schema@2.1.6': {}
 
   '@eslint/plugin-kit@0.2.7':
@@ -5312,7 +5318,7 @@ snapshots:
 
   '@types/eslint__js@9.14.0':
     dependencies:
-      '@eslint/js': 9.25.1
+      '@eslint/js': 9.26.0
 
   '@types/estree@0.0.39': {}
 
