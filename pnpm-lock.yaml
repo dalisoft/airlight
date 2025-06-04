@@ -24,8 +24,8 @@ importers:
         specifier: ^1.11.13
         version: 1.11.13
       '@ls-lint/ls-lint':
-        specifier: ^2.3.0
-        version: 2.3.0
+        specifier: ^2.3.1
+        version: 2.3.1
       '@stoplight/spectral-cli':
         specifier: ^6.15.0
         version: 6.15.0
@@ -264,8 +264,8 @@ importers:
         specifier: ^1.9.4
         version: 1.9.4
       '@ls-lint/ls-lint':
-        specifier: ^2.3.0
-        version: 2.3.0
+        specifier: ^2.3.1
+        version: 2.3.1
       '@stoplight/spectral-cli':
         specifier: ^6.x
         version: 6.15.0
@@ -641,8 +641,8 @@ packages:
   '@keyv/serialize@1.0.3':
     resolution: {integrity: sha512-qnEovoOp5Np2JDGonIDL6Ayihw0RhnRh6vxPuHo4RDn1UOzwEo4AeIfpL6UGIrsceWrCMiVPgwRjbHu4vYFc3g==}
 
-  '@ls-lint/ls-lint@2.3.0':
-    resolution: {integrity: sha512-lsT5/7SxtImOIjpefC9wcoXt2lkikKhCjd6U+Q9Z6X5h2HBU/71ggt+XStdodZ0HkJGO333zDUeec7JROMCPFw==}
+  '@ls-lint/ls-lint@2.3.1':
+    resolution: {integrity: sha512-vPe6IDByQnQRTxcAYjTxrmga/tSIui50VBFTB5KIJWY3OOFmxE2VtymjeSEfQfiMbhZV/ZPAqYy2lt8pZFQ0Rw==}
     cpu: [x64, arm64, s390x, ppc64le]
     os: [darwin, linux, win32]
     hasBin: true
@@ -4127,7 +4127,7 @@ snapshots:
     dependencies:
       buffer: 6.0.3
 
-  '@ls-lint/ls-lint@2.3.0': {}
+  '@ls-lint/ls-lint@2.3.1': {}
 
   '@napi-rs/wasm-runtime@0.2.10':
     dependencies:
