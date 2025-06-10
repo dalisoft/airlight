@@ -37,7 +37,7 @@
   "homepage": "https://github.com/dalisoft/airlight#readme",
   "dependencies": {
     "eslint-config-airlight-base": "latest",
-    "eslint-plugin-jest": "^28.13.0",
+    "eslint-plugin-jest": "^28.13.3",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^5.2.0",
