@@ -32,7 +32,7 @@
     "@stoplight/spectral-cli": "^6.15.0",
     "biome-config-airlight": "workspace:*",
     "dprint": "^0.50.1",
-    "eslint": "^9.31.0",
+    "eslint": "^9.32.0",
     "eslint-config-airlight-node": "workspace:*",
     "lint-staged-config-airlight": "workspace:*",
     "oxlint": "^0.18.1",
