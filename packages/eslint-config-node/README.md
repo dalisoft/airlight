@@ -43,9 +43,9 @@ yarn add eslint-config-airlight-node -D
 import airlightNode from 'eslint-config-airlight-node';
 
 export default [
-  ...airlightNode,
+  ...airlightNode
   // your rules
-]
+];
 ```
 
 ### oxlint
