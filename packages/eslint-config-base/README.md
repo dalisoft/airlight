@@ -50,9 +50,9 @@ yarn add eslint-config-airlight-base -D
 import airlightBase from 'eslint-config-airlight-base';
 
 export default [
-  ...airlightBase,
+  ...airlightBase
   // your rules
-]
+];
 ```
 
 ### oxlint
