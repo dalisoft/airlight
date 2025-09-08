@@ -8,15 +8,25 @@
     "smartlint": "bin/cli.js"
   },
   "types": "interface.d.ts",
-  "files": ["config.js", "bin/cli.js", "util.js", "interface.d.ts"],
+  "files": [
+    "config.js",
+    "bin/cli.js",
+    "util.js",
+    "interface.d.ts"
+  ],
   "engines": {
-    "node": ">=18.20.3"
+    "node": ">=20.19.5"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dalisoft/airlight.git"
   },
-  "keywords": ["format", "git", "lint", "config"],
+  "keywords": [
+    "format",
+    "git",
+    "lint",
+    "config"
+  ],
   "author": "dalisoft",
   "license": "MIT",
   "bugs": {
@@ -27,13 +37,13 @@
     "@ls-lint/ls-lint": "^2.3.1",
     "eslint": "^9.35.0",
     "dprint": "^0.50.1",
-    "@biomejs/biome": "^1.9.4"
+    "@biomejs/biome": "^2.2.3"
   },
   "peerDependencies": {
-    "@stoplight/spectral-cli": "^6.x",
-    "@stoplight/spectral-ruleset-migrator": "^1.x",
+    "@stoplight/spectral-cli": "^6.15.x",
+    "@stoplight/spectral-ruleset-migrator": "^1.11.x",
     "dockerfilelint": "^1.8.0",
-    "stylelint": "^16.14.x",
-    "prettier": "^3.5.2"
+    "stylelint": "^16.24.x",
+    "prettier": "^3.6.x"
   }
 }
