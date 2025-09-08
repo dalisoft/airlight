@@ -5,15 +5,22 @@
   "main": "config.js",
   "type": "commonjs",
   "types": "interface.d.ts",
-  "files": ["config.js", "interface.d.ts"],
+  "files": [
+    "config.js",
+    "interface.d.ts"
+  ],
   "engines": {
-    "node": ">=18.20.3"
+    "node": ">=20.19.5"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dalisoft/airlight.git"
   },
-  "keywords": ["prettier", "lint", "config"],
+  "keywords": [
+    "prettier",
+    "lint",
+    "config"
+  ],
   "author": "dalisoft",
   "license": "MIT",
   "bugs": {
@@ -21,6 +28,6 @@
   },
   "homepage": "https://github.com/dalisoft/airlight#readme",
   "peerDependencies": {
-    "prettier": "^3.5.2"
+    "prettier": "^3.6.x"
   }
 }
