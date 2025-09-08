@@ -1,7 +1,21 @@
 {
-  "typescript.tsdk": "node_modules/typescript/lib",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "[javascript][javascriptreact][typescript][typescriptreact][json][jsonc]": {
+  "[javascript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[jsonc]": {
     "editor.defaultFormatter": "biomejs.biome"
   },
   "[markdown]": {
@@ -10,13 +24,20 @@
   "cSpell.enabled": false,
   "eslint.lintTask.enable": true,
   "eslint.useFlatConfig": true,
-  "oxc_language_server.enable": true,
-  "oxc_language_server.configPath": ".eslintrc",
+  "oxc.enable": true,
+  "oxc.requireConfig": true,
+  "oxc.configPath": "oxlintrc.json",
+  "oxc.lint.run": "onSave",
   "biome.enabled": true,
+  "biome.requireConfiguration": true,
+  "biome.lsp.trace.server": "verbose",
+  "biome.configurationPath": "./biome.json",
   "prettier.enable": true,
   "task.allowAutomaticTasks": "on",
   "typescript.validate.enable": true,
   "javascript.validate.enable": true,
+  "typescript.experimental.useTsgo": true,
+  "npm.packageManager": "bun",
   "[properties]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },

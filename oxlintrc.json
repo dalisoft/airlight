@@ -1,0 +1,12 @@
+{
+  "extends": ["./packages/eslint-config-node/oxlintrc.json"],
+  "rules": {
+    "@typescript-eslint/no-var-requires": "off",
+    "complexity": ["error", { "max": 7 }],
+    "max-lines-per-function": [
+      "error",
+      { "max": 48, "skipBlankLines": true, "skipComments": true, "IIFEs": true }
+    ]
+  },
+  "ignorePatterns": [".history", ".release-me", "scripts"]
+}

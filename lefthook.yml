@@ -11,12 +11,12 @@ pre-commit:
     biome:
       env:
         PATH: $PATH:./node_modules/.bin
-      glob: "*.{js,ts,json}"
+      glob: '*.{js,ts,json}'
       run: biome check {staged_files} --write
     markdown:
       env:
         PATH: $PATH:./node_modules/.bin
-      glob: "*.md"
+      glob: '*.md'
       run: dprint fmt {staged_files}
 
 pre-push:
@@ -25,12 +25,12 @@ pre-push:
     biome:
       env:
         PATH: $PATH:./node_modules/.bin
-      glob: "*.{js,ts,json}"
+      glob: '*.{js,ts,json}'
       run: biome check {push_files}
     markdown:
       env:
         PATH: $PATH:./node_modules/.bin
-      glob: "*.md"
+      glob: '*.md'
       run: dprint check {push_files}
     ls-lint:
       env:

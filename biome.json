@@ -1,11 +1,16 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
-  "extends": [
-    "./packages/biome-config/biome.json",
-    "./packages/eslint-config-node/biome.json"
-  ],
+  "$schema": "https://biomejs.dev/schemas/2.2.3/schema.json",
+  "extends": ["biome-config-airlight"],
   "files": {
-    "ignore": ["scripts", ".release-me", "oxlintrc.json", "bench", "examples"]
+    "includes": [
+      "**",
+      "!**/scripts",
+      "!**/.release-me",
+      "!**/oxlintrc.json",
+      "!**/bench",
+      "!**/examples"
+    ],
+    "ignoreUnknown": true
   },
   "vcs": {
     "enabled": true,
@@ -15,10 +20,10 @@
   "linter": {
     "rules": {
       "style": {
-        "useNamingConvention": "off"
+        "useNamingConvention": "off",
+        "noCommonJs": "off"
       },
       "nursery": {
-        "noCommonJs": "off",
         "noSecrets": "off"
       }
     }

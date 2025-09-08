@@ -2,21 +2,29 @@
   "name": "airlight-config",
   "description": "Shared configurations to use with combine of each other to get cleaner, better, reusable, secure and efficient codebase",
   "private": true,
-  "type": "commonjs",
-  "workspaces": ["packages/*"],
+  "type": "module",
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "lint": "smartlint",
     "release": "pnpm -r --workspace-concurrency=1 exec ../../.release-me/release.sh -w --use-version --plugins=npm,npm-post,git,github-release --preset=workspace",
-    "prepare": "lefthook install -f"
+    "prepare": "lefthook install -f",
+    "tsgo": "tsgo",
+    "check-types": "tsgo --noEmit"
   },
   "engines": {
-    "node": ">=18.20.3"
+    "node": ">=20.19.5"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dalisoft/airlight.git"
   },
-  "keywords": ["biome", "eslint", "config"],
+  "keywords": [
+    "biome",
+    "eslint",
+    "config"
+  ],
   "author": "dalisoft",
   "license": "MIT",
   "bugs": {
@@ -24,33 +32,27 @@
   },
   "homepage": "https://github.com/dalisoft/airlight#readme",
   "devDependencies": {
-    "@biomejs/biome": "^1.9.4",
+    "@biomejs/biome": "^2.2.3",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-lerna-scopes": "^19.8.1",
-    "@evilmartians/lefthook": "^1.12.3",
+    "@eslint/js": "^9.35.0",
+    "@evilmartians/lefthook": "^1.12.4",
     "@ls-lint/ls-lint": "^2.3.1",
     "@stoplight/spectral-cli": "^6.15.0",
+    "@types/eslint": "^9.6.1",
+    "@typescript/native-preview": "^7.0.0-dev.20250908.1",
     "biome-config-airlight": "workspace:*",
     "dprint": "^0.50.1",
-    "eslint": "^9.35.0",
     "eslint-config-airlight-node": "workspace:*",
     "lint-staged-config-airlight": "workspace:*",
-    "oxlint": "^0.18.1",
+    "oxlint": "^1.14.0",
     "prettier-config-airlight": "workspace:*",
-    "smartlint-unix": "workspace:*",
-    "typescript": "^5.9.2"
+    "smartlint-unix": "workspace:*"
   },
-  "overrides": {
-    "@stoplight/spectral-core": "^v1.19.x"
-  },
-  "resolutions": {
-    "@stoplight/spectral-core": "^v1.19.x"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "@biomejs/biome",
-      "@evilmartians/lefthook",
-      "dprint"
-    ]
-  }
+  "trustedDependencies": [
+    "@biomejs/biome",
+    "@evilmartians/lefthook",
+    "dprint",
+    "unrs-resolver"
+  ]
 }
