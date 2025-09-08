@@ -47,9 +47,9 @@ yarn add eslint-config-airlight-react -D
 import airlightReact from 'eslint-config-airlight-react';
 
 export default [
-  ...airlightReact,
+  ...airlightReact
   // your rules
-]
+];
 ```
 
 ### oxlint
