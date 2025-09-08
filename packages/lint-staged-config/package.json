@@ -4,15 +4,22 @@
   "description": "Almost zero-config `lint-staged` configuration",
   "main": "config.js",
   "type": "commonjs",
-  "files": ["config.js"],
+  "files": [
+    "config.js"
+  ],
   "engines": {
-    "node": ">=18.20.3"
+    "node": ">=20.19.5"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dalisoft/airlight.git"
   },
-  "keywords": ["lint-staged", "git", "lint", "config"],
+  "keywords": [
+    "lint-staged",
+    "git",
+    "lint",
+    "config"
+  ],
   "author": "dalisoft",
   "license": "MIT",
   "bugs": {
@@ -20,14 +27,14 @@
   },
   "homepage": "https://github.com/dalisoft/airlight#readme",
   "peerDependencies": {
-    "@biomejs/biome": "^1.9.4",
-    "@stoplight/spectral-cli": "^6.14.2",
-    "@stoplight/spectral-ruleset-migrator": "^1.11.1",
-    "dockerfilelint": "^1.8.0",
-    "eslint": "^9.21.0",
-    "lint-staged": "^15.4.3",
-    "markdownlint-cli2": "^0.17.2",
-    "prettier": "^3.5.2",
-    "stylelint": "^16.14.x"
+    "@biomejs/biome": "^2.2.x",
+    "@stoplight/spectral-cli": "^6.15.x",
+    "@stoplight/spectral-ruleset-migrator": "^1.11.x",
+    "dockerfilelint": "^1.8.x",
+    "eslint": "^9.35.x",
+    "lint-staged": "^16.1.x",
+    "markdownlint-cli2": "^0.18.x",
+    "prettier": "^3.6.x",
+    "stylelint": "^16.24.x"
   }
 }
