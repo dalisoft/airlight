@@ -4,16 +4,23 @@
   "description": "[WIP] `enhanced-resolve` faster implementation based on oxc-resolver",
   "type": "module",
   "main": "resolve.js",
-  "files": ["resolve.js", "factory.js", "interface.d.ts"],
+  "files": [
+    "resolve.js",
+    "factory.js",
+    "interface.d.ts"
+  ],
   "typings": "interface.d.ts",
   "engines": {
-    "node": ">=18.20.3"
+    "node": ">=20.19.5"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dalisoft/airlight.git"
   },
-  "keywords": ["resolve", "require"],
+  "keywords": [
+    "resolve",
+    "require"
+  ],
   "author": "dalisoft",
   "license": "MIT",
   "bugs": {
@@ -21,6 +28,6 @@
   },
   "homepage": "https://github.com/dalisoft/airlight#readme",
   "dependencies": {
-    "oxc-resolver": "^4.2.0"
+    "oxc-resolver": "^11.7.1"
   }
 }
