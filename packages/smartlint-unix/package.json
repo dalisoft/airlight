@@ -7,15 +7,22 @@
   "bin": {
     "smartlint": "smartlint.sh"
   },
-  "files": ["smartlint.sh"],
+  "files": [
+    "smartlint.sh"
+  ],
   "engines": {
-    "node": ">=18.20.3"
+    "node": ">=20.19.5"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dalisoft/airlight.git"
   },
-  "keywords": ["format", "git", "lint", "config"],
+  "keywords": [
+    "format",
+    "git",
+    "lint",
+    "config"
+  ],
   "author": "dalisoft",
   "license": "MIT",
   "bugs": {
