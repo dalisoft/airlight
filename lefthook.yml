@@ -1,38 +1,32 @@
 prepare-commit-msg:
   commands:
     commitlint:
-      env:
-        PATH: $PATH:./node_modules/.bin
       run: commitlint --edit
 
 pre-commit:
   parallel: true
   commands:
+    oxlint:
+      glob: "*.{cjs,js,ts}"
+      run: oxlint -c {staged_files} --fix
     biome:
-      env:
-        PATH: $PATH:./node_modules/.bin
-      glob: '*.{js,ts,json}'
+      glob: "*.{cjs,js,ts,json}"
       run: biome check {staged_files} --write
     markdown:
-      env:
-        PATH: $PATH:./node_modules/.bin
-      glob: '*.md'
+      glob: "*.md"
       run: dprint fmt {staged_files}
 
 pre-push:
   parallel: true
   commands:
+    oxlint:
+      glob: "*.{cjs,js,ts}"
+      run: oxlint -c {push_files}
     biome:
-      env:
-        PATH: $PATH:./node_modules/.bin
-      glob: '*.{js,ts,json}'
+      glob: "*.{cjs,js,ts,json}"
       run: biome check {push_files}
     markdown:
-      env:
-        PATH: $PATH:./node_modules/.bin
-      glob: '*.md'
+      glob: "*.md"
       run: dprint check {push_files}
     ls-lint:
-      env:
-        PATH: $PATH:./node_modules/.bin
       run: ls-lint
