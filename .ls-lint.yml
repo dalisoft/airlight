@@ -7,19 +7,10 @@ ls:
     .d.ts: kebab-case
     .html: kebab-case
     .scss: kebab-case
-    .spec.ts: kebab-case | pointcase
-    .config.js: pointcase
+    .spec.ts: kebab-case | kebab-case
+    .config.js: kebab-case
 
 ignore:
   - .git
   - .bin
-  - packages/commitlint-config/node_modules
-  - packages/eslint-config-base/node_modules
-  - packages/eslint-config-node/node_modules
-  - packages/eslint-config-react/node_modules
-  - packages/husky-config/node_modules
-  - packages/lint-staged-config/node_modules
-  - packages/prettier-config/node_modules
-  - packages/biome-config/node_modules
-  - packages/smartlint/node_modules
-  - packages/airlight-resolve/node_modules
+  - packages/**/node_modules

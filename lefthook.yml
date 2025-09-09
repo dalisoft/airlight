@@ -1,6 +1,8 @@
 prepare-commit-msg:
   commands:
     commitlint:
+      env:
+        PATH: $PATH:./node_modules/.bin
       run: commitlint --edit
 
 pre-commit:
