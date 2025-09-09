@@ -12,7 +12,7 @@ pre-commit:
       env:
         PATH: $PATH:./node_modules/.bin
       glob: "*.{cjs,js,ts}"
-      run: oxlint -c "{staged_files}" --fix
+      run: oxlint "{staged_files}" --fix
     biome:
       env:
         PATH: $PATH:./node_modules/.bin
@@ -31,7 +31,7 @@ pre-push:
       env:
         PATH: $PATH:./node_modules/.bin
       glob: "*.{cjs,js,ts}"
-      run: oxlint -c "{push_files}"
+      run: oxlint "{push_files}"
     biome:
       env:
         PATH: $PATH:./node_modules/.bin
