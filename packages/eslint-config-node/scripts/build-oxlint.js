@@ -13,7 +13,7 @@ const unsupportedPlugins = [
 	"optimize-regex",
 	"@eslint-community",
 ];
-const remapRules = [
+const remaps = [
 	{ old: "import-x", offset: 8, replace: "import", skip: false },
 	{ old: "n", offset: 1, replace: "node", skip: false },
 	...unsupportedPlugins.map((plugin) => ({
@@ -22,7 +22,8 @@ const remapRules = [
 		replace: null,
 		skip: true,
 	})),
-].map((remap) => ({
+];
+const remapRules = remaps.map((remap) => ({
 	...remap,
 	old: `${remap.old}/`,
 	offset: remap.offset + 1,
@@ -61,8 +62,11 @@ await fs.writeFile(
 					(/** @type {string} */ plugin) =>
 						!unsupportedPlugins.includes(plugin),
 				)
-				.map((/** @type {string} */ plugin) =>
-					plugin === "import-x" ? "import" : plugin === "n" ? "node" : plugin,
+				.map(
+					(/** @type {string} */ plugin) =>
+						remaps.find(
+							(rule) => rule.old === plugin && !rule.skip && rule.replace,
+						)?.replace ?? plugin,
 				),
 			rules: _rules,
 			settings: _settings,
