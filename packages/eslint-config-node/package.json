@@ -1,54 +1,54 @@
 {
-	"name": "eslint-config-airlight-node",
-	"version": "5.6.4",
-	"description": "ESLint configure for Node.js focused on code quality, security and performance on top of eslint-config-airlight-base",
-	"type": "module",
-	"main": "flat.js",
-	"exports": {
-		".": "./flat.js",
-		"./flat": "./flat.js",
-		"./legacy": "./.eslintrc.json",
-		"./oxlintrc.json": "./oxlintrc.json",
-		"./biome.json": "./biome.json"
-	},
-	"files": [
-		"flat.js",
-		".eslintrc.json",
-		"oxlintrc.json",
-		"biome.json"
-	],
-	"scripts": {
-		"prepublishOnly": "node scripts/*.js && biome migrate eslint --write --include-inspired --include-nursery && biome format biome.json --write"
-	},
-	"engines": {
-		"node": ">=20.19.5"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/dalisoft/airlight.git"
-	},
-	"keywords": [
-		"eslint",
-		"lint",
-		"config",
-		"airbnb",
-		"node"
-	],
-	"author": "dalisoft",
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/dalisoft/airlight/issues"
-	},
-	"homepage": "https://github.com/dalisoft/airlight#readme",
-	"dependencies": {
-		"eslint-config-airlight-base": "workspace:*",
-		"eslint-plugin-n": "^17.21.3",
-		"globals": "^16.4.0"
-	},
-	"devDependencies": {},
-	"peerDependencies": {
-		"eslint": "^8.57.x || ^9.35.x",
-		"prettier": "^3.6.x",
-		"typescript": "^5.9.x"
-	}
+  "name": "eslint-config-airlight-node",
+  "version": "5.6.4",
+  "description": "ESLint configure for Node.js focused on code quality, security and performance on top of eslint-config-airlight-base",
+  "type": "module",
+  "main": "flat.js",
+  "exports": {
+    ".": "./flat.js",
+    "./flat": "./flat.js",
+    "./legacy": "./.eslintrc.json",
+    "./oxlintrc.json": "./oxlintrc.json",
+    "./biome.json": "./biome.json"
+  },
+  "files": [
+    "flat.js",
+    ".eslintrc.json",
+    "oxlintrc.json",
+    "biome.json"
+  ],
+  "scripts": {
+    "prepublishOnly": "node scripts/*.js && biome migrate eslint --write --include-inspired --include-nursery && biome format biome.json --write"
+  },
+  "engines": {
+    "node": ">=20.19.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dalisoft/airlight.git"
+  },
+  "keywords": [
+    "eslint",
+    "lint",
+    "config",
+    "airbnb",
+    "node"
+  ],
+  "author": "dalisoft",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dalisoft/airlight/issues"
+  },
+  "homepage": "https://github.com/dalisoft/airlight#readme",
+  "dependencies": {
+    "eslint-config-airlight-base": "workspace:*",
+    "eslint-plugin-n": "^17.21.3",
+    "globals": "^16.4.0"
+  },
+  "devDependencies": {},
+  "peerDependencies": {
+    "eslint": "^8.57.x || ^9.35.x",
+    "prettier": "^3.6.x",
+    "typescript": "^5.9.x"
+  }
 }
