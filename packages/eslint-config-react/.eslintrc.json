@@ -37,10 +37,7 @@
         "allowSingleLine": true
       }
     ],
-    "comma-dangle": [
-      "error",
-      "never"
-    ],
+    "comma-dangle": ["error", "never"],
     "comma-spacing": [
       "error",
       {
@@ -48,10 +45,7 @@
         "after": true
       }
     ],
-    "func-call-spacing": [
-      "error",
-      "never"
-    ],
+    "func-call-spacing": ["error", "never"],
     "quotes": [
       "error",
       "single",
@@ -59,10 +53,7 @@
         "avoidEscape": true
       }
     ],
-    "semi": [
-      "error",
-      "always"
-    ],
+    "semi": ["error", "always"],
     "space-before-function-paren": [
       "error",
       {
@@ -97,10 +88,7 @@
       }
     ],
     "space-infix-ops": "error",
-    "object-curly-spacing": [
-      "error",
-      "always"
-    ],
+    "object-curly-spacing": ["error", "always"],
     "space-before-blocks": "error",
     "no-extra-semi": "error",
     "default-param-last": "off",
@@ -114,16 +102,12 @@
         "offsetTernaryExpressions": true
       }
     ],
-    "@typescript-eslint/indent": [
-      "off"
-    ],
+    "@typescript-eslint/indent": ["off"],
     "no-array-constructor": "off",
     "@typescript-eslint/no-array-constructor": "error",
     "no-dupe-class-members": "off",
     "@typescript-eslint/no-dupe-class-members": "error",
-    "no-empty-function": [
-      "error"
-    ],
+    "no-empty-function": ["error"],
     "@typescript-eslint/no-empty-function": "off",
     "no-extra-parens": "off",
     "@typescript-eslint/no-extra-parens": [
@@ -267,16 +251,9 @@
     "@eslint-community/eslint-comments/disable-enable-pair": "warn",
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/explicit-module-boundary-types": "off",
-    "@typescript-eslint/class-literal-property-style": [
-      "error"
-    ],
-    "@typescript-eslint/no-non-null-asserted-optional-chain": [
-      "error"
-    ],
-    "operator-linebreak": [
-      "off",
-      "after"
-    ],
+    "@typescript-eslint/class-literal-property-style": ["error"],
+    "@typescript-eslint/no-non-null-asserted-optional-chain": ["error"],
+    "operator-linebreak": ["off", "after"],
     "prefer-template": "error",
     "complexity": [
       "error",
@@ -325,64 +302,40 @@
     "@typescript-eslint/naming-convention": [
       "error",
       {
-        "selector": [
-          "function",
-          "method"
-        ],
-        "format": [
-          "strictCamelCase"
-        ],
+        "selector": ["function", "method"],
+        "format": ["strictCamelCase"],
         "leadingUnderscore": "forbid"
       },
       {
         "selector": "property",
-        "format": [
-          "snake_case",
-          "strictCamelCase"
-        ],
+        "format": ["snake_case", "strictCamelCase"],
         "leadingUnderscore": "forbid"
       },
       {
         "selector": "objectLiteralProperty",
-        "format": [
-          "StrictPascalCase"
-        ],
+        "format": ["StrictPascalCase"],
         "leadingUnderscore": "forbid"
       },
       {
         "selector": "variable",
-        "format": [
-          "strictCamelCase"
-        ],
+        "format": ["strictCamelCase"],
         "leadingUnderscore": "forbid"
       },
       {
         "selector": "variable",
-        "types": [
-          "boolean",
-          "number"
-        ],
-        "modifiers": [
-          "const"
-        ],
-        "format": [
-          "UPPER_CASE",
-          "strictCamelCase"
-        ],
+        "types": ["boolean", "number"],
+        "modifiers": ["const"],
+        "format": ["UPPER_CASE", "strictCamelCase"],
         "leadingUnderscore": "forbid"
       },
       {
         "selector": "typeLike",
-        "format": [
-          "StrictPascalCase"
-        ],
+        "format": ["StrictPascalCase"],
         "leadingUnderscore": "forbid"
       },
       {
         "selector": "interface",
-        "format": [
-          "PascalCase"
-        ],
+        "format": ["PascalCase"],
         "leadingUnderscore": "forbid",
         "custom": {
           "regex": "^I[A-Z]",
@@ -390,60 +343,35 @@
         }
       }
     ],
-    "react/jsx-pascal-case": [
-      "error"
-    ],
-    "react/jsx-no-useless-fragment": [
-      "error"
-    ],
-    "react/no-deprecated": [
-      "error"
-    ],
+    "react/jsx-pascal-case": ["error"],
+    "react/jsx-no-useless-fragment": ["error"],
+    "react/no-deprecated": ["error"],
     "react/jsx-filename-extension": [
       "error",
       {
-        "extensions": [
-          ".jsx",
-          ".tsx"
-        ]
+        "extensions": [".jsx", ".tsx"]
       }
     ],
     "react-refresh/only-export-components": "warn"
   },
   "overrides": [
     {
-      "files": [
-        "*.ts"
-      ],
-      "extends": [
-        "plugin:@typescript-eslint/strict-type-checked"
-      ]
+      "files": ["*.ts"],
+      "extends": ["plugin:@typescript-eslint/strict-type-checked"]
     },
     {
-      "files": [
-        "*.js",
-        "*.jsx",
-        "*.mjs",
-        "*.cjs"
-      ],
-      "extends": [
-        "plugin:@typescript-eslint/disable-type-checked"
-      ]
+      "files": ["*.js", "*.jsx", "*.mjs", "*.cjs"],
+      "extends": ["plugin:@typescript-eslint/disable-type-checked"]
     },
     {
-      "files": [
-        "*.cjs"
-      ],
+      "files": ["*.cjs"],
       "rules": {
         "import-x/extensions": "off",
         "@typescript-eslint/no-require-imports": "off"
       }
     },
     {
-      "files": [
-        "*.jsx",
-        "*.tsx"
-      ],
+      "files": ["*.jsx", "*.tsx"],
       "rules": {
         "import-x/extensions": [
           "error",
@@ -458,9 +386,7 @@
       }
     },
     {
-      "files": [
-        "*.tsx"
-      ],
+      "files": ["*.tsx"],
       "rules": {
         "react/prop-types": "off"
       }
@@ -518,16 +444,9 @@
       ".scss",
       ".svg"
     ],
-    "import-x/external-module-folders": [
-      "node_modules",
-      "node_modules/@types"
-    ],
+    "import-x/external-module-folders": ["node_modules", "node_modules/@types"],
     "import-x/parsers": {
-      "@typescript-eslint/parser": [
-        ".ts",
-        ".tsx",
-        ".d.ts"
-      ]
+      "@typescript-eslint/parser": [".ts", ".tsx", ".d.ts"]
     }
   }
 }
