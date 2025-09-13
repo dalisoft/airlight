@@ -1,7 +1,7 @@
 // @ts-check
-const tseslint = require('typescript-eslint');
+import { defineConfig } from 'eslint/config';
 
-module.exports = tseslint.config({
+export default defineConfig({
   name: 'eslint-override-cjs-files',
   files: ['**/*.cjs'],
   rules: {

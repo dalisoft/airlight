@@ -1,13 +1,13 @@
 // @ts-check
-const airbnbRules = require('./airbnb-rules.cjs');
-const rules = require('./rules.cjs');
-const tsFilesRules = require('./overrides/ts-files.cjs');
-const cjsFilesRules = require('./overrides/cjs-files.cjs');
-const settings = require('./settings.cjs');
+import airbnbRules from './airbnb-rules.json' with { type: 'json' };
+import cjsFilesRules from './overrides/cjs-files.js';
+import tsFilesRules from './overrides/ts-files.js';
+import rules from './rules.json' with { type: 'json' };
+import settings from './settings.json' with { type: 'json' };
 
 // @ts-expect-error What it needs idk
 /** @type {import('eslint-define-config').ESLintConfig} */
-module.exports = {
+export default {
   parserOptions: {
     ecmaVersion: 2020,
     sourceType: 'module'
@@ -27,14 +27,16 @@ module.exports = {
   ],
   plugins: [
     '@typescript-eslint',
-    '@stylistic',
     'promise',
     'optimize-regex',
-    'no-secrets'
+    'no-secrets',
+    'import-x'
   ],
   rules: {
     ...airbnbRules,
-    ...rules
+    ...rules,
+    'no-secrets/no-secrets': 'error',
+    'import-x/no-unresolved': 'error'
   },
   overrides: [
     {

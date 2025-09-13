@@ -1,7 +1,8 @@
 // @ts-check
-const tseslint = require('typescript-eslint');
+import { defineConfig } from 'eslint/config';
+import tseslint from 'typescript-eslint';
 
-module.exports = tseslint.config({
+export default defineConfig({
   name: 'eslint-override-ts-files',
   // enable the rule specifically for TypeScript files
   files: ['**/*.ts'],
@@ -44,7 +45,7 @@ module.exports = tseslint.config({
         offsetTernaryExpressions: true
       }
     ],
-    '@stylistic/quotes': [
+    quotes: [
       'error',
       'single',
       {
@@ -56,7 +57,6 @@ module.exports = tseslint.config({
     '@typescript-eslint/consistent-indexed-object-style': ['error'],
     '@typescript-eslint/restrict-plus-operands': ['error'],
     indent: 'off',
-    quotes: 'off',
     'no-shadow': 'off',
     'no-empty-function': 'off',
 
