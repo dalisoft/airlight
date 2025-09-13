@@ -1,11 +1,11 @@
 // @ts-check
-import { defineConfig } from 'eslint/config';
 import baseConfig from 'eslint-config-airlight-base';
 import baseConfigSettings from 'eslint-config-airlight-base/settings.json' with { type: 'json' };
 import nodePlugin from 'eslint-plugin-n';
 import globals from 'globals';
 
-export default defineConfig(
+/** @type {import('eslint').Linter.Config<import('eslint').Linter.RulesRecord>[]} */
+export default [
   ...baseConfig,
   nodePlugin.configs['flat/recommended'],
   {
@@ -38,4 +38,4 @@ export default defineConfig(
       '@typescript-eslint/no-var-requires': 'off'
     }
   }
-);
+];
