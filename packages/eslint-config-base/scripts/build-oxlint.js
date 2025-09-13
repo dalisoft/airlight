@@ -36,7 +36,7 @@ const remapRules = [
 const remapFn = (oldMap, newMap) => {
 	loop1: for (const key in oldMap) {
 		for (const { old, offset, replace, skip } of remapRules) {
-			if (key.substring(0, offset) && skip) {
+			if (key.substring(0, offset) === old && skip) {
 				continue loop1;
 			} else if (key.substring(0, offset) === old) {
 				newMap[replace + key.substring(offset)] = oldMap[key];
