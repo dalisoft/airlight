@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "lint": "smartlint",
-    "release": "pnpm -r --workspace-concurrency=1 exec ../../.release-me/release.sh -w --use-version --plugins=npm,npm-post,git,github-release --preset=workspace",
+    "release": "bun run --bun ./scripts/release.ts",
     "prepare": "lefthook install -f",
     "tsgo": "tsgo",
     "check-types": "tsgo --noEmit"
