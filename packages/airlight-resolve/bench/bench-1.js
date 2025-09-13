@@ -1,4 +1,5 @@
-/* eslint-disable @eslint-community/eslint-comments/disable-enable-pair */
+// @ts-nocheck
+// /* eslint-disable @eslint-community/eslint-comments/disable-enable-pair */
 /* eslint-disable no-console */
 import resolve from '../resolve.js';
 
