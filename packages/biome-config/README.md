@@ -16,7 +16,7 @@ yarn add biome-config-airlight -D
 
 ```json
 {
-  "$schema": "https://biomejs.dev/schemas/1.4.1/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.2.4/schema.json",
   "extends": ["./node_modules/biome-config-airlight/biome.json"]
 }
 ```
