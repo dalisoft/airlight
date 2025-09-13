@@ -18,6 +18,8 @@
     // "composite": true,
     "removeComments": true,
     "noEmit": true,
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
     // "importHelpers": true,
     // "downlevelIteration": true,
     // "isolatedModules": true,

@@ -184,6 +184,9 @@ assets/css/bundle*
 # TypeScript v1 declaration files
 typings/
 
+# Build info
+tsconfig.tsbuildinfo
+
 #################
 ## Editors/IDE ##
 #################
