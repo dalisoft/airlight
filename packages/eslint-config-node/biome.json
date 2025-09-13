@@ -1,8 +1,7 @@
 {
-  "root": false,
-  "$schema": "https://biomejs.dev/schemas/2.2.3/schema.json",
-  "linter": {
-    "enabled": true,
-    "rules": {}
-  }
+	"$schema": "https://biomejs.dev/schemas/2.2.4/schema.json",
+	"linter": {
+		"enabled": true,
+		"rules": {}
+	}
 }
