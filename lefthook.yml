@@ -11,17 +11,17 @@ pre-commit:
     oxlint:
       env:
         PATH: $PATH:./node_modules/.bin
-      glob: "*.{cjs,js,ts}"
+      glob: '*.{cjs,js,ts}'
       run: oxlint "{staged_files}" --fix
     biome:
       env:
         PATH: $PATH:./node_modules/.bin
-      glob: "*.{cjs,js,ts,json}"
+      glob: '*.{cjs,js,ts,json}'
       run: biome check "{staged_files}" --write
     markdown:
       env:
         PATH: $PATH:./node_modules/.bin
-      glob: "*.md"
+      glob: '*.md'
       run: dprint fmt "{staged_files}"
 
 pre-push:
@@ -30,17 +30,17 @@ pre-push:
     oxlint:
       env:
         PATH: $PATH:./node_modules/.bin
-      glob: "*.{cjs,js,ts}"
+      glob: '*.{cjs,js,ts}'
       run: oxlint "{push_files}"
     biome:
       env:
         PATH: $PATH:./node_modules/.bin
-      glob: "*.{cjs,js,ts,json}"
+      glob: '*.{cjs,js,ts,json}'
       run: biome check "{push_files}"
     markdown:
       env:
         PATH: $PATH:./node_modules/.bin
-      glob: "*.md"
+      glob: '*.md'
       run: dprint check "{push_files}"
     ls-lint:
       env:
