@@ -17,7 +17,7 @@ Shared configurations to use with combine of each other to get cleaner, better, 
 - [husky-config-airlight](./packages/husky-config) **\[DEPRECATED\] Use `lefthook`**
 - [smartlint](./packages/smartlint) **\[DEPRECATED\] Use `lefthook`**
 - [smartlint-unix](./packages/smartlint-unix) **Use `lefthook`**
-- [airlight-resolve](./packages/airlight-resolve) **\[WIP\]**
+- [airlight-resolve](./packages/airlight-resolve) **\[DEPRECATED\]**
 - [typescript-config](./tsconfig.json) (this project config)
 - [typos-config](./_typos.toml) (this project typos config)
 - [lefthook-config](./lefthook.yml) (this project config)
