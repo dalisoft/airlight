@@ -33,17 +33,19 @@ yarn add eslint-config-airlight-react -D
 
 ## Usage
 
-### `.eslintrc`
+### Legacy config
 
 ```json
+// .eslintrc
 {
   "extends": "airlight-react/legacy"
 }
 ```
 
-### `eslint.config.js`
+### Flat config
 
 ```js
+// eslint.config.js
 import airlightReact from 'eslint-config-airlight-react';
 
 export default [
@@ -56,17 +58,34 @@ export default [
 
 > If you are using **eslint + oxlint** combo, see [here and follow guide](https://github.com/oxc-project/eslint-plugin-oxlint)
 
+```json
+// .oxlintrc.json
+{
+  "extends": ["./node_modules/eslint-config-airlight-react/oxlintrc.json"],
+  "rules": {
+    "@typescript-eslint/no-var-requires": "off",
+    "complexity": ["error", { "max": 7 }],
+    "max-lines-per-function": [
+      "error",
+      { "max": 48, "skipBlankLines": true, "skipComments": true, "IIFEs": true }
+    ]
+  },
+  "ignorePatterns": [".history", ".release-me", "scripts"]
+}
+```
+
 ```bash
-oxlint -c ./node_modules/eslint-config-airlight-react/oxlintrc.json
+oxlint
 ```
 
 ### biome
 
 > If you are using **eslint + biome** combo, see [here and follow guide](https://github.com/SrBrahma/eslint-config-biome)
 
-```json title="biome.json"
+```json
+// biome.json
 {
-  "$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.2.4/schema.json",
   "extends": ["eslint-config-airlight-react/biome.json"]
 }
 ```
@@ -79,7 +98,7 @@ biome check . --write
 
 We customized following rules.
 
-Change these [flat config](../eslint-config-base/flat.cjs) or [legacy config](../eslint-config-base/legacy.cjs) by your needs
+Change these [flat config](../eslint-config-react/flat.cjs) or [legacy config](../eslint-config-react/legacy.cjs) by your needs
 
 ## License
 

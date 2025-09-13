@@ -1,32 +1,34 @@
 // @ts-check
-const baseConfig = require('eslint-config-airlight-base/legacy');
-const baseConfigSettings = require('eslint-config-airlight-base/settings.cjs');
-const rules = require('./rules.cjs');
+import baseConfig from 'eslint-config-airlight-base/legacy' with { type: 'json' };
+import baseConfigSettings from 'eslint-config-airlight-base/settings.json' with { type: 'json' };
+import rules from './rules.json' with { type: 'json' };
 
 // @ts-expect-error What it needs idk
 /** @type {import('eslint-define-config').ESLintConfig} */
-module.exports = {
+export default {
   ...baseConfig,
   parserOptions: {
     ecmaVersion: 2020,
     sourceType: 'module'
   },
-  // @ts-expect-error It should work but does not
   extends: baseConfig.extends.concat(['prettier/react']),
-  // @ts-expect-error It should work but does not
   plugins: baseConfig.plugins.concat(['react-hooks', 'react-refresh', 'jest']),
   env: {
+    ...baseConfig.env,
     es2015: true,
     es2020: true,
     browser: true,
     jest: true
   },
-  rules,
-  // @ts-expect-error It should work but does not
+  rules: {
+    ...baseConfig.rules,
+    ...rules
+  },
   overrides: baseConfig.overrides.concat([
     {
       files: ['*.jsx', '*.tsx'],
       rules: {
+        // @ts-expect-error: Typings mismatch or JSON type mismatch
         'import-x/extensions': [
           'error',
           'never',
@@ -42,11 +44,13 @@ module.exports = {
     {
       files: ['*.tsx'],
       rules: {
+        // @ts-expect-error: Typings mismatch or JSON type mismatch
         'react/prop-types': 'off'
       }
     }
   ]),
   settings: {
+    ...baseConfigSettings,
     node: {
       tryExtensions: [...baseConfigSettings.node.tryExtensions, '.jsx', '.tsx']
     },

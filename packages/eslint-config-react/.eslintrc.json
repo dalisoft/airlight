@@ -1,0 +1,533 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "env": {
+    "es2015": true,
+    "es2020": true,
+    "browser": true,
+    "jest": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@eslint-community/eslint-plugin-eslint-comments/recommended",
+    "plugin:promise/recommended",
+    "prettier",
+    "plugin:import-x/recommended",
+    "plugin:import-x/typescript",
+    "prettier/react"
+  ],
+  "plugins": [
+    "@typescript-eslint",
+    "promise",
+    "optimize-regex",
+    "no-secrets",
+    "import-x",
+    "react-hooks",
+    "react-refresh",
+    "jest"
+  ],
+  "rules": {
+    "brace-style": [
+      "error",
+      "1tbs",
+      {
+        "allowSingleLine": true
+      }
+    ],
+    "comma-dangle": [
+      "error",
+      "never"
+    ],
+    "comma-spacing": [
+      "error",
+      {
+        "before": false,
+        "after": true
+      }
+    ],
+    "func-call-spacing": [
+      "error",
+      "never"
+    ],
+    "quotes": [
+      "error",
+      "single",
+      {
+        "avoidEscape": true
+      }
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "space-before-function-paren": [
+      "error",
+      {
+        "anonymous": "always",
+        "named": "never",
+        "asyncArrow": "always"
+      }
+    ],
+    "keyword-spacing": [
+      "error",
+      {
+        "before": true,
+        "after": true,
+        "overrides": {
+          "return": {
+            "after": true
+          },
+          "throw": {
+            "after": true
+          },
+          "case": {
+            "after": true
+          }
+        }
+      }
+    ],
+    "lines-between-class-members": [
+      "error",
+      "always",
+      {
+        "exceptAfterSingleLine": false
+      }
+    ],
+    "space-infix-ops": "error",
+    "object-curly-spacing": [
+      "error",
+      "always"
+    ],
+    "space-before-blocks": "error",
+    "no-extra-semi": "error",
+    "default-param-last": "off",
+    "@typescript-eslint/default-param-last": "error",
+    "indent": [
+      "error",
+      2,
+      {
+        "SwitchCase": 1,
+        "flatTernaryExpressions": false,
+        "offsetTernaryExpressions": true
+      }
+    ],
+    "@typescript-eslint/indent": [
+      "off"
+    ],
+    "no-array-constructor": "off",
+    "@typescript-eslint/no-array-constructor": "error",
+    "no-dupe-class-members": "off",
+    "@typescript-eslint/no-dupe-class-members": "error",
+    "no-empty-function": [
+      "error"
+    ],
+    "@typescript-eslint/no-empty-function": "off",
+    "no-extra-parens": "off",
+    "@typescript-eslint/no-extra-parens": [
+      "off",
+      "all",
+      {
+        "conditionalAssign": true,
+        "nestedBinaryExpressions": false,
+        "returnAssign": false,
+        "ignoreJSX": "all",
+        "enforceForArrowConditionals": false
+      }
+    ],
+    "no-loss-of-precision": "off",
+    "@typescript-eslint/no-loss-of-precision": "error",
+    "no-loop-func": "off",
+    "@typescript-eslint/no-loop-func": "error",
+    "no-magic-numbers": "off",
+    "@typescript-eslint/no-magic-numbers": [
+      "off",
+      {
+        "ignore": [],
+        "ignoreArrayIndexes": true,
+        "enforceConst": true,
+        "detectObjects": false
+      }
+    ],
+    "no-redeclare": "off",
+    "@typescript-eslint/no-redeclare": "error",
+    "no-shadow": [
+      "error",
+      {
+        "hoist": "functions"
+      }
+    ],
+    "@typescript-eslint/no-shadow": "off",
+    "no-unused-expressions": "off",
+    "@typescript-eslint/no-unused-expressions": [
+      "error",
+      {
+        "allowShortCircuit": false,
+        "allowTernary": false,
+        "allowTaggedTemplates": false
+      }
+    ],
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "vars": "all",
+        "args": "all",
+        "argsIgnorePattern": "^_",
+        "caughtErrors": "all",
+        "caughtErrorsIgnorePattern": "^_",
+        "destructuredArrayIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "ignoreRestSiblings": false
+      }
+    ],
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": [
+      "error",
+      {
+        "functions": true,
+        "classes": true,
+        "variables": true
+      }
+    ],
+    "no-useless-constructor": "off",
+    "@typescript-eslint/no-useless-constructor": "error",
+    "require-await": "off",
+    "@typescript-eslint/require-await": "off",
+    "@typescript-eslint/ban-ts-comment": "error",
+    "import-x/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "always",
+        "cjs": "never",
+        "mjs": "always",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never",
+        "json": "always",
+        "node": "always",
+        "wasm": "always"
+      }
+    ],
+    "import-x/no-extraneous-dependencies": [
+      "error",
+      {
+        "optionalDependencies": false,
+        "devDependencies": [
+          "test/**",
+          "tests/**",
+          "spec/**",
+          "**/__tests__/**",
+          "**/__mocks__/**",
+          "test.{js,jsx}",
+          "test.{ts,tsx}",
+          "test-*.{js,jsx}",
+          "test-*.{ts,tsx}",
+          "**/*{.,_}{test,spec}.{js,jsx}",
+          "**/*{.,_}{test,spec}.{ts,tsx}",
+          "**/jest.config.js",
+          "**/jest.config.ts",
+          "**/jest.setup.js",
+          "**/jest.setup.ts",
+          "**/vue.config.js",
+          "**/vue.config.ts",
+          "**/webpack.config.js",
+          "**/webpack.config.ts",
+          "**/webpack.config.*.js",
+          "**/webpack.config.*.ts",
+          "**/rollup.config.js",
+          "**/rollup.config.ts",
+          "**/rollup.config.*.js",
+          "**/rollup.config.*.ts",
+          "**/gulpfile.js",
+          "**/gulpfile.ts",
+          "**/gulpfile.*.js",
+          "**/gulpfile.*.ts",
+          "**/Gruntfile{,.js}",
+          "**/Gruntfile{,.ts}",
+          "**/protractor.conf.js",
+          "**/protractor.conf.ts",
+          "**/protractor.conf.*.js",
+          "**/protractor.conf.*.ts",
+          "**/karma.conf.js",
+          "**/karma.conf.ts",
+          "**/.eslintrc.js",
+          "**/.eslintrc.ts",
+          "**/eslint.config.js",
+          "**/eslint.config.ts",
+          "**/eslint.config.cjs",
+          "**/eslint.config.mjs"
+        ]
+      }
+    ],
+    "@eslint-community/eslint-comments/no-unused-disable": "error",
+    "@eslint-community/eslint-comments/disable-enable-pair": "warn",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/class-literal-property-style": [
+      "error"
+    ],
+    "@typescript-eslint/no-non-null-asserted-optional-chain": [
+      "error"
+    ],
+    "operator-linebreak": [
+      "off",
+      "after"
+    ],
+    "prefer-template": "error",
+    "complexity": [
+      "error",
+      {
+        "max": 7
+      }
+    ],
+    "max-depth": [
+      "error",
+      {
+        "max": 3
+      }
+    ],
+    "max-nested-callbacks": [
+      "error",
+      {
+        "max": 3
+      }
+    ],
+    "max-lines-per-function": [
+      "error",
+      {
+        "max": 60,
+        "skipBlankLines": true,
+        "skipComments": true,
+        "IIFEs": true
+      }
+    ],
+    "max-lines": [
+      "error",
+      {
+        "max": 100,
+        "skipBlankLines": true,
+        "skipComments": true
+      }
+    ],
+    "no-useless-concat": "error",
+    "no-console": "warn",
+    "no-template-curly-in-string": "error",
+    "no-underscore-dangle": "off",
+    "camelcase": "off",
+    "import-x/prefer-default-export": "warn",
+    "import-x/no-mutable-exports": "error",
+    "no-secrets/no-secrets": "error",
+    "import-x/no-unresolved": "error",
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": [
+          "function",
+          "method"
+        ],
+        "format": [
+          "strictCamelCase"
+        ],
+        "leadingUnderscore": "forbid"
+      },
+      {
+        "selector": "property",
+        "format": [
+          "snake_case",
+          "strictCamelCase"
+        ],
+        "leadingUnderscore": "forbid"
+      },
+      {
+        "selector": "objectLiteralProperty",
+        "format": [
+          "StrictPascalCase"
+        ],
+        "leadingUnderscore": "forbid"
+      },
+      {
+        "selector": "variable",
+        "format": [
+          "strictCamelCase"
+        ],
+        "leadingUnderscore": "forbid"
+      },
+      {
+        "selector": "variable",
+        "types": [
+          "boolean",
+          "number"
+        ],
+        "modifiers": [
+          "const"
+        ],
+        "format": [
+          "UPPER_CASE",
+          "strictCamelCase"
+        ],
+        "leadingUnderscore": "forbid"
+      },
+      {
+        "selector": "typeLike",
+        "format": [
+          "StrictPascalCase"
+        ],
+        "leadingUnderscore": "forbid"
+      },
+      {
+        "selector": "interface",
+        "format": [
+          "PascalCase"
+        ],
+        "leadingUnderscore": "forbid",
+        "custom": {
+          "regex": "^I[A-Z]",
+          "match": true
+        }
+      }
+    ],
+    "react/jsx-pascal-case": [
+      "error"
+    ],
+    "react/jsx-no-useless-fragment": [
+      "error"
+    ],
+    "react/no-deprecated": [
+      "error"
+    ],
+    "react/jsx-filename-extension": [
+      "error",
+      {
+        "extensions": [
+          ".jsx",
+          ".tsx"
+        ]
+      }
+    ],
+    "react-refresh/only-export-components": "warn"
+  },
+  "overrides": [
+    {
+      "files": [
+        "*.ts"
+      ],
+      "extends": [
+        "plugin:@typescript-eslint/strict-type-checked"
+      ]
+    },
+    {
+      "files": [
+        "*.js",
+        "*.jsx",
+        "*.mjs",
+        "*.cjs"
+      ],
+      "extends": [
+        "plugin:@typescript-eslint/disable-type-checked"
+      ]
+    },
+    {
+      "files": [
+        "*.cjs"
+      ],
+      "rules": {
+        "import-x/extensions": "off",
+        "@typescript-eslint/no-require-imports": "off"
+      }
+    },
+    {
+      "files": [
+        "*.jsx",
+        "*.tsx"
+      ],
+      "rules": {
+        "import-x/extensions": [
+          "error",
+          "never",
+          {
+            "ignorePackages": true,
+            "json": "always",
+            "svg": "always",
+            "css": "always"
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        "*.tsx"
+      ],
+      "rules": {
+        "react/prop-types": "off"
+      }
+    }
+  ],
+  "settings": {
+    "node": {
+      "tryExtensions": [
+        ".ts",
+        ".js",
+        ".d.ts",
+        ".html",
+        ".md",
+        ".json",
+        ".wasm",
+        ".node",
+        ".jsx",
+        ".tsx"
+      ]
+    },
+    "import-x/resolver": {
+      "node": {
+        "extensions": [
+          ".ts",
+          ".mjs",
+          ".js",
+          ".d.ts",
+          ".html",
+          ".md",
+          ".json",
+          ".wasm",
+          ".node",
+          ".jsx",
+          ".tsx"
+        ]
+      },
+      "typescript": {
+        "alwaysTryTypes": true,
+        "project": "packages/*/tsconfig.json"
+      }
+    },
+    "import-x/extensions": [
+      ".ts",
+      ".mjs",
+      ".js",
+      ".d.ts",
+      ".html",
+      ".md",
+      ".json",
+      ".wasm",
+      ".node",
+      ".jsx",
+      ".tsx",
+      ".css",
+      ".scss",
+      ".svg"
+    ],
+    "import-x/external-module-folders": [
+      "node_modules",
+      "node_modules/@types"
+    ],
+    "import-x/parsers": {
+      "@typescript-eslint/parser": [
+        ".ts",
+        ".tsx",
+        ".d.ts"
+      ]
+    }
+  }
+}

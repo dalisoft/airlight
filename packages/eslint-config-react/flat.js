@@ -1,16 +1,16 @@
 // @ts-check
-const baseConfig = require('eslint-config-airlight-base');
-const baseConfigSettings = require('eslint-config-airlight-base/settings.cjs');
-const tsFiles = require('eslint-config-airlight-base/overrides/ts-files.cjs');
-const globals = require('globals');
-const rules = require('./rules.cjs');
+import baseConfig from 'eslint-config-airlight-base';
+import tsFiles from 'eslint-config-airlight-base/overrides/ts-files.js';
+import baseConfigSettings from 'eslint-config-airlight-base/settings.json' with { type: 'json' };
+import globals from 'globals';
+import rules from './rules.json' with { type: 'json' };
 
 // Modify it for performance and code clean reason
 if (tsFiles?.[0]?.files) {
   tsFiles[0].files.push('*.tsx');
 }
 
-module.exports = [
+export default [
   baseConfig,
   {
     extends: ['prettier/react'],
@@ -26,6 +26,7 @@ module.exports = [
     },
     rules,
     settings: {
+      ...baseConfigSettings,
       node: {
         tryExtensions: [
           ...baseConfigSettings.node.tryExtensions,
