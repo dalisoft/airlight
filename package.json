@@ -7,7 +7,7 @@
     "packages/*"
   ],
   "scripts": {
-    "lint": "smartlint",
+    "lint": "ls-lint && oxlint --type-aware && biome check . && dprint check",
     "release": "bun run --bun ./scripts/release.ts",
     "prepare": "lefthook install -f",
     "tsgo": "tsgo",
