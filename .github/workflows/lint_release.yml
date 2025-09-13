@@ -23,33 +23,30 @@ jobs:
           fetch-depth: 1
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10
-          run_install: false
+      - name: Install bun
+        uses: oven-sh/setup-bun@v2
 
       - name: Use Node.js
         uses: actions/setup-node@v5
         with:
           node-version: 22
-          cache: 'pnpm'
-          cache-dependency-path: 'pnpm-lock.yaml'
+          cache: 'bun'
+          cache-dependency-path: 'bun.lock'
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: bun install --frozen-lockfile
 
       - name: Biome rules build & format
         run: |
           cd ./packages/eslint-config-node
-          pnpm exec biome migrate eslint --write --include-inspired --include-nursery
-          pnpm exec biome format biome.json --write
-          pnpm exec biome check biome.json --write --config-path=../biome-config/biome.json
+          bun run biome migrate eslint --write --include-inspired --include-nursery
+          bun run biome format biome.json --write
+          bun run biome check biome.json --write --config-path=../biome-config/biome.json
           cd ../biome-config
-          pnpm exec biome format biome.json --write
+          bun run biome format biome.json --write
 
       - name: Lint code
-        run: pnpm run lint
+        run: bun run lint
   release:
     permissions:
       id-token: write
@@ -63,21 +60,18 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 10
-          run_install: false
+      - name: Install bun
+        uses: oven-sh/setup-bun@v2
 
       - name: Use Node.js
         uses: actions/setup-node@v5
         with:
           node-version: 22
-          cache: 'pnpm'
-          cache-dependency-path: 'pnpm-lock.yaml'
+          cache: 'bun'
+          cache-dependency-path: 'bun.lock'
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: bun install --frozen-lockfile
 
       - name: Release
         env:
@@ -91,4 +85,4 @@ jobs:
         shell: bash
         run: |
           git clone https://github.com/dalisoft/release-me.git --depth 1 .release-me
-          pnpm run release
+          bun run release
