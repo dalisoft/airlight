@@ -42,7 +42,7 @@
   "homepage": "https://github.com/dalisoft/airlight#readme",
   "dependencies": {
     "eslint-config-airlight-base": "workspace:*",
-    "eslint-plugin-n": "^17.22.0",
+    "eslint-plugin-n": "^17.23.0",
     "globals": "^16.4.0"
   },
   "devDependencies": {},
