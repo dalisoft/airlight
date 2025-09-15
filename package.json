@@ -42,7 +42,7 @@
     "@types/eslint": "^9.6.1",
     "@typescript/native-preview": "^7.0.0-dev.20250913.1",
     "biome-config-airlight": "workspace:*",
-    "dprint": "^0.50.1",
+    "dprint": "^0.50.2",
     "eslint-config-airlight-node": "workspace:*",
     "lint-staged-config-airlight": "workspace:*",
     "oxlint": "^1.15.0",
