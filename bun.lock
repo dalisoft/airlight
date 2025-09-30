@@ -8,7 +8,7 @@
         "@commitlint/cli": "^19.8.1",
         "@commitlint/config-workspace-scopes": "^19.8.1",
         "@eslint/js": "^9.35.0",
-        "@evilmartians/lefthook": "^1.13.2",
+        "@evilmartians/lefthook": "^1.13.5",
         "@ls-lint/ls-lint": "^2.3.1",
         "@stoplight/spectral-cli": "^6.15.0",
         "@types/eslint": "^9.6.1",
@@ -295,7 +295,7 @@
 
     "@eslint/plugin-kit": ["@eslint/plugin-kit@0.3.5", "", { "dependencies": { "@eslint/core": "^0.15.2", "levn": "^0.4.1" } }, "sha512-Z5kJ+wU3oA7MMIqVR9tyZRtjYPr4OC004Q4Rw7pgOKUOKkJfZ3O24nz3WYfGRpMDNmcOi3TwQOmgm7B7Tpii0w=="],
 
-    "@evilmartians/lefthook": ["@evilmartians/lefthook@1.13.2", "", { "os": [ "linux", "win32", "darwin", ], "cpu": [ "x64", "ia32", "arm64", ], "bin": { "lefthook": "bin/index.js" } }, "sha512-LIqr2tpf10hpxaC22GOmW+uGZpJLycZSmmtE09mA1AduALrJHLVTcHmVEKsb98l2vZBaRbCUIWw6uf0iE+AXOw=="],
+    "@evilmartians/lefthook": ["@evilmartians/lefthook@1.13.5", "", { "os": [ "linux", "win32", "darwin", ], "cpu": [ "x64", "ia32", "arm64", ], "bin": { "lefthook": "bin/index.js" } }, "sha512-Zh9ykP8zb2tniASeAE36cHEwSsD2frCLjRa4OeZ5X3zQY1JIprF8cxRsy3pnyDn/q3CQGhFjsAxfgvMqpsq0qg=="],
 
     "@humanfs/core": ["@humanfs/core@0.19.1", "", {}, "sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA=="],
 
