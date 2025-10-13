@@ -32,7 +32,7 @@
   },
   "homepage": "https://github.com/dalisoft/airlight#readme",
   "devDependencies": {
-    "@biomejs/biome": "^2.2.5",
+    "@biomejs/biome": "^2.2.6",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-workspace-scopes": "^19.8.1",
     "@eslint/js": "^9.37.0",
