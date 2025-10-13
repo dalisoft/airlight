@@ -45,7 +45,7 @@
     "dprint": "^0.50.1",
     "eslint-config-airlight-node": "workspace:*",
     "lint-staged-config-airlight": "workspace:*",
-    "oxlint": "^1.19.0",
+    "oxlint": "^1.23.0",
     "oxlint-tsgolint": "^0.2.0",
     "prettier-config-airlight": "workspace:*",
     "smartlint-unix": "workspace:*"
