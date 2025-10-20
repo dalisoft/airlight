@@ -6,7 +6,7 @@
       "devDependencies": {
         "@biomejs/biome": "^2.2.6",
         "@commitlint/cli": "^19.8.1",
-        "@commitlint/config-workspace-scopes": "^19.8.1",
+        "@commitlint/config-workspace-scopes": "^20.0.0",
         "@eslint/js": "^9.38.0",
         "@evilmartians/lefthook": "^1.13.6",
         "@ls-lint/ls-lint": "^2.3.1",
@@ -211,7 +211,7 @@
 
     "@commitlint/config-validator": ["@commitlint/config-validator@19.8.1", "", { "dependencies": { "@commitlint/types": "^19.8.1", "ajv": "^8.11.0" } }, "sha512-0jvJ4u+eqGPBIzzSdqKNX1rvdbSU1lPNYlfQQRIFnBgLy26BtC0cFnr7c/AyuzExMxWsMOte6MkTi9I3SQ3iGQ=="],
 
-    "@commitlint/config-workspace-scopes": ["@commitlint/config-workspace-scopes@19.8.1", "", { "dependencies": { "glob": "^10.3.10" } }, "sha512-paQyR2hguTL71wP45WuhmekWD6mBHEEz72htdX5+cWJMRwhAp8NUiM35rntagvzWosbOERGuuEZG2NRbPX+Sog=="],
+    "@commitlint/config-workspace-scopes": ["@commitlint/config-workspace-scopes@20.0.0", "", { "dependencies": { "glob": "^10.3.10" } }, "sha512-eS+5nNq+MeZ/ah1WdnOxkTpLCXZe+Sl8x3qCpFxvwCvxUuSLGf6iLOaqnEtc8DpgVQ6qaJl00GJevBwH7quHQQ=="],
 
     "@commitlint/ensure": ["@commitlint/ensure@19.8.1", "", { "dependencies": { "@commitlint/types": "^19.8.1", "lodash.camelcase": "^4.3.0", "lodash.kebabcase": "^4.1.1", "lodash.snakecase": "^4.1.1", "lodash.startcase": "^4.4.0", "lodash.upperfirst": "^4.3.1" } }, "sha512-mXDnlJdvDzSObafjYrOSvZBwkD01cqB4gbnnFuVyNpGUM5ijwU/r/6uqUmBXAAOKRfyEjpkGVZxaDsCVnHAgyw=="],
 
