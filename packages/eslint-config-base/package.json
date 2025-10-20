@@ -52,7 +52,7 @@
     "@eslint-community/eslint-plugin-eslint-comments": "^4.5.0",
     "@eslint/js": "^9.37.0",
     "@stylistic/eslint-plugin": "^5.3.x",
-    "@typescript-eslint/eslint-plugin": "^8.46.1",
+    "@typescript-eslint/eslint-plugin": "^8.46.2",
     "@typescript-eslint/parser": "^8.46.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-import-resolver-typescript": "^4.4.4",
