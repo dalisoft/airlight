@@ -63,7 +63,7 @@
         "eslint-plugin-no-secrets": "^2.2.1",
         "eslint-plugin-optimize-regex": "https://github.com/aminya/eslint-plugin-optimize-regex.git#eslint9",
         "eslint-plugin-promise": "^7.2.1",
-        "globals": "^16.4.0",
+        "globals": "^16.5.0",
         "typescript-eslint": "^8.46.2",
       },
       "devDependencies": {
@@ -81,7 +81,7 @@
       "dependencies": {
         "eslint-config-airlight-base": "workspace:*",
         "eslint-plugin-n": "^17.23.1",
-        "globals": "^16.4.0",
+        "globals": "^16.5.0",
       },
       "peerDependencies": {
         "eslint": "^8.57.x || ^9.35.x",
@@ -99,7 +99,7 @@
         "eslint-plugin-react": "^7.37.5",
         "eslint-plugin-react-hooks": "^5.2.0",
         "eslint-plugin-react-refresh": "^0.4.24",
-        "globals": "^16.4.0",
+        "globals": "^16.5.0",
       },
       "peerDependencies": {
         "eslint": "^8.57.x || ^9.35.x",
@@ -891,7 +891,7 @@
 
     "global-prefix": ["global-prefix@3.0.0", "", { "dependencies": { "ini": "^1.3.5", "kind-of": "^6.0.2", "which": "^1.3.1" } }, "sha512-awConJSVCHVGND6x3tmMaKcQvwXLhjdkmomy2W+Goaui8YPgYgXJZewhg3fWC+DlfqqQuWg8AwqjGTD2nAPVWg=="],
 
-    "globals": ["globals@16.4.0", "", {}, "sha512-ob/2LcVVaVGCYN+r14cnwnoDPUufjiYgSqRhiFD0Q1iI4Odora5RE8Iv1D24hAz5oMophRGkGz+yuvQmmUMnMw=="],
+    "globals": ["globals@16.5.0", "", {}, "sha512-c/c15i26VrJ4IRt5Z89DnIzCGDn9EcebibhAOjw5ibqEHsE1wLUgkPn9RDmNcUKyU87GeaL633nyJ+pplFR2ZQ=="],
 
     "globalthis": ["globalthis@1.0.4", "", { "dependencies": { "define-properties": "^1.2.1", "gopd": "^1.0.1" } }, "sha512-DpLKbNU4WylpxJykQujfCcwYWiV/Jhm50Goo0wrVILAv5jOr9d+H+UR3PhSCD2rCCEIg0uc+G+muBTwD54JhDQ=="],
 
