@@ -36,7 +36,7 @@
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-workspace-scopes": "^19.8.1",
     "@eslint/js": "^9.38.0",
-    "@evilmartians/lefthook": "^1.13.6",
+    "@evilmartians/lefthook": "^2.0.3",
     "@ls-lint/ls-lint": "^2.3.1",
     "@stoplight/spectral-cli": "^6.15.0",
     "@types/eslint": "^9.6.1",
