@@ -46,7 +46,7 @@
     "eslint-config-airlight-node": "workspace:*",
     "lint-staged-config-airlight": "workspace:*",
     "oxlint": "^1.33.0",
-    "oxlint-tsgolint": "^0.9.1",
+    "oxlint-tsgolint": "^0.10.0",
     "prettier-config-airlight": "workspace:*",
     "smartlint-unix": "workspace:*"
   },
