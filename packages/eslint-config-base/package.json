@@ -61,7 +61,7 @@
     "eslint-plugin-no-secrets": "^2.2.1",
     "eslint-plugin-optimize-regex": "https://github.com/aminya/eslint-plugin-optimize-regex.git#eslint9",
     "eslint-plugin-promise": "^7.2.1",
-    "globals": "^16.5.0",
+    "globals": "^17.0.0",
     "typescript-eslint": "^8.52.0"
   },
   "devDependencies": {
