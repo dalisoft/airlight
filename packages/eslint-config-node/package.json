@@ -43,7 +43,7 @@
   "dependencies": {
     "eslint-config-airlight-base": "workspace:*",
     "eslint-plugin-n": "^17.23.2",
-    "globals": "^16.5.0"
+    "globals": "^17.1.0"
   },
   "devDependencies": {},
   "peerDependencies": {
