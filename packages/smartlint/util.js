@@ -53,13 +53,13 @@ const execCommand = (/** @type {string} */ command) =>
     });
 
 export {
-  logError as error,
-  logWarn as warn,
-  logDebug as debug,
-  reinspectLog,
   exec,
   execAsync,
   execCommand,
+  fgRed,
   fgReset,
-  fgRed
+  logDebug as debug,
+  logError as error,
+  logWarn as warn,
+  reinspectLog
 };

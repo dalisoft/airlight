@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.2.4/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.5.15/schema.json",
   "extends": ["biome-config-airlight"],
   "files": {
     "includes": [
@@ -7,6 +7,7 @@
       "!**/scripts",
       "!**/.release-me",
       "!**/oxlintrc.json",
+      "!!**/packages/*/biome.json",
       "!**/bench",
       "!**/examples"
     ],
@@ -23,7 +24,7 @@
         "useNamingConvention": "off",
         "noCommonJs": "off"
       },
-      "nursery": {
+      "security": {
         "noSecrets": "off"
       }
     }

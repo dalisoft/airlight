@@ -1,7 +1,11 @@
 // @ts-check
 // @ts-except-error no typings
-import baseConfig from 'eslint-config-airlight-base/legacy' with { type: 'json' };
-import baseConfigSettings from 'eslint-config-airlight-base/settings.json' with { type: 'json' };
+import baseConfig from 'eslint-config-airlight-base/legacy' with {
+  type: 'json'
+};
+import baseConfigSettings from 'eslint-config-airlight-base/settings.json' with {
+  type: 'json'
+};
 
 // @ts-expect-error What it needs idk
 /** @type {import('eslint-define-config').ESLintConfig} */
