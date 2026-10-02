@@ -1,6 +1,5 @@
 // @ts-check
 import eslintJs from '@eslint/js';
-// @ts-expect-error: TODO: No typings yet
 import comments from '@eslint-community/eslint-plugin-eslint-comments/configs';
 import stylistic from '@stylistic/eslint-plugin';
 import eslintConfigPrettier from 'eslint-config-prettier';

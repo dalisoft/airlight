@@ -33,7 +33,7 @@
     "dockerfilelint": "^1.8.x",
     "eslint": "^9.35.x",
     "lint-staged": "^16.1.x",
-    "markdownlint-cli2": "^0.18.x",
+    "markdownlint-cli2": "^0.23.x",
     "prettier": "^3.6.x",
     "stylelint": "^16.24.x"
   }

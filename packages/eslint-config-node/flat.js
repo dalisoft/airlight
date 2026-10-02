@@ -1,6 +1,8 @@
 // @ts-check
 import baseConfig from 'eslint-config-airlight-base';
-import baseConfigSettings from 'eslint-config-airlight-base/settings.json' with { type: 'json' };
+import baseConfigSettings from 'eslint-config-airlight-base/settings.json' with {
+  type: 'json'
+};
 import nodePlugin from 'eslint-plugin-n';
 import globals from 'globals';
 
