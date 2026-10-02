@@ -46,7 +46,7 @@
     // "paths": {},
     // "rootDirs": [],
     "typeRoots": ["./node_modules/@types"],
-    "types": [],
+    "types": ["bun"],
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
