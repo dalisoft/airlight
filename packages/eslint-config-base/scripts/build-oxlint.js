@@ -1,3 +1,4 @@
+import { execFileSync } from 'node:child_process';
 import fs from 'node:fs/promises';
 import legacy from '../legacy.js';
 
@@ -16,6 +17,8 @@ const unsupportedPlugins = [
 const remaps = [
   { old: 'import-x', offset: 8, replace: 'import', skip: false },
   { old: 'n', offset: 1, replace: 'node', skip: false },
+  { old: 'react-hooks', offset: 11, replace: 'react', skip: false },
+  { old: 'react-refresh', offset: 13, replace: 'react', skip: false },
   ...unsupportedPlugins.map((plugin) => ({
     old: plugin,
     offset: plugin.length,
@@ -50,6 +53,26 @@ const remapFn = (oldMap, newMap) => {
 
 remapFn(rules, _rules);
 remapFn(settings, _settings);
+
+// Newer oxlint fails on unknown rules, so keep only rules oxlint implements
+await fs.writeFile('oxlintrc.json', '{}');
+const oxlint = new URL('bin/oxlint', import.meta.resolve('oxlint/package.json'));
+const supportedRules = JSON.parse(
+  execFileSync(
+    process.execPath,
+    [oxlint.pathname, '--rules', '--format=json', '--config=oxlintrc.json'],
+    { encoding: 'utf8' }
+  )
+).map((/** @type {{ scope: string, value: string }} */ rule) =>
+  rule.scope === 'eslint' ? rule.value : `${rule.scope}/${rule.value}`
+);
+for (const key in _rules) {
+  // `@typescript-eslint` extension rules are mapped to `eslint` rules too
+  const ts = key.replace('@typescript-eslint/', '');
+  if (![key, `typescript/${ts}`, ts].some((r) => supportedRules.includes(r))) {
+    delete _rules[key];
+  }
+}
 
 await fs.writeFile(
   'oxlintrc.json',
