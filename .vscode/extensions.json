@@ -2,7 +2,7 @@
   "recommendations": [
     "tekumara.typos-vscode",
     "biomejs.biome",
-    "dprint.dprint",
+    "rvben.rumdl",
     "oxc.oxc-vscode",
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",

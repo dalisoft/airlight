@@ -1,0 +1,11 @@
+# Mirrors previous dprint markdown config
+[global]
+exclude = [".github/**/*.md"]
+# Long lines are kept as-is (dprint `textWrap: maintain`)
+disable = ["MD013", "MD059"]
+
+[MD049]
+style = "underscore"
+
+[MD050]
+style = "asterisk"

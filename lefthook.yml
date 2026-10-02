@@ -22,7 +22,7 @@ pre-commit:
       env:
         PATH: $PATH:./node_modules/.bin
       glob: '*.md'
-      run: dprint fmt "{staged_files}"
+      run: rumdl check "{staged_files}" --fix
 
 pre-push:
   parallel: true
@@ -41,7 +41,7 @@ pre-push:
       env:
         PATH: $PATH:./node_modules/.bin
       glob: '*.md'
-      run: dprint check "{push_files}"
+      run: rumdl check "{push_files}"
     ls-lint:
       env:
         PATH: $PATH:./node_modules/.bin

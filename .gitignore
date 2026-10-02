@@ -56,6 +56,7 @@ coverage
 .npm
 .pnp
 .eslintcache
+.rumdl_cache
 .cache
 .webpack
 .vercel
