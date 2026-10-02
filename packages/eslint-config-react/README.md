@@ -98,7 +98,7 @@ biome check . --write
 
 We customized following rules.
 
-Change these [flat config](../eslint-config-react/flat.cjs) or [legacy config](../eslint-config-react/legacy.cjs) by your needs
+Change these [flat config](../eslint-config-react/flat.js) or [legacy config](../eslint-config-react/legacy.js) by your needs
 
 ## License
 
