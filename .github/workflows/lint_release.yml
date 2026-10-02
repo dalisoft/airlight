@@ -30,13 +30,17 @@ jobs:
         run: bun install --frozen-lockfile
 
       - name: Biome rules build & format
+        env:
+          # Silences `@stylistic/eslint-plugin` deprecation warnings which fails `biome migrate eslint`
+          TEST: true
         run: |
           cd ./packages/eslint-config-node
+          node scripts/build-oxlint.js
           bun run biome migrate eslint --write --include-inspired --include-nursery
           bun run biome format biome.json --write
           bun run biome check biome.json --write --config-path=../biome-config/biome.json
           cd ../biome-config
-          bun run biome format biome.json --write
+          bun run biome format biome.json --write --vcs-use-ignore-file=false
 
       - name: Lint code
         run: bun run lint
