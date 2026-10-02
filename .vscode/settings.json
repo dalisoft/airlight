@@ -1,5 +1,5 @@
 {
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.defaultFormatter": "biomejs.biome",
   "[javascript]": {
     "editor.defaultFormatter": "biomejs.biome"
   },
@@ -22,8 +22,6 @@
     "editor.defaultFormatter": "rvben.rumdl"
   },
   "cSpell.enabled": false,
-  "eslint.lintTask.enable": true,
-  "eslint.useFlatConfig": true,
   "oxc.enable": true,
   "oxc.requireConfig": true,
   "oxc.lint.run": "onSave",
@@ -32,7 +30,6 @@
   "biome.requireConfiguration": true,
   "biome.lsp.trace.server": "verbose",
   "biome.configurationPath": "./biome.json",
-  "prettier.enable": true,
   "task.allowAutomaticTasks": "on",
   "typescript.validate.enable": true,
   "javascript.validate.enable": true,

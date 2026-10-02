@@ -4,8 +4,6 @@
     "biomejs.biome",
     "rvben.rumdl",
     "oxc.oxc-vscode",
-    "dbaeumer.vscode-eslint",
-    "esbenp.prettier-vscode",
     "oven.bun-vscode",
     "typescriptteam.native-preview"
   ]
