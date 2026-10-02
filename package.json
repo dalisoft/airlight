@@ -3,6 +3,7 @@
   "description": "Shared configurations to use with combine of each other to get cleaner, better, reusable, secure and efficient codebase",
   "private": true,
   "type": "module",
+  "packageManager": "bun@1.4.2",
   "workspaces": [
     "packages/*"
   ],
