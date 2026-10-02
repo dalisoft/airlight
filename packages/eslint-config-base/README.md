@@ -101,7 +101,7 @@ biome check . --write
 
 We customized following rules.
 
-Change these [flat config](./flat.cjs) or [legacy config](./legacy.cjs) by your needs
+Change these [flat config](./flat.js) or [legacy config](./legacy.js) by your needs
 
 ## License
 
